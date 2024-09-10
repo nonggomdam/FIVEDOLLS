@@ -1,0 +1,80 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="11C8B1B3-C6C5-BD98-CE44-5D5D95263F80" name="제조업체">
+<createdBy>dlwlgus</createdBy>
+<createdTime>2024-09-10 01:47:11 UTC</createdTime>
+<ownerDesignName>개체</ownerDesignName>
+<engineerTo>
+<item key="F0FCA878-1E05-D020-A79C-33B2999AF09A" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="제조업체명" id="9FD6BD64-9B4A-72AF-A091-D37AFDBCA7F9">
+<createdBy>dlwlgus</createdBy>
+<createdTime>2024-09-10 01:47:23 UTC</createdTime>
+<ownerDesignName>개체</ownerDesignName>
+<engineerTo>
+<item key="F0FCA878-1E05-D020-A79C-33B2999AF09A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="전화 번호" id="CC22DFA7-5CEA-6C87-3E1B-4089C674EFEA">
+<createdBy>dlwlgus</createdBy>
+<createdTime>2024-09-10 01:47:35 UTC</createdTime>
+<ownerDesignName>개체</ownerDesignName>
+<engineerTo>
+<item key="F0FCA878-1E05-D020-A79C-33B2999AF09A" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="위치" id="090C00AA-8074-6FBC-AE25-01B38CBE78F1">
+<createdBy>dlwlgus</createdBy>
+<createdTime>2024-09-10 01:47:52 UTC</createdTime>
+<ownerDesignName>개체</ownerDesignName>
+<engineerTo>
+<item key="F0FCA878-1E05-D020-A79C-33B2999AF09A" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="담당자" id="538B368B-CC0B-6AF1-D75E-AE00BB8DC9C5">
+<createdBy>dlwlgus</createdBy>
+<createdTime>2024-09-10 01:48:10 UTC</createdTime>
+<ownerDesignName>개체</ownerDesignName>
+<engineerTo>
+<item key="F0FCA878-1E05-D020-A79C-33B2999AF09A" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="3F7D2232-33DB-0DB8-C7D3-254FE14C0FA1" name="제조업체 PK">
+<createdBy>dlwlgus</createdBy>
+<createdTime>2024-09-10 01:47:30 UTC</createdTime>
+<ownerDesignName>개체</ownerDesignName>
+<engineerTo>
+<item key="F0FCA878-1E05-D020-A79C-33B2999AF09A" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>9FD6BD64-9B4A-72AF-A091-D37AFDBCA7F9</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

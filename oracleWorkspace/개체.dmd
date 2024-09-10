@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="개체" id="99DB4F44-1FFA-8629-D5C3-EF8D874A18AA" version="3.5">
+<createdBy>dlwlgus</createdBy>
+<createdTime>2024-09-10 00:15:58 UTC</createdTime>
+<ownerDesignName>개체</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>99DB4F44-1FFA-8629-D5C3-EF8D874A18AA</designId>
+</OSDM_Design>
