@@ -1,18 +1,23 @@
 @charset "UTF-8";
 
-#wrapper {
-	display: inline-block;
-}
 #wrapper h3 {
 	margin-bottom: 20px;
 }
 #container {
 	position: absolute;
-	left: 140px;
+	margin-left: 240px;
 	width: 1140px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	padding-left: 100px;
 }
-#container > div {
-	padding: 20px;
+#container > * {
+	margin-left: 0;
+	margin: 20px;
+	width: 800px;
+	padding: 10px 20px;
+	display: inline-block;
 }
 #orderList {
 	border: 1px solid;
@@ -21,3 +26,10 @@
 #orderList th, #orderList td {
 	text-align: center;
 }
+#payHistory, th {
+	text-align: left;
+}
+#container table {
+	border-spacing: 10px;
+}
+.orderInfo { margin-left: 0px; }

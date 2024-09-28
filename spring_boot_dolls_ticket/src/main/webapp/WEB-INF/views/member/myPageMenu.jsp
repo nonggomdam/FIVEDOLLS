@@ -3,8 +3,7 @@
 <nav class="menu">
 	<ul id="mypageMenu">
 		<li><a href="#">회원 정보 수정</a></li>
-		<li><a href="#">예매 확인/취소</a></li>
-		<li><a href="#">배송 추적</a></li>
+		<li><a href="/myPage">예매 확인/취소</a></li>
 		<li><a href="#">1:1 문의 내역</a></li>
 	</ul>
 </nav>

@@ -30,5 +30,11 @@ public class HomeController {
 		return "member/orderDetail";
 		
 	}
-
+	@RequestMapping("/refund")
+	public String refund() {
+		
+		return "member/refund";
+		
+	}
+	
 }

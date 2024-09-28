@@ -1,10 +1,10 @@
 @charset "UTF-8";
+
 .menu > ul {
 	background-color: gray;
 	width: 140px;
 	position: fixed;
 	left: 0;
-	z-index: 100;
 	list-style-type: none;
 	padding-left: 0;
 }

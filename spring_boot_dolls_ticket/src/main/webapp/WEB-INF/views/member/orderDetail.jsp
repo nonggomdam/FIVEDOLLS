@@ -6,6 +6,13 @@
 		<meta charset="UTF-8">
 		<title>my page</title>
 		<c:import url="/WEB-INF/views/layout/head.jsp"/>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('.orderCancelBtn').click(function() {
+	                window.location.href = '/refund';
+	            });
+	        });
+		</script>
 	</head>
 	<body>
 		<div id="wrapper">
@@ -13,7 +20,10 @@
 			<div id="container">
 				<div>
 					<h3>예매 내역 상세</h3>
-					<table>
+					<div>
+						<%-- <img src="<c:import value=''/>" alt="poster"/> --%>
+					</div>
+					<table class="orderInfo">
 						<tr>
 							<th>예매자</th>
 							<td>OOO</td>
@@ -38,7 +48,7 @@
 				</div>
 				<div>
 					<h3>결제 내역</h3>
-					<table>
+					<table class="orderInfo">
 						<tr>
 							<th>예매일</th>
 							<td colspan="2">2024년 01월 01일 월요일 00시 00분</td>
