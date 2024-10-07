@@ -36,11 +36,5 @@ public class HomeController {
 		return "member/refund";
 		
 	}
-	@RequestMapping("/productDetail")
-	public String productDetail() {
-		
-		return "product/productDetail";
-		
-	}
 	
 }
