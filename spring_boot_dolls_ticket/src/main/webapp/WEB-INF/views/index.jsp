@@ -11,7 +11,7 @@
 		<div id="wrap">
 			<a href="<c:url value='/csAdmin'/>">admin</a><br>
 			<a href="<c:url value='/myPage'/>">mypage</a><br>
-			<a href="<c:url value='/productDetail'/>">상세페이지</a><br>
+			<a href="<c:url value='/performance/detailViewPerformance/${1}'/>">상세페이지</a><br>
 			<c:import url="/WEB-INF/views/layout/footer.jsp"/>
 		</div>
 	</body>
