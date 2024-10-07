@@ -149,11 +149,17 @@
     padding-bottom: 70px;
 }
 
+#map {
+	width:500px;
+	height:400px;
+	margin: auto;
+}
+
 .dt-05 .dt05-tit {
     padding-top: 25px;
     font-size: 30px;
     color: #333;
-    padding-bottom: 35px;
+    padding-bottom: 30px;
     font-weight: bold;
 }
 
