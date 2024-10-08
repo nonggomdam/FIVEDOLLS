@@ -17,7 +17,7 @@
 			<div class="dt-01">
 				<!--로케이션-->
 				<p class="dt-location">
-					<a>${pfm.PERFORMANCE_KIND_CD}</a>
+					<a>${pfm.PERFORMANCE_KIND_CD}></a>
 				</p>
 			</div>
 		</div>
@@ -56,7 +56,8 @@
 							&nbsp;${pfm.PERFORMANCE_DATE}
 						</dd>
 					</dl>
-					<button id="ticketOpenBtn" disabled>${pfm.RESERVATION_OPEN_EXPECTED_DATE} 오픈</button>
+					<input type="hidden" id="targetDate" value="${pfm.RESERVATION_OPEN_EXPECTED_DATE}">
+					<button id="ticketOpenBtn" disabled></button>
 				</div>
 			</div>
 		</div>

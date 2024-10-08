@@ -6,7 +6,10 @@
  	const ticketOpenBtn = document.getElementById('ticketOpenBtn');
  	
  	// 예매 가능 시간 설정
-    const targetDate = new Date('2024-10-08T20:00:00');
+    //const targetDate = new Date('2024-10-08T20:00:00');
+    const targetDateInput = document.getElementById('targetDate');
+    const targetDateString = targetDateInput.value; // 숨겨진 입력 필드 값 읽기
+    const targetDate = new Date(targetDateString); // 문자열을 Date 객체로 변환
     
     // 버튼 상태 업데이트 함수
     function updateButtonState() {
@@ -22,6 +25,11 @@
             ticketOpenBtn.disabled = false;
             ticketOpenBtn.textContent = '예매하기';
             clearInterval(timer); // 타이머 중지
+        } else {
+            // 초기 메시지 표시 (예: "09/28 15:00 오픈")
+            const options = { month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' };
+            const formattedDate = targetDate.toLocaleString('ko-KR', options).replace(',', '');
+            ticketOpenBtn.textContent = `${formattedDate} 오픈`;
         }
     }
         
