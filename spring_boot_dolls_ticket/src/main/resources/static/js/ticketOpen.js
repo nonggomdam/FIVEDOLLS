@@ -27,7 +27,7 @@
             clearInterval(timer); // 타이머 중지
         } else {
             // 초기 메시지 표시 (예: "09/28 15:00 오픈")
-            const options = { month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' };
+            const options = {month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit'};
             const formattedDate = targetDate.toLocaleString('ko-KR', options).replace(',', '');
             ticketOpenBtn.textContent = `${formattedDate} 오픈`;
         }

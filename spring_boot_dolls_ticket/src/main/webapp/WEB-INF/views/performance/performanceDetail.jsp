@@ -48,13 +48,9 @@
 						<dt>장소</dt>
 						<dd>&nbsp;${pfm.PERFORMANCE_DETAILADDRESS}</dd>
 						<dt>가격</dt>
-						<dd class="comma">
-							&nbsp;${pfm.PERFORMANCE_PRICE}원
-						</dd>
+						<dd>${pfm.PERFORMANCE_PRICE}원</dd>
 						<dt>공연시간</dt>
-						<dd>
-							&nbsp;${pfm.PERFORMANCE_DATE}
-						</dd>
+						<dd>&nbsp;${pfm.PERFORMANCE_DATE}</dd>
 					</dl>
 					<input type="hidden" id="targetDate" value="${pfm.RESERVATION_OPEN_EXPECTED_DATE}">
 					<button id="ticketOpenBtn" disabled></button>
