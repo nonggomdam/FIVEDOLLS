@@ -4,5 +4,6 @@ import com.spring_boot_dolls_ticket.project.model.PerformanceVO;
 
 public interface IPerformanceService {
 
-	PerformanceVO detailViewPerformance(String PERFORMANCE_ID);
+	PerformanceVO detailViewPerformance(String performanceId);
+	PerformanceVO getLatestEvent();
 }

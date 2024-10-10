@@ -2,106 +2,122 @@ package com.spring_boot_dolls_ticket.project.model;
 
 import java.util.Date;
 
-public class PerformanceVO {
+import org.springframework.format.annotation.DateTimeFormat;
 
-	private String PERFORMANCE_ID;
-	private String PERFORMANCE_KIND_CD;
-	private int PERFORMANCE_RATING_CODE;
-	private String PERFORMANCE_NAME;
-	private int PERFORMANCE_PRICE;
-	private String PERFORMANCE_ZIPCODE;
-	private String PERFORMANCE_ADDRESS;
-	private String PERFORMANCE_DETAILADDRESS;
-	private String PERFORMANCE_DATE;
-	private String RESERVATION_OPEN_EXPECTED_DATE;
-	private String PERFORMANCE_IMAGE_PATH;
-	private Date FIRST_CHANGE_DATE;
-	private Date LAST_CHANGE_DATE;
-	private int PERFORMANCE_TIME;
+public class PerformanceVO {
 	
-	public String getPERFORMANCE_ID() {
-		return PERFORMANCE_ID;
+	private String performanceId;
+	private String performanceKindCd;
+	private int performanceRatingCode;
+	private String performanceName;
+	private int performancePriceR;
+	private String performanceZipcode;
+	private String performanceAddress;
+	private String performanceDetailAddress;
+	private Date performanceDate;
+	private Date reservationOpenExpectedDate;
+	private String performanceImagePath;
+	private Date firstChanceDate;
+	private Date lastChanceDate;
+	private int performanceTime;
+	private int performancePriceS;
+	private Date performanceDate2;
+	
+	public String getPerformanceId() {
+		return performanceId;
 	}
-	public void setPERFORMANCE_ID(String pERFORMANCE_ID) {
-		PERFORMANCE_ID = pERFORMANCE_ID;
+	public void setPerformanceId(String performanceId) {
+		this.performanceId = performanceId;
 	}
-	public String getPERFORMANCE_KIND_CD() {
-		return PERFORMANCE_KIND_CD;
+	public String getPerformanceKindCd() {
+		return performanceKindCd;
 	}
-	public void setPERFORMANCE_KIND_CD(String pERFORMANCE_KIND_CD) {
-		PERFORMANCE_KIND_CD = pERFORMANCE_KIND_CD;
+	public void setPerformanceKindCd(String performanceKindCd) {
+		this.performanceKindCd = performanceKindCd;
 	}
-	public int getPERFORMANCE_RATING_CODE() {
-		return PERFORMANCE_RATING_CODE;
+	public int getPerformanceRatingCode() {
+		return performanceRatingCode;
 	}
-	public void setPERFORMANCE_RATING_CODE(int pERFORMANCE_RATING_CODE) {
-		PERFORMANCE_RATING_CODE = pERFORMANCE_RATING_CODE;
+	public void setPerformanceRatingCode(int performanceRatingCode) {
+		this.performanceRatingCode = performanceRatingCode;
 	}
-	public String getPERFORMANCE_NAME() {
-		return PERFORMANCE_NAME;
+	public String getPerformanceName() {
+		return performanceName;
 	}
-	public void setPERFORMANCE_NAME(String pERFORMANCE_NAME) {
-		PERFORMANCE_NAME = pERFORMANCE_NAME;
+	public void setPerformanceName(String performanceName) {
+		this.performanceName = performanceName;
 	}
-	public int getPERFORMANCE_PRICE() {
-		return PERFORMANCE_PRICE;
+	public int getPerformancePriceR() {
+		return performancePriceR;
 	}
-	public void setPERFORMANCE_PRICE(int pERFORMANCE_PRICE) {
-		PERFORMANCE_PRICE = pERFORMANCE_PRICE;
+	public void setPerformancePriceR(int performancePriceR) {
+		this.performancePriceR = performancePriceR;
 	}
-	public String getPERFORMANCE_ZIPCODE() {
-		return PERFORMANCE_ZIPCODE;
+	public String getPerformanceZipcode() {
+		return performanceZipcode;
 	}
-	public void setPERFORMANCE_ZIPCODE(String pERFORMANCE_ZIPCODE) {
-		PERFORMANCE_ZIPCODE = pERFORMANCE_ZIPCODE;
+	public void setPerformanceZipcode(String performanceZipcode) {
+		this.performanceZipcode = performanceZipcode;
 	}
-	public String getPERFORMANCE_ADDRESS() {
-		return PERFORMANCE_ADDRESS;
+	public String getPerformanceAddress() {
+		return performanceAddress;
 	}
-	public void setPERFORMANCE_ADDRESS(String pERFORMANCE_ADDRESS) {
-		PERFORMANCE_ADDRESS = pERFORMANCE_ADDRESS;
+	public void setPerformanceAddress(String performanceAddress) {
+		this.performanceAddress = performanceAddress;
 	}
-	public String getPERFORMANCE_DETAILADDRESS() {
-		return PERFORMANCE_DETAILADDRESS;
+	public String getPerformanceDetailAddress() {
+		return performanceDetailAddress;
 	}
-	public void setPERFORMANCE_DETAILADDRESS(String pERFORMANCE_DETAILADDRESS) {
-		PERFORMANCE_DETAILADDRESS = pERFORMANCE_DETAILADDRESS;
+	public void setPerformanceDetailAddress(String performanceDetailAddress) {
+		this.performanceDetailAddress = performanceDetailAddress;
 	}
-	public String getPERFORMANCE_DATE() {
-		return PERFORMANCE_DATE;
+	public Date getPerformanceDate() {
+		return performanceDate;
 	}
-	public void setPERFORMANCE_DATE(String pERFORMANCE_DATE) {
-		PERFORMANCE_DATE = pERFORMANCE_DATE;
+	public void setPerformanceDate(Date performanceDate) {
+		this.performanceDate = performanceDate;
 	}
-	public String getRESERVATION_OPEN_EXPECTED_DATE() {
-		return RESERVATION_OPEN_EXPECTED_DATE;
+	public Date getReservationOpenExpectedDate() {
+		return reservationOpenExpectedDate;
 	}
-	public void setRESERVATION_OPEN_EXPECTED_DATE(String rESERVATION_OPEN_EXPECTED_DATE) {
-		RESERVATION_OPEN_EXPECTED_DATE = rESERVATION_OPEN_EXPECTED_DATE;
+	public void setReservationOpenExpectedDate(Date reservationOpenExpectedDate) {
+		this.reservationOpenExpectedDate = reservationOpenExpectedDate;
 	}
-	public String getPERFORMANCE_IMAGE_PATH() {
-		return PERFORMANCE_IMAGE_PATH;
+	public String getPerformanceImagePath() {
+		return performanceImagePath;
 	}
-	public void setPERFORMANCE_IMAGE_PATH(String pERFORMANCE_IMAGE_PATH) {
-		PERFORMANCE_IMAGE_PATH = pERFORMANCE_IMAGE_PATH;
+	public void setPerformanceImagePath(String performanceImagePath) {
+		this.performanceImagePath = performanceImagePath;
 	}
-	public Date getFIRST_CHANGE_DATE() {
-		return FIRST_CHANGE_DATE;
+	public Date getFirstChanceDate() {
+		return firstChanceDate;
 	}
-	public void setFIRST_CHANGE_DATE(Date fIRST_CHANGE_DATE) {
-		FIRST_CHANGE_DATE = fIRST_CHANGE_DATE;
+	public void setFirstChanceDate(Date firstChanceDate) {
+		this.firstChanceDate = firstChanceDate;
 	}
-	public Date getLAST_CHANGE_DATE() {
-		return LAST_CHANGE_DATE;
+	public Date getLastChanceDate() {
+		return lastChanceDate;
 	}
-	public void setLAST_CHANGE_DATE(Date lAST_CHANGE_DATE) {
-		LAST_CHANGE_DATE = lAST_CHANGE_DATE;
+	public void setLastChanceDate(Date lastChanceDate) {
+		this.lastChanceDate = lastChanceDate;
 	}
-	public int getPERFORMANCE_TIME() {
-		return PERFORMANCE_TIME;
+	public int getPerformanceTime() {
+		return performanceTime;
 	}
-	public void setPERFORMANCE_TIME(int pERFORMANCE_TIME) {
-		PERFORMANCE_TIME = pERFORMANCE_TIME;
+	public void setPerformanceTime(int performanceTime) {
+		this.performanceTime = performanceTime;
+	}
+	public int getPerformancePriceS() {
+		return performancePriceS;
+	}
+	public void setPerformancePriceS(int performancePriceS) {
+		this.performancePriceS = performancePriceS;
+	}
+	public Date getPerformanceDate2() {
+		return performanceDate2;
+	}
+	public void setPerformanceDate2(Date performanceDate2) {
+		this.performanceDate2 = performanceDate2;
 	}
 	
 	

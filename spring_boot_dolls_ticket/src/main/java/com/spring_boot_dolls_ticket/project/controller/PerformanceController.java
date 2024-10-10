@@ -15,12 +15,14 @@ public class PerformanceController {
 	@Autowired
 	PerformanceService pfmservice;
 	
-	@RequestMapping("/performance/detailViewPerformance/{PERFORMANCE_ID}")
-	public String detailViewPerformance(@PathVariable String PERFORMANCE_ID, Model model) {
-		PerformanceVO pfm =pfmservice.detailViewPerformance(PERFORMANCE_ID);
+	@RequestMapping("/performance/detailViewPerformance/{performanceId}")
+	public String detailViewPerformance(@PathVariable String performanceId, Model model) {
+		PerformanceVO pfm =pfmservice.detailViewPerformance(performanceId);
 		
 		model.addAttribute("pfm",pfm);
 		
 		return "performance/performanceDetail";
 	}
+	
+	
 }
