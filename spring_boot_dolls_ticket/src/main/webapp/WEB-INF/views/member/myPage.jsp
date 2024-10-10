@@ -1,91 +1,82 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>my page</title>
-		<c:import url="/WEB-INF/views/layout/head.jsp"/>
-		<script type="text/javascript">
-			$(document).ready(function() {
-				$('#orderedTicketList').click(function() {
-	                window.location.href = '/orderDetail';
-	            });
-	        });
-			$(document).ready(function() {
-				$('.orderCancelBtn').click(function() {
-	                window.location.href = '/refund';
-	            });
-			});
-		</script>
-	</head>
-	<body>
-		<div id="wrapper">
-			<c:import url="/WEB-INF/views/member/myPageMenu.jsp"/>
-			<div id="container">
-				<div>
-					<h3>예매 내역 검색</h3>
-					<form method="post" id="orderSearchForm">
-						예매 상태
-						<select>
-							<option value="all">전체</option>
-							<option value="payCompleted">결제 완료</option>
-							<option value="preparingShip">발송/배송 준비 중</option>
-							<option value="shipping">발송/배송 중</option>
-							<option value="shipCompleted">발송/배송 완료</option>
-							<option value="cancelCompleted">취소 완료</option>
-							<option value="cancelCompleted">환불 완료</option>
-						</select>
-						<br>
-						주문 일시
-						from 
-						<input type="date">
-						to
-						<input type="date">
-						<br>
-						예매 번호
-						<input type="text"><br>
-						<input type="submit" value="검색">
-					</form>
-				</div>
-				<div>
-					<div>
-						<h3>예매 내역 조회</h3>
-						정렬
-						<select>
-							<option>날짜순</option>
-							<option>상태순</option>
-						</select>
-					</div>
-					<table id="orderList" class="orderInfo">
-						<tr>
-							<th>NO</th>
-							<th>예매일</th>
-							<th>예매 번호</th>
-							<th>상품명</th>
-							<th>관람 일시</th>
-							<th>매수</th>
-							<th>예매 상태</th>
-							<th>결제 금액</th>
-						</tr>
-						<tr id="orderedTicketList">
-							<td>1</td>
-							<td>2024년 01월 01일</td>
-							<td>1234-5678</td>
-							<td>OO 공연</td>
-							<td>2024년 12월 12일</td>
-							<td>1매</td>
-							<td>
-								결제 완료<br>
-								<button class="orderCancelBtn">취소</button>
-							</td>
-							<td>100000원</td>
-						</tr>
-					</table>
-					<c:import url="/WEB-INF/views/layout/pagination.jsp"/>
-				</div>
-			</div>
-			<c:import url="/WEB-INF/views/layout/footer.jsp"/>
-		</div>
-	</body>
+<head>
+    <meta charset="UTF-8">
+    <title>마이페이지</title>
+    <c:import url="/WEB-INF/views/layout/head.jsp"></c:import>
+		<script src="jquery-3.6.0.min.js"></script>
+		<script type="text/javascript">	</script>
+</head>
+<body>
+
+	<div class="wrap">
+		<c:import url="/WEB-INF/views/layout/top.jsp"></c:import>    
+	</div>
+    <div class="container">
+        <!-- 사이드바 -->
+        <div class="sidebar">
+            <div class="info-box">
+                <p class="title">나의 정보</p>
+                <p>회원님은 VIP입니다.</p>
+                <p>남은 좌석수: <strong>3</strong></p>
+                <p>예매 횟수: <strong>1</strong></p>
+            </div>
+            <div class="categories">
+                <h3>카테고리</h3>
+	                <ul>
+	                    <li><a href="/member/correctionMember">회원정보 변경</a></li>
+	                    <li><a href="/booking/confirm">예매확인/관람내역</a></li>
+	                </ul>              
+            </div>
+            <div class="customer-service">
+                <p><strong>고객센터</strong></p>
+                <p>전화: 1544-5555</p>
+                <p>운영시간: 09:00 ~ 18:00</p>
+            </div>
+        </div>
+
+        <!-- 메인 컨텐츠 -->
+        <div class="main-content">
+            <!-- 이벤트 내역 -->
+            <div class="section">
+                <h2>나의 이벤트 내역</h2>
+                <div class="info-box">
+                    <p>최근 이벤트 내역이 없습니다.</p>
+                </div>
+            </div>
+
+            <!-- 이미지 영역 -->
+            <div class="section">
+                <h2>이미지</h2>
+                <div class="image-placeholder">Image</div>
+            </div>
+
+            <!-- 관람 내역 -->
+            <div class="section">
+                <h2>나의 관람 내역</h2>
+                <div class="info-box">
+                    <p>최근 관람내역이 없습니다.</p>
+                </div>
+            </div>
+
+            <!-- 알림 -->
+            <div class="section">
+                <h2>나의 알림 소식</h2>
+                <div class="info-box">
+                    <p>티켓오픈 알림: 최근 소식이 없습니다.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 푸터 -->
+    <footer>
+        <p>© 2024 MyCompany</p>
+    </footer>
+
+</body>
 </html>
+ 
