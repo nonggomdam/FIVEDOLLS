@@ -1,35 +1,73 @@
 @charset "UTF-8";
 
-#wrapper h3 {
-	margin-bottom: 20px;
-}
-#container {
-	position: absolute;
-	margin-left: 240px;
-	width: 1140px;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	padding-left: 100px;
-}
-#container > * {
-	margin-left: 0;
-	margin: 20px;
-	width: 800px;
-	padding: 10px 20px;
-	display: inline-block;
-}
-#orderList {
-	border: 1px solid;
-	width: 100%;
-}
-#orderList th, #orderList td {
-	text-align: center;
-}
-#payHistory, th {
-	text-align: left;
-}
-#container table {
-	border-spacing: 10px;
-}
-.orderInfo { margin-left: 0px; }
+
+        .container {
+            display: flex;
+            margin-top: 20px;
+        }
+        .sidebar {
+            width: 20%;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .main-content {
+            width: 80%;
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h2 {
+            margin-bottom: 15px;
+        }
+        .info-box {
+            padding: 20px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            background-color: #f8f9fa;
+        }
+        .info-box .title {
+            font-weight: bold;
+        }
+        .image-placeholder {
+            width: 100%;
+            height: 300px;
+            background-color: #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: #555;
+        }
+        .customer-service {
+            padding: 10px;
+            background-color: #e9ecef;
+            border: 1px solid #ccc;
+        }
+        .categories {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f1f1f1;
+        }
+        .categories ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .categories ul li {
+            padding: 10px 0;
+            font-size: 18px;
+            border-bottom: 1px solid #ccc;
+        }
+        .categories ul li a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .categories ul li a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background-color: #f1f1f1;
+            padding: 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
