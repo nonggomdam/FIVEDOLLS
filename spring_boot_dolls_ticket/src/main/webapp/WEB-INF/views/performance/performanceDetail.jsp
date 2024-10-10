@@ -17,13 +17,13 @@
 			<div class="dt-01">
 				<!--로케이션-->
 				<p class="dt-location">
-					<a>${pfm.PERFORMANCE_KIND_CD}></a>
+					<a>${pfm.performanceKindCd}</a>
 				</p>
 			</div>
 		</div>
 		<div class="dt-02">
 			<!--제목-->
-			<p class="dt-title">${pfm.PERFORMANCE_NAME}</p>
+			<p class="dt-title">${pfm.performanceName}</p>
 		</div>
 	</div>
 	<div class="concert-wrap"></div>
@@ -42,18 +42,19 @@
 					<!--상품정보-->
 					<dl>
 						<dt>등급</dt>
-						<dd>&nbsp;만 ${pfm.PERFORMANCE_RATING_CODE}세 이상</dd>
+						<dd>&nbsp;만 ${pfm.performanceRatingCode}세 이상</dd>
 						<dt>관람시간</dt>
-						<dd>&nbsp;총 ${pfm.PERFORMANCE_TIME}분</dd>
+						<dd>&nbsp;총 ${pfm.performanceTime}분</dd>
 						<dt>장소</dt>
-						<dd>&nbsp;${pfm.PERFORMANCE_DETAILADDRESS}</dd>
+						<dd>&nbsp;${pfm.performanceDetailAddress}</dd>
 						<dt>가격</dt>
-						<dd>${pfm.PERFORMANCE_PRICE}원</dd>
+						<dd>&nbsp;R석 ${pfm.performancePriceR}원</dd>
+						<dd>&nbsp;S석 ${pfm.performancePriceS}원</dd>
 						<dt>공연시간</dt>
-						<dd>&nbsp;${pfm.PERFORMANCE_DATE}</dd>
+						<dd>&nbsp;${pfm.performanceDate}</dd>
+						<dd>&nbsp;${pfm.performanceDate2}</dd>
 					</dl>
-					<input type="hidden" id="targetDate" value="${pfm.RESERVATION_OPEN_EXPECTED_DATE}">
-					<button id="ticketOpenBtn" disabled></button>
+					<button id="ticketOpenBtn" disabled>${pfm.reservationOpenExpectedDate} 오픈</button>
 				</div>
 			</div>
 		</div>
@@ -68,11 +69,11 @@
 				<p>※ 본 공연은 할인쿠폰이벤트 대상에서 제외됩니다.</p>
 				<p>※ 불법적인 경로 혹은 불법적인 시스템을 통해 티켓을 구매할 경우 법적 제재를 받을 수 있습니다.</p>
 				<p class="dt05-tit">공연정보</p>
-				<p>공연일시: ${pfm.PERFORMANCE_DATE}</p>
+				<p>공연일시: ${pfm.performanceDate}, ${pfm.performanceDate2}</p>
 				<p>예매가능시간: 공연시작 3시간 전까지</p>
 				<p class="dt05-tit">장소안내</p>
 					<div id="map"></div>
-				<p>주소: ${pfm.PERFORMANCE_ZIPCODE} ${pfm.PERFORMANCE_ADDRESS} ${pfm.PERFORMANCE_DETAILADDRESS}</p>
+				<p>주소: ${pfm.performanceZipcode} ${pfm.performanceAddress} ${pfm.performanceDetailAddress}</p>
 				<p>주차공간이 없으므로 대중교통을 이용하시기 바랍니다.</p>
 				<p class="dt05-tit">상품정보제공 고시</p>
 				<div class="dt05-txt">
@@ -94,9 +95,9 @@
 								</tr>
 								<tr>
 									<th scope="row" class="dt05-tbl-tit2">관람시간</th>
-									<td>${pfm.PERFORMANCE_TIME}분</td>
+									<td>${pfm.performanceTime}분</td>
 									<th scope="row" class="rn08-tbl-tit2">관람등급</th>
-									<td>만 ${pfm.PERFORMANCE_RATING_CODE}세 이상</td>
+									<td>만 ${pfm.performanceRatingCode}세 이상</td>
 								</tr>
 								<tr>
 									<th scope="row" class="dt05-tbl-tit2">예매수수료</th>
@@ -106,7 +107,7 @@
 								</tr>
 								<tr>
 									<th scope="row" class="dt05-tbl-tit2">유효기간</th>
-									<td colspan="3">${pfm.PERFORMANCE_DATE} 예매한 공연 날짜, 회차에 한해 이용가능</td>
+									<td colspan="3">${pfm.performanceDate}, ${pfm.performanceDate2} 예매한 공연 날짜, 회차에 한해 이용가능</td>
 								<tr>
 									<th scope="row" class="dt05-tbl-tit2">취소/환불방법</th>
 									<td colspan="3">
