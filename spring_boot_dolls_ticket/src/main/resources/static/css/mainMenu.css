@@ -1,0 +1,134 @@
+/* * {
+    box-sizing: border-box; 모든 요소에 대해 box-sizing 설정
+    margin: 0; 기본 마진 제거
+    padding: 0; 기본 패딩 제거
+} */
+
+/* body {
+    width: 100%; 너비 100% 설정
+    margin: 0; 여백 제거
+} */
+
+main {
+    width: 100%; /* 메인 콘텐츠 영역도 너비 100% */
+    padding: 20px; /* 필요시 패딩 추가 */
+},
+div,
+span,
+header,
+section,
+footer,
+nav,
+img,
+form,
+figcaption,
+figure,
+i,
+p {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body h1,
+h2,
+h3,
+h4,
+h5,
+ol,
+header ul,
+
+div ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+body a:link {
+    color: black;
+    text-decoration: none;
+}
+body a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+body header a:hover {
+    color: #c79288;
+    text-decoration: none;
+    transition: 0.2s linear;
+}
+
+* {
+    font-family: "Montserrat", "Nanum Gothic", sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* header */
+#mainMenu {
+    display: flex; /* Flexbox 사용 */
+    justify-content: space-between; /* 메뉴 항목 정렬 */
+    padding: 10px; /* 패딩 설정 */
+    background-color: rgba(255, 255, 255, 0.9); /* 약간 투명한 흰색 배경 */
+    z-index: 1; /* 필요에 따라 조정 */
+    width: 100%; /* 너비를 100%로 설정 */
+    box-sizing: border-box; /* 패딩 포함하여 너비 계산 */
+    position: fixed; /* 위치 설정 */
+    margin-top : 35px;
+
+}
+
+nav,
+.icons {
+    padding: 20px;
+}
+
+nav ul {
+    display: flex; /* 메뉴 항목을 수평으로 정렬 */
+    list-style: none; /* 기본 리스트 스타일 제거 */
+    padding: 0; /* 기본 패딩 제거 */
+    margin: 0; /* 기본 마진 제거 */
+    color: black;
+    width: 100%; /* 너비를 100%로 설정 */
+    box-sizing: border-box; /* 패딩 포함하여 너비 계산 */
+}
+
+nav ul li {
+    display: flex; /* flex를 사용하여 수직 정렬 방지 */
+    align-items: center; /* 세로 중앙 정렬 */
+    padding: 0 10px; /* 좌우 여백 추가 */
+}
+
+nav ul li a {
+    color: black; /* 링크 색상을 명시적으로 설정 */
+    display: block; /* 블록 요소로 변경하여 전체 영역 클릭 가능 */
+    height: 100%; /* 부모의 높이를 따름 */
+    line-height: 30px; /* 메뉴 높이에 맞춰 정렬 */
+    margin-left : 80px;
+}
+
+#searchBox {
+    display: flex; /* Flexbox를 사용하여 수평 배치 */
+    align-items: center; /* 세로 중앙 정렬 */
+    height: 30px; /* 검색창과 동일한 높이 */
+    white-space: nowrap;
+    margin-left : 450px;
+    
+}
+
+#search {
+    margin-right: 5px; /* 입력창과 버튼 사이의 간격 */
+    width: 200px; /* 원하는 너비 설정 */
+    height: 23px; /* 버튼과 동일한 높이 */
+    margin-top : 30px;
+    
+}
+
+#searchBtn {
+    height: 30px; /* 검색창과 동일한 높이 */
+    padding: 0 10px; /* 좌우 여백 추가 */
+    cursor: pointer; /* 마우스 포인터 스타일 변경 */
+    white-space: nowrap; /* 텍스트가 한 줄로 표시되도록 설정 */
+    margin-top : 30px;
+    
+}
