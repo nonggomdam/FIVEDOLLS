@@ -9,6 +9,7 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/tabMenu.css'/>">
 	    <link rel="stylesheet" type="text/css" href="<c:url value='/css/product.css'/>">
 	    <link rel="stylesheet" type="text/css" href="<c:url value='/css/mainMenu.css'/>">
+	    <link rel="stylesheet" type="text/css" href="<c:url value='/css/mypage.css'/>">
 	    
 		<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 		<script src="<c:url value='/js/subMenu.js'/>"></script>
