@@ -4,8 +4,8 @@ footer {
     width: 100%;
     background-color: #B3B3B3;
     padding: 20px;
-	bottom: 0px;
-    position: fixed;
+    height: 230px;
+    position: absolute;
     left: 50%;
     transform: translateX(-50%);
 }
