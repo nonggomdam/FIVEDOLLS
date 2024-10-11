@@ -99,6 +99,18 @@ public class MemberController {
 	    return ResponseEntity.ok(foundIds);
 	}
 	
+	@ResponseBody
+	@RequestMapping("/member/findPwd")
+	public ResponseEntity<List<String>> findPwd(@RequestBody Map<String, String> data) {
+	    String name = data.get("name");
+	    String email = data.get("email");
+	    String phone = data.get("phone");
+
+	    List<String> foundIds = memService.findId(name, email, phone);
+	    
+	    return ResponseEntity.ok(foundIds);
+	}
+	
 	@RequestMapping("/member/searchPwd")
 	public String searchPwd() {
 		return "member/searchPwd";

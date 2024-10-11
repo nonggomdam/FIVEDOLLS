@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="/css/searchPwwd.css" rel="stylesheet" type="text/css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="/js/findPwwd.js" defer></script>
 </head>
 <body>
