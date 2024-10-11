@@ -77,7 +77,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/member/logout")
-	public String logout(HttpSession session) {
+	public String logout(HttpSession session)  {
 	    // 세션 무효화
 	    session.invalidate();
 	    return "redirect:/"; // 메인 페이지로 리다이렉트
