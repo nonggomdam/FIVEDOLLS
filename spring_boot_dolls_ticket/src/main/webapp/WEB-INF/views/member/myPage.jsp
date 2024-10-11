@@ -72,10 +72,7 @@
         </div>
     </div>
 
-    <!-- 푸터 -->
-    <footer>
-        <p>© 2024 MyCompany</p>
-    </footer>
+
 
 </body>
 </html>
