@@ -19,10 +19,6 @@ public class TicketOpenController {
     @GetMapping("/api/check-event")
     public EventStatus checkEventStatus() {
         PerformanceVO event = pfmservice.getLatestEvent();
-        if (event == null) {
-            return new EventStatus(false, null);
-        }
-
         boolean isOpen = new java.util.Date().after(event.getReservationOpenExpectedDate());
         return new EventStatus(isOpen, event.getReservationOpenExpectedDate());
         

@@ -1,4 +1,27 @@
-
+@font-face {
+   font-family: 'TheJamsil2Light';
+   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil2Light.woff2') format('woff2');
+   font-weight: 200; /*이미 위에서 2Light 이렇게 정해져서 font-weight 의미 없음*/
+   font-style: normal;
+}
+@font-face {
+   font-family: 'TheJamsil4Medium';
+   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil4Medium.woff2') format('woff2');
+   font-weight: 400; /*이미 위에서 4Medium 이렇게 정해져서 font-weight 의미 없음*/
+   font-style: normal;
+}
+@font-face {
+   font-family: 'TheJamsil5Bold';
+   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+   font-weight: 500; /*이미 위에서 5Bold 이렇게 정해져서 font-weight 의미 없음*/
+   font-style: normal;
+}
+@font-face {
+ font-family: 'TheJamsil3Regular';
+ src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil3Regular.woff2') format('woff2');
+ font-weight: 300; /*이미 위에서 3Regular 이렇게 정해져서 font-weight 의미 없음*/
+ font-style: normal;
+}
 .detailPage-wrap {
     width: 1300px;
     margin: 0 auto;
@@ -11,21 +34,15 @@
     position: relative;
     overflow: hidden;
 }
-/* .dt-01 {
-    overflow: hidden;
-} */
-/* .dt-01 .dt-location {
-    float: left;
-    margin-top: 3px;
-    padding-right: 5px;
-} */
-/* .dt-01 .dt-location a {
+.dt-01 .dt-location a {
     display: inline-block;
-    font-size: 14px;
+    font-size: 20px;
     color: #333;
     padding-right: 9px;
     margin-right: 4px;
-} */
+    font-family: 'TheJamsil2Light', sans-serif;
+}
+
 .dt-02 {
     margin-top: 16px;
     padding-left: 50px;
@@ -39,6 +56,7 @@
     line-height: 40px;
     font-weight: bold;
     letter-spacing: -0.003em;
+    font-family: 'TheJamsil5Bold', sans-serif;
 }
 .concert-wrap {
     width: 100%;
@@ -74,7 +92,7 @@
 
 .dt-03-right {
     float: right;
-    width: 600px;
+    width: 580px;
 }
 
 .dt-03-right dl {
@@ -83,20 +101,21 @@
 }
 
 .dt-03-right dt {
-    font-size: 15px;
+    font-size: 20px;
     color: #333;
-    font-weight: bold;
     float: left;
     line-height: 50px;
+    font-family: 'TheJamsil4Medium', sans-serif;
 }
 
 .dt-03-right dd {
-    font-size: 15px;
+    font-size: 20px;
     color: #333;
     clear: right;
-    margin: 0 0px 3px 86px;
+    margin: 0 0px 5px 90px;
     line-height: 50px;
     position: relative;
+    font-family: 'TheJamsil2Light', sans-serif;
 }
 
 #ticketOpenBtn {
@@ -126,6 +145,12 @@
     border-bottom: 2px solid #333;
     font-size: 0;
 }
+a {
+    font-size: 0;
+    text-decoration: none;
+    outline: none;
+    color: inherit;
+}
 
 .dt-04 a {
     display: inline-block;
@@ -134,14 +159,21 @@
     width: 180px;
     border-top: 3px solid #fff;
     text-align: center;
+}
+
+.dt-04 a > span {
     font-size: 18px;
-    color: #fff;
-    background: #686767;
+    color: #333;
+    letter-spacing: -0.09em;
+    font-family: 'TheJamsil2Light', sans-serif;
+}
+
+.dt-04 a.on {
+    border-top: 3px solid #ec7d2c;
 }
 
 .detailPage-describe {
     position: relative;
-    text-align: center;
 }
 
 .dt-05 {
@@ -160,19 +192,19 @@
     font-size: 30px;
     color: #333;
     padding-bottom: 30px;
-    font-weight: bold;
+    text-align: center;
+    font-family: 'TheJamsil4Medium', sans-serif;
 }
 
-.dt-05 div .dt05-txt > p {
-    font-size: 13px;
-    line-height: 28px;
-    color: #555;
+.dt-05 p {
+	text-align: center;
+	font-family: 'TheJamsil2Light', sans-serif;
 }
-
 .dt-05 div .dt05-tbl {
     border-top: 1px solid #333;
     width: 960px;
     margin: 0 auto;
+    font-family: 'TheJamsil2Light', sans-serif;
 }
 
 .dt-05 div .dt05-tbl table {
@@ -191,7 +223,7 @@
 }
 
 .dt-05 div .dt05-tbl table th.dt05-tbl-tit2 {
-    font-size: 14px;
+    font-size: 15px;
     color: #333;
     background: #f6f6f6;
 }
@@ -215,9 +247,48 @@
 }
 
 .dt-05 div .dt05-tbl .dt05-detail-box {
-    text-align: left;
     line-height: 25px;
     padding: 6px 0 15px 0;
     color: #555;
+    font-size: 14px;
+}
+
+.review {
+    border-top: 1px solid #000;
+}
+li {
+    list-style: none;
+}
+.review li .writerBox {
+    width: 100%;
+    height: 40px;
+    position: relative;
+    margin-bottom: 21px;
+    font-size: 0;
+    font-family: 'TheJamsil2Light', sans-serif;
+}
+.review li .writerBox .writerId {
+    top: 19px;
+    height: 20px;
+    line-height: 20px;
+    color: #333;
     font-size: 13px;
+}
+.review li .writerBox span {
+    display: inline-block;
+    position: relative;
+}
+.review li .writerBox .writeDate {
+    top: 19px;
+    height: 20px;
+    line-height: 20px;
+    color: #333;
+    font-size: 13px;
+    padding-left: 18px;
+    margin-right: 17px;
+    letter-spacing: 0.05em;
+}
+.review li .writerBox .reviewGrade {
+    top: 20px;
+    margin-right: 15px;
 }

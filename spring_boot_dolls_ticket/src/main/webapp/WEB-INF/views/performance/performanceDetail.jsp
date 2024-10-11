@@ -17,12 +17,13 @@
 			<div class="dt-01">
 				<!--로케이션-->
 				<p class="dt-location">
-					<a>${pfm.performanceKindCd}</a>
+					<a>${pfm.performanceKindCd} ></a>
 				</p>
 			</div>
 		</div>
 		<div class="dt-02">
 			<!--제목-->
+			<input type="hidden" id="performanceId" value="${pfm.performanceId}">
 			<p class="dt-title">${pfm.performanceName}</p>
 		</div>
 	</div>
@@ -34,7 +35,7 @@
 				<div class="dt-03-left">
 					<!--포스터-->
 					<div class="dt-product-imgbox">
-						<img src="<c:url value='/image/Kproduct0001.jpg'/>">
+						<img src="<c:url value='/image/P0001.jpg'/>">
 					</div>
 				</div>
 				<!--dt-03-left-->
@@ -48,19 +49,19 @@
 						<dt>장소</dt>
 						<dd>&nbsp;${pfm.performanceDetailAddress}</dd>
 						<dt>가격</dt>
-						<dd>&nbsp;R석 ${pfm.performancePriceR}원</dd>
+						<dd id=numberDisplay>&nbsp;R석 ${pfm.performancePriceR}원</dd>
 						<dd>&nbsp;S석 ${pfm.performancePriceS}원</dd>
 						<dt>공연시간</dt>
-						<dd>&nbsp;${pfm.performanceDate}</dd>
+						<dd id=dateDisplay>&nbsp;${pfm.performanceDate}</dd>
 						<dd>&nbsp;${pfm.performanceDate2}</dd>
 					</dl>
-					<button id="ticketOpenBtn" disabled>${pfm.reservationOpenExpectedDate} 오픈</button>
+					<button id="ticketOpenBtn" disabled></button>
 				</div>
 			</div>
 		</div>
 		<div class="dt-04">
-			<!--상세정보-->
-			<a>상세정보</a>
+			<a href="" id="describe" class="on"><span>상세정보</span></a>
+			<a href="" id="goReview" class="on"><span class="rn-eve">관람후기<span class="dt-04-count">(10)</span></span></a>
 		</div>
 		<div class="detailPage-describe">
 			<div class="dt-05">
@@ -124,6 +125,18 @@
 							</tbody>
 						</table>
 					</div>
+				</div>
+				<p class="dt05-tit">관람후기</p>
+				<div class="rev-container">
+					<ul class="review">
+						<li>
+							<div class="writerBox">
+								<span class="writerId">xhaht***</span>
+								<span class="writeDate">2024.10.11</span>
+								<span class="reviewGrade"></span>
+							</div>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
