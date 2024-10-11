@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+* {margin:0 auto;}
+
+#wrapper {
+   text-align:center;
+   width:1000px;
+   margin-top:150px;
+   margin-bottom:200px;	
+}
+
+h1 {
+   margin-top:40px;
+   font-size:50px;
+}
+
+h4 {
+   font-size:25px;	
+}
+
+
+#complete {
+	width:65%;
+	background-color:#eee;
+	border:1px solid #eee;
+	border-radius:10px;
+	margin-top:250px;
+	font-size:22px;
+	line-height: 1.5;
+	padding:20px;
+}
+
+#complete a {
+	text-decoration:none;
+	color: black; 
+}
+
+#complete a:visited {
+    color: black; 
+}
+
+.line {
+	margin-top:40px;
+}
