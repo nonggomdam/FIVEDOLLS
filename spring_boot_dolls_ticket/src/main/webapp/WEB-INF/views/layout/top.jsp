@@ -24,7 +24,7 @@
 				</c:if>
 						
 				<c:if test="${not empty sessionScope.sid }">
-					<span style="color: white;">${sessionScope.sid }님 환영합니다!</span>		
+					<%-- <span style="color: white;">${sessionScope.sid }님 환영합니다!</span> --%>		
 					<a href="<c:url value='/member/logout'/>">로그아웃</a>					
 					<a href="<c:url value='/member/myPage'/>">마이페이지</a>
 				</c:if> 

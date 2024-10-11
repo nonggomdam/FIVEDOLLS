@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="/css/searchPwwd.css" rel="stylesheet" type="text/css">
-<script src="/js/find.js" defer></script>
+<script src="/js/findPwwd.js" defer></script>
 </head>
 <body>
 	<div id="logo">
@@ -15,7 +15,7 @@
 		</a>
 	</div>
     <div class="pwFind-form">
-        <form action="" method="post" class="form-horizontal" name="pwfrm">
+        <form id="findPwdForm" action="" method="post" class="form-horizontal" name="pwfrm">
             <div class="row">
                 <div align="center">
                     <h2>비밀번호 찾기</h2>
@@ -52,8 +52,10 @@
 
             <div class="form-group row">
                 <button type="submit" id="submit" class="btn-primary btn-lg">아이디 찾기</button>
-            </div>		
+            </div>
+           		
         </form>
     </div>
+    <div id="resultContainer"></div>
 </body>
 </html>
