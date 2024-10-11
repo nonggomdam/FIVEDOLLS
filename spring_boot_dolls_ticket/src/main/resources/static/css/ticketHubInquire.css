@@ -72,14 +72,9 @@ td,th div {
 	box-sizing: border-box;
 	text-align:left;
 }
+ 
 
-#receiveBtn {
-	cursor:pointer;
-}
 
-#receiveBtn a {
-	text-decoration:none;
-}
  
 #combine {
     display:flex;            
@@ -98,7 +93,8 @@ td,th div {
     margin-right:-60px;
 }
 
-#receiveBtn {
+.receiveBtn {
+	cursor:pointer;
     display:flex;
     align-items:center;    
     justify-content:center;   
@@ -106,8 +102,10 @@ td,th div {
     border-radius:10px;
     padding:10px;
 }
-
-#receiveBtn span {
+.receiveBtn a {
+	text-decoration:none;
+}
+.receiveBtn span {
     font-size:25px;
     font-weight:bold;
     color:white;
