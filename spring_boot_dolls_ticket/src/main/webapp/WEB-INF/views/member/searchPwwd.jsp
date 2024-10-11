@@ -19,7 +19,7 @@
         <form id="findPwdForm" action="" method="post" class="form-horizontal" name="pwfrm">
             <div class="row">
                 <div align="center">
-                    <h2>비밀번호 찾기</h2>
+                    <h2>비밀번호 재설정</h2>
                 </div>
             </div>
 
@@ -27,8 +27,8 @@
 
           <div class="form-group row">
     		<div class="col-8 offset-4 method-buttons">
-        		<button type="button" id="emailButton" class="method-button">이메일로 찾기</button>
-        		<button type="button" id="phoneButton" class="method-button">전화번호로 찾기</button>
+        		<button type="button" id="emailButton" class="method-button">이메일로 변경</button>
+        		<button type="button" id="phoneButton" class="method-button">전화번호로 변경</button>
     		</div>
 		  </div>
 			<div class="form-group row">
@@ -52,7 +52,7 @@
             </div>
 
             <div class="form-group row">
-                <button type="submit" id="submit" class="btn-primary btn-lg">아이디 찾기</button>
+                <button type="submit" id="submit" class="btn-primary btn-lg">확인 후 비밀번호 재설정</button>
             </div>
            		
         </form>

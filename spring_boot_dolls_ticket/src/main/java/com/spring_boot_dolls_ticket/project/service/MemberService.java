@@ -3,6 +3,7 @@ package com.spring_boot_dolls_ticket.project.service;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -17,6 +18,8 @@ import com.spring_boot_dolls_ticket.project.dao.IMemberDAO;
 @Service
 public class MemberService implements IMemberService {
 	
+	
+
 	@Autowired
 	@Qualifier("IMemberDAO")
 	IMemberDAO dao; // IMemberDAO 주입
@@ -27,6 +30,9 @@ public class MemberService implements IMemberService {
 	@Autowired
 	private JdbcTemplate jdbcTemplate; 
 	// Spring에서 제공하는 데이터베이스 접근을 간소화하는 도구 SQL 쿼리 실행, 결과 매핑 등의 작업을 쉽게 처리할 수 있음
+	
+	@Autowired
+    private PasswordEncoder passwordEncoder;
 	
 	@Transactional  
 	
@@ -92,22 +98,18 @@ public class MemberService implements IMemberService {
 	}
 	
 	@Override
-	public List<String> findPwd(String name, String email, String phone) {
-		StringBuilder sql = new StringBuilder("SELECT CUST_ID FROM Member WHERE CUST_NAME = ?");
-	    List<Object> params = new ArrayList<>();
-	    params.add(name);
-	    
-	    if (email != null) {
-	        sql.append(" AND CUST_EMAIL = ?");
-	        params.add(email);
-	    }
-	    
-	    if (phone != null) {
-	        sql.append(" AND CUST_PHONENUMBER = ?");
-	        params.add(phone);
-	    }
+	public boolean resetPassword(String name, String email, String newPassword) {
+	    // 비밀번호 암호화
+	    String encryptedPassword = passwordEncoder.encode(newPassword);
 
-	    return jdbcTemplate.queryForList(sql.toString(), params.toArray(), String.class);
+	    // 비밀번호 업데이트 SQL 쿼리
+	    String sql = "UPDATE MEMBER SET CUST_PASSWORD = ? WHERE CUST_NAME = ? AND CUST_EMAIL = ?";
+
+	    // 쿼리 실행
+	    int rowsAffected = jdbcTemplate.update(sql, encryptedPassword, name, email);
+
+	    // 업데이트된 행의 수가 1 이상이면 성공, 그렇지 않으면 실패
+	    return rowsAffected > 0;
 	}
 	
 	

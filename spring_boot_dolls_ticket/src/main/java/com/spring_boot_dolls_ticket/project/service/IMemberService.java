@@ -11,5 +11,5 @@ public interface IMemberService {
 	public void insertMember(MemberVO vo);
 	public List<String> findId(String name, String email, String phone);
 	public boolean checkIdInDatabase(String id);
-	public List<String> findPwd(String name, String email, String phone); // 비밀번호 찾기
+	public boolean resetPassword(String name, String email, String newPassword);
 }  

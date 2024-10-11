@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -99,16 +100,30 @@ public class MemberController {
 	    return ResponseEntity.ok(foundIds);
 	}
 	
-	@ResponseBody
 	@RequestMapping("/member/findPwd")
-	public ResponseEntity<List<String>> findPwd(@RequestBody Map<String, String> data) {
+    public ResponseEntity<List<String>> findPwd(@RequestBody Map<String, String> data) {
+        String name = data.get("name");
+        String email = data.get("email");
+        String phone = data.get("phone");
+
+        List<String> foundIds = memService.findId(name, email, phone);
+        
+        // 찾은 아이디 리스트 반환
+        return ResponseEntity.ok(foundIds);
+    }
+	
+	@RequestMapping("/member/resetPassword")
+	public ResponseEntity<Void> resetPassword(@RequestBody Map<String, String> data) {
 	    String name = data.get("name");
 	    String email = data.get("email");
-	    String phone = data.get("phone");
+	    String newPassword = data.get("newPassword");
 
-	    List<String> foundIds = memService.findId(name, email, phone);
-	    
-	    return ResponseEntity.ok(foundIds);
+	    boolean success = memService.resetPassword(name, email, newPassword);
+	    if (success) {
+	        return ResponseEntity.ok().build(); // 성공적으로 비밀번호가 재설정됨
+	    } else {
+	        return ResponseEntity.status(HttpStatus.BAD_REQUEST).build(); // 실패 시
+	    }
 	}
 	
 	@RequestMapping("/member/searchPwd")

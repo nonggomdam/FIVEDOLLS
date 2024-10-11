@@ -34,22 +34,48 @@
 
         $.ajax({
             type: "POST",
-            url: "/member/findPwd",
+            url: "/member/findPwd",  // URL 경로 수정
             contentType: "application/json",
             data: JSON.stringify(data),
             success: function(foundIds) {
                 const resultContainer = document.getElementById("resultContainer");
                 resultContainer.innerHTML = ""; // 결과 초기화
-                
+
                 if (foundIds.length > 0) {
-                    const list = document.createElement("ul");
-                    foundIds.forEach(id => {
-                        const listItem = document.createElement("li");
-                        listItem.textContent = id;
-                        list.appendChild(listItem);
-                        
+                    // 아이디가 발견되면 비밀번호 재설정 입력란 보여주기
+                    const resetPasswordDiv = document.createElement("div");
+                    resetPasswordDiv.innerHTML = `
+                        <h3>새 비밀번호 입력</h3>
+                        <input type="password" id="newPassword" placeholder="새 비밀번호" required>
+                        <input type="password" id="confirmPassword" placeholder="비밀번호 확인" required>
+                        <button id="resetPasswordButton">비밀번호 재설정</button>
+                    `;
+                    resultContainer.appendChild(resetPasswordDiv);
+
+                    document.getElementById("resetPasswordButton").addEventListener("click", function() {
+                        const newPassword = document.getElementById("newPassword").value;
+                        const confirmPassword = document.getElementById("confirmPassword").value;
+
+                        if (newPassword === confirmPassword) {
+                            // 비밀번호 재설정 요청
+                            $.ajax({
+                                type: "POST",
+                                url: "/member/resetPassword",  // URL 경로 수정
+                                contentType: "application/json",
+                                data: JSON.stringify({ name, email, newPassword }),
+                                success: function() {
+                                    alert("비밀번호가 성공적으로 재설정되었습니다.");
+                                    resultContainer.innerHTML = ""; // 결과 초기화
+                                },
+                                error: function(xhr, status, error) {
+                                    console.error("Error:", error);
+                                    alert("비밀번호 재설정 중 오류가 발생했습니다.");
+                                }
+                            });
+                        } else {
+                            alert("비밀번호가 일치하지 않습니다.");
+                        }
                     });
-                    resultContainer.appendChild(list);
                 } else {
                     resultContainer.innerHTML = "<p>일치하는 아이디가 없습니다.</p>";
                 }
