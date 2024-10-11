@@ -6,7 +6,7 @@
             justify-content: space-between;
             align-items: center;
             background-color: #000000; /* 배경을 검은색으로 변경 */
-            height : 80px;
+            height : 100px;
             padding: 10px;
         }
         .navbar a {
