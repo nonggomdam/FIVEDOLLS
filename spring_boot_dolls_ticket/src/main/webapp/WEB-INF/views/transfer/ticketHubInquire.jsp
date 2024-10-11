@@ -83,7 +83,7 @@
 				</tr>		
 			</table>
 			
-			<c:if test="${nb.custId != sessionScope.userId}">
+			<c:if test="${nb.custId != sessionScope.sid}">
 			<div id="combine">
 				<div id="price">
 					<span class="total-price">최종 결제예정금액</span>
@@ -97,10 +97,10 @@
 							
 			
 					<div class="receiveBtn">
-						<c:if test="${sessionScope.userId == null }">
+						<c:if test="${sessionScope.sid == null }">
 							<span onclick="alert('로그인이 필요합니다.');return false;">양수하기</span>
 						</c:if> 
-						<c:if test="${sessionScope.userId != null }"> 
+						<c:if test="${sessionScope.sid != null }"> 
 							<span id="receiveBtn">양수하기</span>
 						</c:if>		
 					</div>

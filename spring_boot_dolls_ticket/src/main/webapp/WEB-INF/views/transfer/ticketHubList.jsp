@@ -25,10 +25,10 @@
 		</div>
 		
 		<div id="fillout">
-			<c:if test="${sessionScope.userId == null }">
+			<c:if test="${sessionScope.sid == null }">
 				<a onclick="alert('로그인이 필요합니다.')"><span>티켓 양도하기</span></a>
 			</c:if>
-			<c:if test="${sessionScope.userId != null }">
+			<c:if test="${sessionScope.sid != null }">
 				<a href="<c:url value='/transfer/regForm'/>"><span>티켓 양도하기</span></a>
 			</c:if>
 		</div>

@@ -36,7 +36,7 @@
 					<th><span class="back">양도인 ID</span></th>
 				</tr>
 				<tr>
-					<td style="border-bottom:1px solid lightgray"><div style="margin-top:-10px;"><span>${sessionScope.userId}</span></div></td>
+					<td style="border-bottom:1px solid lightgray"><div style="margin-top:-10px;"><span>${sessionScope.sid}</span></div></td>
 				</tr>
 				
 				<tr style="height:10px;">

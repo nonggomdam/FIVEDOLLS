@@ -27,20 +27,20 @@ public class TransferController {
 	
 	@RequestMapping("/transfer/login")
 	public String login(HttpSession session ) {
-		session.setAttribute("userId", "kingsMan");
+		session.setAttribute("sid", "kingsMan");
 		return "redirect:/transfer/list";
 	}
 	
 	@RequestMapping("/transfer/login2")
 	public String login2(HttpSession session) {
-		session.setAttribute("userId", "kingsGirl");
+		session.setAttribute("sid", "kingsGirl");
 		
 		return "redirect:/transfer/list";
 	}
 	
 	@RequestMapping("/transfer/login3")
 	public String login3(HttpSession session) {
-		session.setAttribute("userId", null);
+		session.setAttribute("sid", null);
 		
 		return "redirect:/transfer/list";
 	}
@@ -49,7 +49,7 @@ public class TransferController {
 	@RequestMapping("/transfer/regForm")
 	public String registerTransfer(HttpSession session, Model model) {
 		
-		String custId=(String)session.getAttribute("userId");
+		String custId=(String)session.getAttribute("sid");
 		
 		if(custId == null) {
 			model.addAttribute("msg", "로그인이 필요합니다.");
@@ -86,7 +86,7 @@ public class TransferController {
 								 @RequestParam("reservationNumber") String[] reservationNumber,
 								 Model model, HttpSession session) {
 		
-		String custId=(String)session.getAttribute("userId");
+		String custId=(String)session.getAttribute("sid");
 	
 		AssignmentNoticeBoardVO vo = new AssignmentNoticeBoardVO();
 		vo.setNoticeTitle(noticeTitle);
@@ -122,7 +122,7 @@ public class TransferController {
 									@RequestParam("noticeId") String noticeId,
 									@RequestParam("seatAndId") String[] values) {
 		
-		String receiveId=(String)session.getAttribute("userId");
+		String receiveId=(String)session.getAttribute("sid");
 		
 		AssignmentTicketVO ticketvo = new AssignmentTicketVO();
 		ticketvo.setNoticeId(noticeId); 
