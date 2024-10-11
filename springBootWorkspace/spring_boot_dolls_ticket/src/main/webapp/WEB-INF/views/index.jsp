@@ -14,15 +14,8 @@
 		<script src="<c:url value='/js/body.js'/>"></script>
 	</head>
 	<body>
-<<<<<<< Updated upstream
 		 	<c:import url="/WEB-INF/views/layout/body.jsp"/>
 		 	
-=======
-		<div id="wrap">
-			<a href="<c:url value='/admin'/>">admin</a><br>
-			<a href="<c:url value='/myPage'/>">mypage</a><br>
-			<a href="<c:url value='/performance/detailViewPerformance/${1}'/>">상세페이지</a><br>
->>>>>>> Stashed changes
 			<c:import url="/WEB-INF/views/layout/footer.jsp"/>
 	
 	</body>
