@@ -124,7 +124,7 @@ public class MemberController {
 	    } else {
 	        return ResponseEntity.status(HttpStatus.BAD_REQUEST).build(); // 실패 시
 	    }
-	} 
+	}  
 	
 	@RequestMapping("/member/searchPwd")
 	public String searchPwd() {

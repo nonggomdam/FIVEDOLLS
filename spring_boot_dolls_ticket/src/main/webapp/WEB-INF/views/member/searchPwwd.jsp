@@ -43,7 +43,7 @@
                     <input type="email" class="form-control" name="email" placeholder="이메일을 입력하세요." required="required">
                 </div>        	
             </div>
-
+ 
             <div class="form-group row" id="phoneGroup" style="display: none;">
                 <label class="col-form-label col-4">전화번호</label>
                 <div class="col-8">

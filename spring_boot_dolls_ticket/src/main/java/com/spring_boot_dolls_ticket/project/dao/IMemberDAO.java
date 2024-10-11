@@ -13,4 +13,4 @@ public interface IMemberDAO {
 	public boolean checkIdInDatabase(String id); // 아이디 찾기 전 아이디 확인
 	public boolean resetPassword(String name, String email, String newPassword);
 }  
- 
+  

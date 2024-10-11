@@ -24,7 +24,7 @@ window.onload = function(){
             },
             error: function() {
                 alert('서버 오류가 발생했습니다.'); // 오류 메시지
-            } 
+            }  
         });
     });
 };

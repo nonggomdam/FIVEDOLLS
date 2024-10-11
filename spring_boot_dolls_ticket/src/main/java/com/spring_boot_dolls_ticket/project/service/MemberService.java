@@ -105,7 +105,7 @@ public class MemberService implements IMemberService {
 	    // 비밀번호 업데이트 SQL 쿼리
 	    String sql = "UPDATE MEMBER SET CUST_PASSWORD = ? WHERE CUST_NAME = ? AND CUST_EMAIL = ?";
 
-	    // 쿼리 실행 
+	    // 쿼리 실행  
 	    int rowsAffected = jdbcTemplate.update(sql, encryptedPassword, name, email);
 
 	    // 업데이트된 행의 수가 1 이상이면 성공, 그렇지 않으면 실패
