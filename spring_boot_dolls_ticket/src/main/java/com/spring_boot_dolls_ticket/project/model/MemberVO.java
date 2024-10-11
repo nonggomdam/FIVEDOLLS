@@ -13,7 +13,7 @@ public class MemberVO {
 	private String custPhoneNumber;
 	private String custStatus;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date firstChangeDate;
+	private Date firstChangeDate;  
 	private Date lastChangeDate;
 	
 	public MemberVO() {}

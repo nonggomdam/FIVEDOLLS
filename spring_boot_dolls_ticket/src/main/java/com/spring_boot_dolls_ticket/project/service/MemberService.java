@@ -28,7 +28,7 @@ public class MemberService implements IMemberService {
 	private JdbcTemplate jdbcTemplate; 
 	// Spring에서 제공하는 데이터베이스 접근을 간소화하는 도구 SQL 쿼리 실행, 결과 매핑 등의 작업을 쉽게 처리할 수 있음
 	
-	@Transactional
+	@Transactional  
 	
 	@Override
 	public String loginCheck(HashMap<String, Object> map) {

@@ -12,4 +12,4 @@ public interface IMemberService {
 	public List<String> findId(String name, String email, String phone);
 	public boolean checkIdInDatabase(String id);
 	public List<String> findPwd(String name, String email, String phone); // 비밀번호 찾기
-}
+}  
