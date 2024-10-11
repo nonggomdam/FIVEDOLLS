@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.spring_boot_dolls_ticket.project.dao.IMemberDAO">
+
+	<!-- ID 중복 확인 -->
+	<select id="idCheck" resultType="string" parameterType="string">
+		SELECT CUST_ID FROM Member WHERE CUST_ID =#{id}
+	</select>
+	
+	<!-- 회원 등록 -->
+	<insert id="insertMember" parameterType="com.spring_boot_dolls_ticket.project.model.MemberVO">
+    	INSERT INTO Member(CUST_ID, CUST_PASSWORD, CUST_NAME, CUST_GENDER, CUST_EMAIL, CUST_PHONENUMBER)
+    	VALUES(#{custId}, #{custPassWord}, #{custName}, #{custGender}, #{custEmail}, #{custPhoneNumber})
+	</insert>
+	
+	<!-- 로그인 -->
+	<select id="loginCheck" parameterType="String" resultType="String">
+    SELECT CUST_PASSWORD FROM Member WHERE CUST_ID = #{id}
+	</select>
+	
+	<!-- 아이디 찾기 -->
+	<select id="findId" parameterType="map" resultType="java.util.List">
+    	SELECT CUST_ID FROM Member
+    	WHERE CUST_NAME = #{name}
+    	<if test="email != null and email != ''">
+        	AND CUST_EMAIL = #{email}
+    	</if>
+    	<if test="phone != null and phone != ''">
+        	AND CUST_PHONENUMBER = #{phone}
+    	</if>
+	</select>
+	
+	<!-- 비밀번호 찾기 전 아이디 확인 -->
+	<select id="checkIdInDatabase" parameterType="string" resultType="boolean">
+    SELECT COUNT(*) > 0 FROM member WHERE id = #{id}
+	</select>
+</mapper>	 
