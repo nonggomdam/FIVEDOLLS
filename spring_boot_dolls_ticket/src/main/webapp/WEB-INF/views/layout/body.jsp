@@ -16,11 +16,11 @@
 				<tr>
 					<td class="ranking">
 						<div class="info">
-							<a href="<c:url value='#'/>"><img src="<c:url value='/image/superjunior0001.PNG'/>">
+							<a href="<c:url value='/performance/detailViewPerformance/P0001'/>"><img src="<c:url value='/image/superjunior0001.PNG'/>">
 								<div class="textinfo">
 									<span>슈퍼주니어<br>
 										  <br>
-										  2024.11.14~2024.11.16<br>
+										  2024.11.14~2024.11.15<br>
 										  올림픽홀<br>
 										  <br>
 										  관람연령 15세이상<br>
