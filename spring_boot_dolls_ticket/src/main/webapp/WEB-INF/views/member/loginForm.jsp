@@ -32,8 +32,8 @@
       	<a href="/member/searchPwd">비밀번호 찾기</a>
       </div>
       <div id="social">
-      	<a href=""><img src= "../images/naverlogin.png"></a>
-      	<a href=""><img src= "../images/kakaologin.png"></a>
+      	<a href=""><img src= "../image/naverlogin.png"></a>
+      	<a href=""><img src= "../image/kakaologin.png"></a>
       </div>
       <div id=loginbox>
       	<button type="submit">로그인</button>

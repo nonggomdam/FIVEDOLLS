@@ -19,7 +19,7 @@
 			
 			<div style="width:20%; text-align: right;" class="member">
 				<c:if test="${empty sessionScope.sid }">			
-					<a href="<c:url value='/member/loginPage'/>">로그인</a>					
+					<a href="<c:url value='/member/loginForm'/>">로그인</a>					
 				</c:if>
 						
 				<c:if test="${not empty sessionScope.sid }">
