@@ -39,7 +39,7 @@
     SELECT COUNT(*) > 0 FROM member WHERE id = #{id}
 	</select>
 	
-	<update id="updatePassword" parameterType="map">
+	<update id="updatePassword" parameterType="map"> 
     UPDATE Member 
     SET CUST_PASSWORD = #{newPassword} 
     WHERE CUST_NAME = #{name} AND CUST_EMAIL = #{email}

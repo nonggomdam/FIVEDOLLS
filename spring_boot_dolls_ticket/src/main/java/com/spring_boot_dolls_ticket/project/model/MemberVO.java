@@ -15,7 +15,7 @@ public class MemberVO {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date firstChangeDate;  
 	private Date lastChangeDate;
-	
+	 
 	public MemberVO() {}
 
 	public String getCustId() {

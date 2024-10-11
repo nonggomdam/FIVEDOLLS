@@ -59,7 +59,7 @@
                         if (newPassword === confirmPassword) {
                             // 비밀번호 재설정 요청
                             $.ajax({
-                                type: "POST",
+                                type: "POST", 
                                 url: "/member/resetPassword",  // URL 경로 수정
                                 contentType: "application/json",
                                 data: JSON.stringify({ name, email, newPassword }),

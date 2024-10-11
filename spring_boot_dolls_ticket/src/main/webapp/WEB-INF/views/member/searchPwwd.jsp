@@ -50,7 +50,7 @@
                     <input type="tel" class="form-control" name="phone" placeholder="전화번호를 입력하세요." required="required">
                 </div>        	
             </div>
-
+ 
             <div class="form-group row">
                 <button type="submit" id="submit" class="btn-primary btn-lg">확인 후 비밀번호 재설정</button>
             </div>
