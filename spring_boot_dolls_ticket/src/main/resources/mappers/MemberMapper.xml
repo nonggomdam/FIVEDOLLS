@@ -4,7 +4,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="com.spring_boot.projectEx.DAO.IMemberDAO">
+<mapper namespace="com.spring_boot_dolls_ticket.project.dao.IMemberDAO">
 
 	<!-- ID 중복 확인 -->
 	<select id="idCheck" resultType="string" parameterType="string">
@@ -12,7 +12,7 @@
 	</select>
 	
 	<!-- 회원 등록 -->
-	<insert id="insertMember" parameterType="com.spring_boot.projectEx.Model.MemberVO">
+	<insert id="insertMember" parameterType="com.spring_boot_dolls_ticket.project.model.MemberVO">
     	INSERT INTO Member(CUST_ID, CUST_PASSWORD, CUST_NAME, CUST_GENDER, CUST_EMAIL, CUST_PHONENUMBER)
     	VALUES(#{custId}, #{custPassWord}, #{custName}, #{custGender}, #{custEmail}, #{custPhoneNumber})
 	</insert>
