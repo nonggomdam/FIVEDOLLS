@@ -4,22 +4,17 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 ICartDAO.java
-IMemberDAO.java
 IProductDAO.java
 CartVO.java
-MemberVO.java
 OrderInfoVO.java
 OrderProductVO.java
 ProductVO.java
 CartService.java
 ICartService.java
-IMemberService.java
 IProductService.java
-MemberService.java
 ProductService.java
 WebSecurityConfig.java
 CartMapper.xml
-MemberMapper.xml
 ProductMapper.xml
 
 ### STS ###
