@@ -20,7 +20,7 @@
 								<div class="textinfo">
 									<span>슈퍼주니어<br>
 										  <br>
-										  2024.09.26~2024.09.27<br>
+										  2024.11.14~2024.11.16<br>
 										  올림픽홀<br>
 										  <br>
 										  관람연령 15세이상<br>
@@ -35,7 +35,7 @@
 								<div class="textinfo">
 									<span>랑랑<br>
 										  <br>
-										  2024.09.26~2024.09.27<br>
+										  2024.11.16~2024.11.18<br>
 										  올림픽홀<br>
 										  <br>
 										  관람연령 15세이상<br>
@@ -50,7 +50,7 @@
 								<div class="textinfo">
 									<span>neo<br>
 										  <br>
-										  2024.09.26~2024.09.27<br>
+										  2024.11.18~2024.11.20<br>
 										  올림픽홀<br>
 										  <br>
 										  관람연령 15세이상<br>
@@ -65,7 +65,7 @@
 								<div class="textinfo">
 									<span>OneRepublic<br>
 										  <br>
-										  2024.09.26~2024.09.27<br>
+										  2024.11.20~2024.11.22<br>
 										  올림픽홀<br>
 										  <br>
 										  관람연령 15세이상<br>
@@ -83,7 +83,7 @@
 								<div class="textinfo">
 									<span>영탁<br>
 										  <br>
-										  2024.09.26~2024.09.27<br>
+										  2024.12.01~2024.12.03<br>
 										  올림픽홀<br>
 										  <br>
 										  관람연령 15세이상<br>
@@ -94,11 +94,11 @@
 					</td>
 					<td class="ranking">
 						<div class="info">				
-							<a href="<c:url value='#'/>"><img src="<c:url value='/image/jyp0006.PNG'/>">
+							<a href="<c:url value='#'/>"><img src="<c:url value='/image/jukjae0006.PNG'/>">
 								<div class="textinfo">
-									<span>JYP<br>
+									<span>적재<br>
 										  <br>
-										  2024.09.26~2024.09.27<br>
+										  2024.12.03~2024.12.05<br>
 										  올림픽홀<br>
 										  <br>
 										  관람연령 15세이상<br>
@@ -113,7 +113,7 @@
 								<div class="textinfo">
 									<span>David<br>
 										  <br>
-										  2024.09.26~2024.09.27<br>
+										  2024.12.05~2024.12.07<br>
 										  올림픽홀<br>
 										  <br>
 										  관람연령 15세이상<br>
@@ -128,7 +128,7 @@
 								<div class="textinfo">
 									<span>waves<br>
 										  <br>
-										  2024.09.26~2024.09.27<br>
+										  2024.12.07~2024.12.10<br>
 										  올림픽홀<br>
 										  <br>
 										  관람연령 15세이상<br>
@@ -148,9 +148,9 @@
 					<div class="info">
 						<a href="<c:url value='#'/>"><img src="<c:url value='/image/aladdin0009.PNG'/>">
 							<div class="textinfo">
-								<span>뮤지컬 알라딘<br>
+								<span>알라딘<br>
 									  <br>
-									  2024.09.26~2024.09.27<br>
+									  2024.12.11~2024.12.13<br>
 									  올림픽홀<br>
 									  <br>
 									  관람연령 15세이상<br>
@@ -165,7 +165,7 @@
 							<div class="textinfo">
 								<span>쿠로이 저택엔 누가 살고 있을까?<br>
 									  <br>	
-									  2024.09.26~2024.09.27<br>
+									  2024.12.13~2024.12.15<br>
 									  올림픽홀<br>
 									  <br>
 									  관람연령 15세이상<br>
@@ -180,7 +180,7 @@
 							<div class="textinfo">
 								<span>젠틀맨'스 가이드<br>
 								      <br>
-									  2024.09.26~2024.09.27<br>
+									  2024.12.15~2024.12.17<br>
 									  올림픽홀<br>
 									  <br>
 									  관람연령 15세이상<br>
@@ -195,7 +195,7 @@
 							<div class="textinfo">
 								<span>ETERNITY<br>
 									  <br>
-									  2024.09.26~2024.09.27<br>
+									  2024.12.18~2024.12.20<br>
 									  올림픽홀<br>
 									  <br>
 									  관람연령 15세이상<br>
@@ -213,7 +213,7 @@
 							<div class="textinfo">
 								<span>긴긴밤<br>
 									  <br>
-									  2024.09.26~2024.09.27<br>
+									  2024.12.20~2024.12.22<br>
 									  올림픽홀<br>
 									  <br>
 									  관람연령 15세이상<br>
@@ -228,7 +228,7 @@
 							<div class="textinfo">
 								<span>스윙 데이즈_암호명 A<br>
 									  <br>
-									  2024.09.26~2024.09.27<br>
+									  2024.12.22~2024.12.24<br>
 									  올림픽홀<br>
 									  <br>
 									  관람연령 15세이상<br>
@@ -243,7 +243,7 @@
 							<div class="textinfo">
 								<span>하데스타운<br>
 									  <br>
-									  2024.09.26~2024.09.27<br>
+									  2024.12.24~2024.12.26<br>
 									  올림픽홀<br>
 									  <br>
 									  관람연령 15세이상<br>
@@ -258,7 +258,7 @@
 							<div class="textinfo">
 								<span>Kinky Boots<br>
 									  <br>
-									  2024.09.26~2024.09.27<br>
+									  2024.12.26~2024.12.28<br>
 									  올림픽홀<br>
 									  <br>
 									  관람연령 15세이상<br>
@@ -281,7 +281,7 @@
 							<a href="<c:url value='#'/>"><img src="<c:url value='/image/christmas0017.PNG'/>">
 								<div class="textcoming">
 									<span>
-										2024.10.01(화) 13:00 OPEN<br>								
+										2024.11.14(목) 18:00 OPEN<br>								
 									</span>
 								</div>
 							</a>
@@ -292,7 +292,7 @@
 							<a href="<c:url value='#'/>"><img src="<c:url value='/image/dualipa0018.PNG'/>">
 								<div class="textcoming">
 									<span>
-										2024.10.02(수) 17:00 OPEN<br>								
+										2024.11.16(토) 17:00 OPEN<br>								
 									</span>
 								</div>
 							</a>
@@ -303,7 +303,7 @@
 							<a href="<c:url value='#'/>"><img src="<c:url value='/image/god0019.PNG'/>">
 								<div class="textcoming">
 									<span>
-										2024.10.03(목) 20:00 OPEN<br>								
+										2024.11.17(일) 20:00 OPEN<br>								
 									</span>
 								</div>
 							</a>
@@ -314,7 +314,7 @@
 							<a href="<c:url value='#'/>"><img src="<c:url value='/image/growth0020.PNG'/>">
 								<div class="textcoming">
 									<span>
-										2024.10.04(금) 18:00 OPEN<br>								
+										2024.11.22(금) 18:00 OPEN<br>								
 									</span>
 								</div>
 							</a>
@@ -328,7 +328,7 @@
 							<a href="<c:url value='#'/>"><img src="<c:url value='/image/laundry0021.PNG'/>">
 								<div class="textcoming">
 									<span>
-										2024.10.05(토) 14:00 OPEN<br>								
+										2024.11.30(토) 14:00 OPEN<br>								
 									</span>
 								</div>
 							</a>
@@ -339,7 +339,7 @@
 							<a href="<c:url value='#'/>"><img src="<c:url value='/image/leemoonsae0022.PNG'/>">
 								<div class="textcoming">
 									<span>
-										2024.10.06(일) 20:00 OPEN<br>								
+										2024.12.07(토) 20:00 OPEN<br>								
 									</span>
 								</div>
 							</a>
@@ -350,7 +350,7 @@
 							<a href="<c:url value='#'/>"><img src="<c:url value='/image/santa0023.PNG'/>">
 								<div class="textcoming">
 									<span>
-										2024.12.01(일) 17:00 OPEN<br>								
+										2024.12.21(토) 17:00 OPEN<br>								
 									</span>
 								</div>
 							</a>
@@ -361,7 +361,7 @@
 							<a href="<c:url value='#'/>"><img src="<c:url value='/image/urban0024.PNG'/>">
 								<div class="textcoming">
 									<span>
-										2024.12.02(월) 13:00 OPEN<br>								
+										2024.12.23(월) 13:00 OPEN<br>								
 									</span>
 								</div>
 							</a>
