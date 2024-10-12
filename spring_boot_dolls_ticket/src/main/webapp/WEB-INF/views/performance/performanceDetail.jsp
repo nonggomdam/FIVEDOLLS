@@ -8,7 +8,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>상세페이지</title>
+<c:import url="/WEB-INF/views/layout/top.jsp"/>
+<c:import url="/WEB-INF/views/layout/head.jsp"/>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/performanceDetail.css'/>">
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/footer.css'/>">
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/font5.css'/>">
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1df0943899c83997c7b907c959ed39c1"></script>
 <script src="<c:url value='/js/ticketOpen.js'/>"></script>
 </head>
@@ -144,5 +148,6 @@
 			</div>
 		</div>
 	</div>
+	<c:import url="/WEB-INF/views/layout/footer.jsp"/>
 </body>
 </html>
