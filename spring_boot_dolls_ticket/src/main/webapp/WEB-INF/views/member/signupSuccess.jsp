@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="/css/signup_Success.css" rel="stylesheet" type="text/css">
+<link href="/css/font3.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <div id="logo">

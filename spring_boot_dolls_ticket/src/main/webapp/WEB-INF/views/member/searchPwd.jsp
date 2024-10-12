@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>비밀번호 찾기</title>
 <link href="/css/searchPwd.css" rel="stylesheet" type="text/css">
+<link href="/css/font3.css" rel="stylesheet" type="text/css">
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="/js/findPwd.js"></script>
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
