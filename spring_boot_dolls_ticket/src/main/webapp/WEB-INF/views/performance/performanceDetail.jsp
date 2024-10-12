@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,11 +50,11 @@
 						<dt>장소</dt>
 						<dd>&nbsp;${pfm.performanceDetailAddress}</dd>
 						<dt>가격</dt>
-						<dd id=numberDisplay>&nbsp;R석 ${pfm.performancePriceR}원</dd>
-						<dd>&nbsp;S석 ${pfm.performancePriceS}원</dd>
+						<dd>&nbsp;R석 <fmt:formatNumber value="${pfm.performancePriceR}" pattern="###,###"/>원</dd>
+						<dd>&nbsp;S석 <fmt:formatNumber value="${pfm.performancePriceS}" pattern="###,###"/>원</dd>
 						<dt>공연시간</dt>
-						<dd id=dateDisplay>&nbsp;${pfm.performanceDate}</dd>
-						<dd>&nbsp;${pfm.performanceDate2}</dd>
+						<dd>&nbsp;<fmt:formatDate value="${pfm.performanceDate}" pattern="YYYY년 MM월 dd일(E) a h시"/></dd>
+						<dd>&nbsp;<fmt:formatDate value="${pfm.performanceDate2}" pattern="YYYY년 MM월 dd일(E) a h시"/></dd>
 					</dl>
 					<button id="ticketOpenBtn" disabled></button>
 				</div>
@@ -70,7 +71,8 @@
 				<p>※ 본 공연은 할인쿠폰이벤트 대상에서 제외됩니다.</p>
 				<p>※ 불법적인 경로 혹은 불법적인 시스템을 통해 티켓을 구매할 경우 법적 제재를 받을 수 있습니다.</p>
 				<p class="dt05-tit">공연정보</p>
-				<p>공연일시: ${pfm.performanceDate}, ${pfm.performanceDate2}</p>
+				<p>공연일시: <fmt:formatDate value="${pfm.performanceDate}" pattern="YYYY년 MM월 dd일(E) a h시"/>,
+				<fmt:formatDate value="${pfm.performanceDate2}" pattern="YYYY년 MM월 dd일(E) a h시"/></p>
 				<p>예매가능시간: 공연시작 3시간 전까지</p>
 				<p class="dt05-tit">장소안내</p>
 					<div id="map"></div>
@@ -108,7 +110,8 @@
 								</tr>
 								<tr>
 									<th scope="row" class="dt05-tbl-tit2">유효기간</th>
-									<td colspan="3">${pfm.performanceDate}, ${pfm.performanceDate2} 예매한 공연 날짜, 회차에 한해 이용가능</td>
+									<td colspan="3"><fmt:formatDate value="${pfm.performanceDate}" pattern="YYYY년 MM월 dd일(E) a h시"/>,
+													<fmt:formatDate value="${pfm.performanceDate2}" pattern="YYYY년 MM월 dd일(E) a h시"/> 예매한 공연 날짜, 회차에 한해 이용가능</td>
 								<tr>
 									<th scope="row" class="dt05-tbl-tit2">취소/환불방법</th>
 									<td colspan="3">
