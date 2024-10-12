@@ -14,16 +14,20 @@ public class PerformanceService implements IPerformanceService {
 	@Qualifier("IPerformanceDAO")
 	IPerformanceDAO dao;
 	
-	@Override
+
 	public PerformanceVO detailViewPerformance(String performanceId) {
 		// TODO Auto-generated method stub
 		return dao.detailViewPerformance(performanceId);
 	}
 
+
 	@Override
-	public PerformanceVO getLatestEvent() {
+	public PerformanceVO getEventById(String performanceId) {
 		// TODO Auto-generated method stub
-		return dao.getLatestEvent();
+		return dao.getEventById(performanceId);
 	}
+
+
+
 
 }

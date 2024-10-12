@@ -5,10 +5,11 @@
  document.addEventListener('DOMContentLoaded', () => {
     
  	const ticketOpenBtn = document.getElementById('ticketOpenBtn');
-
+	const performanceId = document.getElementById('performanceId').value; 
+    
  	// 이벤트 상태를 확인하는 함수
      function checkEventStatus() {
-        fetch('/api/check-event')
+        fetch(`/api/check-event?performanceId=${performanceId}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('네트워크 응답에 문제가 있습니다.');
@@ -80,6 +81,8 @@
 	
 //------------------------------------------------------------------------------------------------------
 
+
     
  });
+ 
  

@@ -21,21 +21,12 @@
          , PERFORMANCE_DATE2 as performanceDate2
         FROM PERFORMANCE_INFO_M WHERE PERFORMANCE_ID=#{performanceId}    
 	</select>
+	
+	<select id="getEventById" resultType="com.spring_boot_dolls_ticket.project.model.PerformanceVO" parameterType="string">
+    SELECT RESERVATION_OPEN_EXPECTED_DATE as reservationOpenExpectedDate
+    FROM PERFORMANCE_INFO_M
+    WHERE PERFORMANCE_ID = #{performanceId}
+</select>
 
-	<select id="getLatestEvent" resultType="com.spring_boot_dolls_ticket.project.model.PerformanceVO">
-        SELECT PERFORMANCE_ID as performanceId
-         , PERFORMANCE_KIND_CD as performanceKindCd
-         , PERFORMANCE_RATING_CODE as performanceRatingCode
-         , PERFORMANCE_NAME as performanceName
-         , PERFORMANCE_PRICE_R as performancePriceR
-         , PERFORMANCE_ZIPCODE as performanceZipcode
-         , PERFORMANCE_ADDRESS as performanceAddress
-         , PERFORMANCE_DETAILADDRESS as performanceDetailAddress
-         , PERFORMANCE_DATE as performanceDate
-         , RESERVATION_OPEN_EXPECTED_DATE as reservationOpenExpectedDate
-         , PERFORMANCE_TIME as performanceTime
-         , PERFORMANCE_PRICE_S as performancePriceS
-         , PERFORMANCE_DATE2 as performanceDate2
-        FROM PERFORMANCE_INFO_M ORDER BY PERFORMANCE_ID FETCH FIRST 1 ROWS ONLY
-    </select>
+
 </mapper>
