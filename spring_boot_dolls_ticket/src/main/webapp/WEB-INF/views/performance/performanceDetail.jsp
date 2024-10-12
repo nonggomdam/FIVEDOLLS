@@ -140,7 +140,14 @@
 							<div class="writerBox">
 								<span class="writerId">xhaht***</span>
 								<span class="writeDate">2024.10.11</span>
-								<span class="reviewGrade"></span>
+								<span class="reviewGrade">
+								<img src="<c:url value='/image/icons8-star-16.PNG'/>">
+								<img src="<c:url value='/image/icons8-star-16.PNG'/>">
+								<img src="<c:url value='/image/icons8-star-16.PNG'/>">
+								<img src="<c:url value='/image/icons8-star-16.PNG'/>">
+								<img src="<c:url value='/image/icons8-star-16.PNG'/>">
+								</span>
+								<div class="reviewText">새로운 시즌! 새로운 배우님들의 조합이 좋았습니다 재미있게 관람했어요 개인적으로 경수베를렌느가 좋았습니다~ 감정선이 와닿았어요</div>
 							</div>
 						</li>
 					</ul>

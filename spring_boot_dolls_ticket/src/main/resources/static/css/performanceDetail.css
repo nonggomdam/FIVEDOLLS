@@ -264,6 +264,13 @@ a {
 li {
     list-style: none;
 }
+.review li {
+    max-height: 280px;
+    padding-bottom: 19px;
+    border-bottom: 1px solid #ddd;
+    overflow: hidden;
+    position: relative;
+}
 .review li .writerBox {
     width: 100%;
     height: 40px;
@@ -277,7 +284,7 @@ li {
     height: 20px;
     line-height: 20px;
     color: #333;
-    font-size: 13px;
+    font-size: 14px;
 }
 .review li .writerBox span {
     display: inline-block;
@@ -288,7 +295,7 @@ li {
     height: 20px;
     line-height: 20px;
     color: #333;
-    font-size: 13px;
+    font-size: 14px;
     padding-left: 18px;
     margin-right: 17px;
     letter-spacing: 0.05em;
@@ -296,4 +303,13 @@ li {
 .review li .writerBox .reviewGrade {
     top: 20px;
     margin-right: 15px;
+}
+.review li .writerBox .reviewGrade img {
+    display: inline-block;
+    margin-right: 3px;
+}
+.review li .reviewText {
+    font-size: 13px;
+    line-height: 22px;
+    color: #666;
 }
