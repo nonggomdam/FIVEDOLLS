@@ -22,6 +22,9 @@
  font-weight: 300; /*이미 위에서 3Regular 이렇게 정해져서 font-weight 의미 없음*/
  font-style: normal;
 }
+
+*{margin:0 auto;}
+
 .detailPage-wrap {
     width: 1300px;
     margin: 0 auto;
@@ -40,22 +43,21 @@
     color: #333;
     padding-right: 9px;
     margin-right: 4px;
-    font-family: 'TheJamsil2Light', sans-serif;
-    
+    font-family: 'TheJamsil2Light', sans-serif; 
 }
 
 .dt-02 {
-    margin-top: 16px;
+    margin-top: 20px;
     padding-left: 50px;
     position: relative;
     border-bottom: 2px solid #333;
 }
 .dt-02 .dt-title {
+	margin-bottom: 30px;
     word-break: break-all;
     font-size: 35px;
     color: #333;
-    line-height: 40px;
-    font-weight: bold;
+    line-height: 50px;
     letter-spacing: -0.003em;
     font-family: 'TheJamsil5Bold', sans-serif;
 }
@@ -74,7 +76,7 @@
 
 .dt-03 {
     margin-left: 40px;
-    margin-top: 40px;
+    margin-top: 50px;
     overflow: hidden;
     padding-bottom: 50px;
     position: relative;
@@ -189,7 +191,7 @@ a {
 }
 
 .dt-05 .dt05-tit {
-    padding-top: 25px;
+    padding-top: 35px;
     font-size: 30px;
     color: #333;
     padding-bottom: 30px;
@@ -198,6 +200,8 @@ a {
 }
 
 .dt-05 p {
+	padding-top: 10px;
+	padding-bottom: 10px;
 	text-align: center;
 	font-family: 'TheJamsil2Light', sans-serif;
 }
