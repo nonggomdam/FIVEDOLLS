@@ -12,8 +12,8 @@
 			</div>
 	        <!-- Center: Musical and Concert Categories -->
 	        <div style="width:60%; text-align: center;" class="categories">
-	            <a href="/performance/musicalDetailPage">뮤지컬</a>
-	            <a href="/performance/consertDetailPage">콘서트</a>
+	            <a href="<c:url value='/performance/musical'/>">뮤지컬</a>
+	            <a href="<c:url value='/performance/concert'/>">콘서트</a>
 	            <a href="<c:url value='/transfer/list'/>">양도하기</a>
 	        </div>
 	        

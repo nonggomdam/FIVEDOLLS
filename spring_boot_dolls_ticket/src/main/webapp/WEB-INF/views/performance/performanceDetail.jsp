@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>상세페이지</title>
+<title>detail Page</title>
 <c:import url="/WEB-INF/views/layout/top.jsp"/>
 <c:import url="/WEB-INF/views/layout/head.jsp"/>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/performanceDetail.css'/>">

@@ -37,4 +37,17 @@ public class HomeController {
 		
 	}
 	
+	@RequestMapping("/performance/musical")
+	public String musical() {
+		
+		return "performance/musical";
+		
+	}
+	
+	@RequestMapping("/performance/concert")
+	public String concert() {
+		
+		return "performance/concert";
+		
+	}
 }
