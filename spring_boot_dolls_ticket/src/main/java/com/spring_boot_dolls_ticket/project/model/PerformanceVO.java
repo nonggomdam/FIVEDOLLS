@@ -17,8 +17,8 @@ public class PerformanceVO {
 	private Date performanceDate;
 	private Date reservationOpenExpectedDate;
 	private String performanceImagePath;
-	private Date firstChanceDate;
-	private Date lastChanceDate;
+	private Date firstChangeDate;
+	private Date lastChangeDate;
 	private int performanceTime;
 	private int performancePriceS;
 	private Date performanceDate2;
@@ -89,17 +89,17 @@ public class PerformanceVO {
 	public void setPerformanceImagePath(String performanceImagePath) {
 		this.performanceImagePath = performanceImagePath;
 	}
-	public Date getFirstChanceDate() {
-		return firstChanceDate;
+	public Date getFirstChangeDate() {
+		return firstChangeDate;
 	}
-	public void setFirstChanceDate(Date firstChanceDate) {
-		this.firstChanceDate = firstChanceDate;
+	public void setFirstChangeDate(Date firstChangeDate) {
+		this.firstChangeDate = firstChangeDate;
 	}
-	public Date getLastChanceDate() {
-		return lastChanceDate;
+	public Date getLastChangeDate() {
+		return lastChangeDate;
 	}
-	public void setLastChanceDate(Date lastChanceDate) {
-		this.lastChanceDate = lastChanceDate;
+	public void setLastChangeDate(Date lastChangeDate) {
+		this.lastChangeDate = lastChangeDate;
 	}
 	public int getPerformanceTime() {
 		return performanceTime;
