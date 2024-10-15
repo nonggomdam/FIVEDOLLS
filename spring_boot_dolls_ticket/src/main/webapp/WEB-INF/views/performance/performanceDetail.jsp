@@ -79,8 +79,8 @@
 				<p>※ 매수제한 : 1인 4매</p>
 				<p>※ 본 공연은 할인쿠폰이벤트 대상에서 제외됩니다.</p>
 				<p>※ 불법적인 경로 혹은 불법적인 시스템을 통해 티켓을 구매할 경우 법적 제재를 받을 수 있습니다.</p>
-				<p class="dt05-tit">공연정보</p>
-				<img src="<c:url value='${pfm.performanceInformationImagePath}'/>">
+				<p class="dt05-tit">공연정보<br><br>
+				<img src="<c:url value='${pfm.performanceInformationImagePath}'/>"></p>	
 				<%-- <p>공연일시: <fmt:formatDate value="${pfm.performanceDate1}" pattern="YYYY년 MM월 dd일(E) a h시"/>,
 				<fmt:formatDate value="${pfm.performanceDate2}" pattern="YYYY년 MM월 dd일(E) a h시"/></p>
 				<p>예매가능시간: 공연시작 3시간 전까지</p> --%>
@@ -140,6 +140,14 @@
 					</div>
 				</div>
 				<p class="dt05-tit">관람후기</p>
+				<div class="write">
+					<c:if test="${sessionScope.sid == null}">
+						<a onclick="alert('로그인이 필요합니다.')"><span>후기 작성하기</span></a>
+					</c:if>
+					<c:if test="${sessionScope.sid != null}">
+						<a href="<c:url value='#'/>"><span>후기 작성하기</span></a>
+					</c:if>
+				</div>
 				<div class="rev-container">
 					<ul class="review">
 						<li>

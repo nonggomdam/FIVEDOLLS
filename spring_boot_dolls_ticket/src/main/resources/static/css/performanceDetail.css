@@ -181,8 +181,7 @@ a {
 
 .dt-05 {
     padding-top: 50px;
-    padding-bottom: 70px;
-    text-align: center;
+    padding-bottom: 70px; 
 }
 
 #map {
@@ -311,7 +310,30 @@ li {
     margin-right: 3px;
 }
 .review li .reviewText {
+	padding-top:20px;
     font-size: 13px;
     line-height: 22px;
     color: #666;
+}
+
+#write {
+	display: block;
+    position: absolute;
+    right: 0;
+    top: 17px;
+	cursor:pointer;
+}
+
+#write a {
+	text-decoration:none;
+}
+
+#write span {
+	font-size:25px;
+	font-weight:bold;
+	border:2px solid #20B2AA;
+	border-radius:5px;
+	background-color:white;
+	color:#20B2AA;
+	padding:10px;
 }
