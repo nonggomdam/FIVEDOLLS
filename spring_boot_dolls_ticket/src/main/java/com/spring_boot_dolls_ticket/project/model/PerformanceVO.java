@@ -2,8 +2,6 @@ package com.spring_boot_dolls_ticket.project.model;
 
 import java.util.Date;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 public class PerformanceVO {
 	
 	private String performanceId;
@@ -14,9 +12,10 @@ public class PerformanceVO {
 	private String performanceZipcode;
 	private String performanceAddress;
 	private String performanceDetailAddress;
-	private Date performanceDate;
+	private Date performanceDate1;
 	private Date reservationOpenExpectedDate;
 	private String performanceImagePath;
+	private String performanceInformationImagePath;
 	private Date firstChangeDate;
 	private Date lastChangeDate;
 	private int performanceTime;
@@ -71,11 +70,11 @@ public class PerformanceVO {
 	public void setPerformanceDetailAddress(String performanceDetailAddress) {
 		this.performanceDetailAddress = performanceDetailAddress;
 	}
-	public Date getPerformanceDate() {
-		return performanceDate;
+	public Date getPerformanceDate1() {
+		return performanceDate1;
 	}
-	public void setPerformanceDate(Date performanceDate) {
-		this.performanceDate = performanceDate;
+	public void setPerformanceDate1(Date performanceDate1) {
+		this.performanceDate1 = performanceDate1;
 	}
 	public Date getReservationOpenExpectedDate() {
 		return reservationOpenExpectedDate;
@@ -118,6 +117,12 @@ public class PerformanceVO {
 	}
 	public void setPerformanceDate2(Date performanceDate2) {
 		this.performanceDate2 = performanceDate2;
+	}
+	public String getPerformanceInformationImagePath() {
+		return performanceInformationImagePath;
+	}
+	public void setPerformanceInformationImagePath(String performanceInformationImagePath) {
+		this.performanceInformationImagePath = performanceInformationImagePath;
 	}
 	
 	

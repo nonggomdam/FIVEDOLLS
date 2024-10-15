@@ -1,25 +1,25 @@
 @font-face {
    font-family: 'TheJamsil2Light';
    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil2Light.woff2') format('woff2');
-   font-weight: 200; /*ÀÌ¹Ì À§¿¡¼­ 2Light ÀÌ·¸°Ô Á¤ÇØÁ®¼­ font-weight ÀÇ¹Ì ¾øÀ½*/
+   font-weight: 200; /*ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 2Light ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ font-weight ï¿½Ç¹ï¿½ ï¿½ï¿½ï¿½ï¿½*/
    font-style: normal;
 }
 @font-face {
    font-family: 'TheJamsil4Medium';
    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil4Medium.woff2') format('woff2');
-   font-weight: 400; /*ÀÌ¹Ì À§¿¡¼­ 4Medium ÀÌ·¸°Ô Á¤ÇØÁ®¼­ font-weight ÀÇ¹Ì ¾øÀ½*/
+   font-weight: 400; /*ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 4Medium ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ font-weight ï¿½Ç¹ï¿½ ï¿½ï¿½ï¿½ï¿½*/
    font-style: normal;
 }
 @font-face {
    font-family: 'TheJamsil5Bold';
    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
-   font-weight: 500; /*ÀÌ¹Ì À§¿¡¼­ 5Bold ÀÌ·¸°Ô Á¤ÇØÁ®¼­ font-weight ÀÇ¹Ì ¾øÀ½*/
+   font-weight: 500; /*ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 5Bold ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ font-weight ï¿½Ç¹ï¿½ ï¿½ï¿½ï¿½ï¿½*/
    font-style: normal;
 }
 @font-face {
  font-family: 'TheJamsil3Regular';
  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil3Regular.woff2') format('woff2');
- font-weight: 300; /*ÀÌ¹Ì À§¿¡¼­ 3Regular ÀÌ·¸°Ô Á¤ÇØÁ®¼­ font-weight ÀÇ¹Ì ¾øÀ½*/
+ font-weight: 300; /*ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 3Regular ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ font-weight ï¿½Ç¹ï¿½ ï¿½ï¿½ï¿½ï¿½*/
  font-style: normal;
 }
 
@@ -182,6 +182,7 @@ a {
 .dt-05 {
     padding-top: 50px;
     padding-bottom: 70px;
+    text-align: center;
 }
 
 #map {
@@ -205,6 +206,7 @@ a {
 	text-align: center;
 	font-family: 'TheJamsil2Light', sans-serif;
 }
+
 .dt-05 div .dt05-tbl {
     border-top: 1px solid #333;
     width: 960px;
