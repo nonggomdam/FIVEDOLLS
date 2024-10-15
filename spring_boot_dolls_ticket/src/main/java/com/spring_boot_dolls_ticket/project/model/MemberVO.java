@@ -9,11 +9,17 @@ public class MemberVO {
 	private String custPassWord;
 	private String custName;
 	private String custGender;
+	private String administratorYN;
+	private String custResidentNumber;
 	private String custEmail;
 	private String custPhoneNumber;
+	private String custZipcode;
+	private String custAddress;
+	private String custDetailAddress;
 	private String custStatus;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date firstChangeDate;  
+	private Date firstChangeDate;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date lastChangeDate;
 	  
 	public MemberVO() {}
@@ -50,6 +56,22 @@ public class MemberVO {
 		this.custGender = custGender;
 	}
 
+	public String getAdministratorYN() {
+		return administratorYN;
+	}
+
+	public void setAdministratorYN(String administratorYN) {
+		this.administratorYN = administratorYN;
+	}
+
+	public String getCustResidentNumber() {
+		return custResidentNumber;
+	}
+
+	public void setCustResidentNumber(String custResidentNumber) {
+		this.custResidentNumber = custResidentNumber;
+	}
+
 	public String getCustEmail() {
 		return custEmail;
 	}
@@ -64,6 +86,30 @@ public class MemberVO {
 
 	public void setCustPhoneNumber(String custPhoneNumber) {
 		this.custPhoneNumber = custPhoneNumber;
+	}
+
+	public String getCustZipcode() {
+		return custZipcode;
+	}
+
+	public void setCustZipcode(String custZipcode) {
+		this.custZipcode = custZipcode;
+	}
+
+	public String getCustAddress() {
+		return custAddress;
+	}
+
+	public void setCustAddress(String custAddress) {
+		this.custAddress = custAddress;
+	}
+
+	public String getCustDetailAddress() {
+		return custDetailAddress;
+	}
+
+	public void setCustDetailAddress(String custDetailAddress) {
+		this.custDetailAddress = custDetailAddress;
 	}
 
 	public String getCustStatus() {
@@ -89,6 +135,5 @@ public class MemberVO {
 	public void setLastChangeDate(Date lastChangeDate) {
 		this.lastChangeDate = lastChangeDate;
 	}
-
 	
 }
