@@ -14,13 +14,11 @@
          , PERFORMANCE_ZIPCODE as performanceZipcode
          , PERFORMANCE_ADDRESS as performanceAddress
          , PERFORMANCE_DETAILADDRESS as performanceDetailAddress
-         , PERFORMANCE_DATE1 as performanceDate1
+         , PERFORMANCE_DATE as performanceDate
          , RESERVATION_OPEN_EXPECTED_DATE as reservationOpenExpectedDate
          , PERFORMANCE_TIME as performanceTime
          , PERFORMANCE_PRICE_S as performancePriceS
          , PERFORMANCE_DATE2 as performanceDate2
-         , PERFORMANCE_IMAGE_PATH as performanceImagePath
-         , PERFORMANCE_INFORMATION_IMAGE_PATH as performanceInformationImagePath
         FROM PERFORMANCE_INFO_M WHERE PERFORMANCE_ID=#{performanceId}    
 	</select>
 	
@@ -29,24 +27,24 @@
 	    FROM PERFORMANCE_INFO_M
 	    WHERE PERFORMANCE_ID = #{performanceId}
 	</select>
-	
 	<resultMap id="performanceResult" type="com.spring_boot_dolls_ticket.project.model.PerformanceVO">
 		<result property="performanceId" column="PERFORMANCE_ID"></result>
 		<result property="performanceKindCd" column="PERFORMANCE_KIND_CD"></result>
 		<result property="performanceRatingCode" column="PERFORMANCE_RATING_CODE"></result>
 		<result property="performanceName" column="PERFORMANCE_NAME"></result>
 		<result property="performancePriceR" column="PERFORMANCE_PRICE_R"></result>
+		<result property="performancePriceS" column="PERFORMANCE_PRICE_S"></result>
 		<result property="performanceZipcode" column="PERFORMANCE_ZIPCODE"></result>
 		<result property="performanceAddress" column="PERFORMANCE_ADDRESS"></result>
 		<result property="performanceDetailAddress" column="PERFORMANCE_DETAILADDRESS"></result>
 		<result property="performanceDate1" column="PERFORMANCE_DATE1"></result>
+		<result property="performanceDate2" column="PERFORMANCE_DATE2"></result>
+		<result property="performanceTime" column="PERFORMANCE_DATE1"></result>
 		<result property="reservationOpenExpectedDate" column="RESERVATION_OPEN_EXPECTED_DATE"></result>
 		<result property="performanceImagePath" column="PERFORMANCE_IMAGE_PATH"></result>
+		<result property="performanceInformationImagePath" column="PERFORMANCE_INFORMATION_IMAGE_PATH"></result>
 		<result property="firstChangeDate" column="FIRST_CHANGE_DATE"></result>
 		<result property="lastChangeDate" column="LAST_CHANGE_DATE"></result>
-		<result property="performanceTime" column="PERFORMANCE_TIME"></result>
-		<result property="performancePriceS" column="PERFORMANCE_PRICE_S"></result>
-		<result property="performanceDate2" column="PERFORMANCE_DATE2"></result>
 	</resultMap>
 	<!-- 공연 리스트 조회 -->
 	<select id="listAllPerformance" resultMap="performanceResult">
@@ -54,7 +52,7 @@
 	</select>
 	<!-- 공연 정보 수정 -->
 	<update id="updatePerformance" parameterType="com.spring_boot_dolls_ticket.project.model.PerformanceVO">
-		UPDATE PERFORMANCE_INFO_M SET PERFORMANCE_KIND_CD = #{performanceKindCd}, PERFORMANCE_RATING_CODE = #{performanceRatingCode}, PERFORMANCE_NAME = #{performanceName}, PERFORMANCE_PRICE_R = #{performancePriceR}, PERFORMANCE_PRICE_S = #{performancePriceS}, PERFORMANCE_ZIPCODE = #{performanceZipcode}, PERFORMANCE_ADDRESS = #{performanceAddress}, PERFORMANCE_DETAILADDRESS = #{performanceDetailAddress}, PERFORMANCE_DATE1 = #{performanceDate1}, PERFORMANCE_DATE2 = #{performanceDate2}, RESERVATION_OPEN_EXPECTED_DATE = #{reservationOpenExpectedDate}, LAST_CHANGE_DATE = SYSDATE, PERFORMANCE_TIME = #{performanceTime} WHERE PERFORMANCE_ID = #{performanceId}
+		UPDATE PERFORMANCE_INFO_M SET PERFORMANCE_KIND_CD = #{performanceKindCd}, PERFORMANCE_RATING_CODE = #{performanceRatingCode}, PERFORMANCE_NAME = #{performanceName}, PERFORMANCE_PRICE_R = #{performancePriceR}, PERFORMANCE_PRICE_S = #{performancePriceS}, PERFORMANCE_ZIPCODE = #{performanceZipcode}, PERFORMANCE_ADDRESS = #{performanceAddress}, PERFORMANCE_DETAILADDRESS = #{performanceDetailAddress}, PERFORMANCE_DATE1 = #{performanceDate1}, PERFORMANCE_DATE2 = #{performanceDate2}, PERFORMANCE_TIME = #{performanceTime}, RESERVATION_OPEN_EXPECTED_DATE = #{reservationOpenExpectedDate}, PERFORMANCE_IMAGE_PATH = #{performanceImagePath}, PERFORMANCE_INFORMATION_IMAGE_PATH = #{performanceInformationImagePath}, LAST_CHANGE_DATE = SYSDATE WHERE PERFORMANCE_ID = #{performanceId}
 	</update>
 	<!-- 공연 정보 삭제 -->
 	<delete id="deletePerformance" parameterType="string">
@@ -62,6 +60,6 @@
 	</delete>
 	<!-- 공연 정보 등록 -->
 	<insert id="insertPerformance" parameterType="com.spring_boot_dolls_ticket.project.model.PerformanceVO">
-		INSERT INTO PERFORMANCE_INFO_M (PERFORMANCE_ID, PERFORMANCE_KIND_CD, PERFORMANCE_RATING_CODE, PERFORMANCE_NAME, PERFORMANCE_PRICE_R, PERFORMANCE_ZIPCODE, PERFORMANCE_ADDRESS, PERFORMANCE_DETAILADDRESS, PERFORMANCE_DATE, RESERVATION_OPEN_EXPECTED_DATE, FIRST_CHANGE_DATE, LAST_CHANGE_DATE, PERFORMANCE_TIME, PERFORMANCE_PRICE_S, PERFORMANCE_DATE2) VALUES (#{performanceId}, #{performanceKindCd}, #{performanceRatingCode}, #{performanceName}, #{performancePriceR}, #{performanceZipcode}, #{performanceAddress}, #{performanceDetailAddress}, #{performanceDate1}, #{reservationOpenExpectedDate}, #{firstChangeDate}, #{lastChangeDate}, #{performanceTime}, #{performancePriceS}, #{performanceDate2})
+		INSERT INTO PERFORMANCE_INFO_M (PERFORMANCE_ID, PERFORMANCE_KIND_CD, PERFORMANCE_RATING_CODE, PERFORMANCE_NAME, PERFORMANCE_PRICE_R, PERFORMANCE_PRICE_S, PERFORMANCE_ZIPCODE, PERFORMANCE_ADDRESS, PERFORMANCE_DETAILADDRESS, PERFORMANCE_DATE1, PERFORMANCE_DATE2, PERFORMANCE_TIME, RESERVATION_OPEN_EXPECTED_DATE, PERFORMANCE_IMAGE_PATH, PERFORMANCE_INFORMATION_IMAGE_PATH, FIRST_CHANGE_DATE, LAST_CHANGE_DATE) VALUES (#{performanceId}, #{performanceKindCd}, #{performanceRatingCode}, #{performanceName}, #{performancePriceR}, #{performancePriceS}, #{performanceZipcode}, #{performanceAddress}, #{performanceDetailAddress}, #{performanceDate1}, #{performanceDate2}, #{performanceTime}, #{reservationOpenExpectedDate}, #{performanceImagePath}, #{performanceInformationImagePath}, #{firstChangeDate}, #{lastChangeDate}
 	</insert>
 </mapper>
