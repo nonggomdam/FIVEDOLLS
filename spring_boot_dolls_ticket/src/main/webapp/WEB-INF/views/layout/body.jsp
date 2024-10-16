@@ -64,14 +64,12 @@
 					</td>
 					<td class="ranking">
 						<div class="info">
-							<a href="<c:url value='#'/>"><img src="<c:url value='/image/neo0003.PNG'/>">
+							<a href="<c:url value='/performance/detailViewPerformance/P0005'/>"><img src="<c:url value='/image/P0005.PNG'/>">
 								<div class="textinfo">
-									<span>neo<br>
+									<span>NE-YO Champagne & Roses Tour in SEOUL<br>
 										  <br>
-										  2024.11.18~2024.11.20<br>
+										  2024.11.16<br>~2024.11.17<br>
 										  올림픽홀<br>
-										  <br>
-										  관람연령 15세이상<br>
 								 	</span>
 								</div>
 							</a>							
@@ -79,14 +77,12 @@
 					</td>
 					<td class="ranking">
 						<div class="info">
-							<a href="<c:url value='#'/>"><img src="<c:url value='/image/onerepublic0004.PNG'/>">
+							<a href="<c:url value='/performance/detailViewPerformance/P0007'/>"><img src="<c:url value='/image/P0007.jpg'/>">
 								<div class="textinfo">
-									<span>OneRepublic<br>
+									<span>2024 송골매 콘서트 ‘열망’ 두번째 [늘-봄]<br>
 										  <br>
-										  2024.11.20~2024.11.22<br>
+										  2024.11.16<br>~2024.11.17<br>
 										  올림픽홀<br>
-										  <br>
-										  관람연령 15세이상<br>
 								 	</span>
 								</div>
 							</a>							
@@ -97,14 +93,12 @@
 				<tr>
 					<td class="ranking">
 						<div class="info">
-							<a href="<c:url value='#'/>"><img src="<c:url value='/image/youngtak0005.PNG'/>">
+							<a href="<c:url value='/performance/detailViewPerformance/P0006'/>"><img src="<c:url value='/image/P0006.jpg'/>">
 								<div class="textinfo">
-									<span>영탁<br>
+									<span>2024 이찬원 콘서트 ‘ 찬가（燦歌）’<br>
 										  <br>
-										  2024.12.01~2024.12.03<br>
+										  2024.12.01<br>~2024.12.03<br>
 										  올림픽홀<br>
-										  <br>
-										  관람연령 15세이상<br>
 									</span>
 								</div>
 							</a>							
@@ -112,14 +106,12 @@
 					</td>
 					<td class="ranking">
 						<div class="info">				
-							<a href="<c:url value='#'/>"><img src="<c:url value='/image/jukjae0006.PNG'/>">
+							<a href="<c:url value='/performance/detailViewPerformance/P0004'/>"><img src="<c:url value='/image/P0004.PNG'/>">
 								<div class="textinfo">
-									<span>적재<br>
+									<span>2024 적재 전국투어 콘서트 〈CLICHE〉<br>
 										  <br>
-										  2024.12.03~2024.12.05<br>
+										  2024.11.09<br>~2024.11.10<br>
 										  올림픽홀<br>
-										  <br>
-										  관람연령 15세이상<br>
 								 	</span>
 								</div>
 							</a>							
@@ -140,14 +132,12 @@
 					</td>
 					<td class="ranking">
 						<div class="info">
-							<a href="<c:url value='#'/>"><img src="<c:url value='/image/waves0008.PNG'/>">
+							<a href="<c:url value='/performance/detailViewPerformance/P0008'/>"><img src="<c:url value='/image/P0008.PNG'/>">
 								<div class="textinfo">
-									<span>waves<br>
+									<span>박진영 30주년 콘서트〈Still JYP〉<br>
 										  <br>
-										  2024.12.07~2024.12.10<br>
+										  2024.12.28<br>~2024.12.29<br>
 										  올림픽홀<br>
-										  <br>
-										  관람연령 15세이상<br>
 								 	</span>
 								</div>
 							</a>								
