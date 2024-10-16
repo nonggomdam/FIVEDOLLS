@@ -5,7 +5,29 @@
 
 
 	<div id="wrapper">
-		<div>
+		<article  id="slideShow"> <!-- 슬라이드 쇼 -->   	
+	        <!-- 이전/다음 버튼 -->
+			<div id="prevNextButtonBox">
+				<img id="prevButton" src="image/prevButton.png">
+				<img id="nextButton" src="image/nextButton.png">
+			</div>	
+			<div id="slideShowBox">
+				<div id="slidePanel">
+					<img src= "<c:url value='/image/banner1.png'/>" class="slideImage">
+					<img src= "<c:url value='/image/banner2.jfif'/>" class="slideImage">
+					<img src= "<c:url value='/image/banner3.jfif'/>" class="slideImage">
+					<img src= "<c:url value='/image/banner4.jfif'/>" class="slideImage">
+					<img src= "<c:url value='/image/banner5.png'/>" class="slideImage">
+				</div>
+			</div> <!-- slideShowBox 끝 -->  
+			<div id = "controlPanel">
+				<img src="image/controlButton1.png" class="controlButton">
+				<img src="image/controlButton1.png" class="controlButton">
+				<img src="image/controlButton1.png" class="controlButton">
+				<img src="image/controlButton1.png" class="controlButton">
+				<img src="image/controlButton1.png" class="controlButton">
+			</div>	
+	    </article>
 			<h1>RANKING</h1>
 			<div class='bTab'>
 				<div class="hashtag"><span class='active' data='#initialTable'>#콘서트</span></div>
@@ -16,14 +38,12 @@
 				<tr>
 					<td class="ranking">
 						<div class="info">
-							<a href="<c:url value='/performance/detailViewPerformance/P0001'/>"><img src="<c:url value='/image/superjunior0001.PNG'/>">
+							<a href="<c:url value='/performance/detailViewPerformance/P0001'/>"><img src="<c:url value='/image/P0001.jpg'/>">
 								<div class="textinfo">
-									<span>슈퍼주니어<br>
+									<span>나훈아 ‘2024 고마웠습니다-라스트 콘서트(LAST CONCERT)’<br>
 										  <br>
-										  2024.11.14~2024.11.15<br>
-										  올림픽홀<br>
-										  <br>
-										  관람연령 15세이상<br>
+										  2024.12.14<br>~2024.12.15<br>
+										  올림픽홀<br> 
 									</span>
 								</div>
 							</a>						
@@ -31,14 +51,12 @@
 					</td>
 					<td class="ranking">
 						<div class="info">				
-							<a href="<c:url value='#'/>"><img src="<c:url value='/image/langlang0002.PNG'/>">
+							<a href="<c:url value='/performance/detailViewPerformance/P0002'/>"><img src="<c:url value='/image/P0002.PNG'/>">
 								<div class="textinfo">
-									<span>랑랑<br>
+									<span>랑랑 피아노 리사이틀<br>
 										  <br>
-										  2024.11.16~2024.11.18<br>
+										  2024.11.30<br>~2024.12.01<br>
 										  올림픽홀<br>
-										  <br>
-										  관람연령 15세이상<br>
 								 	</span>
 								</div>
 							</a>						
@@ -109,14 +127,12 @@
 					</td>
 					<td class="ranking">
 						<div class="info">
-							<a href="<c:url value='#'/>"><img src="<c:url value='/image/david0007.PNG'/>">
+							<a href="<c:url value='/performance/detailViewPerformance/P0003'/>"><img src="<c:url value='/image/P0003.PNG'/>">
 								<div class="textinfo">
-									<span>David<br>
+									<span>데이비드 내한공연 (d4vd - My House Is Not A Home Tour)<br>
 										  <br>
-										  2024.12.05~2024.12.07<br>
+										  2024.12.05<br>~2024.12.07<br>
 										  올림픽홀<br>
-										  <br>
-										  관람연령 15세이상<br>
 								 	</span>
 								</div>
 							</a>								

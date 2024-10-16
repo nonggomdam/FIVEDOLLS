@@ -22,7 +22,12 @@
 			<div class="dt-01">
 				<!--로케이션-->
 				<p class="dt-location">
-					<a>${pfm.performanceKindCd} ></a>
+				<c:if test="${pfm.performanceKindCd eq 'C'}">
+					<a>콘서트 ></a>
+				</c:if>
+				<c:if test="${pfm.performanceKindCd eq 'K'}">
+					<a>뮤지컬 ></a>
+				</c:if>
 				</p>
 			</div>
 		</div>
@@ -40,7 +45,7 @@
 				<div class="dt-03-left">
 					<!--포스터-->
 					<div class="dt-product-imgbox">
-						<img src="<c:url value='/image/P0001.jpg'/>">
+						<img src="<c:url value='${pfm.performanceImagePath}'/>">
 					</div>
 				</div>
 				<!--dt-03-left-->
@@ -48,7 +53,12 @@
 					<!--상품정보-->
 					<dl>
 						<dt>등급</dt>
+						<c:if test="${pfm.performanceRatingCode == 0}">
+						<dd>&nbsp;전체 관람가</dd>
+						</c:if>
+						<c:if test="${pfm.performanceRatingCode != 0}">
 						<dd>&nbsp;만 ${pfm.performanceRatingCode}세 이상</dd>
+						</c:if>
 						<dt>관람시간</dt>
 						<dd>&nbsp;총 ${pfm.performanceTime}분</dd>
 						<dt>장소</dt>
@@ -57,7 +67,7 @@
 						<dd>&nbsp;R석 <fmt:formatNumber value="${pfm.performancePriceR}" pattern="###,###"/>원</dd>
 						<dd>&nbsp;S석 <fmt:formatNumber value="${pfm.performancePriceS}" pattern="###,###"/>원</dd>
 						<dt>공연시간</dt>
-						<dd>&nbsp;<fmt:formatDate value="${pfm.performanceDate}" pattern="YYYY년 MM월 dd일(E) a h시"/></dd>
+						<dd>&nbsp;<fmt:formatDate value="${pfm.performanceDate1}" pattern="YYYY년 MM월 dd일(E) a h시"/></dd>
 						<dd>&nbsp;<fmt:formatDate value="${pfm.performanceDate2}" pattern="YYYY년 MM월 dd일(E) a h시"/></dd>
 					</dl>
 					<button id="ticketOpenBtn" disabled></button>
@@ -74,12 +84,14 @@
 				<p>※ 매수제한 : 1인 4매</p>
 				<p>※ 본 공연은 할인쿠폰이벤트 대상에서 제외됩니다.</p>
 				<p>※ 불법적인 경로 혹은 불법적인 시스템을 통해 티켓을 구매할 경우 법적 제재를 받을 수 있습니다.</p>
-				<p class="dt05-tit">공연정보</p>
-				<p>공연일시: <fmt:formatDate value="${pfm.performanceDate}" pattern="YYYY년 MM월 dd일(E) a h시"/>,
+				<p class="dt05-tit">공연정보<br><br>
+				<img src="<c:url value='${pfm.performanceInformationImagePath}'/>"></p>	
+				<%-- <p>공연일시: <fmt:formatDate value="${pfm.performanceDate1}" pattern="YYYY년 MM월 dd일(E) a h시"/>,
 				<fmt:formatDate value="${pfm.performanceDate2}" pattern="YYYY년 MM월 dd일(E) a h시"/></p>
-				<p>예매가능시간: 공연시작 3시간 전까지</p>
+				<p>예매가능시간: 공연시작 3시간 전까지</p> --%>
 				<p class="dt05-tit">장소안내</p>
 					<div id="map"></div>
+				<input type="hidden" id="performanceDetailAddress" value="${pfm.performanceDetailAddress}">
 				<p>주소: ${pfm.performanceZipcode} ${pfm.performanceAddress} ${pfm.performanceDetailAddress}</p>
 				<p>주차공간이 없으므로 대중교통을 이용하시기 바랍니다.</p>
 				<p class="dt05-tit">상품정보제공 고시</p>
@@ -114,7 +126,7 @@
 								</tr>
 								<tr>
 									<th scope="row" class="dt05-tbl-tit2">유효기간</th>
-									<td colspan="3"><fmt:formatDate value="${pfm.performanceDate}" pattern="YYYY년 MM월 dd일(E) a h시"/>,
+									<td colspan="3"><fmt:formatDate value="${pfm.performanceDate1}" pattern="YYYY년 MM월 dd일(E) a h시"/>,
 													<fmt:formatDate value="${pfm.performanceDate2}" pattern="YYYY년 MM월 dd일(E) a h시"/> 예매한 공연 날짜, 회차에 한해 이용가능</td>
 								<tr>
 									<th scope="row" class="dt05-tbl-tit2">취소/환불방법</th>
@@ -134,6 +146,14 @@
 					</div>
 				</div>
 				<p class="dt05-tit">관람후기</p>
+				<div class="write">
+					<c:if test="${sessionScope.sid == null}">
+						<a onclick="alert('로그인이 필요합니다.')"><span>후기 작성하기</span></a>
+					</c:if>
+					<c:if test="${sessionScope.sid != null}">
+						<a href="<c:url value='#'/>"><span>후기 작성하기</span></a>
+					</c:if>
+				</div>
 				<div class="rev-container">
 					<ul class="review">
 						<li>
