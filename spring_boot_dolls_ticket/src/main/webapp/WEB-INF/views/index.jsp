@@ -13,6 +13,7 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/font5.css'/>">
 		<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 		<script src="<c:url value='/js/body.js'/>"></script>
+		<script src="<c:url value='/js/slideShow.js'/>"></script>
 	</head>
 	<body>
 		 	<c:import url="/WEB-INF/views/layout/body.jsp"/>

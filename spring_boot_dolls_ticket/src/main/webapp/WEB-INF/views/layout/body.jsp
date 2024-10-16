@@ -5,7 +5,29 @@
 
 
 	<div id="wrapper">
-		<div>
+		<article  id="slideShow"> <!-- 슬라이드 쇼 -->   	
+	        <!-- 이전/다음 버튼 -->
+			<div id="prevNextButtonBox">
+				<img id="prevButton" src="image/prevButton.png">
+				<img id="nextButton" src="image/nextButton.png">
+			</div>	
+			<div id="slideShowBox">
+				<div id="slidePanel">
+					<img src= "<c:url value='/image/banner1.png'/>" class="slideImage">
+					<img src= "<c:url value='/image/banner2.jfif'/>" class="slideImage">
+					<img src= "<c:url value='/image/banner3.jfif'/>" class="slideImage">
+					<img src= "<c:url value='/image/banner4.jfif'/>" class="slideImage">
+					<img src= "<c:url value='/image/banner5.png'/>" class="slideImage">
+				</div>
+			</div> <!-- slideShowBox 끝 -->  
+			<div id = "controlPanel">
+				<img src="image/controlButton1.png" class="controlButton">
+				<img src="image/controlButton1.png" class="controlButton">
+				<img src="image/controlButton1.png" class="controlButton">
+				<img src="image/controlButton1.png" class="controlButton">
+				<img src="image/controlButton1.png" class="controlButton">
+			</div>	
+	    </article>
 			<h1>RANKING</h1>
 			<div class='bTab'>
 				<div class="hashtag"><span class='active' data='#initialTable'>#콘서트</span></div>
