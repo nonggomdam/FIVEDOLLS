@@ -14,11 +14,13 @@
          , PERFORMANCE_ZIPCODE as performanceZipcode
          , PERFORMANCE_ADDRESS as performanceAddress
          , PERFORMANCE_DETAILADDRESS as performanceDetailAddress
-         , PERFORMANCE_DATE as performanceDate
+         , PERFORMANCE_DATE1 as performanceDate1
          , RESERVATION_OPEN_EXPECTED_DATE as reservationOpenExpectedDate
          , PERFORMANCE_TIME as performanceTime
          , PERFORMANCE_PRICE_S as performancePriceS
          , PERFORMANCE_DATE2 as performanceDate2
+         , PERFORMANCE_IMAGE_PATH as performanceImagePath
+         , PERFORMANCE_INFORMATION_IMAGE_PATH as performanceInformationImagePath
         FROM PERFORMANCE_INFO_M WHERE PERFORMANCE_ID=#{performanceId}    
 	</select>
 	
