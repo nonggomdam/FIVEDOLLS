@@ -11,17 +11,18 @@ public class PerformanceVO {
 	private int performanceRatingCode;
 	private String performanceName;
 	private int performancePriceR;
+	private int performancePriceS;
 	private String performanceZipcode;
 	private String performanceAddress;
 	private String performanceDetailAddress;
-	private Date performanceDate;
+	private Date performanceDate1;
+	private Date performanceDate2;
+	private int performanceTime;
 	private Date reservationOpenExpectedDate;
 	private String performanceImagePath;
+	private String performanceInformationImagePath;
 	private Date firstChangeDate;
 	private Date lastChangeDate;
-	private int performanceTime;
-	private int performancePriceS;
-	private Date performanceDate2;
 	
 	public String getPerformanceId() {
 		return performanceId;
@@ -53,6 +54,12 @@ public class PerformanceVO {
 	public void setPerformancePriceR(int performancePriceR) {
 		this.performancePriceR = performancePriceR;
 	}
+	public int getPerformancePriceS() {
+		return performancePriceS;
+	}
+	public void setPerformancePriceS(int performancePriceS) {
+		this.performancePriceS = performancePriceS;
+	}
 	public String getPerformanceZipcode() {
 		return performanceZipcode;
 	}
@@ -71,11 +78,23 @@ public class PerformanceVO {
 	public void setPerformanceDetailAddress(String performanceDetailAddress) {
 		this.performanceDetailAddress = performanceDetailAddress;
 	}
-	public Date getPerformanceDate() {
-		return performanceDate;
+	public Date getPerformanceDate1() {
+		return performanceDate1;
 	}
-	public void setPerformanceDate(Date performanceDate) {
-		this.performanceDate = performanceDate;
+	public void setPerformanceDate1(Date performanceDate1) {
+		this.performanceDate1 = performanceDate1;
+	}
+	public Date getPerformanceDate2() {
+		return performanceDate2;
+	}
+	public void setPerformanceDate2(Date performanceDate2) {
+		this.performanceDate2 = performanceDate2;
+	}
+	public int getPerformanceTime() {
+		return performanceTime;
+	}
+	public void setPerformanceTime(int performanceTime) {
+		this.performanceTime = performanceTime;
 	}
 	public Date getReservationOpenExpectedDate() {
 		return reservationOpenExpectedDate;
@@ -89,6 +108,12 @@ public class PerformanceVO {
 	public void setPerformanceImagePath(String performanceImagePath) {
 		this.performanceImagePath = performanceImagePath;
 	}
+	public String getPerformanceInformationImagePath() {
+		return performanceInformationImagePath;
+	}
+	public void setPerformanceInformationImagePath(String performanceInformationImagePath) {
+		this.performanceInformationImagePath = performanceInformationImagePath;
+	}
 	public Date getFirstChangeDate() {
 		return firstChangeDate;
 	}
@@ -101,25 +126,5 @@ public class PerformanceVO {
 	public void setLastChangeDate(Date lastChangeDate) {
 		this.lastChangeDate = lastChangeDate;
 	}
-	public int getPerformanceTime() {
-		return performanceTime;
-	}
-	public void setPerformanceTime(int performanceTime) {
-		this.performanceTime = performanceTime;
-	}
-	public int getPerformancePriceS() {
-		return performancePriceS;
-	}
-	public void setPerformancePriceS(int performancePriceS) {
-		this.performancePriceS = performancePriceS;
-	}
-	public Date getPerformanceDate2() {
-		return performanceDate2;
-	}
-	public void setPerformanceDate2(Date performanceDate2) {
-		this.performanceDate2 = performanceDate2;
-	}
-	
-	
 	
 }
