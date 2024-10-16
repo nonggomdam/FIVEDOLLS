@@ -53,7 +53,12 @@
 					<!--상품정보-->
 					<dl>
 						<dt>등급</dt>
+						<c:if test="${pfm.performanceRatingCode == 0}">
+						<dd>&nbsp;전체 관람가</dd>
+						</c:if>
+						<c:if test="${pfm.performanceRatingCode != 0}">
 						<dd>&nbsp;만 ${pfm.performanceRatingCode}세 이상</dd>
+						</c:if>
 						<dt>관람시간</dt>
 						<dd>&nbsp;총 ${pfm.performanceTime}분</dd>
 						<dt>장소</dt>
@@ -86,6 +91,7 @@
 				<p>예매가능시간: 공연시작 3시간 전까지</p> --%>
 				<p class="dt05-tit">장소안내</p>
 					<div id="map"></div>
+				<input type="hidden" id="performanceDetailAddress" value="${pfm.performanceDetailAddress}">
 				<p>주소: ${pfm.performanceZipcode} ${pfm.performanceAddress} ${pfm.performanceDetailAddress}</p>
 				<p>주차공간이 없으므로 대중교통을 이용하시기 바랍니다.</p>
 				<p class="dt05-tit">상품정보제공 고시</p>

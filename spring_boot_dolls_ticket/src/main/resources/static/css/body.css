@@ -1,5 +1,10 @@
 @charset "UTF-8";
-
+@font-face {
+   font-family: 'TheJamsil2Light';
+   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil2Light.woff2') format('woff2');
+   font-weight: 200; /*占싱뱄옙 占쏙옙占쏙옙占쏙옙 2Light 占싱뤄옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙 font-weight 占실뱄옙 占쏙옙占쏙옙*/
+   font-style: normal;
+}
 * {margin:0 auto;}
 
 #wrapper {
@@ -17,10 +22,6 @@ h1 {
 	font-weight: 900px; 
 }
 
-span{
-	font-size: 30px;	
-}
-
 .bTab .hashtag {
 	margin-top:25px;
 	margin: 20px 25px;  
@@ -28,6 +29,7 @@ span{
 }
 .bTab span {
 	cursor:pointer;
+	font-size: 30px;
 }
 
 .ranking img {
@@ -45,6 +47,7 @@ span{
 }
 
 .textinfo {
+	font-family: 'TheJamsil2Light', sans-serif;
 	position: absolute;
     visibility: hidden; 
     width: 91%;
@@ -54,7 +57,6 @@ span{
     align-items: center; 
     background-color: rgba(0, 0, 0, 0.8); 
     color: white;
-    font-weight:bold; 
     text-align: center; 
     z-index: 1; 
     bottom: 10px; 
@@ -67,7 +69,7 @@ span{
 }
 
 .textinfo span{
-	font-size:20px;
+	font-size:15px;
 }
 
 .info:hover .textinfo {
