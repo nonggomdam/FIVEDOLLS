@@ -18,7 +18,7 @@ public class HomeController {
 		return "customerService/csAdmin";
 		
 	}
-	@RequestMapping("/myPage")
+	@RequestMapping("member/myPage")
 	public String myPage() {
 		
 		return "member/myPage";

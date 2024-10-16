@@ -149,4 +149,18 @@ public class MemberController {
 		return "member/signupSuccess";
 	}
 	
+	/**
+	 * 회원정보 수정
+	 */
+	@RequestMapping("member/correctionMember")
+	public String correctionMemberPage(Model model, HttpSession session) {
+		String custId=(String)session.getAttribute("sid");
+		
+		
+		MemberVO myInfo = memService.selectCustInfo(custId);
+
+		model.addAttribute("myInfo", myInfo);
+		return "member/correctionMember";
+	}
+	
 }

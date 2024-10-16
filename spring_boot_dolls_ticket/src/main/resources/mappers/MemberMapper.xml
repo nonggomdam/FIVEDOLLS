@@ -45,5 +45,19 @@
     WHERE CUST_NAME = #{name} AND CUST_EMAIL = #{email}
 	</update>
 	
+	<select id ="selectCustInfo"  resultType="com.spring_boot_dolls_ticket.project.model.MemberVO" parameterType="string" >
+		SELECT 
+			CUST_ID as custId
+			,CUST_PASSWORD as custPassWord
+			,CUST_NAME as custName
+			,CUST_EMAIL as custEmail
+			,CUST_PHONENUMBER as custPhoneNumber
+			,CUST_ZIPCODE as custZipcode
+			,CUST_ADDRESS as custAddress
+			,CUST_DETAILADDRESS as custDetailAddress
+		FROM MEMBER
+		WHERE CUST_ID = #{custId}
+</select>
+	
     
 </mapper>	 
