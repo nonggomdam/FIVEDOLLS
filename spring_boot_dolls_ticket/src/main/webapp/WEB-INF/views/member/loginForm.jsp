@@ -8,8 +8,10 @@
 <title>Insert title here</title>
 <link href="/css/login.css" rel="stylesheet" type="text/css">
 <link href="/css/font3.css" rel="stylesheet" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script src="/js/kakaoLogin.js"></script>
 <script src="/js/common.js"></script>
-<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/login.js"></script>
 </head>
 <body>
@@ -33,11 +35,20 @@
       	<a href="/member/searchPwd">비밀번호 찾기</a>
       </div>
       <div id="social">
-      	<a href=""><img src= "../image/naverlogin.png"></a>
-      	<a href=""><img src= "../image/kakaologin.png"></a>
+      	<a href="/naver/oauth" id="naverLoginBtn">
+      		<img src= "../image/naverlogin.png">
+      	</a>
+      	<a href="/kakao/oauth" id="kakaoLoginBtn">
+    		<img src="../image/kakaologin.png" alt="카카오 로그인">
+		</a>
       </div>
       <div id=loginbox>
       	<button type="submit">로그인</button>
+      </div>
+      
+      <!-- kakaoInfo 변수를 숨겨진 요소로 추가 -->
+      <div style="display:none;">
+          <span id="kakaoInfo">${kakaoInfo}</span>
       </div>
       
     </form>
