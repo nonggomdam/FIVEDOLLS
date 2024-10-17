@@ -19,53 +19,215 @@
 	</head>
 	<body>
 	<div class="swiper mySwiper">
-	    <div class="swiper-wrapper">
-	      <div class="swiper-slide">
-				<a href="<c:url value='/performance/detailViewPerformance/P0001'/>"><img src="<c:url value='/image/c_banner1.jfif'/>">
-				<div class="slide-txt">
-						<p class="slide-tit">2024 나훈아 콘서트</p>
-						<p class="slide-detail">2024.12.14 ~ 2024.12.15</p>
-				</div></a>
-		  </div>
+		<div class="swiper-wrapper">
 			<div class="swiper-slide">
-				<a href="<c:url value='/performance/detailViewPerformance/P0005'/>"><img src="<c:url value='/image/c_banner2.jfif'/>">
-				<div class="slide-txt">
-						<p class="slide-tit">2024 NE-YO 콘서트</p>
-						<p class="slide-detail">2024.11.16 ~ 2024.11.17</p>
-				</div></a>
-		  </div>
-			<div class="swiper-slide">
-				<a href="<c:url value='/performance/detailViewPerformance/P0004'/>"><img src="<c:url value='/image/c_banner3.jfif'/>">
-				<div class="slide-txt">
-						<p class="slide-tit">2024 적재 콘서트</p>
-						<p class="slide-detail">2024.11.09 ~ 2024.11.10</p>
-				</div></a>
+				<a href="<c:url value='/performance/detailViewPerformance/P0009'/>"><img
+					src="<c:url value='/image/m_banner1.jfif'/>">
+					<div class="slide-txt">
+						<p class="slide-tit">뮤지컬 [알라딘] 한국 초연 (ALADDIN The Musical)</p>
+						<p class="slide-detail">2024.12.24 ~ 2024.12.25</p>
+					</div></a>
 			</div>
 			<div class="swiper-slide">
-				<a href="<c:url value='/performance/detailViewPerformance/P0006'/>"><img src="<c:url value='/image/c_banner4.jfif'/>">
-				<div class="slide-txt">
-						<p class="slide-tit">2024 이찬원 콘서트</p>
-						<p class="slide-detail">2024.12.14 ~ 2024.12.15</p>
-				</div></a>
+				<a href="<c:url value='/performance/detailViewPerformance/P0010'/>"><img
+					src="<c:url value='/image/m_banner2.jfif'/>">
+					<div class="slide-txt">
+						<p class="slide-tit">뮤지컬 [빈센트 반 고흐]</p>
+						<p class="slide-detail">2024.11.10 ~ 2024.11.11</p>
+					</div></a>
 			</div>
 			<div class="swiper-slide">
-				<a href="<c:url value='/performance/detailViewPerformance/P0007'/>"><img src="<c:url value='/image/c_banner5.jfif'/>">
-				<div class="slide-txt">
-						<p class="slide-tit">2024 송골매 콘서트</p>
-						<p class="slide-detail">2024.11.16 ~ 2024.11.17</p>
-				</div></a>
+				<a href="<c:url value='/performance/detailViewPerformance/P0011'/>"><img
+					src="<c:url value='/image/m_banner3.jfif'/>">
+					<div class="slide-txt">
+						<p class="slide-tit">뮤지컬 〈젠틀맨스 가이드：사랑과 살인편〉</p>
+						<p class="slide-detail">2024.11.20 ~ 2024.11.21</p>
+					</div></a>
 			</div>
-	      <div class="swiper-slide">
-				<a href="<c:url value='/performance/detailViewPerformance/P0008'/>"><img src="<c:url value='/image/c_banner6.jfif'/>">
-				<div class="slide-txt">
-						<p class="slide-tit">박진영 30주년 콘서트〈Still JYP〉</p>
-						<p class="slide-detail">2024.12.28 ~ 2024.12.29</p>
-				</div></a>
+			<div class="swiper-slide">
+				<a href="<c:url value='/performance/detailViewPerformance/P0012'/>"><img
+					src="<c:url value='/image/m_banner4.jfif'/>">
+					<div class="slide-txt">
+						<p class="slide-tit">뮤지컬 〈이터니티〉</p>
+						<p class="slide-detail">2024.12.07 ~ 2024.12.08</p>
+					</div></a>
 			</div>
-	    </div>
-  	</div>
-
-
+			<div class="swiper-slide">
+				<a href="<c:url value='/performance/detailViewPerformance/P0013'/>"><img
+					src="<c:url value='/image/m_banner5.jfif'/>">
+					<div class="slide-txt">
+						<p class="slide-tit">2024 뮤지컬 [지저스 크라이스트 수퍼스타]</p>
+						<p class="slide-detail">2024.11.07 ~ 2024.11.08</p>
+					</div></a>
+			</div>
+		</div>
+	</div>
+		<h1>RANKING</h1>
+			<div id="initialTable">
+      		<table>
+			<tr>
+				<td class="ranking">
+					<div class="info">
+						<a href="<c:url value='/performance/detailViewPerformance/P0009'/>"><img src="<c:url value='/image/P0009.PNG'/>">
+							<div class="info-txt">
+							<p class="info-txt1">뮤지컬 [알라딘] 한국 초연 (ALADDIN The Musical)</p>
+							<p class="info-txt2">샤롯데씨어터</p>
+							</div></a>
+					</div>
+				</td>
+				<td class="ranking">
+					<div class="info">				
+						<a href="<c:url value='/performance/detailViewPerformance/P0014'/>"><img src="<c:url value='/image/P0014.PNG'/>">
+							<div class="info-txt">
+							<p class="info-txt1">뮤지컬 [쿠로이 저택엔 누가 살고 있을까?]</p>
+							<p class="info-txt2">샤롯데씨어터</p>
+							</div></a>
+					</div>	
+				</td>
+				<td class="ranking">
+					<div class="info">
+						<a href="<c:url value='/performance/detailViewPerformance/P0011'/>"><img src="<c:url value='/image/P0011.PNG'/>">
+							<div class="info-txt">
+							<p class="info-txt1">뮤지컬 〈젠틀맨스 가이드：사랑과 살인편〉</p>
+							<p class="info-txt2">샤롯데씨어터</p>
+							</div></a>
+					</div>
+				</td>
+				<td class="ranking">
+					<div class="info">
+						<a href="<c:url value='/performance/detailViewPerformance/P0012'/>"><img src="<c:url value='/image/P0012.PNG'/>">
+							<div class="info-txt">
+							<p class="info-txt1">뮤지컬 〈이터니티〉</p>
+							<p class="info-txt2">샤롯데씨어터</p>
+							</div></a>
+					</div>
+				</td>
+			</tr>
+			
+			<tr>
+				<td class="ranking">
+					<div class="info">
+						<a href="<c:url value='/performance/detailViewPerformance/P0013'/>"><img src="<c:url value='/image/P0013.jpg'/>">
+							<div class="info-txt">
+							<p class="info-txt1">2024 뮤지컬 [지저스 크라이스트 수퍼스타]</p>
+							<p class="info-txt2">샤롯데씨어터</p>
+							</div></a>
+					</div>
+				</td>
+				<td class="ranking">
+					<div class="info">
+						<a href="<c:url value='/performance/detailViewPerformance/P0010'/>"><img src="<c:url value='/image/P0010.jpg'/>">
+							<div class="info-txt">
+							<p class="info-txt1">뮤지컬 [빈센트 반 고흐]</p>
+							<p class="info-txt2">샤롯데씨어터</p>
+							</div></a>
+					</div>
+				</td>
+				<td class="ranking">
+					<div class="info">
+						<a href="<c:url value='/performance/detailViewPerformance/P0016'/>"><img src="<c:url value='/image/P0016.jpg'/>">
+							<div class="info-txt">
+							<p class="info-txt1">뮤지컬 [드라이 플라워]</p>
+							<p class="info-txt2">샤롯데씨어터</p>
+							</div></a>	
+					</div>					
+				</td>
+				<td class="ranking">
+					<div class="info">
+						<a href="<c:url value='/performance/detailViewPerformance/P0015'/>"><img src="<c:url value='/image/P0015.jpg'/>">
+							<div class="info-txt">
+							<p class="info-txt1">뮤지컬 [시지프스]</p>
+							<p class="info-txt2">샤롯데씨어터</p>
+							</div></a>	
+					</div>
+				</td>
+			</tr>
+			</table>
+			<div class="banner">
+				<a href="<c:url value='/performance/detailViewPerformance/P0017'/>"><img src="<c:url value='/image/long_banner.png'/>"></a>
+			</div>
+			<h1>FIVEDOLLS' PICK</h1>
+			<div id="initialTable">
+      		<table>
+			<tr>
+				<td class="ranking">
+					<div class="info">
+						<a href="<c:url value='/performance/detailViewPerformance/P0009'/>"><img src="<c:url value='/image/P0009.PNG'/>">
+							<div class="info-txt">
+							<p class="info-txt1">뮤지컬 [알라딘] 한국 초연 (ALADDIN The Musical)</p>
+							<p class="info-txt2">샤롯데씨어터</p>
+							</div></a>
+					</div>
+				</td>
+				<td class="ranking">
+					<div class="info">				
+						<a href="<c:url value='/performance/detailViewPerformance/P0014'/>"><img src="<c:url value='/image/P0014.PNG'/>">
+							<div class="info-txt">
+							<p class="info-txt1">뮤지컬 [쿠로이 저택엔 누가 살고 있을까?]</p>
+							<p class="info-txt2">샤롯데씨어터</p>
+							</div></a>
+					</div>	
+				</td>
+				<td class="ranking">
+					<div class="info">
+						<a href="<c:url value='/performance/detailViewPerformance/P0011'/>"><img src="<c:url value='/image/P0011.PNG'/>">
+							<div class="info-txt">
+							<p class="info-txt1">뮤지컬 〈젠틀맨스 가이드：사랑과 살인편〉</p>
+							<p class="info-txt2">샤롯데씨어터</p>
+							</div></a>
+					</div>
+				</td>
+				<td class="ranking">
+					<div class="info">
+						<a href="<c:url value='/performance/detailViewPerformance/P0012'/>"><img src="<c:url value='/image/P0012.PNG'/>">
+							<div class="info-txt">
+							<p class="info-txt1">뮤지컬 〈이터니티〉</p>
+							<p class="info-txt2">샤롯데씨어터</p>
+							</div></a>
+					</div>
+				</td>
+			</tr>
+			
+			<tr>
+				<td class="ranking">
+					<div class="info">
+						<a href="<c:url value='/performance/detailViewPerformance/P0013'/>"><img src="<c:url value='/image/P0013.jpg'/>">
+							<div class="info-txt">
+							<p class="info-txt1">2024 뮤지컬 [지저스 크라이스트 수퍼스타]</p>
+							<p class="info-txt2">샤롯데씨어터</p>
+							</div></a>
+					</div>
+				</td>
+				<td class="ranking">
+					<div class="info">
+						<a href="<c:url value='/performance/detailViewPerformance/P0010'/>"><img src="<c:url value='/image/P0010.jpg'/>">
+							<div class="info-txt">
+							<p class="info-txt1">뮤지컬 [빈센트 반 고흐]</p>
+							<p class="info-txt2">샤롯데씨어터</p>
+							</div></a>
+					</div>
+				</td>
+				<td class="ranking">
+					<div class="info">
+						<a href="<c:url value='/performance/detailViewPerformance/P0016'/>"><img src="<c:url value='/image/P0016.jpg'/>">
+							<div class="info-txt">
+							<p class="info-txt1">뮤지컬 [드라이 플라워]</p>
+							<p class="info-txt2">샤롯데씨어터</p>
+							</div></a>	
+					</div>					
+				</td>
+				<td class="ranking">
+					<div class="info">
+						<a href="<c:url value='/performance/detailViewPerformance/P0015'/>"><img src="<c:url value='/image/P0015.jpg'/>">
+							<div class="info-txt">
+							<p class="info-txt1">뮤지컬 [시지프스]</p>
+							<p class="info-txt2">샤롯데씨어터</p>
+							</div></a>	
+					</div>
+				</td>
+			</tr>
+			</table>	
+		</div>
 	<div class="empty2"></div>
 
 	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>

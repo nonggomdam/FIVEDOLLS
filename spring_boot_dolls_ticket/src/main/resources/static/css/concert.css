@@ -5,7 +5,18 @@
    font-weight: 400; /*이미 위에서 4Medium 이렇게 정해져서 font-weight 의미 없음*/
    font-style: normal;
 }
-
+@font-face {
+   font-family: 'TheJamsil1Thin';
+   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil1Thin.woff2') format('woff2');
+   font-weight: 100; /*이미 위에서 1Thin 이렇게 정해져서 font-weight 의미 없음*/
+   font-style: normal;
+}
+@font-face {
+   font-family: 'TheJamsil2Light';
+   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil2Light.woff2') format('woff2');
+   font-weight: 200; /*이미 위에서 2Light 이렇게 정해져서 font-weight 의미 없음*/
+   font-style: normal;
+}
 .swiper {
 	margin-top:30px;
     width: 100%;
@@ -47,3 +58,31 @@
 .swiper-slide a .slide-txt .slide-detail {
     font-size: 15px;
 }
+
+.info > a {
+	text-decoration: none;
+}
+
+.ranking .info a .info-txt {
+	font-family: 'TheJamsil2Light', sans-serif;
+	text-decoration: none;
+	width: 230px;
+    height: 108px;
+    text-align: center;
+    position: relative;
+}
+.info a .info-txt1 {
+    font-size: 16px;
+    line-height: 22px;
+    color: #888;
+    padding: 10px 0 12px 0;
+}
+
+.info a .info-txt2 {
+    font-size: 16px;
+    color: #000;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+

@@ -13,11 +13,16 @@
 			</div>	
 			<div id="slideShowBox">
 				<div id="slidePanel">
-					<img src= "<c:url value='/image/banner1.png'/>" class="slideImage">
-					<img src= "<c:url value='/image/banner2.jfif'/>" class="slideImage">
-					<img src= "<c:url value='/image/banner3.jfif'/>" class="slideImage">
-					<img src= "<c:url value='/image/banner4.jfif'/>" class="slideImage">
-					<img src= "<c:url value='/image/banner5.png'/>" class="slideImage">
+					<a href="<c:url value='/performance/detailViewPerformance/P0004'/>">
+					<img src= "<c:url value='/image/banner1.png'/>" class="slideImage"></a>
+					<a href="<c:url value='/performance/detailViewPerformance/P0013'/>">
+					<img src= "<c:url value='/image/banner2.jfif'/>" class="slideImage"></a>
+					<a href="<c:url value='/performance/detailViewPerformance/P0001'/>">
+					<img src= "<c:url value='/image/banner3.jfif'/>" class="slideImage"></a>
+					<a href="<c:url value='/performance/detailViewPerformance/P0010'/>">
+					<img src= "<c:url value='/image/banner4.jfif'/>" class="slideImage"></a>
+					<a href="<c:url value='/performance/detailViewPerformance/P0015'/>">
+					<img src= "<c:url value='/image/banner5.png'/>" class="slideImage"></a>
 				</div>
 			</div> <!-- slideShowBox 끝 -->  
 			<div id = "controlPanel">
@@ -145,6 +150,9 @@
 					</td>
 				</tr>
 			</table>
+			<div class="banner">
+				<a href="<c:url value='/performance/detailViewPerformance/P0017'/>"><img src="<c:url value='/image/long_banner.png'/>"></a>
+			</div>
 		</div>
 		
 		<div id="dynamicTable" style="display:none;">
@@ -152,14 +160,12 @@
 			<tr>
 				<td class="ranking">
 					<div class="info">
-						<a href="<c:url value='#'/>"><img src="<c:url value='/image/aladdin0009.PNG'/>">
+						<a href="<c:url value='/performance/detailViewPerformance/P0009'/>"><img src="<c:url value='/image/P0009.PNG'/>">
 							<div class="textinfo">
-								<span>알라딘<br>
+								<span>뮤지컬 [알라딘] 한국 초연 (ALADDIN The Musical)<br>
 									  <br>
-									  2024.12.11~2024.12.13<br>
-									  올림픽홀<br>
-									  <br>
-									  관람연령 15세이상<br>
+									  2024.12.24<br>~2024.12.25<br>
+									  샤롯데씨어터<br>
 								</span>	  
 							</div>
 						</a>	
@@ -167,14 +173,12 @@
 				</td>
 				<td class="ranking">
 					<div class="info">				
-						<a href="<c:url value='#'/>"><img src="<c:url value='/image/house0010.PNG'/>">
+						<a href="<c:url value='/performance/detailViewPerformance/P0014'/>"><img src="<c:url value='/image/P0014.PNG'/>">
 							<div class="textinfo">
-								<span>쿠로이 저택엔 누가 살고 있을까?<br>
+								<span>뮤지컬 [ 쿠로이 저택엔 누가 살고 있을까? ]<br>
 									  <br>	
-									  2024.12.13~2024.12.15<br>
-									  올림픽홀<br>
-									  <br>
-									  관람연령 15세이상<br>
+									  2024.12.13<br>~2024.12.14<br>
+									  샤롯데씨어터<br>
 								</span>
 							</div>
 						</a>	
@@ -182,14 +186,12 @@
 				</td>
 				<td class="ranking">
 					<div class="info">
-						<a href="<c:url value='#'/>"><img src="<c:url value='/image/gentleman0011.PNG'/>">
+						<a href="<c:url value='/performance/detailViewPerformance/P0011'/>"><img src="<c:url value='/image/P0011.PNG'/>">
 							<div class="textinfo">
-								<span>젠틀맨'스 가이드<br>
-								      <br>
-									  2024.12.15~2024.12.17<br>
-									  올림픽홀<br>
+								<span>뮤지컬 〈젠틀맨스 가이드：사랑과 살인편〉<br>
 									  <br>
-									  관람연령 15세이상<br>
+									  2024.11.20<br>~2024.11.21<br>
+									  샤롯데씨어터<br>
 								</span>	  
 							</div>
 						</a>	
@@ -197,14 +199,12 @@
 				</td>
 				<td class="ranking">
 					<div class="info">
-						<a href="<c:url value='#'/>"><img src="<c:url value='/image/eternity0012.PNG'/>">
+						<a href="<c:url value='/performance/detailViewPerformance/P0012'/>"><img src="<c:url value='/image/P0012.PNG'/>">
 							<div class="textinfo">
-								<span>ETERNITY<br>
+								<span>뮤지컬 〈이터니티〉<br>
 									  <br>
-									  2024.12.18~2024.12.20<br>
-									  올림픽홀<br>
-									  <br>
-									  관람연령 15세이상<br>
+									  2024.12.07<br>~2024.12.08<br>
+									  샤롯데씨어터<br>
 							 	</span>
 							</div>	 	
 						</a>	
@@ -215,44 +215,38 @@
 			<tr>
 				<td class="ranking">
 					<div class="info">
-						<a href="<c:url value='#'/>"><img src="<c:url value='/image/long0013.PNG'/>">
+						<a href="<c:url value='/performance/detailViewPerformance/P0013'/>"><img src="<c:url value='/image/P0013.jpg'/>">
 							<div class="textinfo">
-								<span>긴긴밤<br>
+								<span>2024 뮤지컬 [지저스 크라이스트 수퍼스타]<br>
 									  <br>
-									  2024.12.20~2024.12.22<br>
-									  올림픽홀<br>
-									  <br>
-									  관람연령 15세이상<br>
-								</span>		
-							</div>
+									  2024.11.07<br>~2024.11.08<br>
+									  샤롯데씨어터<br>
+							 	</span>
+							</div>	 	
 						</a>	
-					</div>					
+					</div>
 				</td>
 				<td class="ranking">
 					<div class="info">
-						<a href="<c:url value='#'/>"><img src="<c:url value='/image/swing0014.PNG'/>">
+						<a href="<c:url value='/performance/detailViewPerformance/P0010'/>"><img src="<c:url value='/image/P0010.jpg'/>">
 							<div class="textinfo">
-								<span>스윙 데이즈_암호명 A<br>
+								<span>뮤지컬 [빈센트 반 고흐]<br>
 									  <br>
-									  2024.12.22~2024.12.24<br>
-									  올림픽홀<br>
-									  <br>
-									  관람연령 15세이상<br>
-							  	</span>
+									  2024.11.10<br>~2024.11.11<br>
+									  샤롯데씨어터<br>
+								</span>	  
 							</div>
 						</a>	
-					</div>					
+					</div>
 				</td>
 				<td class="ranking">
 					<div class="info">
-						<a href="<c:url value='#'/>"><img src="<c:url value='/image/town0015.PNG'/>">
+						<a href="<c:url value='/performance/detailViewPerformance/P0016'/>"><img src="<c:url value='/image/P0016.jpg'/>">
 							<div class="textinfo">
-								<span>하데스타운<br>
+								<span>뮤지컬 [드라이 플라워]<br>
 									  <br>
-									  2024.12.24~2024.12.26<br>
-									  올림픽홀<br>
-									  <br>
-									  관람연령 15세이상<br>
+									  2024.12.20<br>~2024.12.21<br>
+									  샤롯데씨어터<br>
 								</span>	  
 							</div>
 						</a>	
@@ -260,23 +254,21 @@
 				</td>
 				<td class="ranking">
 					<div class="info">
-						<a href="<c:url value='#'/>"><img src="<c:url value='/image/boots0016.PNG'/>">
+						<a href="<c:url value='/performance/detailViewPerformance/P0015'/>"><img src="<c:url value='/image/P0015.jpg'/>">
 							<div class="textinfo">
-								<span>Kinky Boots<br>
+								<span>뮤지컬 [시지프스]<br>
 									  <br>
-									  2024.12.26~2024.12.28<br>
-									  올림픽홀<br>
-									  <br>
-									  관람연령 15세이상<br>
+									  2024.12.10<br>~2024.12.11<br>
+									  샤롯데씨어터<br>
 								</span>	  
 							</div>
 						</a>	
-					</div>					
+					</div>
 				</td>
 			</tr>
 			</table>	
 		</div> <!--dynamicTable 끝  -->
-		
+
 		<div id="box2">
 			<h1>TICKET COMING SOON</h1>
 			<div class="empty"></div>
@@ -284,46 +276,42 @@
 				<tr>
 					<td class="ranking">
 						<div class="infocoming">
-							<a href="<c:url value='#'/>"><img src="<c:url value='/image/christmas0017.PNG'/>">
-								<div class="textcoming">
-									<span>
-										2024.11.14(목) 18:00 OPEN<br>								
-									</span>
-								</div>
-							</a>
+							<a href="<c:url value='/performance/detailViewPerformance/P0006'/>"><img src="<c:url value='/image/P0006.jpg'/>">
+								<div class="donut-dday">D-16</div>
+								<div class="info-txt">
+									<p class="info-txt1">2024 이찬원 콘서트 ‘ 찬가（燦歌）’</p>
+									<p class="info-txt2">2024.11.02 14:00</p>
+								</div></a>
 						</div>
 					</td>
 					<td class="ranking">
 						<div class="infocoming">
-							<a href="<c:url value='#'/>"><img src="<c:url value='/image/dualipa0018.PNG'/>">
-								<div class="textcoming">
-									<span>
-										2024.11.16(토) 17:00 OPEN<br>								
-									</span>
-								</div>
-							</a>
+							<a href="<c:url value='/performance/detailViewPerformance/P0008'/>"><img src="<c:url value='/image/P0008.PNG'/>">
+								<div class="donut-dday">D-26</div>
+								<div class="info-txt">
+									<p class="info-txt1">박진영 30주년 콘서트〈Still JYP〉</p>
+									<p class="info-txt2">2024.11.12 14:00</p>
+								</div></a>
 						</div>
 					</td>
 					<td class="ranking">
 						<div class="infocoming">
-							<a href="<c:url value='#'/>"><img src="<c:url value='/image/god0019.PNG'/>">
-								<div class="textcoming">
-									<span>
-										2024.11.17(일) 20:00 OPEN<br>								
-									</span>
-								</div>
-							</a>
+							<a href="<c:url value='/performance/detailViewPerformance/P0009'/>"><img src="<c:url value='/image/P0009.PNG'/>">
+								<div class="donut-dday">D-26</div>
+								<div class="info-txt">
+									<p class="info-txt1">뮤지컬 [알라딘] 한국 초연 (ALADDIN The Musical)</p>
+									<p class="info-txt2">2024.11.12 14:00</p>
+								</div></a>
 						</div>
 					</td>
 					<td class="ranking">
 						<div class="infocoming">
-							<a href="<c:url value='#'/>"><img src="<c:url value='/image/growth0020.PNG'/>">
-								<div class="textcoming">
-									<span>
-										2024.11.22(금) 18:00 OPEN<br>								
-									</span>
-								</div>
-							</a>
+							<a href="<c:url value='/performance/detailViewPerformance/P0017'/>"><img src="<c:url value='/image/P0017.jpg'/>">
+								<div class="donut-dday">D-28</div>
+								<div class="info-txt">
+									<p class="info-txt1">2024 이무진 전국투어 콘서트 [별책부록]</p>
+									<p class="info-txt2">2024.11.14 14:00</p>
+								</div></a>
 						</div>
 					</td>
 				</tr>
@@ -331,51 +319,47 @@
 				<tr>
 					<td class="ranking">
 						<div class="infocoming">
-							<a href="<c:url value='#'/>"><img src="<c:url value='/image/laundry0021.PNG'/>">
-								<div class="textcoming">
-									<span>
-										2024.11.30(토) 14:00 OPEN<br>								
-									</span>
-								</div>
-							</a>
+							<a href="<c:url value='/performance/detailViewPerformance/P0012'/>"><img src="<c:url value='/image/P0012.PNG'/>">
+								<div class="donut-dday">D-28</div>
+								<div class="info-txt">
+									<p class="info-txt1">뮤지컬 〈이터니티〉</p>
+									<p class="info-txt2">2024.11.14 14:00</p>
+								</div></a>
 						</div>
 					</td>
 					<td class="ranking">
 						<div class="infocoming">
-							<a href="<c:url value='#'/>"><img src="<c:url value='/image/leemoonsae0022.PNG'/>">
-								<div class="textcoming">
-									<span>
-										2024.12.07(토) 20:00 OPEN<br>								
-									</span>
-								</div>
-							</a>
+							<a href="<c:url value='/performance/detailViewPerformance/P0013'/>"><img src="<c:url value='/image/P0013.jpg'/>">
+								<div class="donut-dday">D-28</div>
+								<div class="info-txt">
+									<p class="info-txt1">2024 뮤지컬 [지저스 크라이스트 수퍼스타]</p>
+									<p class="info-txt2">2024.11.14 14:00</p>
+								</div></a>
 						</div>
 					</td>
 					<td class="ranking">
 						<div class="infocoming">
-							<a href="<c:url value='#'/>"><img src="<c:url value='/image/santa0023.PNG'/>">
-								<div class="textcoming">
-									<span>
-										2024.12.21(토) 17:00 OPEN<br>								
-									</span>
-								</div>
-							</a>
+							<a href="<c:url value='/performance/detailViewPerformance/P0014'/>"><img src="<c:url value='/image/P0014.PNG'/>">
+								<div class="donut-dday">D-28</div>
+								<div class="info-txt">
+									<p class="info-txt1">뮤지컬 [쿠로이 저택엔 누가 살고 있을까?]</p>
+									<p class="info-txt2">2024.11.14 14:00</p>
+								</div></a>
 						</div>
 					</td>
 					<td class="ranking">
 						<div class="infocoming">
-							<a href="<c:url value='#'/>"><img src="<c:url value='/image/urban0024.PNG'/>">
-								<div class="textcoming">
-									<span>
-										2024.12.23(월) 13:00 OPEN<br>								
-									</span>
-								</div>
-							</a>
+							<a href="<c:url value='/performance/detailViewPerformance/P0001'/>"><img src="<c:url value='/image/P0001.jpg'/>">
+								<div class="donut-dday">D-28</div>
+								<div class="info-txt">
+									<p class="info-txt1">나훈아 ‘2024 고마웠습니다-라스트 콘서트(LAST CONCERT)’</p>
+									<p class="info-txt2">2024.11.14 14:00</p>
+								</div></a>
 						</div>
 					</td>
 				</tr>
 			</table>
 		</div>
 		<div class="empty2"></div>
-	</div>
+		
  		
