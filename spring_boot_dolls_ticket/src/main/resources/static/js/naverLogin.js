@@ -4,7 +4,7 @@
  
  
  // 카카오 로그인 함수
-$(document).ready(function() {
+$(document).ready(function() { 
     function naverLogin() {
         // 네이버 인증 URL로 리디렉션
         window.location.href = '/naver/oauth';

@@ -41,7 +41,7 @@
       	<a href="/kakao/oauth" id="kakaoLoginBtn">
     		<img src="../image/kakaologin.png" alt="카카오 로그인">
 		</a>
-      </div>
+      </div> 
       <div id=loginbox>
       	<button type="submit">로그인</button>
       </div>

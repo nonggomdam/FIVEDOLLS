@@ -39,7 +39,7 @@ $(document).ready(function() {
                 "user : \n" + 
                 "email : " + data['email'] + 
                 "\n nickname : " + data['nickname']
-            );
+            ); 
         } catch (e) {
             console.error("JSON 파싱 오류: ", e);
             alert("로그인 정보 처리 중 오류가 발생했습니다.");

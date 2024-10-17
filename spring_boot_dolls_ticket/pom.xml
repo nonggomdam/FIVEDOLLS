@@ -94,7 +94,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
-		<!-- 카카오 로그인을 위한 의존성 추가 -->
+		<!-- 카카오 로그인을 위한 의존성 추가 --> 
 		<dependency>
 			<groupId>com.googlecode.json-simple</groupId>
 			<artifactId>json-simple</artifactId>

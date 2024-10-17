@@ -236,7 +236,7 @@ public class MemberController {
 	            + "&response_type=code";
 	    
 	    response.sendRedirect(reqUrl); // 카카오 인증 URL로 리다이렉트
-	}
+	} 
 	
 	@RequestMapping("/naver/callback")
 	public String oauthNaver(@RequestParam(value = "code", required = false) String code, 
