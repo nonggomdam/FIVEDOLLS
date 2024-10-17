@@ -6,35 +6,39 @@
 <head>
     <meta charset="UTF-8">
     <title>마이페이지</title>
-    <c:import url="/WEB-INF/views/layout/head.jsp"></c:import>
+    	<c:import url="/WEB-INF/views/layout/top.jsp"/>
+		<c:import url="/WEB-INF/views/layout/head.jsp"/>
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/mypage.css'/>">
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/footer.css'/>">
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/font5.css'/>">
 		<script src="jquery-3.6.0.min.js"></script>
 		<script type="text/javascript">	</script>
 </head>
 <body>
 
-	<div class="wrap">
-		<c:import url="/WEB-INF/views/layout/top.jsp"></c:import>    
-	</div>
     <div class="container">
         <!-- 사이드바 -->
         <div class="sidebar">
             <div class="info-box">
                 <p class="title">나의 정보</p>
+                <br>
                 <p>회원님은 VIP입니다.</p>
                 <p>남은 좌석수: <strong>3</strong></p>
                 <p>예매 횟수: <strong>1</strong></p>
             </div>
             <div class="categories">
-                <h3>카테고리</h3>
+                <h3>카테고리</h3><br>
 	                <ul>
 	                    <li><a href="/member/correctionMember">회원정보 변경</a></li>
 	                    <li><a href="/booking/confirm">예매확인/관람내역</a></li>
 	                </ul>              
             </div>
-            <div class="customer-service">
-                <p><strong>고객센터</strong></p>
-                <p>전화: 1544-5555</p>
-                <p>운영시간: 09:00 ~ 18:00</p>
+            <div class="customer-service"> 
+                <h3>고객센터</h3>
+                <br>
+                <h1>1544-5555</h1>
+                <br>
+                <p>평일: 09:00 ~ 18:00<br>주말 공휴일 휴무</p>
             </div>
         </div>
 
@@ -71,9 +75,7 @@
             </div>
         </div>
     </div>
-
-
-
+    <c:import url="/WEB-INF/views/layout/footer.jsp"/>
 </body>
 </html>
  

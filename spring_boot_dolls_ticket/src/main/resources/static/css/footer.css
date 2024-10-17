@@ -39,9 +39,12 @@ footer a:hover {
 	cursor: pointer;
 }
 #companyInfo {
+	padding-top: 20px;
 	clear: both;
 	width: 1280px;
 	display: flex;
 	justify-content: space-between;
 }
-#siteName { font-size: 80px; }
+#siteName { 
+	font-size: 80px; 
+}

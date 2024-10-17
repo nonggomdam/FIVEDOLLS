@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+@font-face {
+ font-family: 'TheJamsil3Regular';
+ src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil3Regular.woff2') format('woff2');
+ font-weight: 300; /*이미 위에서 3Regular 이렇게 정해져서 font-weight 의미 없음*/
+ font-style: normal;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 60px 0;
+    width: 958px;
+    height: 560px;
+    border: solid 1px #d8d8d8;
+    background-color: #fff;
+}
+
+h1 {
+	display: block;
+    position: relative;
+    padding-bottom: 50px;
+    text-align: center;
+    line-height: 24px;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+label {
+	font-family: 'TheJamsil3Regular', sans-serif;
+    display: inline-block;
+    width: 150px;
+}
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 300px;
+    padding: 5px;
+}
+.subBtn {
+	margin-top: 40px;
+    text-align: center;
+}

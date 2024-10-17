@@ -1,5 +1,11 @@
 @charset "UTF-8";
-
+@font-face {
+ font-family: 'TheJamsil3Regular';
+ src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil3Regular.woff2') format('woff2');
+ font-weight: 300; /*이미 위에서 3Regular 이렇게 정해져서 font-weight 의미 없음*/
+ font-style: normal;
+}
+		* {margin:0 auto;}
 
         .container {
             display: flex;
@@ -25,8 +31,10 @@
             border: 1px solid #ddd;
             margin-bottom: 20px;
             background-color: #f8f9fa;
+            font-family: 'TheJamsil3Regular', sans-serif;
         }
         .info-box .title {
+        	font-size: 18px;
             font-weight: bold;
         }
         .image-placeholder {
@@ -43,6 +51,9 @@
             padding: 10px;
             background-color: #e9ecef;
             border: 1px solid #ccc;
+        }     
+        .customer-service p{
+            font-family: 'TheJamsil3Regular', sans-serif;
         }
         .categories {
             margin-top: 6px;

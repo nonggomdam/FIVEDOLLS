@@ -12,8 +12,8 @@
 		</ul>
 	</div>
 	<div id="companyInfo">
-		<div>
-			<span id="siteName">FIVE DOLLS</span>
+		<div id="siteName">
+			<span>FIVE DOLLS</span>
 		</div>
 		<div id="info">
 			<b>파이브 돌스(주)</b><br>

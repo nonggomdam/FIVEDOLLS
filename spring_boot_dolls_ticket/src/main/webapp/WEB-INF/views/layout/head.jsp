@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!-- 공용으로 사용하는 css/script link 로만 구성 모든 뷰에 import 해서 사용 --> 
 		
-	    <link rel="stylesheet" type="text/css" href="<c:url value='/css/mypage.css'/>">
+	    
 	    <link rel="stylesheet" type="text/css" href="<c:url value='/css/navbar.css'/>">
 	    
 	    
