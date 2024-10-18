@@ -11,8 +11,6 @@
 		<c:import url="/WEB-INF/views/layout/head.jsp"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/body.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/concert.css'/>">
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/footer.css'/>">
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/font5.css'/>">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 		<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 		<script src="<c:url value='/js/body.js'/>"></script>
@@ -62,7 +60,7 @@
 			</div>
 		</div>
 	</div>
-		<h1>RANKING</h1>
+		<h1>NOW OPEN</h1>
 			<div id="initialTable">
       		<table>
 			<tr>
@@ -146,13 +144,14 @@
 			<div class="banner">
 				<a href="<c:url value='/performance/detailViewPerformance/P0017'/>"><img src="<c:url value='/image/long_banner.png'/>"></a>
 			</div>
-			<h1>FIVEDOLLS' PICK</h1>
+			<h1>TICKET COMING SOON</h1>
 			<div id="initialTable">
       		<table>
 			<tr>
 				<td class="ranking">
 					<div class="info">
 						<a href="<c:url value='/performance/detailViewPerformance/P0009'/>"><img src="<c:url value='/image/P0009.PNG'/>">
+							<div class="donut-dday">D-16</div>
 							<div class="info-txt">
 							<p class="info-txt1">뮤지컬 [알라딘] 한국 초연 (ALADDIN The Musical)</p>
 							<p class="info-txt2">샤롯데씨어터</p>
@@ -162,6 +161,7 @@
 				<td class="ranking">
 					<div class="info">				
 						<a href="<c:url value='/performance/detailViewPerformance/P0014'/>"><img src="<c:url value='/image/P0014.PNG'/>">
+							<div class="donut-dday">D-16</div>
 							<div class="info-txt">
 							<p class="info-txt1">뮤지컬 [쿠로이 저택엔 누가 살고 있을까?]</p>
 							<p class="info-txt2">샤롯데씨어터</p>
@@ -171,6 +171,7 @@
 				<td class="ranking">
 					<div class="info">
 						<a href="<c:url value='/performance/detailViewPerformance/P0011'/>"><img src="<c:url value='/image/P0011.PNG'/>">
+							<div class="donut-dday">D-16</div>
 							<div class="info-txt">
 							<p class="info-txt1">뮤지컬 〈젠틀맨스 가이드：사랑과 살인편〉</p>
 							<p class="info-txt2">샤롯데씨어터</p>
@@ -180,6 +181,7 @@
 				<td class="ranking">
 					<div class="info">
 						<a href="<c:url value='/performance/detailViewPerformance/P0012'/>"><img src="<c:url value='/image/P0012.PNG'/>">
+							<div class="donut-dday">D-16</div>
 							<div class="info-txt">
 							<p class="info-txt1">뮤지컬 〈이터니티〉</p>
 							<p class="info-txt2">샤롯데씨어터</p>
@@ -192,6 +194,7 @@
 				<td class="ranking">
 					<div class="info">
 						<a href="<c:url value='/performance/detailViewPerformance/P0013'/>"><img src="<c:url value='/image/P0013.jpg'/>">
+							<div class="donut-dday">D-16</div>
 							<div class="info-txt">
 							<p class="info-txt1">2024 뮤지컬 [지저스 크라이스트 수퍼스타]</p>
 							<p class="info-txt2">샤롯데씨어터</p>
@@ -201,6 +204,7 @@
 				<td class="ranking">
 					<div class="info">
 						<a href="<c:url value='/performance/detailViewPerformance/P0010'/>"><img src="<c:url value='/image/P0010.jpg'/>">
+							<div class="donut-dday">D-16</div>
 							<div class="info-txt">
 							<p class="info-txt1">뮤지컬 [빈센트 반 고흐]</p>
 							<p class="info-txt2">샤롯데씨어터</p>
@@ -210,6 +214,7 @@
 				<td class="ranking">
 					<div class="info">
 						<a href="<c:url value='/performance/detailViewPerformance/P0016'/>"><img src="<c:url value='/image/P0016.jpg'/>">
+							<div class="donut-dday">D-16</div>
 							<div class="info-txt">
 							<p class="info-txt1">뮤지컬 [드라이 플라워]</p>
 							<p class="info-txt2">샤롯데씨어터</p>
@@ -219,6 +224,7 @@
 				<td class="ranking">
 					<div class="info">
 						<a href="<c:url value='/performance/detailViewPerformance/P0015'/>"><img src="<c:url value='/image/P0015.jpg'/>">
+							<div class="donut-dday">D-16</div>
 							<div class="info-txt">
 							<p class="info-txt1">뮤지컬 [시지프스]</p>
 							<p class="info-txt2">샤롯데씨어터</p>

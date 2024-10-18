@@ -36,8 +36,10 @@ h1 {
 }
 
 .ranking img {
+	width: 280px;
+	height: 350px;
 	display: block;
-    margin: 10px;
+    margin: 15px;
 }
 
 .empty {
