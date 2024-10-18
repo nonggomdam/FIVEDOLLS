@@ -58,6 +58,20 @@
 		FROM MEMBER
 		WHERE CUST_ID = #{custId}
 </select>
+
+ <update id="updateMember"  parameterType="com.spring_boot_dolls_ticket.project.model.MemberVO">
+	UPDATE MEMBER
+		SET 
+			CUST_ID = #{custId}		  
+		    ,CUST_NAME = #{custName}
+		    ,CUST_EMAIL = #{custEmail}
+		    ,CUST_PHONENUMBER = #{custPhoneNumber}
+		    ,CUST_ZIPCODE = #{custZipcode}
+		    ,CUST_ADDRESS = #{custAddress}
+		    ,CUST_DETAILADDRESS = #{custDetailAddress}
+		WHERE CUST_ID = #{custId}
+</update>
+
 	
     
 </mapper>	 

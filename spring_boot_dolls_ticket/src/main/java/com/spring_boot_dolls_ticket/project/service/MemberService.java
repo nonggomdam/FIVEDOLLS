@@ -118,6 +118,12 @@ public class MemberService implements IMemberService {
 		return dao.selectCustInfo(custId);
 	}
 
+	@Override
+	public void updateMember(MemberVO in) {
+		// TODO Auto-generated method stub
+		dao.updateMember(in);
+	}
+
 
 
 

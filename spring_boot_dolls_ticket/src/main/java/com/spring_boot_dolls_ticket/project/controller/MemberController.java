@@ -474,4 +474,15 @@ public class MemberController {
 		return "member/correctionMember";
 	}
 	
+	/*
+	 * 비밀번호 제외 수정
+	 */
+	@RequestMapping("/member/memberUpdate")
+	public String updateMemberPage(MemberVO in) {
+		
+		memService.updateMember(in);
+		
+		return "redirect:/member/myPage"; 
+	}
+
 }

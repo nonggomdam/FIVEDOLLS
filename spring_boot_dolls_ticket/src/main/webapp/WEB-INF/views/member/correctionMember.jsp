@@ -33,9 +33,9 @@
 
             <!-- Password Field with Change Button -->
             <div class="form-group">
-                <label for="custPassword">비밀번호 확인</label>
-                <input type="password" id="custPassword" name="custPassword" value="${myInfo.custPassWord}" >
-   				<button type="button" id="changePassword">비밀번호 변경</button>
+                <label for="custPassWord">비밀번호 확인</label>
+                <input type="password" id="custPassWord" name="custPassword" value="" >
+   				<button type="button" id="custPassWord">비밀번호 변경</button>
             </div>
 
             <!-- Name Field -->
@@ -52,8 +52,8 @@
 
             <!-- Phone Number Field with Change Button -->
             <div class="form-group">
-                <label for="custPhonenumber">휴대전화번호</label>
-                <input type="text" id="custPhonenumber" name="custPhonenumber" value="${myInfo.custPhoneNumber}" maxlength = "11" placeholder="숫자로만 입력하세요">
+                <label for="custPhoneNumber">휴대전화번호</label>
+                <input type="text" id="custPhoneNumber" name="custPhoneNumber" value="${myInfo.custPhoneNumber}" maxlength = "11" placeholder="숫자로만 입력하세요">
             </div>
 
             <!-- Postal Code Field -->

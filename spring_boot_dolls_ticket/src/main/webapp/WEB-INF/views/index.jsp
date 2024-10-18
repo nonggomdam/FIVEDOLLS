@@ -19,6 +19,5 @@
 		 	<c:import url="/WEB-INF/views/layout/body.jsp"/>
 		 	
 			<c:import url="/WEB-INF/views/layout/footer.jsp"/>
-	
 	</body>
 </html>

@@ -13,5 +13,6 @@ public interface IMemberService {
 	public boolean checkIdInDatabase(String id);
 	public boolean resetPassword(String name, String email, String newPassword);
 	public MemberVO selectCustInfo(String custId);
+	public void updateMember(MemberVO in);
 }  
   
