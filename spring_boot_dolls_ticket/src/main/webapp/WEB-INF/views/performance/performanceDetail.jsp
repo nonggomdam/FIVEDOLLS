@@ -11,8 +11,6 @@
 	<c:import url="/WEB-INF/views/layout/top.jsp"/>
 	<c:import url="/WEB-INF/views/layout/head.jsp"/>
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/performanceDetail.css'/>">
-	<link rel="stylesheet" type="text/css" href="<c:url value='/css/footer.css'/>">
-	<link rel="stylesheet" type="text/css" href="<c:url value='/css/font5.css'/>">
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1df0943899c83997c7b907c959ed39c1"></script>
 	<script src="<c:url value='/js/ticketOpen.js'/>"></script>
 	</head>
@@ -158,19 +156,90 @@
 					<ul class="review">
 						<li>
 							<div class="writerBox">
-								<span class="writerId">xhaht***</span>
-								<span class="writeDate">2024.10.11</span>
-								<span class="reviewGrade">
-								<img src="<c:url value='/image/icons8-star-16.PNG'/>">
-								<img src="<c:url value='/image/icons8-star-16.PNG'/>">
-								<img src="<c:url value='/image/icons8-star-16.PNG'/>">
-								<img src="<c:url value='/image/icons8-star-16.PNG'/>">
-								<img src="<c:url value='/image/icons8-star-16.PNG'/>">
+								<span class="writerId">xhaht***</span> <span class="writeDate">2024.10.18</span>
+								<span class="reviewGrade"> <img
+									src="<c:url value='/image/icons8-star-16.png'/>"> <img
+									src="<c:url value='/image/icons8-star-16.png'/>"> <img
+									src="<c:url value='/image/icons8-star-16.png'/>"> <img
+									src="<c:url value='/image/icons8-star-16.png'/>"> <img
+									src="<c:url value='/image/icons8-star-16.png'/>">
 								</span>
-								<div class="reviewText">새로운 시즌! 새로운 배우님들의 조합이 좋았습니다 재미있게 관람했어요 개인적으로 경수베를렌느가 좋았습니다~ 감정선이 와닿았어요</div>
+								<div class="reviewText">새로운 시즌! 새로운 배우님들의 조합이 좋았습니다 재미있게
+									관람했어요 개인적으로 경수베를렌느가 좋았습니다~ 감정선이 와닿았어요</div>
+							</div>
+						</li>
+						<li>
+							<div class="writerBox">
+								<span class="writerId">tin***</span> <span class="writeDate">2024.10.17</span>
+								<span class="reviewGrade"> <img
+									src="<c:url value='/image/icons8-star-16.png'/>"> <img
+									src="<c:url value='/image/icons8-star-16.png'/>"> <img
+									src="<c:url value='/image/icons8-star-16.png'/>"> <img
+									src="<c:url value='/image/icons8-star-16.png'/>"> <img
+									src="<c:url value='/image/icons8-star-16.png'/>">
+								</span>
+								<div class="reviewText">와아~~~ 배우들이 극을 잘 마는데ㅠ 무대 조명 오케 모든
+									것이 완벽하여~~~ 보는내내 감탄을~ 와아~~~ 신박하다! 나보다 화장을 잘하는 배우들이란!? 오옷♡♡♡</div>
+							</div>
+						</li>
+						<li>
+							<div class="writerBox">
+								<span class="writerId">ehdwn0***</span> <span class="writeDate">2024.10.15</span>
+								<span class="reviewGrade"> <img
+									src="<c:url value='/image/icons8-star-16.png'/>"> <img
+									src="<c:url value='/image/icons8-star-16.png'/>"> <img
+									src="<c:url value='/image/icons8-star-16.png'/>"> <img
+									src="<c:url value='/image/icons8-star-16.png'/>"> <img
+									src="<c:url value='/image/icons8-star-16.png'/>">
+								</span>
+								<div class="reviewText">꼭 락콘서트 다녀 온 기분이에요 컷콜에서 신나게 목소리 한껏
+									높여 질렀더니 날아갈 거 같아요... 알앤디 특유의 현란한 조명과 배우들의 열연 라이브밴드까지 좋았습니다</div>
+							</div>
+						</li>
+						<li>
+							<div class="writerBox">
+								<span class="writerId">ytr***</span> <span class="writeDate">2024.10.13</span>
+								<span class="reviewGrade"> <img
+									src="<c:url value='/image/icons8-star-16.png'/>"> <img
+									src="<c:url value='/image/icons8-star-16.png'/>"> <img
+									src="<c:url value='/image/icons8-star-16.png'/>"> <img
+									src="<c:url value='/image/icons8-star-16.png'/>"> <img
+									src="<c:url value='/image/icons8-star-16.png'/>">
+								</span>
+								<div class="reviewText">이름만큼 아름답고 눈부신 반짝반짝한 글램락을 보실 수
+									있습니다.</div>
+							</div>
+						</li>
+						<li>
+							<div class="writerBox">
+								<span class="writerId">lemon***</span> <span class="writeDate">2024.10.11</span>
+								<span class="reviewGrade"> <img
+									src="<c:url value='/image/icons8-star-16.png'/>"> <img
+									src="<c:url value='/image/icons8-star-16.png'/>"> <img
+									src="<c:url value='/image/icons8-star-16.png'/>"> <img
+									src="<c:url value='/image/icons8-star-16.png'/>"> <img
+									src="<c:url value='/image/icons8-star-16.png'/>">
+								</span>
+								<div class="reviewText">너무나 아름다운 이야기 평생했으면좋겠어요아니 열자 넘었잖아요</div>
 							</div>
 						</li>
 					</ul>
+					<div class="list-pagination" style="display: block;">
+						<a href="" class="list-page-first"><img src="<c:url value='/image/icons8-arrow-20.png'/>"></a>
+						<div>
+							<a href="#" onclick="return false;" class="on"><span>1</span></a><a
+								href=""><span>2</span></a><a
+								href=""><span>3</span></a><a
+								href=""><span>4</span></a><a
+								href=""><span>5</span></a><a
+								href=""><span>6</span></a><a
+								href=""><span>7</span></a><a
+								href=""><span>8</span></a><a
+								href=""><span>9</span></a><a
+								href=""><span>10</span></a>
+						</div>
+						<a href="" class="list-page-last"><img	src="<c:url value='/image/icons8-arrow-20_2.png'/>"></a>
+					</div>
 				</div>
 			</div>
 		</div>

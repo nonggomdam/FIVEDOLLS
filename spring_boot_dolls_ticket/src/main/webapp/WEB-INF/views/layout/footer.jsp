@@ -25,4 +25,7 @@
 			<b>Copyright © 파이브돌스 Corp. All Rights Reserved. </b><br>
 		</div>
 	</div>
+	<div class="goTop">
+		<a id="topBtn"><img src="<c:url value='/image/icons8-arrow-100.png'/>"></a>
+	</div>
 </footer>

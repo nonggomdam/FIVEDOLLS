@@ -39,12 +39,21 @@ footer a:hover {
 	cursor: pointer;
 }
 #companyInfo {
-	padding-top: 20px;
 	clear: both;
 	width: 1280px;
 	display: flex;
 	justify-content: space-between;
 }
-#siteName { 
-	font-size: 80px; 
+#siteName { font-size: 80px; }
+
+.goTop a {
+    position: fixed;
+    bottom: 270px;
+    right: 40px;
+    z-index: 999;
+    cursor: pointer;
+}
+.goTop a.on{
+  cursor: pointer;
+  bottom: 0;
 }

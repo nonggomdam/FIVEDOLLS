@@ -148,14 +148,9 @@
     border-bottom: 2px solid #333;
     font-size: 0;
 }
-a {
-    font-size: 0;
-    text-decoration: none;
-    outline: none;
-    color: inherit;
-}
 
 .dt-04 a {
+	text-decoration: none;
     display: inline-block;
     height: 55px;
     line-height: 55px;
@@ -262,9 +257,7 @@ a {
 .review {
     border-top: 1px solid #000;
 }
-li {
-    list-style: none;
-}
+
 .review li {
     max-height: 280px;
     padding-bottom: 19px;
@@ -315,25 +308,48 @@ li {
     line-height: 22px;
     color: #666;
 }
-
-#write {
-	display: block;
-    position: absolute;
-    right: 0;
-    top: 17px;
-	cursor:pointer;
+.review li:last-child {
+    border-bottom: 1px solid #000;
+}
+.write {
+	margin-left: 1100px;
+	height: 40px;
 }
 
-#write a {
+.write a {
 	text-decoration:none;
 }
 
-#write span {
-	font-size:25px;
-	font-weight:bold;
+.write span {
+	cursor:pointer;
+	font-size:20px;
 	border:2px solid #20B2AA;
 	border-radius:5px;
 	background-color:white;
 	color:#20B2AA;
-	padding:10px;
+	padding:7px;
+}
+.list-pagination {
+    text-align: center;
+    padding-top: 35px;
+}
+.list-pagination a {
+	text-decoration: none;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    font-size: 15px;
+    color: #666;
+    margin: 0 3px;
+    border: 1px solid #ddd;
+    font-family: 'TheJamsil2Light', sans-serif;
+}
+.list-pagination a img {
+    vertical-align: middle;
+}
+.list-pagination div {
+    display: inline-block;
+    margin: 0 14px;
 }
