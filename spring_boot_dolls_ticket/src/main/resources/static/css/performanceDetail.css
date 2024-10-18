@@ -155,19 +155,14 @@
     height: 55px;
     line-height: 55px;
     width: 180px;
-    border-top: 3px solid #fff;
     text-align: center;
 }
 
-.dt-04 a > span {
+.dt-04 a > span {	
     font-size: 18px;
     color: #333;
     letter-spacing: -0.09em;
     font-family: 'TheJamsil2Light', sans-serif;
-}
-
-.dt-04 a.on {
-    border-top: 3px solid #ec7d2c;
 }
 
 .detailPage-describe {

@@ -93,9 +93,11 @@
 	marker.setMap(map);
 	
 //------------------------------------------------------------------------------------------------------
-
-
-    
+    var reviewLoc = $('.write').offset();
+   	$('#goReview').click(function(){
+    	$('html, body').animate({scrollTop:reviewLoc.top},0);
+        return false;
+    });
  });
  
  

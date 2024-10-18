@@ -13,6 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/performanceDetail.css'/>">
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1df0943899c83997c7b907c959ed39c1"></script>
 	<script src="<c:url value='/js/ticketOpen.js'/>"></script>
+	<script src="<c:url value='/js/review.js'/>"></script>
 	</head>
 <body>
 	<div class="detailPage-wrap">
@@ -73,8 +74,8 @@
 			</div>
 		</div>
 		<div class="dt-04">
-			<a href="" id="describe" class="on"><span>상세정보</span></a>
-			<a href="" id="goReview" class="on"><span class="rn-eve">관람후기<span class="dt-04-count">(10)</span></span></a>
+			<a href="" id="describe"><span>상세정보</span></a>
+			<a href="" id="goReview"><span>관람후기<span class="dt-04-count">(10)</span></span></a>
 		</div>
 		<div class="detailPage-describe">
 			<div class="dt-05">
@@ -149,7 +150,7 @@
 						<a onclick="alert('로그인이 필요합니다.')"><span>후기 작성하기</span></a>
 					</c:if>
 					<c:if test="${sessionScope.sid != null}">
-						<a href="<c:url value='#'/>"><span>후기 작성하기</span></a>
+						<a href="" onclick="openPopup()"><span>후기 작성하기</span></a>
 					</c:if>
 				</div>
 				<div class="rev-container">
