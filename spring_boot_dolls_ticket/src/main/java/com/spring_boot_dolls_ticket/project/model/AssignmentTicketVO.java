@@ -7,6 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class AssignmentTicketVO {
 
 	private String noticeId;
+	private String assignmentSqno;
 	private String performanceId;
 	private String reservationSeatInformation;
 	private String reservationNumber;
@@ -23,6 +24,12 @@ public class AssignmentTicketVO {
 	}
 	public void setNoticeId(String noticeId) {
 		this.noticeId = noticeId;
+	}
+	public String getAssignmentSqno() {
+		return assignmentSqno;
+	}
+	public void setAssignmentSqno(String assignmentSqno) {
+		this.assignmentSqno = assignmentSqno;
 	}
 	public String getPerformanceId() {
 		return performanceId;
@@ -69,12 +76,13 @@ public class AssignmentTicketVO {
 	
 	@Override
 	public String toString() {
-		return "AssignmentTicketVO [noticeId=" + noticeId + ", performanceId=" + performanceId
-				+ ", reservationSeatInformation=" + reservationSeatInformation + ", reservationNumber="
+		return "AssignmentTicketVO [noticeId=" + noticeId + ", assignmentSqno=" + assignmentSqno + ", performanceId="
+				+ performanceId + ", reservationSeatInformation=" + reservationSeatInformation + ", reservationNumber="
 				+ reservationNumber + ", receiveCustId=" + receiveCustId + ", soldYn=" + soldYn + ", firstChangeDate="
 				+ firstChangeDate + ", lastChangeDate=" + lastChangeDate + "]";
 	}
 	
+
 	
 	
 	

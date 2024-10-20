@@ -63,15 +63,15 @@
 						<input type="hidden" name="noticeId" value="${nb.noticeId}">
 						<c:forEach var="item" items="${list}"> 
 							<div class="show-item ${item.soldYn =='Y'?'sold':'' }">
-								<input type="checkbox"  ${item.soldYn =='Y'?'disabled':'' } class="chkbox" style="width:20px;" name="seatAndId" value="${item.performanceId}@${item.reservationSeatInformation}">
+								<input type="checkbox"  ${item.soldYn =='Y'?'disabled':'' } class="chkbox" style="width:20px;" name="assignmentSqno" value="${item.assignmentSqno}">
 								
 								<span>${item.performanceKindCd}</span>
 								<span>${item.performanceName}</span>
 								<br>
-								<span style="margin-left:40px;">${item.performanceDate}</span>
-								<span>${item.reservationSeatInformation}</span>
+								<span style="margin-left:40px;">일시:${item.performanceDate}</span>
+								<span>&nbsp;&nbsp;&nbsp;좌석:${item.reservationSeatInformation}</span>
 								<span class="price" data-price=${item.performancePrice }>
-									<fmt:formatNumber value="${item.performancePrice}" pattern="#,###"/>원
+									&nbsp;&nbsp;&nbsp;가격:<fmt:formatNumber value="${item.performancePrice}" pattern="#,###"/>원
 								</span>
 								<c:if test="${item.soldYn == 'Y'}">
 								<span style="margin-left:30px;color:red;font-weight:bold;border:3px solid red;border-radius:5px;padding:8px;">판매완료</span> 

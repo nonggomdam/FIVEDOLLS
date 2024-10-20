@@ -1,10 +1,12 @@
 package com.spring_boot_dolls_ticket.project.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
 import com.spring_boot_dolls_ticket.project.model.AssignmentNoticeBoardVO;
+import com.spring_boot_dolls_ticket.project.model.AssignmentTicket2VO;
 import com.spring_boot_dolls_ticket.project.model.AssignmentTicketVO;
 import com.spring_boot_dolls_ticket.project.model.Transfer2VO;
 import com.spring_boot_dolls_ticket.project.model.TransferReservationInfoVO;
@@ -21,5 +23,8 @@ public interface ITransferDAO {
 	public ArrayList<Transfer2VO> selectListTicketAndPerformance(String noticeId);
 	public int updateHit(String noticeId);
 	public int updateAssignmentTicket(AssignmentTicketVO ticketVo);
-	public int updateCustId(@Param("receiveCustId") String receiveCustId, @Param("performanceId") String performanceId, @Param("reservationSeatInformation") String seatInfo);
+	public int updateCustId(@Param("receiveCustId") String receiveCustId, @Param("noticeId") String noticeId, @Param("assignmentSqno") String assignmentSqno);
+	public String selectEmail(String custId);
+	public List<Transfer2VO> showInfoInEmail(AssignmentTicket2VO assignmentTicket2VO);
+
 } 

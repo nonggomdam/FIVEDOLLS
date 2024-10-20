@@ -2,6 +2,7 @@ package com.spring_boot_dolls_ticket.project.service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.spring_boot_dolls_ticket.project.dao.ITransferDAO;
 import com.spring_boot_dolls_ticket.project.model.AssignmentNoticeBoardVO;
+import com.spring_boot_dolls_ticket.project.model.AssignmentTicket2VO;
 import com.spring_boot_dolls_ticket.project.model.AssignmentTicketVO;
 import com.spring_boot_dolls_ticket.project.model.Transfer2VO;
 import com.spring_boot_dolls_ticket.project.model.TransferReservationInfoVO;
@@ -46,9 +48,6 @@ public class TransferService implements ITransferService{
 			infovo.setReservationNumber(arr[i]);
 			infovo.setCustId(vo.getCustId());
 			infovo = tdao.selectSeatInfo(infovo);
-			
-			ticketvo.setPerformanceId(infovo.getPerformanceId());
-			ticketvo.setReservationSeatInformation(infovo.getReservationSeatInformation());
 			
 			tdao.insertAssignmentTicket(ticketvo);
 		}
@@ -88,12 +87,25 @@ public class TransferService implements ITransferService{
 		int ticketUpdate = tdao.updateAssignmentTicket(ticketVo);
 		
 		String receiveCustId=ticketVo.getReceiveCustId();
-		String performanceId=ticketVo.getPerformanceId();
-		String seatInfo=ticketVo.getReservationSeatInformation();  
+		String noticeId=ticketVo.getNoticeId();
+		String assignmentSqno=ticketVo.getAssignmentSqno();  
 		
-		int custIdUpdate=tdao.updateCustId(receiveCustId, performanceId, seatInfo);
+		int custIdUpdate = tdao.updateCustId(receiveCustId, noticeId, assignmentSqno);
+			
 		
 		return ticketUpdate;
+	}
+
+	@Override
+	public String selectEmail(String custId) {
+		
+		return tdao.selectEmail(custId);
+	}
+
+	@Override
+	public List<Transfer2VO> showInfoInEmail(AssignmentTicket2VO assignmentTicket2VO) {
+		
+		return tdao.showInfoInEmail(assignmentTicket2VO);
 	}
 
 	

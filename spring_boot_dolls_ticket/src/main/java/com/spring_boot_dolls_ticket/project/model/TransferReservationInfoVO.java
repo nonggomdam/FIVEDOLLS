@@ -9,6 +9,9 @@ public class TransferReservationInfoVO {
 	private String reservationNumber;
 	private String performanceId;
 	private String custId;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date performanceDate;
+	private int performancePrice;
 	private String reservationSeatInformation;
 	private String reservationStatus;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -34,6 +37,18 @@ public class TransferReservationInfoVO {
 	}
 	public void setCustId(String custId) {
 		this.custId = custId;
+	}
+	public Date getPerformanceDate() {
+		return performanceDate;
+	}
+	public void setPerformanceDate(Date performanceDate) {
+		this.performanceDate = performanceDate;
+	}
+	public int getPerformancePrice() {
+		return performancePrice;
+	}
+	public void setPerformancePrice(int performancePrice) {
+		this.performancePrice = performancePrice;
 	}
 	public String getReservationSeatInformation() {
 		return reservationSeatInformation;
@@ -63,10 +78,13 @@ public class TransferReservationInfoVO {
 	@Override
 	public String toString() {
 		return "TransferReservationInfoVO [reservationNumber=" + reservationNumber + ", performanceId=" + performanceId
-				+ ", custId=" + custId + ", reservationSeatInformation=" + reservationSeatInformation
+				+ ", custId=" + custId + ", performanceDate=" + performanceDate + ", performancePrice="
+				+ performancePrice + ", reservationSeatInformation=" + reservationSeatInformation
 				+ ", reservationStatus=" + reservationStatus + ", firstChangeDate=" + firstChangeDate
 				+ ", lastChangeDate=" + lastChangeDate + "]";
 	}
+	
+	
 
 	
 	

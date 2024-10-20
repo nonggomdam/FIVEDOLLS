@@ -63,9 +63,9 @@
 								<span>${show.performanceKindCd}</span>
 								<span>${show.performanceName}</span>
 								<br>
-								<span style="margin-left:40px;">${show.performanceDate}</span>
-								<span>${show.reservationSeatInformation}석</span>
-								<span><fmt:formatNumber value="${show.performancePrice}" pattern="#,###"/>원</span>
+								<span style="margin-left:40px;">일시:${show.performanceDate}</span>
+								<span>&nbsp;&nbsp;&nbsp;좌석:${show.reservationSeatInformation}석</span>
+								<span>&nbsp;&nbsp;&nbsp;가격:<fmt:formatNumber value="${show.performancePrice}" pattern="#,###"/>원</span>
 							</div>	
 						</c:forEach>	
 					</td>	

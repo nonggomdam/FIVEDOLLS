@@ -2,10 +2,12 @@ package com.spring_boot_dolls_ticket.project.service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
 import com.spring_boot_dolls_ticket.project.model.AssignmentNoticeBoardVO;
+import com.spring_boot_dolls_ticket.project.model.AssignmentTicket2VO;
 import com.spring_boot_dolls_ticket.project.model.AssignmentTicketVO;
 import com.spring_boot_dolls_ticket.project.model.Transfer2VO;
 import com.spring_boot_dolls_ticket.project.model.TransferVO;
@@ -17,4 +19,6 @@ public interface ITransferService {
 	public HashMap<String, Object> selectAssignmentNotice(String noticeId);
 	public int updateHit(String noticeId);
 	public int updateAssignmentTicket(AssignmentTicketVO ticketVo);
+	public String selectEmail(String custId);
+	public List<Transfer2VO> showInfoInEmail(AssignmentTicket2VO assignmentTicket2VO);
 }
