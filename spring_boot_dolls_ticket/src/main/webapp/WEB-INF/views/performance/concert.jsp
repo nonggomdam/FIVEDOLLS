@@ -100,17 +100,27 @@
 		<h1>TICKET COMING SOON</h1>
 		<table id="initialTable">
 			<tr>
-				<td class="ranking">
-					<div class="info">
-					<a href="<c:url value='/performance/detailViewPerformance/P0001'/>"><img src="<c:url value='/image/P0001.jpg'/>">
-						<div class="donut-dday">D-16</div>
-						<div class="info-txt">
-						<p class="info-txt1">나훈아 ‘2024 고마웠습니다-라스트 콘서트(LAST CONCERT)’</p>
-						<p class="info-txt2">올림픽홀</p>
-						</div></a>
-				</div>
+			<td class="">
+	            <div class="images">
+	                <c:forEach items = "${consertOpenExpectedList}"  var = "consertOpenExpected">
+	                	<div class="item">
+			                <img src="../<c:out value="${consertOpenExpected.performanceImagePath}"/>"
+			                     alt="${consertOpenExpected.performanceImagePath}">			                  
+			                <p id="deteail"> <fmt:formatDate value="${consertOpenExpected.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${consertOpenExpected.maxPerformanceDate}" pattern="yyyy.MM.dd"/> </p>
+			                <p>오픈예정일자: <fmt:formatDate value="${consertOpenExpected.reservationOpenExpectedDate}" pattern="yyyy.MM.dd"/></p>
+			                	<h2 >${consertOpenExpected.performanceName}</h2>
+			                <div class="caption">
+			                    <h2>${consertOpenExpected.performanceName}</h2>
+			                    <p>공연날짜: <fmt:formatDate value="${consertOpenExpected.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${consertOpenExpected.maxPerformanceDate}" pattern="yyyy.MM.dd"/>  </p>
+			                    <p>공연장소</p>
+			                    <p>${consertOpenExpected.performanceAddress} ${consertOpenExpected.performanceDetailAddress}</p>
+			                    <a href="/performance/detailViewPerformance/${consertOpenExpected.performanceId}">공연 상세정보</a>
+			                </div>
+			            </div>
+	                </c:forEach>
+	            </div>
 			</td>
-				<td class="ranking">
+<%-- 				<td class="ranking">
 					<div class="info">				
 						<a href="<c:url value='/performance/detailViewPerformance/P0002'/>"><img src="<c:url value='/image/P0002.PNG'/>">
 							<div class="donut-dday">D-16</div>
@@ -182,7 +192,7 @@
 							<p class="info-txt2">올림픽홀</p>
 							</div></a>									
 					</div>
-				</td>
+				</td> --%>
 			</tr>
 		</table>
 

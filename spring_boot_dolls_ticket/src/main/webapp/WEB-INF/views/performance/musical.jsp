@@ -107,17 +107,27 @@
 			<div id="initialTable">
       		<table>
 			<tr>
-				<td class="ranking">
-					<div class="info">
-						<a href="<c:url value='/performance/detailViewPerformance/P0009'/>"><img src="<c:url value='/image/P0009.PNG'/>">
-							<div class="donut-dday">D-16</div>
-							<div class="info-txt">
-							<p class="info-txt1">뮤지컬 [알라딘] 한국 초연 (ALADDIN The Musical)</p>
-							<p class="info-txt2">샤롯데씨어터</p>
-							</div></a>
-					</div>
+				<td class="">
+					<div class="images">
+	                <c:forEach items="${performanceOpenExpectedList}" var="performanceOpenExpected">
+			            <div class="item">
+			                <img src="../<c:out value="${performanceOpenExpected.performanceImagePath}"/>"
+			                     alt="${performanceOpenExpected.performanceImagePath}">
+			                <p id="deteail"> <fmt:formatDate value="${performanceOpenExpected.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${performanceOpenExpected.maxPerformanceDate}" pattern="yyyy.MM.dd"/> </p>
+			                <p>오픈예정일자: <fmt:formatDate value="${performanceOpenExpected.reservationOpenExpectedDate}" pattern="yyyy.MM.dd"/></p>
+			                	<h2 >${performanceOpenExpected.performanceName}</h2>
+			                <div class="caption">
+			                    <h2>${performanceOpenExpected.performanceName}</h2>
+			                    <p>공연날짜: <fmt:formatDate value="${performanceOpenExpected.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${performanceOpenExpected.maxPerformanceDate}" pattern="yyyy.MM.dd"/>  </p>
+			                    <p>공연장소</p>
+			                    <p>${performanceOpenExpected.performanceAddress} ${performanceOpenExpected.performanceDetailAddress}</p>
+			                    <a href="/performance/detailViewPerformance/${performanceOpenExpected.performanceId}">공연 상세정보</a>
+			                </div>
+			            </div>
+	                </c:forEach>
+            		</div>
 				</td>
-				<td class="ranking">
+<%-- 				<td class="ranking">
 					<div class="info">				
 						<a href="<c:url value='/performance/detailViewPerformance/P0014'/>"><img src="<c:url value='/image/P0014.PNG'/>">
 							<div class="donut-dday">D-16</div>
@@ -190,8 +200,8 @@
 							</div></a>	
 					</div>
 				</td>
-			</tr>
-			</table>	
+			</tr> --%>	
+			</table>
 		</div>
 	<div class="empty2"></div>
 
