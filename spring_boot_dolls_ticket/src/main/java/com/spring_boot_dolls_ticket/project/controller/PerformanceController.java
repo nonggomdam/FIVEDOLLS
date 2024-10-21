@@ -1,6 +1,8 @@
 package com.spring_boot_dolls_ticket.project.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,8 +14,11 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.spring_boot_dolls_ticket.project.model.PerformanceScheduleVO;
 import com.spring_boot_dolls_ticket.project.model.PerformanceVO;
 import com.spring_boot_dolls_ticket.project.service.PerformanceService;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class PerformanceController {
@@ -107,6 +112,36 @@ public class PerformanceController {
 		
 		return "performance/performanceDetail";
 	}
+	
+	/**
+	 * 날짜선택 페이지
+	 */
+	@RequestMapping("performance/dateReservation/{performanceId}")
+	public String dateReservation(@PathVariable String performanceId, ModelMap modelMap, Model model, HttpSession session) {
+		
+		if(session.getAttribute("sid") == null || session.getAttribute("sid") == "" ) {
+			return "erorrPage";
+		}
+		
+		ArrayList<String> arr = new ArrayList<String>();
+		/*
+		 * 공연 스케쥴 목록 조회
+		 */
+		List<PerformanceScheduleVO> performanceDateList = pfmservice.selectPerformanceDate(performanceId);
+		if(performanceDateList != null && performanceDateList.size() > 0) {
+			for (PerformanceScheduleVO o : performanceDateList) {
+				SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHH:mm");
+				arr.add(simpleDateFormat.format(o.getPerformanceDate()));
+			}
+		}
+		//시간정렬
+		Collections.sort(arr);
+	    modelMap.put("performanceDateList", arr); //공연스케쥴
+	    model.addAttribute("performanceId", performanceId);
+	    
+		return "performance/seatDateInfo";
+	}
+	
 	
 	
 }

@@ -1,0 +1,151 @@
+@charset "UTF-8";
+
+.performanceDateInfo {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: nowrap;
+	padding: 20px;
+	align-items: flex-start;
+	max-width: 1450px;
+	margin: 0 auto;
+}
+
+.container {
+	display: flex;
+	justify-content: space-between;
+	padding: 20px;
+	flex-wrap: nowrap; /* 한 줄에 유지 */
+	align-items: flex-start; /* 두 패널의 상단 정렬 */
+}
+
+.left-panel {
+	width: 30%;
+}
+
+.right-panel {
+	width: 35%;
+	margin-left: 50px;
+}
+
+.left-panel, .right-panel {
+	border: 1px solid #ccc;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+.step-header {
+	font-weight: bold;
+	background-color: #ff0000;
+	color: white;
+	padding: 10px;
+	text-align: center;
+}
+
+.date-select, .time-select {
+	margin-bottom: 10px;
+}
+
+.poster {
+	display: block;
+	text-align: center;
+	margin-left: 40px;
+	width: 30%;
+	height: 318px;
+}
+
+.poster, .my-info {
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+
+.total-section {
+	margin-top: 20px;
+}
+
+.next {
+	text-align: center;
+}
+
+.next button {
+	width: 250px;
+	background-color: red;
+	color: white;
+	text-align: center;
+	font-weight: bold;
+	font-size: 15px;
+	padding: 10px;
+	cursor: pointer;
+}
+
+.calendar {
+	width: 360px;
+	border: 1px solid #ddd;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	padding: 25px;
+}
+
+.calendar-header {
+	background-color: #007bff;
+	color: white;
+	text-align: center;
+	padding: 10px;
+	font-size: 18px;
+	border-radius: 10px 10px 0 0;
+}
+
+.calendar-body {
+	padding: 16px;
+}
+
+table {
+	width: 100%;
+	table-layout: fixed;
+}
+
+th {
+	color: #007bff;
+	padding: 10px;
+}
+
+td {
+	padding: 10px;
+	text-align: center;
+	border: 1px solid #ddd;
+	vertical-align: middle;
+}
+
+td:hover {
+	background-color: #f1f1f1;
+	cursor: pointer;
+}
+
+.current-day {
+	background-color: #007bff;
+	color: white;
+	border-radius: 50%;
+}
+
+
+.calendar-time-container {
+	display: flex; /* flexbox를 사용하여 가로로 배치 */
+	justify-content: space-between; /* 좌우 공간을 균등하게 배치 */
+	align-items: flex-start; /* 두 요소의 상단을 맞춤 */
+	gap: 20px; /* 두 요소 사이의 간격 설정 */
+}
+
+.calendar {
+	flex: 1; /* calendar의 넓이를 유연하게 설정 */
+}
+
+.time-select {
+	width: 280px;
+	/* flex: 1; /* time-select의 넓이를 유연하게 설정 */ */
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.calendar-entire {
+	border: 1px solid #ddd;
+	border-radius: 10px;
+}

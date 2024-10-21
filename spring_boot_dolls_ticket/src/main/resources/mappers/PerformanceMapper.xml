@@ -21,6 +21,14 @@
 		<result property="maxPerformanceDate" column="maxPerformanceDate"/>
 		<result property="minPerformanceDate" column="minPerformanceDate"/>
 	</resultMap>
+	
+	<resultMap id="performanceScheduleList" type="com.spring_boot_dolls_ticket.project.model.PerformanceScheduleVO">
+		<result property="performanceId" column="performanceId"/>
+		<result property="performanceLocationId" column="performanceLocationId"/>
+		<result property="performanceDate" column="performanceDate"/>
+		<result property="firstChangeDate" column="firstChangeDate"/>
+		<result property="lastChangeDate" column="lastChangeDate"/>
+	</resultMap>
 
 	<select id="detailViewPerformance" parameterType="string" resultType="com.spring_boot_dolls_ticket.project.model.PerformanceVO">
 		SELECT PERFORMANCE_ID as performanceId
@@ -102,4 +110,17 @@
 	    FROM performance_info_m A 
 	    order by maxPerformanceDate 
 	</select>
+	
+	<select id="selectPerformanceDate" resultMap="performanceScheduleList" parameterType="string" >
+	 	SELECT 
+		    PERFORMANCE_ID AS performanceId
+		    ,PERFORMANCE_LOCATION_ID AS performanceLocationId 
+		    ,PERFORMANCE_DATE AS performanceDate
+		    ,FIRST_CHANGE_DATE AS firstChangeDate
+		    ,LAST_CHANGE_DATE AS lastChangeDate
+		FROM performance_schedule_d
+		WHERE PERFORMANCE_ID = #{performanceId}
+	</select>
+	
+	
 </mapper>

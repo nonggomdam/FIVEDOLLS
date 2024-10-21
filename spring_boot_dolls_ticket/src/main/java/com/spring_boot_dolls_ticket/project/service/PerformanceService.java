@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.spring_boot_dolls_ticket.project.dao.IPerformanceDAO;
+import com.spring_boot_dolls_ticket.project.model.PerformanceScheduleVO;
 import com.spring_boot_dolls_ticket.project.model.PerformanceVO;
 
 @Service
@@ -51,6 +52,13 @@ public class PerformanceService implements IPerformanceService {
 	public List<PerformanceVO> selectPerformance() {
 		// TODO Auto-generated method stub
 		return dao.selectPerformance();
+	}
+
+
+	@Override
+	public List<PerformanceScheduleVO> selectPerformanceDate(String performanceId) {
+		// TODO Auto-generated method stub
+		return dao.selectPerformanceDate(performanceId);
 	}
 
 }
