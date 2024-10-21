@@ -64,7 +64,7 @@
 			<div id="initialTable">
       		<table>
 			<tr>
-				<td class="ranking">
+<%-- 				<td class="ranking">
 				<c:forEach items="${performanceOpenList}" var="performanceOpen">
 					<div class="info">
 						<a href="<c:url value='/performance/detailViewPerformance/${performanceOpen.performanceId}'/>"><img src="../<c:out value="${performanceOpen.performanceImagePath}"/>"
@@ -80,7 +80,24 @@
 					</div>
 				</c:forEach>
 				</td>
-				
+				 --%>
+			<div class="images">
+		        <c:forEach items="${performanceOpenList}" var="performanceOpen">
+		            <div class="item">
+		                <img src="../<c:out value="${performanceOpen.performanceImagePath}"/>"
+		                     alt="${performanceOpen.performanceImagePath}">
+		                <p id="deteail"> <fmt:formatDate value="${performanceOpen.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${performanceOpen.maxPerformanceDate}" pattern="yyyy.MM.dd"/> </p>
+		                	<h2 >${performanceOpen.performanceName}</h2>
+		                <div class="caption">
+		                    <h2>${performanceOpen.performanceName}</h2>
+		                    <p>공연날짜: <fmt:formatDate value="${performanceOpen.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${performanceOpen.maxPerformanceDate}" pattern="yyyy.MM.dd"/>  </p>
+		                    <p>공연장소</p>
+		                    <p>${performanceOpen.performanceAddress} ${performanceOpen.performanceDetailAddress}</p>
+		                    <a href="/performance/detailView/${performanceOpen.performanceId}">공연 상세정보</a>
+		                </div>
+		            </div>
+		        </c:forEach>
+		    </div>
 			</tr>
 			</table>
 			<div class="banner">

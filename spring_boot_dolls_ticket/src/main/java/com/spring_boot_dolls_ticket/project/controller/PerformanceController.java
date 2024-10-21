@@ -42,13 +42,13 @@ public class PerformanceController {
 			performanceOpenList = performanceList.stream().filter( o -> "M".equals(o.getPerformanceKindCd()))
 														  .filter( o -> o.getMinPerformanceDate() != null) //일단 오류 막기위해 널인애들 제거, 원래는 디비에서 다넣어줘야함.
 														  .filter( o -> today.compareTo(o.getReservationOpenExpectedDate()) > 0)
-														  .limit(10)
+														  .limit(8)
 														  .collect(Collectors.toList());
 			//뮤지컬, 오픈예정인 애들만 필터링	
 			performanceOpenExpectedList = performanceList.stream().filter( o -> "M".equals(o.getPerformanceKindCd()))
 																  .filter( o -> o.getMinPerformanceDate() != null) //일단 오류 막기위해 널인애들 제거, 원래는 디비에서 다넣어줘야함.
 																  .filter( o -> today.compareTo(o.getReservationOpenExpectedDate()) <= 0)
-																  .limit(10)
+																  .limit(8)
 																  .collect(Collectors.toList());
 		}
 		
