@@ -62,7 +62,38 @@ public class PerformanceController {
 
 	
 	@RequestMapping("/performance/concert")
-	public String concert() {
+	public String concert(ModelMap modelMap) {
+		
+		List<PerformanceVO> performanceConsertList = pfmservice.selectPerformance();
+		List<PerformanceVO> consertOpenList = new ArrayList<PerformanceVO>();
+		List<PerformanceVO> consertOpenExpectedList = new ArrayList<PerformanceVO>();
+		
+		if(performanceConsertList != null && performanceConsertList.size() != 0) {
+			//현재시간 구하기
+//			LocalDate now = LocalDate.now();
+//			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+//			int nowDate = Integer.parseInt(now.format(formatter));
+			
+			Date today = new Date();
+			//뮤지컬, 상영중인 뮤지컬만 필터링
+			consertOpenList = performanceConsertList.stream().filter( o -> "C".equals(o.getPerformanceKindCd()))
+														  .filter( o -> o.getMinPerformanceDate() != null) //일단 오류 막기위해 널인애들 제거, 원래는 디비에서 다넣어줘야함.
+														  .filter( o -> today.compareTo(o.getReservationOpenExpectedDate()) > 0)
+														  .limit(10)
+														  .collect(Collectors.toList());
+			
+			//뮤지컬, 오픈예정인 애들만 필터링	
+			consertOpenExpectedList = performanceConsertList.stream().filter( o -> "C".equals(o.getPerformanceKindCd()))
+																  .filter( o -> o.getMinPerformanceDate() != null) //일단 오류 막기위해 널인애들 제거, 원래는 디비에서 다넣어줘야함.
+																  .filter( o -> today.compareTo(o.getReservationOpenExpectedDate()) <= 0)
+																  .limit(10)
+																  .collect(Collectors.toList());
+		}
+		
+		System.out.println(consertOpenExpectedList.size());
+		modelMap.put("consertOpenList", consertOpenList);
+		modelMap.put("consertOpenExpectedList", consertOpenExpectedList);
+		
 		
 		return "performance/concert";
 		
