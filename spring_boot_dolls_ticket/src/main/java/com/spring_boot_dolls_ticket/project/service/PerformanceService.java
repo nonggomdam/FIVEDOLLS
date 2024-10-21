@@ -1,6 +1,7 @@
 package com.spring_boot_dolls_ticket.project.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -43,6 +44,13 @@ public class PerformanceService implements IPerformanceService {
 	@Override
 	public void insertPerformance(PerformanceVO performance) {
 		dao.insertPerformance(performance);
+	}
+
+
+	@Override
+	public List<PerformanceVO> selectPerformance() {
+		// TODO Auto-generated method stub
+		return dao.selectPerformance();
 	}
 
 }

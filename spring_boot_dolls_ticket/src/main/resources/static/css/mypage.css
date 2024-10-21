@@ -8,8 +8,8 @@
 		* {margin:0 auto;}
 
         .container {
-            display: flex;
-            margin-top: 20px;
+        	display: flex;
+            width: 80%;
         }
         .sidebar {
             width: 20%;

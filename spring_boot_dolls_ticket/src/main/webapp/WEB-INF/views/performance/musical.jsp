@@ -65,80 +65,22 @@
       		<table>
 			<tr>
 				<td class="ranking">
+				<c:forEach items="${performanceOpenList}" var="performanceOpen">
 					<div class="info">
-						<a href="<c:url value='/performance/detailViewPerformance/P0009'/>"><img src="<c:url value='/image/P0009.PNG'/>">
+						<a href="<c:url value='/performance/detailViewPerformance/${performanceOpen.performanceId}'/>"><img src="../<c:out value="${performanceOpen.performanceImagePath}"/>"
+		                     alt="${performanceOpen.performanceImagePath}">
+		                <p id="deteail"> <fmt:formatDate value="${performanceOpen.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${performanceOpen.maxPerformanceDate}" pattern="yyyy.MM.dd"/> </p>
+		                	<h2 >${performanceOpen.performanceName}</h2>
 							<div class="info-txt">
-							<p class="info-txt1">뮤지컬 [알라딘] 한국 초연 (ALADDIN The Musical)</p>
-							<p class="info-txt2">샤롯데씨어터</p>
+								<p>공연날짜: <fmt:formatDate value="${performanceOpen.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${performanceOpen.maxPerformanceDate}" pattern="yyyy.MM.dd"/>  </p>
+		                   		<p>공연장소</p>
+		                    	<p>${performanceOpen.performanceAddress} ${performanceOpen.performanceDetailAddress}</p>
+		                    	<a href="/performance/detailViewPerformance/${performanceOpen.performanceId}">공연 상세정보</a>
 							</div></a>
 					</div>
+				</c:forEach>
 				</td>
-				<td class="ranking">
-					<div class="info">				
-						<a href="<c:url value='/performance/detailViewPerformance/P0014'/>"><img src="<c:url value='/image/P0014.PNG'/>">
-							<div class="info-txt">
-							<p class="info-txt1">뮤지컬 [쿠로이 저택엔 누가 살고 있을까?]</p>
-							<p class="info-txt2">샤롯데씨어터</p>
-							</div></a>
-					</div>	
-				</td>
-				<td class="ranking">
-					<div class="info">
-						<a href="<c:url value='/performance/detailViewPerformance/P0011'/>"><img src="<c:url value='/image/P0011.PNG'/>">
-							<div class="info-txt">
-							<p class="info-txt1">뮤지컬 〈젠틀맨스 가이드：사랑과 살인편〉</p>
-							<p class="info-txt2">샤롯데씨어터</p>
-							</div></a>
-					</div>
-				</td>
-				<td class="ranking">
-					<div class="info">
-						<a href="<c:url value='/performance/detailViewPerformance/P0012'/>"><img src="<c:url value='/image/P0012.PNG'/>">
-							<div class="info-txt">
-							<p class="info-txt1">뮤지컬 〈이터니티〉</p>
-							<p class="info-txt2">샤롯데씨어터</p>
-							</div></a>
-					</div>
-				</td>
-			</tr>
-			
-			<tr>
-				<td class="ranking">
-					<div class="info">
-						<a href="<c:url value='/performance/detailViewPerformance/P0013'/>"><img src="<c:url value='/image/P0013.jpg'/>">
-							<div class="info-txt">
-							<p class="info-txt1">2024 뮤지컬 [지저스 크라이스트 수퍼스타]</p>
-							<p class="info-txt2">샤롯데씨어터</p>
-							</div></a>
-					</div>
-				</td>
-				<td class="ranking">
-					<div class="info">
-						<a href="<c:url value='/performance/detailViewPerformance/P0010'/>"><img src="<c:url value='/image/P0010.jpg'/>">
-							<div class="info-txt">
-							<p class="info-txt1">뮤지컬 [빈센트 반 고흐]</p>
-							<p class="info-txt2">샤롯데씨어터</p>
-							</div></a>
-					</div>
-				</td>
-				<td class="ranking">
-					<div class="info">
-						<a href="<c:url value='/performance/detailViewPerformance/P0016'/>"><img src="<c:url value='/image/P0016.jpg'/>">
-							<div class="info-txt">
-							<p class="info-txt1">뮤지컬 [드라이 플라워]</p>
-							<p class="info-txt2">샤롯데씨어터</p>
-							</div></a>	
-					</div>					
-				</td>
-				<td class="ranking">
-					<div class="info">
-						<a href="<c:url value='/performance/detailViewPerformance/P0015'/>"><img src="<c:url value='/image/P0015.jpg'/>">
-							<div class="info-txt">
-							<p class="info-txt1">뮤지컬 [시지프스]</p>
-							<p class="info-txt2">샤롯데씨어터</p>
-							</div></a>	
-					</div>
-				</td>
+				
 			</tr>
 			</table>
 			<div class="banner">

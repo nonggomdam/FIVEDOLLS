@@ -8,15 +8,21 @@ public class PerformanceVO {
 	private String performanceKindCd;
 	private int performanceRatingCode;
 	private String performanceName;
+    private int performancePrice;
+    private int maxPerformancePrice;                 // 공연 가격 (performance_price)
+    private int minPerformancePrice;                 // 공연 가격 (performance_price)
 	private int performancePriceR;
 	private int performancePriceS;
 	private String performanceZipcode;
 	private String performanceAddress;
 	private String performanceDetailAddress;
+    private String openYn;
 	private Date performanceDate1;
 	private Date performanceDate2;
 	private int performanceTime;
 	private Date reservationOpenExpectedDate;
+    private Date maxPerformanceDate;
+    private Date minPerformanceDate;
 	private String performanceImagePath;
 	private String performanceInformationImagePath;
 	private Date firstChangeDate;
@@ -123,6 +129,42 @@ public class PerformanceVO {
 	}
 	public void setLastChangeDate(Date lastChangeDate) {
 		this.lastChangeDate = lastChangeDate;
+	}
+	public int getPerformancePrice() {
+		return performancePrice;
+	}
+	public void setPerformancePrice(int performancePrice) {
+		this.performancePrice = performancePrice;
+	}
+	public int getMaxPerformancePrice() {
+		return maxPerformancePrice;
+	}
+	public void setMaxPerformancePrice(int maxPerformancePrice) {
+		this.maxPerformancePrice = maxPerformancePrice;
+	}
+	public int getMinPerformancePrice() {
+		return minPerformancePrice;
+	}
+	public void setMinPerformancePrice(int minPerformancePrice) {
+		this.minPerformancePrice = minPerformancePrice;
+	}
+	public String getOpenYn() {
+		return openYn;
+	}
+	public void setOpenYn(String openYn) {
+		this.openYn = openYn;
+	}
+	public Date getMaxPerformanceDate() {
+		return maxPerformanceDate;
+	}
+	public void setMaxPerformanceDate(Date maxPerformanceDate) {
+		this.maxPerformanceDate = maxPerformanceDate;
+	}
+	public Date getMinPerformanceDate() {
+		return minPerformanceDate;
+	}
+	public void setMinPerformanceDate(Date minPerformanceDate) {
+		this.minPerformanceDate = minPerformanceDate;
 	}
 	
 }
