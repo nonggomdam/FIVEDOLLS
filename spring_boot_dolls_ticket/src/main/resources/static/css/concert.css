@@ -89,17 +89,17 @@
  		.images {
 /*             border: 1px solid; */
 /*             text-align: center; */
-			width : 65%;
+			width : 70%;
             display: flex;
 		    flex-wrap: wrap;  /* 요소가 넘칠 경우 줄바꿈 */
 		    justify-content: center;  /* 가운데 정렬 */
 		    gap: 32px;  /* 이미지 사이의 간격 */
-            height : 1750px;
+            height : 1250px;
         }
         
         .item {
 		    width: calc(20% - 20px);  /* 한 줄에 5개(너비의 20%) - 간격 보정 */
-		    height: 680px;  /* 고정된 높이 */
+		    height: 540px;  /* 고정된 높이 */
 		    position: relative;
 		    margin-top:40px;
 		    margin-bottom: 40px;  /* 아래쪽 여백 */

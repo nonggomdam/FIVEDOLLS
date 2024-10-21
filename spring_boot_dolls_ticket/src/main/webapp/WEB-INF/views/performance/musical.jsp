@@ -93,7 +93,7 @@
 		                    <p>공연날짜: <fmt:formatDate value="${performanceOpen.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${performanceOpen.maxPerformanceDate}" pattern="yyyy.MM.dd"/>  </p>
 		                    <p>공연장소</p>
 		                    <p>${performanceOpen.performanceAddress} ${performanceOpen.performanceDetailAddress}</p>
-		                    <a href="/performance/detailView/${performanceOpen.performanceId}">공연 상세정보</a>
+		                    <a href="/performance/detailViewformance/${performanceOpen.performanceId}">공연 상세정보</a>
 		                </div>
 		            </div>
 		        </c:forEach>
