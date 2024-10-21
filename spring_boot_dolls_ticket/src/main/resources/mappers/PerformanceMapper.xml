@@ -5,6 +5,23 @@
   
 <mapper namespace="com.spring_boot_dolls_ticket.project.dao.IPerformanceDAO">
 
+	<resultMap id="performanceList" type="com.spring_boot_dolls_ticket.project.model.PerformanceVO">
+		<result property="performanceId" column="performanceId"/>
+		<result property="performanceKindCd" column="performanceKindCd"/>
+		<result property="performanceRatingCode" column="performanceRatingCode"/>
+		<result property="performanceName" column="performanceName"/>
+		<result property="performancePrice" column="performancePrice"/>
+		<result property="performanceZipcode" column="performanceZipcode"/>
+		<result property="performanceAddress" column="performanceAddress"/>
+		<result property="performanceDetailAddress" column="performanceDetailAddress"/>
+		<result property="reservationOpenExpectedDate" column="reservationOpenExpectedDate"/>
+		<result property="performanceImagePath" column="performanceImagePath"/>
+		<result property="firstChangeDate" column="firstChangeDate"/>
+		<result property="lastChangeDate" column="lastChangeDate"/>
+		<result property="maxPerformanceDate" column="maxPerformanceDate"/>
+		<result property="minPerformanceDate" column="minPerformanceDate"/>
+	</resultMap>
+
 	<select id="detailViewPerformance" parameterType="string" resultType="com.spring_boot_dolls_ticket.project.model.PerformanceVO">
 		SELECT PERFORMANCE_ID as performanceId
          , PERFORMANCE_KIND_CD as performanceKindCd
@@ -64,4 +81,25 @@
 	<insert id="insertPerformance" parameterType="com.spring_boot_dolls_ticket.project.model.PerformanceVO">
 		INSERT INTO PERFORMANCE_INFO_M (PERFORMANCE_ID, PERFORMANCE_KIND_CD, PERFORMANCE_RATING_CODE, PERFORMANCE_NAME, PERFORMANCE_PRICE_R, PERFORMANCE_PRICE_S, PERFORMANCE_ZIPCODE, PERFORMANCE_ADDRESS, PERFORMANCE_DETAILADDRESS, PERFORMANCE_DATE1, PERFORMANCE_DATE2, PERFORMANCE_TIME, RESERVATION_OPEN_EXPECTED_DATE, PERFORMANCE_IMAGE_PATH, PERFORMANCE_INFORMATION_IMAGE_PATH, FIRST_CHANGE_DATE, LAST_CHANGE_DATE) VALUES (#{performanceId}, #{performanceKindCd}, #{performanceRatingCode}, #{performanceName}, #{performancePriceR}, #{performancePriceS}, #{performanceZipcode}, #{performanceAddress}, #{performanceDetailAddress}, #{performanceDate1}, #{performanceDate2}, #{performanceTime}, #{reservationOpenExpectedDate}, #{performanceImagePath}, #{performanceInformationImagePath}, #{firstChangeDate}, #{lastChangeDate}
 	</insert>
+	
+	<!-- 카테고리 page -->
+	<select id="selectPerformance" resultMap="performanceList">
+		SELECT 
+	        A.PERFORMANCE_ID AS performanceId
+	        ,A.performance_kind_cd AS performanceKindCd
+	        ,A.performance_rating_code AS performanceRatingCode
+	        ,A.performance_name AS performanceName
+	        ,A.performance_price AS performancePrice
+	        ,A.performance_zipcode AS performanceZipcode 
+	        ,A.performance_address AS performanceAddress
+	        ,A.performance_detailaddress AS performanceDetailAddress
+	        ,A.reservation_open_expected_date AS reservationOpenExpectedDate
+	        ,A.performance_image_path AS performanceImagePath
+	        ,A.first_change_date AS firstChangeDate
+	        ,A.last_change_date AS lastChangeDate
+	        , (SELECT MAX(PERFORMANCE_DATE) FROM PERFORMANCE_SCHEDULE_D WHERE PERFORMANCE_ID = A.PERFORMANCE_ID) AS maxPerformanceDate
+	        , (SELECT MIN(PERFORMANCE_DATE) FROM PERFORMANCE_SCHEDULE_D WHERE PERFORMANCE_ID = A.PERFORMANCE_ID) AS minPerformanceDate
+	    FROM performance_info_m A 
+	    order by maxPerformanceDate 
+	</select>
 </mapper>

@@ -1,6 +1,7 @@
 package com.spring_boot_dolls_ticket.project.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.spring_boot_dolls_ticket.project.model.PerformanceVO;
 
@@ -12,5 +13,6 @@ public interface IPerformanceService {
 	void updatePerformance(PerformanceVO performance); // UPDATE - 공연 정보 수정
 	void deletePerformance(String performanceId); // DELETE - 공연 정보 삭제
 	void insertPerformance(PerformanceVO performance); // INSERT - 공연 정보 추가
+	public List<PerformanceVO> selectPerformance(); // 카테고리page
 	
 }
