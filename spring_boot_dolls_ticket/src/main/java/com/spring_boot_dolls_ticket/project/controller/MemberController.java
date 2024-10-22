@@ -10,6 +10,8 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,8 +46,7 @@ public class MemberController {
 	
 	@Autowired
 	MemberService memService;
-	
-	//private kakaoLogin kakao_restapi = new kakaoLogin();
+	private Map<String, Object> store = new ConcurrentHashMap<>(); // 세션 저장소
 	
 	@RequestMapping("/member/loginForm")
 	public String loginForm() {
@@ -96,6 +97,7 @@ public class MemberController {
         return result;
 	}
 	
+	// 카카오 로그인
 	@RequestMapping("/kakao/oauth")
 	public void getKakaoAuthUrl(HttpServletResponse response) throws Exception {
 	    String reqUrl = "https://kauth.kakao.com/oauth/authorize"
@@ -111,21 +113,17 @@ public class MemberController {
 	        @RequestParam(value = "code", required = false) String code,
 	        HttpSession session) throws Exception {
 	    
-	    // Access Token을 가져옵니다.
+	    // Access Token 가져옴
 	    String access_Token = getAccessToken(code);
 	    
-	    // 사용자 정보를 가져옵니다.
 	    HashMap<String, Object> userInfo = getUserInfo(access_Token);
-	    System.out.println("###access_Token#### : " + access_Token);
-	    System.out.println("###userInfo#### : " + userInfo.get("email"));
-	    System.out.println("###nickname#### : " + userInfo.get("nickname"));
 	    
-	    // 사용자 정보를 세션에 저장합니다.
+	    // 사용자 정보를 세션에 저장 , 세션 부여
 	    session.setAttribute("accessToken", access_Token); // 액세스 토큰 저장
 	    session.setAttribute("sid", userInfo);
 	    
-	    // 로그인 성공 후 카카오 로그인 화면으로 리디렉션
-	    return "redirect:/"; // 적절한 URL로 변경
+	    
+	    return "redirect:/"; // 로그인 성공 시 메인 페이지로
 	}
 	
 	public String getAccessToken (String authorize_code) {
@@ -138,7 +136,6 @@ public class MemberController {
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
-            //  URL연결은 입출력에 사용 될 수 있고, POST 혹은 PUT 요청을 하려면 setDoOutput을 true로 설정해야함.
             conn.setRequestMethod("POST");
             conn.setDoOutput(true);
 
@@ -146,15 +143,14 @@ public class MemberController {
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
             StringBuilder sb = new StringBuilder();
             sb.append("grant_type=authorization_code");
-            sb.append("&client_id=0672e740c19121be04471cca72ca8d44");  //본인이 발급받은 key
-            sb.append("&redirect_uri=http://localhost:8080/kakao/callback");     // 본인이 설정해 놓은 경로
+            sb.append("&client_id=0672e740c19121be04471cca72ca8d44");  // REST API KEY
+            sb.append("&redirect_uri=http://localhost:8080/kakao/callback");     // 리디렉션 경로
             sb.append("&code=" + authorize_code);
             bw.write(sb.toString());
             bw.flush();
 
             //    결과 코드가 200이라면 성공
             int responseCode = conn.getResponseCode();
-            System.out.println("responseCode : " + responseCode);
 
             //    요청을 통해 얻은 JSON타입의 Response 메세지 읽어오기
             BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
@@ -164,7 +160,6 @@ public class MemberController {
             while ((line = br.readLine()) != null) {
                 result += line;
             }
-            System.out.println("response body : " + result);
 
             //    Gson 라이브러리에 포함된 클래스로 JSON파싱 객체 생성
             JsonParser parser = new JsonParser();
@@ -173,13 +168,9 @@ public class MemberController {
             access_Token = element.getAsJsonObject().get("access_token").getAsString();
             refresh_Token = element.getAsJsonObject().get("refresh_token").getAsString();
 
-            System.out.println("access_token : " + access_Token);
-            System.out.println("refresh_token : " + refresh_Token);
-
             br.close();
             bw.close();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
@@ -196,7 +187,6 @@ public class MemberController {
 	        conn.setRequestProperty("Authorization", "Bearer " + access_Token);
 
 	        int responseCode = conn.getResponseCode();
-	        System.out.println("responseCode : " + responseCode);
 
 	        BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 	        String line;
@@ -205,7 +195,6 @@ public class MemberController {
 	        while ((line = br.readLine()) != null) {
 	            result.append(line);
 	        }
-	        System.out.println("response body : " + result);
 
 	        JsonParser parser = new JsonParser();
 	        JsonElement element = parser.parse(result.toString());
@@ -229,32 +218,35 @@ public class MemberController {
 	
 	// naver 로그인
 	@RequestMapping("/naver/oauth")
-	public void getNaverAuthUrl(HttpServletResponse response) throws Exception {
+	public void getNaverAuthUrl(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	    // 새로운 UUID 생성 및 쿠키에 저장
+	    String newUUID = UUID.randomUUID().toString();
+	    Cookie uuidCookie = new Cookie("UUID", newUUID);
+	    uuidCookie.setPath("/");
+	    uuidCookie.setMaxAge(60 * 60 * 24); // 1일 유효
+	    response.addCookie(uuidCookie); // 새로운 UUID 쿠키 추가
+
 	    String reqUrl = "https://nid.naver.com/oauth2.0/authorize"
 	            + "?client_id=M8tmkDymjlbYysnk7E5u"
 	            + "&redirect_uri=http://localhost:8080/naver/callback"
-	            + "&response_type=code";
-	    
-	    response.sendRedirect(reqUrl); // 카카오 인증 URL로 리다이렉트
-	} 
+	            + "&response_type=code"
+	            + "&prompt=login"; // 로그인 화면 강제 표시;
+
+	    response.sendRedirect(reqUrl); // 네이버 인증 URL로 리다이렉트
+	}
 	
 	@RequestMapping("/naver/callback")
 	public String oauthNaver(@RequestParam(value = "code", required = false) String code, 
 	                          @RequestParam(value = "state", required = false) String state,
 	                          HttpSession session) throws Exception {
-	    
-	    // Access Token을 가져옵니다.
 	    String accessToken = getNaverAccessToken(code, state);
-	    
-	    // 사용자 정보를 가져옵니다.
 	    HashMap<String, Object> userInfo = getNaverUserInfo(accessToken);
 	    
-	    // 사용자 정보를 세션에 저장합니다.
+	    // 사용자 정보를 세션에 저장
 	    session.setAttribute("accessToken", accessToken);
 	    session.setAttribute("sid", userInfo);
-	    
-	    // 로그인 성공 후 리다이렉션
-	    return "redirect:/"; // 적절한 URL로 변경
+
+	    return "redirect:/"; // 로그인 성공시 메인 페이지로
 	}
 
 	public String getNaverAccessToken(String code, String state) {
@@ -269,15 +261,15 @@ public class MemberController {
 	        conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
 	        conn.setDoOutput(true);
 
-	        StringBuilder sb = new StringBuilder();
-	        sb.append("client_id=M8tmkDymjlbYysnk7E5u");
-	        sb.append("&client_secret=ZX9Dc_7J0k"); // 여기에 네이버 클라이언트 시크릿 추가
-	        sb.append("&grant_type=authorization_code");
-	        sb.append("&code=" + code);
-	        sb.append("&state=" + state);
+	        StringBuilder params = new StringBuilder();
+	        params.append("client_id=M8tmkDymjlbYysnk7E5u");
+	        params.append("&client_secret=ZX9Dc_7J0k");
+	        params.append("&grant_type=authorization_code");
+	        params.append("&code=").append(code);
+	        params.append("&state=").append(state);
 
 	        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
-	        bw.write(sb.toString());
+	        bw.write(params.toString());
 	        bw.flush();
 
 	        int responseCode = conn.getResponseCode();
@@ -290,9 +282,9 @@ public class MemberController {
 	            result.append(line);
 	        }
 
-	        JsonParser parser = new JsonParser();
-	        JsonElement element = parser.parse(result.toString());
-	        accessToken = element.getAsJsonObject().get("access_token").getAsString();
+	        // JSON 파싱
+	        JsonObject jsonObject = JsonParser.parseString(result.toString()).getAsJsonObject();
+	        accessToken = jsonObject.get("access_token").getAsString();
 
 	        br.close();
 	        bw.close();
@@ -344,24 +336,44 @@ public class MemberController {
 	public String logout(HttpServletRequest request, HttpServletResponse response) {
 	    // 세션 무효화
 	    HttpSession session = request.getSession(false);
-	    
 	    if (session != null) {
-	        // 세션에서 카카오 액세스 토큰 가져오기
+	        // 액세스 토큰 삭제
 	        String accessToken = (String) session.getAttribute("accessToken");
-	        if (accessToken != null) {
-	            kakaoLogout(accessToken); // 카카오 로그아웃 호출
-	        }
 	        session.invalidate(); // 세션 무효화
+
+	        // JSESSIONID 쿠키 만료
+	        Cookie sessionCookie = new Cookie("JSESSIONID", null);
+	        sessionCookie.setPath("/");
+	        sessionCookie.setMaxAge(0); 
+	        response.addCookie(sessionCookie); 
+
+	        // UUID 쿠키 만료
+	        Cookie uuidCookie = new Cookie("UUID", null);
+	        uuidCookie.setPath("/");
+	        uuidCookie.setMaxAge(0); 
+	        response.addCookie(uuidCookie); 
+
+	        // 카카오 로그아웃 호출
+	        if (accessToken != null) {
+	            kakaoLogout(accessToken);
+	        }
 	    }
-	    
-	    // 쿠키 삭제
-	    Cookie cookie = new Cookie("JSESSIONID", null);
-	    cookie.setPath("/");
-	    cookie.setMaxAge(0);
-	    response.addCookie(cookie);
-	    
-	    return "redirect:/"; // 메인 페이지로 리다이렉트
+
+	    return "redirect:/"; 
 	}
+	
+	private Cookie findCookie(HttpServletRequest request) {
+	    Cookie[] cookies = request.getCookies(); // 모든 쿠키 가져오기
+	    if (cookies != null) {
+	        for (Cookie cookie : cookies) {
+	            if ("JSESSIONID".equals(cookie.getName())) { // 쿠키 이름이 JSESSIONID인지 확인
+	                return cookie; // 쿠키 반환
+	            }
+	        }
+	    }
+	    return null; // 쿠키가 없으면 null 반환
+	}
+	
 
 	public void kakaoLogout(String accessToken) {
 	    String reqURL = "https://kapi.kakao.com/v1/user/logout";
