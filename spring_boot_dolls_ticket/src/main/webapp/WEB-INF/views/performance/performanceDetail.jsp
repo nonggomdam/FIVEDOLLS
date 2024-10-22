@@ -2,6 +2,15 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<%@ page session="true"%>
+<%
+// 세션에서 "username"이라는 값을 가져옴
+String userId = (String) session.getAttribute("sid");
+if (userId == null) {
+	userId = ""; // 세션에 값이 없으면 빈 문자열로 설정
+}
+%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -247,4 +256,18 @@
 	</div>
 	<c:import url="/WEB-INF/views/layout/footer.jsp"/>
 </body>
+<script>
+
+$(document).ready(function() {
+    $('#ticketOpenBtn').on('click', function() {
+        var userConfirmed = confirm(" 좌석예약 페이지로 이동하시겠습니까?");
+        
+        if (userConfirmed) {
+            // 사용자가 "예"를 눌렀을 때 페이지 이동
+            window.location.href = '/performance/dateReservation/${pfm.performanceId}'; // 원하는 URL로 변경
+        }
+    });
+});
+
+</script>
 </html>

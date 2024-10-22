@@ -12,11 +12,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring_boot_dolls_ticket.project.model.PerformanceScheduleVO;
 import com.spring_boot_dolls_ticket.project.model.PerformanceVO;
 import com.spring_boot_dolls_ticket.project.service.PerformanceService;
+import com.spring_boot_ticket_project.model.PerformanceSeatVO;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -113,6 +116,9 @@ public class PerformanceController {
 		return "performance/performanceDetail";
 	}
 	
+
+	
+	
 	/**
 	 * 날짜선택 페이지
 	 */
@@ -140,6 +146,23 @@ public class PerformanceController {
 	    model.addAttribute("performanceId", performanceId);
 	    
 		return "performance/seatDateInfo";
+	}
+	
+	/**
+	 * 좌석정보
+	 */
+	@RequestMapping("performance/dateReservation/seatInfo")
+	@ResponseBody
+	public List<PerformanceSeatVO> dateReservation(@RequestBody PerformanceSeatVO performanceSeatVO) {
+		
+		performanceSeatVO.setPerformanceDate(performanceSeatVO.getPerformanceDate().replace(":", ""));
+		
+		/*
+		 * 잔여 좌석 조회
+		 */
+		List<PerformanceSeatVO> performanceSeatInfo = performanceService.selectPerformanceSeatInfoList(performanceSeatVO);
+		
+		return performanceSeatInfo;
 	}
 	
 	

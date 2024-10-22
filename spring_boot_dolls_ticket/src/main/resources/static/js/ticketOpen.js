@@ -23,6 +23,21 @@
                     ticketOpenBtn.disabled = false;
                     ticketOpenBtn.textContent = '예매하기';
                     clearInterval(timer); // 타이머 중지
+                    
+                    $(document).ready(function() {
+				        $('#ticketOpenBtn').on('click', function() {
+				            var userConfirmed = confirm(" 좌석예약 페이지로 이동하시겠습니까?");
+				            
+				            if (userConfirmed) {
+				                // 사용자가 "예"를 눌렀을 때 페이지 이동
+				                window.location.href = '/performance/dateReservation/${performance.performanceId}'; // 원하는 URL로 변경
+				            } else {
+				                // 사용자가 "아니오"를 눌렀을 때 별도의 동작을 하지 않음
+				                alert("정보를 다시 확인해주세요");
+				            }
+				        });
+				    });
+                    
                 } else {
                     // 남은 시간 계산
                     const targetDate = new Date(data.targetDate);
