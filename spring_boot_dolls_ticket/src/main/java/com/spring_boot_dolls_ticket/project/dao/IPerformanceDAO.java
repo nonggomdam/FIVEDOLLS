@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.spring_boot_dolls_ticket.project.model.PerformanceScheduleVO;
+import com.spring_boot_dolls_ticket.project.model.PerformanceSeatVO;
 import com.spring_boot_dolls_ticket.project.model.PerformanceVO;
 
 
@@ -17,6 +18,7 @@ public interface IPerformanceDAO {
 	void insertPerformance(PerformanceVO performance); // INSERT - 공연 정보 추가
 	public List<PerformanceVO> selectPerformance(); // 카테고리 page
 	public List<PerformanceScheduleVO> selectPerformanceDate(String performanceId);
+	public List<PerformanceSeatVO> selectPerformanceSeatInfoList(PerformanceSeatVO performanceSeatVO);
 
 	
 }

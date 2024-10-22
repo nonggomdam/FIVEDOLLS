@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.spring_boot_dolls_ticket.project.dao.IPerformanceDAO;
 import com.spring_boot_dolls_ticket.project.model.PerformanceScheduleVO;
+import com.spring_boot_dolls_ticket.project.model.PerformanceSeatVO;
 import com.spring_boot_dolls_ticket.project.model.PerformanceVO;
 
 @Service
@@ -59,6 +60,13 @@ public class PerformanceService implements IPerformanceService {
 	public List<PerformanceScheduleVO> selectPerformanceDate(String performanceId) {
 		// TODO Auto-generated method stub
 		return dao.selectPerformanceDate(performanceId);
+	}
+
+
+	@Override
+	public List<PerformanceSeatVO> selectPerformanceSeatInfoList(PerformanceSeatVO performanceSeatVO) {
+		// TODO Auto-generated method stub
+		return dao.selectPerformanceSeatInfoList(performanceSeatVO);
 	}
 
 

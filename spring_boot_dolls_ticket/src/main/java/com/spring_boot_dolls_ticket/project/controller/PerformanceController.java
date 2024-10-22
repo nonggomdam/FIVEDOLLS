@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring_boot_dolls_ticket.project.model.PerformanceScheduleVO;
+import com.spring_boot_dolls_ticket.project.model.PerformanceSeatVO;
 import com.spring_boot_dolls_ticket.project.model.PerformanceVO;
 import com.spring_boot_dolls_ticket.project.service.PerformanceService;
-import com.spring_boot_ticket_project.model.PerformanceSeatVO;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -160,7 +160,7 @@ public class PerformanceController {
 		/*
 		 * 잔여 좌석 조회
 		 */
-		List<PerformanceSeatVO> performanceSeatInfo = performanceService.selectPerformanceSeatInfoList(performanceSeatVO);
+		List<PerformanceSeatVO> performanceSeatInfo = pfmservice.selectPerformanceSeatInfoList(performanceSeatVO);
 		
 		return performanceSeatInfo;
 	}

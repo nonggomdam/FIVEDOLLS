@@ -29,6 +29,17 @@
 		<result property="firstChangeDate" column="firstChangeDate"/>
 		<result property="lastChangeDate" column="lastChangeDate"/>
 	</resultMap>
+	
+		<resultMap id="performanceSeatList" type="com.spring_boot_dolls_ticket.project.model.PerformanceSeatVO">
+		<result property="performanceLocationId" column="performanceLocationId"/>
+		<result property="performanceLocationNm" column="performanceLocationNm"/>
+		<result property="seatKindCd" column="seatKindCd"/>
+		<result property="seatNumber" column="seatNumber"/>
+		<result property="seatPrice" column="seatPrice"/>
+		<result property="seatStatus" column="seatStatus"/>
+		<result property="firstChangeDate" column="firstChangeDate"/>
+		<result property="lastChangeDate" column="lastChangeDate"/>
+	</resultMap>
 
 	<select id="detailViewPerformance" parameterType="string" resultType="com.spring_boot_dolls_ticket.project.model.PerformanceVO">
 		SELECT PERFORMANCE_ID as performanceId
@@ -122,4 +133,20 @@
 		WHERE PERFORMANCE_ID = #{performanceId}
 	</select>
 	
+	<select id="selectPerformanceSeatInfoList" resultMap="performanceSeatList" parameterType="com.spring_boot_dolls_ticket.project.model.PerformanceSeatVO" >
+		select 
+		    A.PERFORMANCE_LOCATION_ID as performanceLocationId
+		    ,PERFORMANCE_LOCATION_NM AS performanceLocationNm
+		    ,A.SEAT_KIND_CD as seatKindCd
+		    ,A.SEAT_NUMBER as seatNumber
+		    ,A.SEAT_PRICE + (SELECT performance_price FROM performance_info_m WHERE PERFORMANCE_ID = B.PERFORMANCE_ID) as seatPrice
+		    ,'N' AS seatStatus
+		FROM PERFORMANCE_LOCATION_M A
+	    INNER JOIN performance_schedule_d B
+	    ON A.PERFORMANCE_LOCATION_ID = B.PERFORMANCE_LOCATION_ID
+		WHERE B.PERFORMANCE_ID = #{performanceId}
+		AND  TO_CHAR(B.PERFORMANCE_DATE, 'YYYYMMDDHH24MI') = #{performanceDate}
+	</select>
+	
+
 </mapper>
