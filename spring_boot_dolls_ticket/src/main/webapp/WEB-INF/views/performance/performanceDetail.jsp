@@ -257,17 +257,19 @@ if (userId == null) {
 	<c:import url="/WEB-INF/views/layout/footer.jsp"/>
 </body>
 <script>
-
 $(document).ready(function() {
     $('#ticketOpenBtn').on('click', function() {
+    	var userId = "<%=userId%>";
         var userConfirmed = confirm(" 좌석예약 페이지로 이동하시겠습니까?");
         
-        if (userConfirmed) {
+        if (userConfirmed && userId != "") {
             // 사용자가 "예"를 눌렀을 때 페이지 이동
             window.location.href = '/performance/dateReservation/${pfm.performanceId}'; // 원하는 URL로 변경
+        }else if(userId == ""){
+        	confirm("로그인 화면으로 이동합니다.")
+        	location.href = '/member/loginForm';
         }
     });
 });
-
 </script>
 </html>
