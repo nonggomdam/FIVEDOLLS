@@ -27,7 +27,14 @@ public class PerformanceVO {
 	private String performanceInformationImagePath;
 	private Date firstChangeDate;
 	private Date lastChangeDate;
+	private int clickCount; // 클릭 수
 	
+	public int getClickCount() {
+		return clickCount;
+	}
+	public void setClickCount(int clickCount) {
+		this.clickCount = clickCount;
+	}
 	public String getPerformanceId() {
 		return performanceId;
 	}

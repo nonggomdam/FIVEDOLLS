@@ -8,10 +8,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -57,12 +60,14 @@ public class PerformanceController {
 			//뮤지컬, 예매가능한 뮤지컬만 필터링
 			performanceOpenList = performanceList.stream().filter( o -> "M".equals(o.getPerformanceKindCd()))
 														  .filter( o -> o.getMinPerformanceDate() != null) //일단 오류 막기위해 널인애들 제거, 원래는 디비에서 다넣어줘야함.
+														  .filter(o -> o.getReservationOpenExpectedDate() != null) //일단 오류 막기위해 널인애들 제거, 원래는 디비에서 다넣어줘야함.
 														  .filter( o -> today.compareTo(o.getReservationOpenExpectedDate()) > 0)
 														  .limit(8)
 														  .collect(Collectors.toList());
 			//뮤지컬, 오픈예정인 애들만 필터링	
 			performanceOpenExpectedList = performanceList.stream().filter( o -> "M".equals(o.getPerformanceKindCd()))
 																  .filter( o -> o.getMinPerformanceDate() != null) //일단 오류 막기위해 널인애들 제거, 원래는 디비에서 다넣어줘야함.
+																  .filter(o -> o.getReservationOpenExpectedDate() != null) //일단 오류 막기위해 널인애들 제거, 원래는 디비에서 다넣어줘야함.
 																  .filter( o -> today.compareTo(o.getReservationOpenExpectedDate()) <= 0)
 																  .limit(8)
 																  .collect(Collectors.toList());
@@ -94,6 +99,7 @@ public class PerformanceController {
 			//뮤지컬, 상영중인 뮤지컬만 필터링
 			consertOpenList = performanceConsertList.stream().filter( o -> "C".equals(o.getPerformanceKindCd()))
 														  .filter( o -> o.getMinPerformanceDate() != null) //일단 오류 막기위해 널인애들 제거, 원래는 디비에서 다넣어줘야함.
+														  .filter(o -> o.getReservationOpenExpectedDate() != null) //일단 오류 막기위해 널인애들 제거, 원래는 디비에서 다넣어줘야함.
 														  .filter( o -> today.compareTo(o.getReservationOpenExpectedDate()) > 0)
 														  .limit(8)
 														  .collect(Collectors.toList());
@@ -101,6 +107,7 @@ public class PerformanceController {
 			//뮤지컬, 오픈예정인 애들만 필터링	
 			consertOpenExpectedList = performanceConsertList.stream().filter( o -> "C".equals(o.getPerformanceKindCd()))
 																  .filter( o -> o.getMinPerformanceDate() != null) //일단 오류 막기위해 널인애들 제거, 원래는 디비에서 다넣어줘야함.
+																  .filter( o -> o.getReservationOpenExpectedDate() != null) //일단 오류 막기위해 널인애들 제거, 원래는 디비에서 다넣어줘야함.
 																  .filter( o -> today.compareTo(o.getReservationOpenExpectedDate()) <= 0)
 																  .limit(8)
 																  .collect(Collectors.toList());
@@ -191,6 +198,30 @@ public class PerformanceController {
 		return performanceSeatInfo;
 	}
 	
+	@GetMapping("/") // DB에서 메인페이지로 정보 가져오기
+	public String showPerformances(Model model) {
+	    List<PerformanceVO> performances = pfmservice.getRankedPerformances(); // 서비스에서 데이터 가져오기
+	    model.addAttribute("performances", performances); // 모델에 추가
+	    System.out.println("Performances size: " + performances.size());
+	    return "index"; // 메인 페이지에 해당하는 JSP로 반환
+	}
 	
+	@PostMapping("/performance/click/{performanceId}")
+	public ResponseEntity<Void> incrementClickCount(@PathVariable String performanceId) {
+	    System.out.println("컨트롤러 메서드 호출됨: " + performanceId); // 로그 추가
+	    if (performanceId == null || performanceId.isEmpty()) {
+	        return ResponseEntity.badRequest().build();
+	    }
+	    pfmservice.incrementClickCount(performanceId);
+	    
+	    System.out.println("클릭 카운트 증가 완료: " + performanceId);
+	    return ResponseEntity.ok().build();
+	}
+	
+	@PostMapping("/admin/performanceDetailView/{performanceId}")
+	public String adminPerformanceDetailView(@PathVariable String performanceId, Model model) {
+	    
+		return "/admin/performanceDetailView/" + performanceId;
+	}
 	
 }

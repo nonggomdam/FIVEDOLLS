@@ -18,5 +18,7 @@ public interface IPerformanceService {
 	public List<PerformanceVO> selectPerformance(); // 카테고리page
 	public List<PerformanceScheduleVO> selectPerformanceDate(String performanceId);
 	public List<PerformanceSeatVO> selectPerformanceSeatInfoList(PerformanceSeatVO performanceSeatVO);
+	List<PerformanceVO> getRankedPerformances(); // 클릭 순 랭킹 정렬
+	void incrementClickCount(String performanceId);
 	
 }

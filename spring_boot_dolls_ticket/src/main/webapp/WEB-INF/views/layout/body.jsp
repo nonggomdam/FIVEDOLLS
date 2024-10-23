@@ -40,116 +40,28 @@
 			</div>
 				
 			<table id="initialTable">
-				<tr>
-					<td class="ranking">
-						<div class="info">
-							<a href="<c:url value='/performance/detailViewPerformance/P0001'/>"><img src="<c:url value='/image/P0001.jpg'/>">
-								<div class="textinfo">
-									<span>나훈아 ‘2024 고마웠습니다-라스트 콘서트(LAST CONCERT)’<br>
-										  <br>
-										  2024.12.14<br>~2024.12.15<br><br>
-										  올림픽홀<br> 
-									</span>
-								</div>
-							</a>						
-						</div>
-					</td>
-					<td class="ranking">
-						<div class="info">				
-							<a href="<c:url value='/performance/detailViewPerformance/P0002'/>"><img src="<c:url value='/image/P0002.PNG'/>">
-								<div class="textinfo">
-									<span>랑랑 피아노 리사이틀<br>
-										  <br>
-										  2024.11.30<br>~2024.12.01<br><br>
-										  올림픽홀<br>
-								 	</span>
-								</div>
-							</a>						
-						</div>	
-					</td>
-					<td class="ranking">
-						<div class="info">
-							<a href="<c:url value='/performance/detailViewPerformance/P0005'/>"><img src="<c:url value='/image/P0005.PNG'/>">
-								<div class="textinfo">
-									<span>NE-YO Champagne & Roses Tour in SEOUL<br>
-										  <br>
-										  2024.11.16<br>~2024.11.17<br><br>
-										  올림픽홀<br>
-								 	</span>
-								</div>
-							</a>							
-						</div>
-					</td>
-					<td class="ranking">
-						<div class="info">
-							<a href="<c:url value='/performance/detailViewPerformance/P0007'/>"><img src="<c:url value='/image/P0007.jpg'/>">
-								<div class="textinfo">
-									<span>2024 송골매 콘서트 ‘열망’ 두번째 [늘-봄]<br>
-										  <br>
-										  2024.11.16<br>~2024.11.17<br><br>
-										  올림픽홀<br>
-								 	</span>
-								</div>
-							</a>							
-						</div>
-					</td>
-				</tr>
-				
-				<tr>
-					<td class="ranking">
-						<div class="info">
-							<a href="<c:url value='/performance/detailViewPerformance/P0006'/>"><img src="<c:url value='/image/P0006.jpg'/>">
-								<div class="textinfo">
-									<span>2024 이찬원 콘서트 ‘ 찬가（燦歌）’<br>
-										  <br>
-										  2024.12.01<br>~2024.12.03<br><br>
-										  올림픽홀<br>
-									</span>
-								</div>
-							</a>							
-						</div>
-					</td>
-					<td class="ranking">
-						<div class="info">				
-							<a href="<c:url value='/performance/detailViewPerformance/P0004'/>"><img src="<c:url value='/image/P0004.PNG'/>">
-								<div class="textinfo">
-									<span>2024 적재 전국투어 콘서트 〈CLICHE〉<br>
-										  <br>
-										  2024.11.09<br>~2024.11.10<br><br>
-										  올림픽홀<br>
-								 	</span>
-								</div>
-							</a>							
-						</div>	
-					</td>
-					<td class="ranking">
-						<div class="info">
-							<a href="<c:url value='/performance/detailViewPerformance/P0003'/>"><img src="<c:url value='/image/P0003.PNG'/>">
-								<div class="textinfo">
-									<span>데이비드 내한공연 (d4vd - My House Is Not A Home Tour)<br>
-										  <br>
-										  2024.12.05<br>~2024.12.07<br><br>
-										  올림픽홀<br>
-								 	</span>
-								</div>
-							</a>								
-						</div>
-					</td>
-					<td class="ranking">
-						<div class="info">
-							<a href="<c:url value='/performance/detailViewPerformance/P0008'/>"><img src="<c:url value='/image/P0008.PNG'/>">
-								<div class="textinfo">
-									<span>박진영 30주년 콘서트〈Still JYP〉<br>
-										  <br>
-										  2024.12.28<br>~2024.12.29<br><br>
-										  올림픽홀<br>
-								 	</span>
-								</div>
-							</a>								
-						</div>
-					</td>
-				</tr>
-			</table>
+            <tr>
+                <c:forEach var="performance" items="${performances}">
+                    <td class="ranking">
+                        <div class="info">
+                            <a href="<c:url value='/performance/detailViewPerformance/${performance.performanceId}'/>" data-id="${performance.performanceId}">
+                                <img src="<c:url value='${performance.performanceImagePath}'/>">
+                                <div class="textinfo">
+                                    <span>
+                                        ${performance.performanceName}<br>
+                                        <br>
+                                        ${performance.performanceDate1}<br>
+                                        ${performance.performanceAddress}<br>
+                                        <br>
+                                        관람연령 ${performance.performanceRatingCode}세이상<br>
+                                    </span>
+                                </div>
+                            </a>						
+                        </div>
+                    </td>
+                </c:forEach>
+            </tr>
+        </table>
 		</div>
 		
 		<div id="dynamicTable" style="display:none;">

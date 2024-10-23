@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.spring_boot_dolls_ticket.project.dao.IPerformanceDAO;
 import com.spring_boot_dolls_ticket.project.model.PerformanceScheduleVO;
@@ -14,7 +15,9 @@ import com.spring_boot_dolls_ticket.project.model.PerformanceVO;
 
 @Service
 public class PerformanceService implements IPerformanceService {
-
+	
+	
+	
 	@Autowired
 	@Qualifier("IPerformanceDAO")
 	IPerformanceDAO dao;
@@ -67,6 +70,18 @@ public class PerformanceService implements IPerformanceService {
 	public List<PerformanceSeatVO> selectPerformanceSeatInfoList(PerformanceSeatVO performanceSeatVO) {
 		// TODO Auto-generated method stub
 		return dao.selectPerformanceSeatInfoList(performanceSeatVO);
+	}
+
+
+	@Override
+	public List<PerformanceVO> getRankedPerformances() {
+		return dao.getRankedPerformances();
+	}
+	
+	@Transactional
+	public void incrementClickCount(String performanceId) {
+	    System.out.println("서비스 메서드 호출됨: " + performanceId); // 로그 추가
+	    dao.incrementClickCount(performanceId);
 	}
 
 
