@@ -47,7 +47,7 @@
 								<div class="textinfo">
 									<span>나훈아 ‘2024 고마웠습니다-라스트 콘서트(LAST CONCERT)’<br>
 										  <br>
-										  2024.12.14<br>~2024.12.15<br>
+										  2024.12.14<br>~2024.12.15<br><br>
 										  올림픽홀<br> 
 									</span>
 								</div>
@@ -60,7 +60,7 @@
 								<div class="textinfo">
 									<span>랑랑 피아노 리사이틀<br>
 										  <br>
-										  2024.11.30<br>~2024.12.01<br>
+										  2024.11.30<br>~2024.12.01<br><br>
 										  올림픽홀<br>
 								 	</span>
 								</div>
@@ -73,7 +73,7 @@
 								<div class="textinfo">
 									<span>NE-YO Champagne & Roses Tour in SEOUL<br>
 										  <br>
-										  2024.11.16<br>~2024.11.17<br>
+										  2024.11.16<br>~2024.11.17<br><br>
 										  올림픽홀<br>
 								 	</span>
 								</div>
@@ -86,7 +86,7 @@
 								<div class="textinfo">
 									<span>2024 송골매 콘서트 ‘열망’ 두번째 [늘-봄]<br>
 										  <br>
-										  2024.11.16<br>~2024.11.17<br>
+										  2024.11.16<br>~2024.11.17<br><br>
 										  올림픽홀<br>
 								 	</span>
 								</div>
@@ -102,7 +102,7 @@
 								<div class="textinfo">
 									<span>2024 이찬원 콘서트 ‘ 찬가（燦歌）’<br>
 										  <br>
-										  2024.12.01<br>~2024.12.03<br>
+										  2024.12.01<br>~2024.12.03<br><br>
 										  올림픽홀<br>
 									</span>
 								</div>
@@ -115,7 +115,7 @@
 								<div class="textinfo">
 									<span>2024 적재 전국투어 콘서트 〈CLICHE〉<br>
 										  <br>
-										  2024.11.09<br>~2024.11.10<br>
+										  2024.11.09<br>~2024.11.10<br><br>
 										  올림픽홀<br>
 								 	</span>
 								</div>
@@ -128,7 +128,7 @@
 								<div class="textinfo">
 									<span>데이비드 내한공연 (d4vd - My House Is Not A Home Tour)<br>
 										  <br>
-										  2024.12.05<br>~2024.12.07<br>
+										  2024.12.05<br>~2024.12.07<br><br>
 										  올림픽홀<br>
 								 	</span>
 								</div>
@@ -141,7 +141,7 @@
 								<div class="textinfo">
 									<span>박진영 30주년 콘서트〈Still JYP〉<br>
 										  <br>
-										  2024.12.28<br>~2024.12.29<br>
+										  2024.12.28<br>~2024.12.29<br><br>
 										  올림픽홀<br>
 								 	</span>
 								</div>
@@ -161,7 +161,7 @@
 							<div class="textinfo">
 								<span>뮤지컬 [알라딘] 한국 초연 (ALADDIN The Musical)<br>
 									  <br>
-									  2024.12.24<br>~2024.12.25<br>
+									  2024.12.24<br>~2024.12.25<br><br>
 									  샤롯데씨어터<br>
 								</span>	  
 							</div>
@@ -174,7 +174,7 @@
 							<div class="textinfo">
 								<span>뮤지컬 [ 쿠로이 저택엔 누가 살고 있을까? ]<br>
 									  <br>	
-									  2024.12.13<br>~2024.12.14<br>
+									  2024.12.13<br>~2024.12.14<br><br>
 									  샤롯데씨어터<br>
 								</span>
 							</div>
@@ -187,7 +187,7 @@
 							<div class="textinfo">
 								<span>뮤지컬 〈젠틀맨스 가이드：사랑과 살인편〉<br>
 									  <br>
-									  2024.11.20<br>~2024.11.21<br>
+									  2024.11.20<br>~2024.11.21<br><br>
 									  샤롯데씨어터<br>
 								</span>	  
 							</div>
@@ -200,7 +200,7 @@
 							<div class="textinfo">
 								<span>뮤지컬 〈이터니티〉<br>
 									  <br>
-									  2024.12.07<br>~2024.12.08<br>
+									  2024.12.07<br>~2024.12.08<br><br>
 									  샤롯데씨어터<br>
 							 	</span>
 							</div>	 	
@@ -216,7 +216,7 @@
 							<div class="textinfo">
 								<span>2024 뮤지컬 [지저스 크라이스트 수퍼스타]<br>
 									  <br>
-									  2024.11.07<br>~2024.11.08<br>
+									  2024.11.07<br>~2024.11.08<br><br>
 									  샤롯데씨어터<br>
 							 	</span>
 							</div>	 	
@@ -229,7 +229,7 @@
 							<div class="textinfo">
 								<span>뮤지컬 [빈센트 반 고흐]<br>
 									  <br>
-									  2024.11.10<br>~2024.11.11<br>
+									  2024.11.10<br>~2024.11.11<br><br>
 									  샤롯데씨어터<br>
 								</span>	  
 							</div>
@@ -242,7 +242,7 @@
 							<div class="textinfo">
 								<span>뮤지컬 [드라이 플라워]<br>
 									  <br>
-									  2024.12.20<br>~2024.12.21<br>
+									  2024.12.20<br>~2024.12.21<br><br>
 									  샤롯데씨어터<br>
 								</span>	  
 							</div>
@@ -255,7 +255,7 @@
 							<div class="textinfo">
 								<span>뮤지컬 [시지프스]<br>
 									  <br>
-									  2024.12.10<br>~2024.12.11<br>
+									  2024.12.10<br>~2024.12.11<br><br>
 									  샤롯데씨어터<br>
 								</span>	  
 							</div>

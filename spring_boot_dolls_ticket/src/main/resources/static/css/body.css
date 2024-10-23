@@ -2,7 +2,7 @@
 @font-face {
    font-family: 'TheJamsil2Light';
    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil2Light.woff2') format('woff2');
-   font-weight: 200; /*占싱뱄옙 占쏙옙占쏙옙占쏙옙 2Light 占싱뤄옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙 font-weight 占실뱄옙 占쏙옙占쏙옙*/
+   font-weight: 200; 
    font-style: normal;
 }
 * {margin:0 auto;}
@@ -137,9 +137,7 @@ h1 {
 	width:1920px;
 	height:550px;
 	text-align:center;
-	overflow:hidden; /* 5개 이미지 중 1개만 보이게 됨 전체 가로길이 1280 -> 이미지 넓이 1280이므로
-	이 영역을 넘어가는 나머지 이미지는 감춰진다(이미지는 inline 태그 이므로 왼쪽 오른쪽으로 나열 영역이
-	충분하지 않으면 hidden 속성에 의해 숨겨지게 됨*/
+	overflow:hidden; 
 }
 
 #slidePanel{ /*5개 이미지 모두의 영역 : 1920 * 5 => 9600*/
@@ -156,6 +154,7 @@ h1 {
 
 /* prev/next 버튼 */
 #prevNextButtonBox {position:relative;z-index:10;} /*슬라이드 이미지 위로 올려야 되기 때문에 z-index 값 높게 잡음*/
+
 /* 슬라이드Panel 높이 480px, preButton 높이 78px 240-39=201*/
 #prevButton{position:absolute;top:201px;left:4%;opacity:0.5;cursor:pointer;}
 #nextButton{position:absolute;top:201px;right:4%;opacity:0.5;cursor:pointer;}

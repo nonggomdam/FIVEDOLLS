@@ -30,12 +30,12 @@ if (userId == null) {
 			<div class="dt-01">
 				<!--로케이션-->
 				<p class="dt-location">
-				<c:if test="${pfm.performanceKindCd eq 'C'}">
-					<a>콘서트 ></a>
-				</c:if>
-				<c:if test="${pfm.performanceKindCd eq 'M'}">
-					<a>뮤지컬 ></a>
-				</c:if>
+					<c:if test="${pfm.performanceKindCd eq 'C'}">
+						<a>콘서트 ></a>
+					</c:if>
+					<c:if test="${pfm.performanceKindCd eq 'M'}">
+						<a>뮤지컬 ></a>
+					</c:if>
 				</p>
 			</div>
 		</div>
@@ -56,16 +56,15 @@ if (userId == null) {
 						<img src="<c:url value='${pfm.performanceImagePath}'/>">
 					</div>
 				</div>
-				<!--dt-03-left-->
 				<div class="dt-03-right">
 					<!--상품정보-->
 					<dl>
 						<dt>등급</dt>
 						<c:if test="${pfm.performanceRatingCode == 0}">
-						<dd>&nbsp;전체 관람가</dd>
+							<dd>&nbsp;전체 관람가</dd>
 						</c:if>
 						<c:if test="${pfm.performanceRatingCode != 0}">
-						<dd>&nbsp;만 ${pfm.performanceRatingCode}세 이상</dd>
+							<dd>&nbsp;만 ${pfm.performanceRatingCode}세 이상</dd>
 						</c:if>
 						<dt>관람시간</dt>
 						<dd>&nbsp;총 ${pfm.performanceTime}분</dd>
@@ -84,7 +83,9 @@ if (userId == null) {
 		</div>
 		<div class="dt-04">
 			<a href="" id="describe"><span>상세정보</span></a>
-			<a href="" id="goReview"><span>관람후기<span class="dt-04-count">(10)</span></span></a>
+			<c:if test="${pfm.performanceKindCd eq 'M'}">
+				<a href="" id="goReview"><span>관람후기<span class="dt-04-count">(${reviewList.size()})</span></span></a>
+			</c:if>
 		</div>
 		<div class="detailPage-describe">
 			<div class="dt-05">
@@ -92,13 +93,10 @@ if (userId == null) {
 				<p>※ 매수제한 : 1인 4매</p>
 				<p>※ 본 공연은 할인쿠폰이벤트 대상에서 제외됩니다.</p>
 				<p>※ 불법적인 경로 혹은 불법적인 시스템을 통해 티켓을 구매할 경우 법적 제재를 받을 수 있습니다.</p>
-				<p class="dt05-tit">공연정보<br><br>
-				<img src="<c:url value='${pfm.performanceInformationImagePath}'/>"></p>	
-				<%-- <p>공연일시: <fmt:formatDate value="${pfm.performanceDate1}" pattern="YYYY년 MM월 dd일(E) a h시"/>,
-				<fmt:formatDate value="${pfm.performanceDate2}" pattern="YYYY년 MM월 dd일(E) a h시"/></p>
-				<p>예매가능시간: 공연시작 3시간 전까지</p> --%>
+				<p class="dt05-tit">공연정보<br><br> 
+				<img src="<c:url value='${pfm.performanceInformationImagePath}'/>"></p>
 				<p class="dt05-tit">장소안내</p>
-					<div id="map"></div>
+				<div id="map"></div>
 				<input type="hidden" id="performanceDetailAddress" value="${pfm.performanceDetailAddress}">
 				<p>주소: ${pfm.performanceZipcode} ${pfm.performanceAddress} ${pfm.performanceDetailAddress}</p>
 				<p>주차공간이 없으므로 대중교통을 이용하시기 바랍니다.</p>
@@ -134,8 +132,11 @@ if (userId == null) {
 								</tr>
 								<tr>
 									<th scope="row" class="dt05-tbl-tit2">유효기간</th>
-									<td colspan="3"><fmt:formatDate value="${pfm.performanceDate1}" pattern="YYYY년 MM월 dd일(E) a h시"/>,
-													<fmt:formatDate value="${pfm.performanceDate2}" pattern="YYYY년 MM월 dd일(E) a h시"/> 예매한 공연 날짜, 회차에 한해 이용가능</td>
+									<td colspan="3"><fmt:formatDate
+											value="${pfm.performanceDate1}"
+											pattern="YYYY년 MM월 dd일(E) a h시" />, <fmt:formatDate
+											value="${pfm.performanceDate2}"
+											pattern="YYYY년 MM월 dd일(E) a h시" /> 예매한 공연 날짜, 회차에 한해 이용가능</td>
 								<tr>
 									<th scope="row" class="dt05-tbl-tit2">취소/환불방법</th>
 									<td colspan="3">
@@ -153,108 +154,102 @@ if (userId == null) {
 						</table>
 					</div>
 				</div>
-				<p class="dt05-tit">관람후기</p>
-				<div class="write">
-					<c:if test="${sessionScope.sid == null}">
-						<a onclick="alert('로그인이 필요합니다.')"><span>후기 작성하기</span></a>
-					</c:if>
-					<c:if test="${sessionScope.sid != null}">
-						<a href="" onclick="openPopup()"><span>후기 작성하기</span></a>
-					</c:if>
-				</div>
-				<div class="rev-container">
+				<c:if test="${pfm.performanceKindCd eq 'M'}">
+					<p class="dt05-tit">관람후기</p>
+					<form id="reviewForm" name="reviewForm" method="post" action="<c:url value='/performance/insertReview'/>">
+						<input type="hidden" id="performanceId" name="performanceId" value="${pfm.performanceId}">
+						<div class="write">
+							<c:if test="${sessionScope.sid == null}">
+								<a onclick="alert('로그인이 필요합니다.')"> 
+								<input type="checkbox" id="layer_popup"><label for="layer_popup">후기 작성하기</label></a>
+							</c:if>
+							<c:if test="${sessionScope.sid != null}">
+								<input type="checkbox" id="layer_popup"><label for="layer_popup">후기 작성하기</label>
+							</c:if>
+							<div id="layer_bg">
+								<div id="popup">
+									<h2>${pfm.performanceName} <label for="layer_popup">X</label></h2>
+									<div class="star-rating">
+										<input type="hidden" id="reviewScore" name="reviewScore">
+										<p class="star-tit">별점</p>
+										<div class="star-box">
+											<a href="#"><img src="<c:url value='/image/icons8-star-48-off.png'/>"></a>
+											<a href="#"><img src="<c:url value='/image/icons8-star-48-off.png'/>"></a>
+											<a href="#"><img src="<c:url value='/image/icons8-star-48-off.png'/>"></a>
+											<a href="#"><img src="<c:url value='/image/icons8-star-48-off.png'/>"></a>
+											<a href="#"><img src="<c:url value='/image/icons8-star-48-off.png'/>"></a>
+										</div>
+									</div>
+									<div class="write-area">
+										<p class="w-tit">관람후기</p>
+										<div class="w-write-box">
+											<textarea id="txtReview" name="reviewMessage"
+												placeholder="내용을 작성해주세요. (최소 20byte / 최대 2,000byte)"></textarea>
+										</div>
+									</div>
+									<div class="write-caution">
+										<p class="w-caution-tit">관람후기 작성 시 유의사항</p>
+										<p class="w-caution-txt">FIVEDOLLS 게시판 운영 규정에 위반된다고 판단되는
+											글은 사전고지 없이 삭제될 수 있습니다.</p>
+										<ul class="w-caution-list">
+											<li>티켓 매매 및 양도, 교환의 글</li>
+											<li>전화번호, 이메일, 주소 등 회원 및 타인의 개인정보 유출이 우려되는 경우</li>
+											<li>욕설, 비방, 도배성 글을 작성한 경우</li>
+											<li>명예훼손, 저작권, 초상권의 권리 침해 및 음란한 사진을 게재한 경우</li>
+										</ul>
+									</div>
+									<div class="write-btns">
+										<button type="submit" id="insertReview">등록</button>
+										<button type="button" id="cancellation">취소</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+					<div id="rev_container">
 					<ul class="review">
-						<li>
-							<div class="writerBox">
-								<span class="writerId">xhaht***</span> <span class="writeDate">2024.10.18</span>
-								<span class="reviewGrade"> <img
-									src="<c:url value='/image/icons8-star-16.png'/>"> <img
-									src="<c:url value='/image/icons8-star-16.png'/>"> <img
-									src="<c:url value='/image/icons8-star-16.png'/>"> <img
-									src="<c:url value='/image/icons8-star-16.png'/>"> <img
-									src="<c:url value='/image/icons8-star-16.png'/>">
-								</span>
-								<div class="reviewText">새로운 시즌! 새로운 배우님들의 조합이 좋았습니다 재미있게
-									관람했어요 개인적으로 경수베를렌느가 좋았습니다~ 감정선이 와닿았어요</div>
-							</div>
-						</li>
-						<li>
-							<div class="writerBox">
-								<span class="writerId">tin***</span> <span class="writeDate">2024.10.17</span>
-								<span class="reviewGrade"> <img
-									src="<c:url value='/image/icons8-star-16.png'/>"> <img
-									src="<c:url value='/image/icons8-star-16.png'/>"> <img
-									src="<c:url value='/image/icons8-star-16.png'/>"> <img
-									src="<c:url value='/image/icons8-star-16.png'/>"> <img
-									src="<c:url value='/image/icons8-star-16.png'/>">
-								</span>
-								<div class="reviewText">와아~~~ 배우들이 극을 잘 마는데ㅠ 무대 조명 오케 모든
-									것이 완벽하여~~~ 보는내내 감탄을~ 와아~~~ 신박하다! 나보다 화장을 잘하는 배우들이란!? 오옷♡♡♡</div>
-							</div>
-						</li>
-						<li>
-							<div class="writerBox">
-								<span class="writerId">ehdwn0***</span> <span class="writeDate">2024.10.15</span>
-								<span class="reviewGrade"> <img
-									src="<c:url value='/image/icons8-star-16.png'/>"> <img
-									src="<c:url value='/image/icons8-star-16.png'/>"> <img
-									src="<c:url value='/image/icons8-star-16.png'/>"> <img
-									src="<c:url value='/image/icons8-star-16.png'/>"> <img
-									src="<c:url value='/image/icons8-star-16.png'/>">
-								</span>
-								<div class="reviewText">꼭 락콘서트 다녀 온 기분이에요 컷콜에서 신나게 목소리 한껏
-									높여 질렀더니 날아갈 거 같아요... 알앤디 특유의 현란한 조명과 배우들의 열연 라이브밴드까지 좋았습니다</div>
-							</div>
-						</li>
-						<li>
-							<div class="writerBox">
-								<span class="writerId">ytr***</span> <span class="writeDate">2024.10.13</span>
-								<span class="reviewGrade"> <img
-									src="<c:url value='/image/icons8-star-16.png'/>"> <img
-									src="<c:url value='/image/icons8-star-16.png'/>"> <img
-									src="<c:url value='/image/icons8-star-16.png'/>"> <img
-									src="<c:url value='/image/icons8-star-16.png'/>"> <img
-									src="<c:url value='/image/icons8-star-16.png'/>">
-								</span>
-								<div class="reviewText">이름만큼 아름답고 눈부신 반짝반짝한 글램락을 보실 수
-									있습니다.</div>
-							</div>
-						</li>
-						<li>
-							<div class="writerBox">
-								<span class="writerId">lemon***</span> <span class="writeDate">2024.10.11</span>
-								<span class="reviewGrade"> <img
-									src="<c:url value='/image/icons8-star-16.png'/>"> <img
-									src="<c:url value='/image/icons8-star-16.png'/>"> <img
-									src="<c:url value='/image/icons8-star-16.png'/>"> <img
-									src="<c:url value='/image/icons8-star-16.png'/>"> <img
-									src="<c:url value='/image/icons8-star-16.png'/>">
-								</span>
-								<div class="reviewText">너무나 아름다운 이야기 평생했으면좋겠어요아니 열자 넘었잖아요</div>
-							</div>
-						</li>
+						<c:choose>
+							<c:when test="${empty reviewList}">
+								<li>등록된 후기가 없습니다.</li>
+							</c:when>
+						<c:otherwise>
+							<c:forEach items="${reviewList}" var="reviewList">
+								<li>
+									<div class="writerBox">
+										<span class="writerId">${reviewList.custId}</span> 
+										<span class="writeDate"><fmt:formatDate value="${reviewList.firstChangeDate}" 
+										pattern="YY.MM.dd" /></span>
+										<span class="reviewGrade"> 
+											<c:forEach begin="1" end="${reviewList.reviewScore}">
+												<img src="<c:url value='/image/icons8-star-16.png'/>">
+											</c:forEach>
+										</span>
+										<c:if test="${reviewList.custId == sessionScope.sid}">
+											<a href="#" class="deleteReview" data-review-id="${reviewList.reviewSeq}">삭제</a>
+										</c:if>
+										<div class="reviewText">${reviewList.reviewMessage}</div>
+									</div>
+								</li>
+							</c:forEach>
+						</c:otherwise>
+						</c:choose>
 					</ul>
 					<div class="list-pagination" style="display: block;">
 						<a href="" class="list-page-first"><img src="<c:url value='/image/icons8-arrow-20.png'/>"></a>
 						<div>
 							<a href="#" onclick="return false;" class="on"><span>1</span></a><a
-								href=""><span>2</span></a><a
-								href=""><span>3</span></a><a
-								href=""><span>4</span></a><a
-								href=""><span>5</span></a><a
-								href=""><span>6</span></a><a
-								href=""><span>7</span></a><a
-								href=""><span>8</span></a><a
-								href=""><span>9</span></a><a
-								href=""><span>10</span></a>
+								href=""><span>2</span></a><a href=""><span>3</span></a><a href=""><span>4</span></a><a
+								href=""><span>5</span></a><a href=""><span>6</span></a><a href=""><span>7</span></a><a
+								href=""><span>8</span></a><a href=""><span>9</span></a><a href=""><span>10</span></a>
 						</div>
-						<a href="" class="list-page-last"><img	src="<c:url value='/image/icons8-arrow-20_2.png'/>"></a>
+						<a href="" class="list-page-last"><img src="<c:url value='/image/icons8-arrow-20_2.png'/>"></a>
+						</div>
 					</div>
-				</div>
-			</div>
-		</div>
+				</c:if>
 	</div>
-	<c:import url="/WEB-INF/views/layout/footer.jsp"/>
+	</div>
+	</div>
+	<c:import url="/WEB-INF/views/layout/footer.jsp" />
 </body>
 <script>
 $(document).ready(function() {
