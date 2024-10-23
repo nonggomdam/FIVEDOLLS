@@ -119,9 +119,9 @@ public class PerformanceController {
 	@RequestMapping("/performance/detailViewPerformance/{performanceId}")
 	public String detailViewPerformance(@PathVariable String performanceId, Model model) {
 		PerformanceVO pfm =pfmservice.detailViewPerformance(performanceId);
-		
 		model.addAttribute("pfm",pfm);
-		
+		ArrayList<ReviewVO> reviewList = rvService.reviewList(performanceId);
+		model.addAttribute("reviewList", reviewList);
 		return "performance/performanceDetail";
 	}
 	// 리뷰기능
