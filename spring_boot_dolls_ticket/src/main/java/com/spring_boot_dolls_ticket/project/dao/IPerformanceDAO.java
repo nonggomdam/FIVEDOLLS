@@ -21,6 +21,7 @@ public interface IPerformanceDAO {
 	public List<PerformanceSeatVO> selectPerformanceSeatInfoList(PerformanceSeatVO performanceSeatVO);
 	List<PerformanceVO> getRankedPerformances(); // 클릭 순 랭킹 정렬
 	void incrementClickCount(String performanceId);
-
+	void updateImgPath(PerformanceVO performance); // UPDATE - 이미지 경로 수정
+	String selectGeneratedId();
 	
 }

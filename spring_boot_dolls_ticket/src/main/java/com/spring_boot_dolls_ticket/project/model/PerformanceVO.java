@@ -2,6 +2,8 @@ package com.spring_boot_dolls_ticket.project.model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class PerformanceVO {
 	
 	private String performanceId;
@@ -17,9 +19,12 @@ public class PerformanceVO {
 	private String performanceAddress;
 	private String performanceDetailAddress;
     private String openYn;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date performanceDate1;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date performanceDate2;
 	private int performanceTime;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date reservationOpenExpectedDate;
     private Date maxPerformanceDate;
     private Date minPerformanceDate;

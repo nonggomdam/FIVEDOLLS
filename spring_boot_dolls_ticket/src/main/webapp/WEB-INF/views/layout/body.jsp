@@ -45,7 +45,7 @@
                     <td class="ranking">
                         <div class="info">
                             <a href="<c:url value='/performance/detailViewPerformance/${performance.performanceId}'/>" data-id="${performance.performanceId}">
-                                <img src="<c:url value='${performance.performanceImagePath}'/>">
+                                <img src="<c:url value='/image/${performance.performanceImagePath}'/>">
                                 <div class="textinfo">
                                     <span>
                                         ${performance.performanceName}<br>

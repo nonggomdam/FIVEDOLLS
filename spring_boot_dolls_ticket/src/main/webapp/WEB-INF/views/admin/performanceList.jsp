@@ -7,15 +7,17 @@
 		<meta charset="UTF-8">
 		<title>관리자 공연 리스트 페이지</title>
 		<c:import url="/WEB-INF/views/layout/adminHead.jsp"/>
-		<script src="<c:url value='/js/performanceDetailView.js'/>"></script>
+		<c:import url="/WEB-INF/views/layout/adminTop.jsp"/>
+		<script src="<c:url value='/js/adminPerformanceDetailView.js'/>"></script>
 	</head>
 	<body>
 		<div class="wrapper">
-			<c:import url="/WEB-INF/views/admin/adminMenu.jsp"/>
 			<div>
-				<h3>공연 관리</h3>
-				<button class="newPerformance" onclick="location.href='/admin/newPerformanceForm'">신규 공연 등록</button>
-				<table id="performanceTable">
+				<div class="header">
+	                <h3>공연 관리</h3>
+	                <button class="newPerformance" onclick="location.href='/admin/newPerformanceForm'">신규 공연 등록</button>
+            	</div>
+				<table class="listTable"">
 					<thead>
 						<tr>
 							<th>공연 ID</th>
@@ -35,9 +37,9 @@
 							<c:forEach items="${performanceList}" var="performance">
 								<tr id="${performance.performanceId}" class="performanceRow" style="cursor:pointer">
 									<td>${performance.performanceId}</td>
-									<td>${performance.performanceName}</a></td>
+									<td>${performance.performanceName}</td>
 									<td>${performance.performanceKindCd}</td>
-									<td>${performance.firstChangeDate}</td>
+									<td><fmt:formatDate value="${performance.firstChangeDate}" pattern="YYYY-MM-dd"/></td>
 								</tr>
 							</c:forEach>
 						</c:otherwise>
