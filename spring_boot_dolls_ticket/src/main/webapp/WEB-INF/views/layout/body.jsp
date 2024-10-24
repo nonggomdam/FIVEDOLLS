@@ -50,10 +50,10 @@
                                     <span>
                                         ${performance.performanceName}<br>
                                         <br>
-                                        ${performance.performanceDate1}<br>
-                                        ${performance.performanceAddress}<br>
+                                        <fmt:formatDate value="${performance.performanceDate1}" pattern="yyyy.MM.dd"/><br>
+                                        ~<fmt:formatDate value="${performance.performanceDate2}" pattern="yyyy.MM.dd"/><br><br>
+                                        ${performance.performanceDetailAddress}<br>
                                         <br>
-                                        관람연령 ${performance.performanceRatingCode}세이상<br>
                                     </span>
                                 </div>
                             </a>						
@@ -67,113 +67,25 @@
 		<div id="dynamicTable" style="display:none;">
       		<table>
 			<tr>
-				<td class="ranking">
-					<div class="info">
-						<a href="<c:url value='/performance/detailViewPerformance/P0009'/>"><img src="<c:url value='/image/P0009.PNG'/>">
-							<div class="textinfo">
-								<span>뮤지컬 [알라딘] 한국 초연 (ALADDIN The Musical)<br>
-									  <br>
-									  2024.12.24<br>~2024.12.25<br><br>
-									  샤롯데씨어터<br>
-								</span>	  
-							</div>
-						</a>	
-					</div>
-				</td>
-				<td class="ranking">
-					<div class="info">				
-						<a href="<c:url value='/performance/detailViewPerformance/P0014'/>"><img src="<c:url value='/image/P0014.PNG'/>">
-							<div class="textinfo">
-								<span>뮤지컬 [ 쿠로이 저택엔 누가 살고 있을까? ]<br>
-									  <br>	
-									  2024.12.13<br>~2024.12.14<br><br>
-									  샤롯데씨어터<br>
-								</span>
-							</div>
-						</a>	
-					</div>	
-				</td>
-				<td class="ranking">
-					<div class="info">
-						<a href="<c:url value='/performance/detailViewPerformance/P0011'/>"><img src="<c:url value='/image/P0011.PNG'/>">
-							<div class="textinfo">
-								<span>뮤지컬 〈젠틀맨스 가이드：사랑과 살인편〉<br>
-									  <br>
-									  2024.11.20<br>~2024.11.21<br><br>
-									  샤롯데씨어터<br>
-								</span>	  
-							</div>
-						</a>	
-					</div>
-				</td>
-				<td class="ranking">
-					<div class="info">
-						<a href="<c:url value='/performance/detailViewPerformance/P0012'/>"><img src="<c:url value='/image/P0012.PNG'/>">
-							<div class="textinfo">
-								<span>뮤지컬 〈이터니티〉<br>
-									  <br>
-									  2024.12.07<br>~2024.12.08<br><br>
-									  샤롯데씨어터<br>
-							 	</span>
-							</div>	 	
-						</a>	
-					</div>
-				</td>
-			</tr>
-			
-			<tr>
-				<td class="ranking">
-					<div class="info">
-						<a href="<c:url value='/performance/detailViewPerformance/P0013'/>"><img src="<c:url value='/image/P0013.jpg'/>">
-							<div class="textinfo">
-								<span>2024 뮤지컬 [지저스 크라이스트 수퍼스타]<br>
-									  <br>
-									  2024.11.07<br>~2024.11.08<br><br>
-									  샤롯데씨어터<br>
-							 	</span>
-							</div>	 	
-						</a>	
-					</div>
-				</td>
-				<td class="ranking">
-					<div class="info">
-						<a href="<c:url value='/performance/detailViewPerformance/P0010'/>"><img src="<c:url value='/image/P0010.jpg'/>">
-							<div class="textinfo">
-								<span>뮤지컬 [빈센트 반 고흐]<br>
-									  <br>
-									  2024.11.10<br>~2024.11.11<br><br>
-									  샤롯데씨어터<br>
-								</span>	  
-							</div>
-						</a>	
-					</div>
-				</td>
-				<td class="ranking">
-					<div class="info">
-						<a href="<c:url value='/performance/detailViewPerformance/P0016'/>"><img src="<c:url value='/image/P0016.jpg'/>">
-							<div class="textinfo">
-								<span>뮤지컬 [드라이 플라워]<br>
-									  <br>
-									  2024.12.20<br>~2024.12.21<br><br>
-									  샤롯데씨어터<br>
-								</span>	  
-							</div>
-						</a>	
-					</div>					
-				</td>
-				<td class="ranking">
-					<div class="info">
-						<a href="<c:url value='/performance/detailViewPerformance/P0015'/>"><img src="<c:url value='/image/P0015.jpg'/>">
-							<div class="textinfo">
-								<span>뮤지컬 [시지프스]<br>
-									  <br>
-									  2024.12.10<br>~2024.12.11<br><br>
-									  샤롯데씨어터<br>
-								</span>	  
-							</div>
-						</a>	
-					</div>
-				</td>
+				<c:forEach var="performance" items="${performances}">
+                    <td class="ranking">
+                        <div class="info">
+                            <a href="<c:url value='/performance/detailViewPerformance/${performance.performanceId}'/>" data-id="${performance.performanceId}">
+                                <img src="<c:url value='${performance.performanceImagePath}'/>">
+                                <div class="textinfo">
+                                    <span>
+                                        ${performance.performanceName}<br>
+                                        <br>
+                                        <fmt:formatDate value="${performance.performanceDate1}" pattern="yyyy.MM.dd"/><br>
+                                        ~<fmt:formatDate value="${performance.performanceDate2}" pattern="yyyy.MM.dd"/><br><br>
+                                        ${performance.performanceDetailAddress}<br>
+                                        <br>
+                                    </span>
+                                </div>
+                            </a>						
+                        </div>
+                    </td>
+                </c:forEach>
 			</tr>
 			</table>	
 		</div> <!--dynamicTable 끝  -->
