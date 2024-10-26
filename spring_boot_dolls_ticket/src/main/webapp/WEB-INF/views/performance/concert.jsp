@@ -87,7 +87,7 @@
 		                    <p>공연날짜: <fmt:formatDate value="${consertOpen.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${consertOpen.maxPerformanceDate}" pattern="yyyy.MM.dd"/>  </p>
 		                    <p>공연장소</p>
 		                    <p>${consertOpen.performanceAddress} ${consertOpen.performanceDetailAddress}</p>
-		                    <a href="/performance/detailView/${consertOpen.performanceId}">공연 상세정보</a>
+		                    <a href="/performance/detailViewPerformance/${consertOpen.performanceId}">공연 상세정보</a>
 		                </div>
 		            </div>
 		        </c:forEach>
