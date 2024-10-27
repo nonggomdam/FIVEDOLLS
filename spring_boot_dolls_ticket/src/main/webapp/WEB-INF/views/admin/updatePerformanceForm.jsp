@@ -19,6 +19,8 @@
 			<p>마지막 수정일 : <fmt:formatDate value="${performance.lastChangeDate}" pattern="yyyy-MM-dd"/></p>
 			<form id="updatePerformanceForm" method="POST" action="<c:url value='/admin/updatePerformance'/>" enctype="multipart/form-data">
 				<input type="hidden" name="performanceId" value="${performance.performanceId}">
+				<input type="hidden" name="performanceImagePath" value="${performance.performanceImagePath}">
+				<input type="hidden" name="performanceInformationImagePath" value="${performance.performanceInformationImagePath}">
 				<table class="listTable">
 					<tr>
 						<th>공연 ID</th>
@@ -34,7 +36,7 @@
 	                        <img id="posterPreview" src="<c:url value='/image/${performance.performanceImagePath}'/>" 
 	                             alt="포스터 미리 보기" style="max-width: 300px; display: block;">
 	                        <input type="file" name="performancePoster" id="performancePoster">
-	                        <button type="button" class="deleteImageBtn">삭제</button>
+	                        <button type="button" id="deletePosterBtn" class="deleteImageBtn">삭제</button>
 	                    </td>
 	                </tr>
 	                <tr>
@@ -43,7 +45,7 @@
 	                        <img id="infoPreview" src="<c:url value='/image/${performance.performanceInformationImagePath}'/>" 
 	                             alt="정보 이미지 미리 보기" style="max-width: 300px; display: block;">
 	                        <input type="file" name="performanceInfoImg" id="performanceInfoImg">
-	                        <button type="button" class="deleteImageBtn">삭제</button>
+	                        <button type="button" id="deleteInfoBtn" class="deleteImageBtn">삭제</button>
 	                    </td>
 	                </tr>
 					<tr>
@@ -56,12 +58,16 @@
 						</td>
 					</tr>
 					<tr>
-						<th>공연 일시1</th>
-						<td><input type="datetime-local" name="performanceDate1" id="performanceDate1" value="<fmt:formatDate value="${performance.performanceDate1}"/>"></td>
+					    <th>공연 일시1</th>
+					    <td>
+					        <input type="datetime-local" name="performanceDate1" id="performanceDate1" value="<fmt:formatDate value='${performance.performanceDate1}' pattern='yyyy-MM-dd\'T\'HH:mm'/>">
+						</td>
 					</tr>
 					<tr>
-						<th>공연 일시2</th>
-						<td><input type="datetime-local" name="performanceDate2" id="performanceDate2" value="<fmt:formatDate value="${performance.performanceDate2}"/>"></td>
+					    <th>공연 일시2</th>
+					    <td>
+					        <input type="datetime-local" name="performanceDate2" id="performanceDate2" value="<fmt:formatDate value='${performance.performanceDate2}' pattern='yyyy-MM-dd\'T\'HH:mm'/>">
+					    </td>
 					</tr>
 					<tr>
 						<th>관람 소요 시간</th>
@@ -90,7 +96,9 @@
 					</tr>
 					<tr>
 						<th>티켓 오픈 일자</th>
-						<td><input type="datetime-local" name="reservationOpenExpectedDate" id="reservationOpenExpectedDate" value="<fmt:formatDate value="${performance.reservationOpenExpectedDate}"/>"></td>
+						<td>
+					        <input type="datetime-local" name="reservationOpenExpectedDate" id="reservationOpenExpectedDate" value="<fmt:formatDate value='${performance.reservationOpenExpectedDate}' pattern='yyyy-MM-dd\'T\'HH:mm'/>"/>
+						</td>
 					</tr>
 				</table><br>
 				<input type="submit" value="수정 완료">

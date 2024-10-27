@@ -11,6 +11,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -29,6 +30,9 @@ public class PerformanceService implements IPerformanceService {
 	@Qualifier("IPerformanceDAO")
 	IPerformanceDAO dao;
 	
+	// application.properties에서 file.upload.dir=본인 프로젝트 내 resources/static/image 절대 경로 입력
+	@Value("${file.upload.dir}")
+	private String imgUploadPath;
 
 	public PerformanceVO detailViewPerformance(String performanceId) {
 		// TODO Auto-generated method stub
@@ -58,29 +62,35 @@ public class PerformanceService implements IPerformanceService {
 		System.out.println(oldPosterPath);
 		System.out.println(oldInfoImgPath);
 		
-		// 2. 기존 파일 삭제하기
-		deleteFile(oldPosterPath);
-		deleteFile(oldInfoImgPath);
+		// 2. 새 파일 업로드 확인
+		if (performancePoster != null && !performancePoster.isEmpty()) {
+			String posterExtension = getFileExtension(performancePoster);
+			String newPosterPath = performanceId + posterExtension;
+			deleteFile(oldPosterPath);
+			saveFile(performancePoster, newPosterPath);
+			performance.setPerformanceImagePath(newPosterPath);
+			System.out.println("새 이미지 경로 : " + newPosterPath);
+		} else {
+			performance.setPerformanceImagePath(oldPosterPath);
+			System.out.println("기존 이미지 경로 : " + oldPosterPath);
+		}
 		
-		// 3. 새 파일 확장자 추출
-		String posterExtension = getFileExtension(performancePoster);
-        String infoImgExtension = getFileExtension(performanceInfoImg);
-        
-        // 4. 새 파일 경로 생성
-        String newPosterPath = performanceId + posterExtension;
-		String newInfoImgPath = performanceId + "_info" + infoImgExtension;
+		if (performanceInfoImg != null && !performanceInfoImg.isEmpty()) {
+			String infoImgExtension = getFileExtension(performanceInfoImg);
+			String newInfoImgPath = performanceId + "_info" + infoImgExtension;
+			deleteFile(oldInfoImgPath);
+			saveFile(performanceInfoImg, newInfoImgPath);
+			performance.setPerformanceInformationImagePath(newInfoImgPath);
+			System.out.println("새 이미지 경로 : " + newInfoImgPath);
+		} else {
+			performance.setPerformanceInformationImagePath(oldInfoImgPath);
+			System.out.println("기존 이미지 경로 : " + oldInfoImgPath);
+		}
 		
-		System.out.println(newPosterPath);
-		System.out.println(newInfoImgPath);
-		
-		// 5. 이미지 경로 설정
-		performance.setPerformanceImagePath(newPosterPath);
-		performance.setPerformanceInformationImagePath(newInfoImgPath);
-		
-		// 6. 이미지 경로 먼저 update
+		// 7. 이미지 경로 먼저 update
 		dao.updateImgPath(performance);
 		dao.updatePerformance(performance);
-        
+		
     }
 	@Override
 	public void deletePerformance(String performanceId) {
@@ -101,10 +111,15 @@ public class PerformanceService implements IPerformanceService {
         String posterExtension = getFileExtension(performancePoster);
         String infoImgExtension = getFileExtension(performanceInfoImg);
         
+        System.out.println(posterExtension);
+        System.out.println(infoImgExtension);
+        
         // 생성된 performanceId로 이미지 경로 생성
-        String performanceId = performance.getPerformanceId();
-        String posterPath = performanceId + posterExtension;
-        String infoImgPath = performanceId + "_info" + infoImgExtension;
+        String posterPath = generatedId + posterExtension;
+        String infoImgPath = generatedId + "_info" + infoImgExtension;
+        
+        System.out.println(posterPath);
+        System.out.println(infoImgPath);
 
         // 이미지 경로 VO에 설정
         performance.setPerformanceImagePath(posterPath);
@@ -113,15 +128,13 @@ public class PerformanceService implements IPerformanceService {
         // 이미지 파일 저장
         saveFile(performancePoster, posterPath);
         saveFile(performanceInfoImg, infoImgPath);
-        System.out.println(posterPath);
-        System.out.println(infoImgPath);
 
         // 이미지 경로를 DB에 업데이트
         dao.updateImgPath(performance);
     }
 	// 파일 삭제 메서드
     private void deleteFile(String filePath) {
-        File file = new File("/Users/dlwlgus/springBootWorkspace/ticket_images/" + filePath);
+        File file = new File(imgUploadPath + filePath);
         if (file.exists()) {
             if (file.delete()) {
                 System.out.println("파일 삭제 성공: " + filePath);
@@ -140,7 +153,7 @@ public class PerformanceService implements IPerformanceService {
     // 파일 저장 메서드
     private void saveFile(MultipartFile file, String filePath) throws IOException {
         if (!file.isEmpty()) {
-            Path path = Paths.get("/Users/dlwlgus/springBootWorkspace/ticket_images/" + filePath);
+            Path path = Paths.get(imgUploadPath + filePath);
             Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
         }
     }

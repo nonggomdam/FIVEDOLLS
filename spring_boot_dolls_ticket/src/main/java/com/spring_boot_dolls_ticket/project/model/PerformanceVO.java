@@ -19,12 +19,12 @@ public class PerformanceVO {
 	private String performanceAddress;
 	private String performanceDetailAddress;
     private String openYn;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
 	private Date performanceDate1;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
 	private Date performanceDate2;
 	private int performanceTime;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
 	private Date reservationOpenExpectedDate;
     private Date maxPerformanceDate;
     private Date minPerformanceDate;

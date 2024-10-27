@@ -1,9 +1,12 @@
 package com.spring_boot_dolls_ticket.project.controller;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -59,6 +62,14 @@ public class AdminController {
 	public String updatePerformanceForm(@PathVariable String performanceId, Model model) {
 		
 		PerformanceVO performance = performanceService.detailViewPerformance(performanceId);
+		Date performanceDate1 = performance.getPerformanceDate1();
+		Date performanceDate2 = performance.getPerformanceDate2();
+		Date reservationOpenExpectedDate = performance.getReservationOpenExpectedDate();
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+		
+		model.addAttribute("formattedDate1", df.format(performanceDate1));
+	    model.addAttribute("formattedDate2", df.format(performanceDate2));
+	    model.addAttribute("reservationOpenExpectedDate", df.format(reservationOpenExpectedDate));
 		
 		model.addAttribute("performance", performance);
 		

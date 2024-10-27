@@ -46,11 +46,11 @@
 						</tr>
 						<tr>
 							<th>공연 일시1</th>
-							<td><fmt:formatDate value="${performance.performanceDate1}" pattern="yyyy-MM-dd"/></td>
+							<td><fmt:formatDate value="${performance.performanceDate1}" pattern="yyyy년 MM월 dd일 E요일 HH시"/></td>
 						</tr>
 						<tr>
 							<th>공연 일시2</th>
-							<td><fmt:formatDate value="${performance.performanceDate2}" pattern="yyyy-MM-dd"/></td>
+							<td><fmt:formatDate value="${performance.performanceDate2}" pattern="yyyy년 MM월 dd일 E요일 HH시"/></td>
 						</tr>
 						<tr>
 							<th>R석 가격</th>
@@ -78,7 +78,7 @@
 						</tr>
 						<tr>
 							<th>티켓 오픈 일자</th>
-							<td><fmt:formatDate value="${performance.reservationOpenExpectedDate}" pattern="yyyy-MM-dd"/></td>
+							<td><fmt:formatDate value="${performance.reservationOpenExpectedDate}" pattern="yyyy년 MM월 dd일 E요일 HH시"/></td>
 						</tr>
 					</table>
 					<button class="updateBtn" onclick="updatePerformance();">수정</button>

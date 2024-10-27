@@ -27,9 +27,10 @@ $(document).ready(function() {
         const inputFile = $(this).siblings('input[type="file"]');
         const previewImg = $(this).siblings('img');
         inputFile.val('');  // 파일 선택 초기화
-        previewImg.hide();  // 미리 보기 숨기기
+        previewImg.attr('src', '').hide();  // 미리 보기 숨기기 및 초기화
         $(this).hide();     // 삭제 버튼 숨기기
     });
+    
     $('.resetBtn').on('click', function(event) {
         if (!confirm("정말 취소하겠습니까?")) {
             event.preventDefault();
@@ -41,8 +42,36 @@ $(document).ready(function() {
         // FormData 객체 생성
         const formData = new FormData(this);
         
+        // 기존 값을 확인하여 FormData에 추가
+        const performanceDate1 = $('input[name="performanceDate1"]').val();
+        const performanceDate2 = $('input[name="performanceDate2"]').val();
+        const reservationOpenExpectedDate = $('input[name="reservationOpenExpectedDate"]').val();
+        const newPerformanceDate1 = $('#newPerformanceDate1').val();
+        const newPerformanceDate2 = $('#newPerformanceDate2').val();
+        const newReservationOpenExpectedDate = $('#newReservationOpenExpectedDate').val();
+        
         console.log('Performance Poster:', formData.get('performancePoster')); // 파일 확인
 		console.log('Performance Info Image:', formData.get('performanceInfoImg'));
+		console.log('Performance Date1 : ', formData.get('performanceDate1'));
+		
+		// 새로 입력된 날짜가 있다면 해당 값을 FormData에 추가
+        if (newPerformanceDate1) {
+            formData.set('performanceDate1', newPerformanceDate1);
+        } else {
+            formData.set('performanceDate1', performanceDate1); // 기존 값 유지
+        }
+
+        if (newPerformanceDate2) {
+            formData.set('performanceDate2', newPerformanceDate2);
+        } else {
+            formData.set('performanceDate2', performanceDate2); // 기존 값 유지
+        }
+        
+        if (newPerformanceDate2) {
+            formData.set('reservationOpenExpectedDate', newReservationOpenExpectedDate);
+        } else {
+            formData.set('reservationOpenExpectedDate', reservationOpenExpectedDate); // 기존 값 유지
+        }
 		
 		// FormData에 포함된 내용을 확인
 	    for (let [key, value] of formData.entries()) {

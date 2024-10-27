@@ -29,23 +29,26 @@ $(document).ready(function() {
             reader.readAsDataURL(file);
         }
     });
-    // 삭제 버튼 클릭 시 미리 보기와 삭제 버튼 숨기기
-    $('.deleteImageBtn').on('click', function() {
-        const posterInput = $('#performancePoster');
-        const infoInput = $('#performanceInfoImg');
-        
-        if (posterInput.val()) {
-            posterInput.val(''); // 파일 입력 초기화
-            $('#posterPreview').hide(); // 미리 보기 숨기기
-        }
-
-        if (infoInput.val()) {
-            infoInput.val(''); // 파일 입력 초기화
-            $('#infoPreview').hide(); // 미리 보기 숨기기
-        }
-
-        $(this).hide(); // 삭제 버튼 숨기기
-    });
+	// 삭제 버튼 클릭 시 미리 보기와 삭제 버튼 숨기기
+	$('#deletePosterBtn').on('click', function() {
+	    const posterInput = $('#performancePoster');
+	    
+	    if (posterInput.val()) {
+	        posterInput.val(''); // 파일 입력 초기화
+	        $('#posterPreview').hide(); // 미리 보기 숨기기
+	        $(this).hide(); // 삭제 버튼 숨기기
+	    }
+	});
+	
+	$('#deleteInfoBtn').on('click', function() {
+	    const infoInput = $('#performanceInfoImg');
+	    
+	    if (infoInput.val()) {
+	        infoInput.val(''); // 파일 입력 초기화
+	        $('#infoPreview').hide(); // 미리 보기 숨기기
+	        $(this).hide(); // 삭제 버튼 숨기기
+	    }
+	});
     $('#newPerformanceForm').on('submit', function(e) {
         e.preventDefault();
         
