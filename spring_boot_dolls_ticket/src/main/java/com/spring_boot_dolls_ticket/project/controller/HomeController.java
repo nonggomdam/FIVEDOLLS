@@ -12,12 +12,6 @@ public class HomeController {
 		return "index";
 		
 	}
-	@RequestMapping("/csAdmin")
-	public String adminPage() {
-		
-		return "customerService/csAdmin";
-		
-	}
 	@RequestMapping("member/myPage")
 	public String myPage() {
 		
@@ -28,12 +22,6 @@ public class HomeController {
 	public String orderDetail() {
 		
 		return "member/orderDetail";
-		
-	}
-	@RequestMapping("/refund")
-	public String refund() {
-		
-		return "member/refund";
 		
 	}
 	

@@ -11,6 +11,14 @@
 		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 		<script src="<c:url value='/js/updatePerformance.js'/>"></script>
 		<script src="<c:url value='/js/adminSearchZip.js'/>"></script>
+		<style>
+	        #posterPreview, #infoPreview {
+	            width: 300px;
+	            height: auto;
+	            margin-top: 10px;
+	            display: none;
+	        }
+		</style>
 	</head>
 	<body>
 		<div class="wrapper">
@@ -34,18 +42,18 @@
 	                    <th>공연 포스터</th>
 	                    <td>
 	                        <img id="posterPreview" src="<c:url value='/image/${performance.performanceImagePath}'/>" 
-	                             alt="포스터 미리 보기" style="max-width: 300px; display: block;">
-	                        <input type="file" name="performancePoster" id="performancePoster">
-	                        <button type="button" id="deletePosterBtn" class="deleteImageBtn">삭제</button>
+	                             alt="포스터 미리 보기" style="max-width: 300px; display: block; margin-top: 5px;">
+	                        <input type="file" name="performancePoster" id="performancePoster" style="margin-top: 5px;"><br>
+	                        <button type="button" id="deletePosterBtn" class="deleteImageBtn" style="margin-top: 10px;">삭제</button>
 	                    </td>
 	                </tr>
 	                <tr>
 	                    <th>공연 정보 이미지</th>
 	                    <td>
 	                        <img id="infoPreview" src="<c:url value='/image/${performance.performanceInformationImagePath}'/>" 
-	                             alt="정보 이미지 미리 보기" style="max-width: 300px; display: block;">
-	                        <input type="file" name="performanceInfoImg" id="performanceInfoImg">
-	                        <button type="button" id="deleteInfoBtn" class="deleteImageBtn">삭제</button>
+	                             alt="정보 이미지 미리 보기" style="max-width: 300px; display: block; margin-top: 5px;">
+	                        <input type="file" name="performanceInfoImg" id="performanceInfoImg" style="margin-top: 5px;"><br>
+	                        <button type="button" id="deleteInfoBtn" class="deleteImageBtn" style="margin-top: 5px;">삭제</button>
 	                    </td>
 	                </tr>
 					<tr>

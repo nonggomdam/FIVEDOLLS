@@ -34,12 +34,12 @@
                                             </tr>
                                         </c:when>
                                         <c:otherwise>
-                                            <c:forEach items="${performanceList}" var="performance">
-                                                <tr id="${performance.performanceId}" class="performanceRow" style="cursor:pointer">
+                                            <c:forEach items="${performanceList}" var="performance" varStatus="status">
+                                                <tr id="${performance.performanceId}" class="performanceRow" style="cursor:pointer; display: ${status.index < 5? 'table-row' : 'none'};">
                                                     <td>${performance.performanceId}</td>
                                                     <td>${performance.performanceName}</td>
                                                     <td>${performance.performanceKindCd}</td>
-                                                    <td><fmt:formatDate value="${performance.firstChangeDate}" pattern="yyyy-MM-dd"/></td>
+                                                    <td><fmt:formatDate value="${performance.firstChangeDate}" pattern="yyyy년 MM월 dd일"/></td>
                                                 </tr>
                                             </c:forEach>
                                         </c:otherwise>
