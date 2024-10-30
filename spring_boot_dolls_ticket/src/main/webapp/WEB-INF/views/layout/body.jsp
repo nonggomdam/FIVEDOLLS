@@ -40,52 +40,58 @@
 			</div>
 				
 			<table id="initialTable">
-            <tr>
-                <c:forEach var="performance" items="${performances}">
-                    <td class="ranking">
-                        <div class="info">
-                            <a href="<c:url value='/performance/detailViewPerformance/${performance.performanceId}'/>" data-id="${performance.performanceId}">
-                                <img src="<c:url value='/image/${performance.performanceImagePath}'/>">
-                                <div class="textinfo">
-                                    <span>
-                                        ${performance.performanceName}<br>
-                                        <br>
-                                        <fmt:formatDate value="${performance.performanceDate1}" pattern="yyyy.MM.dd"/><br>
-                                        ~<fmt:formatDate value="${performance.performanceDate2}" pattern="yyyy.MM.dd"/><br><br>
-                                        ${performance.performanceDetailAddress}<br>
-                                        <br>
-                                    </span>
-                                </div>
-                            </a>						
-                        </div>
-                    </td>
-                </c:forEach>
-            </tr>
-        </table>
+				<tr>
+				<c:forEach items="${consertOpenList}" var="consertOpen" varStatus="status">
+				<c:if test="${status.index % 4 == 0}">
+		            <tr>
+		        </c:if>
+					<td class="ranking">
+						<div class="info">				
+							<a href="/performance/detailView/${consertOpen.performanceId}"><img src="../<c:out value="${consertOpen.performanceImagePath}"/>"
+		                     alt="${consertOpen.performanceImagePath}">
+								<div class="textinfo">
+									<span>${consertOpen.performanceName}<br>
+										  <br>
+										  <fmt:formatDate value="${consertOpen.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${consertOpen.maxPerformanceDate}" pattern="yyyy.MM.dd"/><br>
+										  ${consertOpen.performanceAddress}<br>${consertOpen.performanceDetailAddress}
+								 	</span>
+								</div>
+							</a>						
+						</div>	
+					</td>
+				    <c:if test="${(status.index + 1) % 4 == 0}">
+			            </tr>
+			        </c:if>
+				</c:forEach>
+				</tr>
+			</table>
 		</div>
 		
 		<div id="dynamicTable" style="display:none;">
       		<table>
 			<tr>
-				<c:forEach var="performance" items="${performances}">
-                    <td class="ranking">
-                        <div class="info">
-                            <a href="<c:url value='/performance/detailViewPerformance/${performance.performanceId}'/>" data-id="${performance.performanceId}">
-                                <img src="<c:url value='${performance.performanceImagePath}'/>">
-                                <div class="textinfo">
-                                    <span>
-                                        ${performance.performanceName}<br>
-                                        <br>
-                                        <fmt:formatDate value="${performance.performanceDate1}" pattern="yyyy.MM.dd"/><br>
-                                        ~<fmt:formatDate value="${performance.performanceDate2}" pattern="yyyy.MM.dd"/><br><br>
-                                        ${performance.performanceDetailAddress}<br>
-                                        <br>
-                                    </span>
-                                </div>
-                            </a>						
-                        </div>
-                    </td>
-                </c:forEach>
+			<c:forEach items="${performanceOpenList}" var="performanceOpen" varStatus="status">
+				<c:if test="${status.index % 4 == 0}">
+		            <tr>
+		        </c:if>
+				<td class="ranking">
+					<div class="info">
+						<a href="/performance/detailView/${performanceOpen.performanceId}"><img src="../<c:out value="${performanceOpen.performanceImagePath}"/>"
+		                     alt="${performanceOpen.performanceImagePath}">
+							<div class="textinfo">
+								<span>${performanceOpen.performanceName}<br>
+									  <br>
+									  <fmt:formatDate value="${performanceOpen.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${performanceOpen.maxPerformanceDate}" pattern="yyyy.MM.dd"/><br>
+									  ${performanceOpen.performanceAddress}<br>${performanceOpen.performanceDetailAddress}
+								</span>	  
+							</div>
+						</a>	
+					</div>
+				</td>
+				<c:if test="${(status.index + 1) % 4 == 0}">
+			         </tr>
+			    </c:if>
+			</c:forEach>	
 			</tr>
 			</table>	
 		</div> <!--dynamicTable 끝  -->
@@ -97,89 +103,22 @@
 			<div class="empty"></div>
 			<table>
 				<tr>
+				<c:forEach items="${performanceOpenExpectedList}" var="performanceOpenExpected" varStatus="status">
+				<c:if test="${status.index % 4 == 0}">
+		            <tr>
+		        </c:if>
 					<td class="ranking">
 						<div class="infocoming">
-							<a href="<c:url value='/performance/detailViewPerformance/P0006'/>"><img src="<c:url value='/image/P0006.jpg'/>">
+							<a href="/performance/detailView/${performanceOpenExpected.performanceId}"><img src="../<c:out value="${performanceOpenExpected.performanceImagePath}"/>"
+		                     alt="${performanceOpenExpected.performanceImagePath}">
 								<div class="donut-dday">D-16</div>
 								<div class="info-txt">
-									<p class="info-txt1">2024 이찬원 콘서트 ‘ 찬가（燦歌）’</p>
-									<p class="info-txt2">2024.11.02 14:00</p>
+									<p class="info-txt1">${performanceOpenExpected.performanceName}</p>
+									<p class="info-txt2"><fmt:formatDate value="${performanceOpenExpected.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${performanceOpenExpected.maxPerformanceDate}" pattern="yyyy.MM.dd"/></p>
 								</div></a>
 						</div>
 					</td>
-					<td class="ranking">
-						<div class="infocoming">
-							<a href="<c:url value='/performance/detailViewPerformance/P0008'/>"><img src="<c:url value='/image/P0008.PNG'/>">
-								<div class="donut-dday">D-26</div>
-								<div class="info-txt">
-									<p class="info-txt1">박진영 30주년 콘서트〈Still JYP〉</p>
-									<p class="info-txt2">2024.11.12 14:00</p>
-								</div></a>
-						</div>
-					</td>
-					<td class="ranking">
-						<div class="infocoming">
-							<a href="<c:url value='/performance/detailViewPerformance/P0009'/>"><img src="<c:url value='/image/P0009.PNG'/>">
-								<div class="donut-dday">D-26</div>
-								<div class="info-txt">
-									<p class="info-txt1">뮤지컬 [알라딘] 한국 초연 (ALADDIN The Musical)</p>
-									<p class="info-txt2">2024.11.12 14:00</p>
-								</div></a>
-						</div>
-					</td>
-					<td class="ranking">
-						<div class="infocoming">
-							<a href="<c:url value='/performance/detailViewPerformance/P0017'/>"><img src="<c:url value='/image/P0017.jpg'/>">
-								<div class="donut-dday">D-28</div>
-								<div class="info-txt">
-									<p class="info-txt1">2024 이무진 전국투어 콘서트 [별책부록]</p>
-									<p class="info-txt2">2024.11.14 14:00</p>
-								</div></a>
-						</div>
-					</td>
-				</tr>
-				
-				<tr>
-					<td class="ranking">
-						<div class="infocoming">
-							<a href="<c:url value='/performance/detailViewPerformance/P0012'/>"><img src="<c:url value='/image/P0012.PNG'/>">
-								<div class="donut-dday">D-28</div>
-								<div class="info-txt">
-									<p class="info-txt1">뮤지컬 〈이터니티〉</p>
-									<p class="info-txt2">2024.11.14 14:00</p>
-								</div></a>
-						</div>
-					</td>
-					<td class="ranking">
-						<div class="infocoming">
-							<a href="<c:url value='/performance/detailViewPerformance/P0013'/>"><img src="<c:url value='/image/P0013.jpg'/>">
-								<div class="donut-dday">D-28</div>
-								<div class="info-txt">
-									<p class="info-txt1">2024 뮤지컬 [지저스 크라이스트 수퍼스타]</p>
-									<p class="info-txt2">2024.11.14 14:00</p>
-								</div></a>
-						</div>
-					</td>
-					<td class="ranking">
-						<div class="infocoming">
-							<a href="<c:url value='/performance/detailViewPerformance/P0014'/>"><img src="<c:url value='/image/P0014.PNG'/>">
-								<div class="donut-dday">D-28</div>
-								<div class="info-txt">
-									<p class="info-txt1">뮤지컬 [쿠로이 저택엔 누가 살고 있을까?]</p>
-									<p class="info-txt2">2024.11.14 14:00</p>
-								</div></a>
-						</div>
-					</td>
-					<td class="ranking">
-						<div class="infocoming">
-							<a href="<c:url value='/performance/detailViewPerformance/P0001'/>"><img src="<c:url value='/image/P0001.jpg'/>">
-								<div class="donut-dday">D-28</div>
-								<div class="info-txt">
-									<p class="info-txt1">나훈아 ‘2024 고마웠습니다-라스트 콘서트(LAST CONCERT)’</p>
-									<p class="info-txt2">2024.11.14 14:00</p>
-								</div></a>
-						</div>
-					</td>
+				</c:forEach>	
 				</tr>
 			</table>
 		</div>

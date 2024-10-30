@@ -213,4 +213,45 @@
 	        PERFORMANCE_INFORMATION_IMAGE_PATH = #{performanceInformationImagePath}
 	    WHERE PERFORMANCE_ID = #{performanceId}
 	</update>
+	
+	<select id="selectPerformanceSeatInfo" resultType="com.spring_boot_dolls_ticket.project.model.PerformanceSeatVO" parameterType="com.spring_boot_dolls_ticket.project.model.PerformanceSeatVO" >
+		select 
+		    A.PERFORMANCE_LOCATION_ID as performanceLocationId
+		    ,PERFORMANCE_LOCATION_NM AS performanceLocationNm
+		    ,A.SEAT_KIND_CD as seatKindCd
+		    ,A.SEAT_NUMBER as seatNumber
+		    ,A.SEAT_PRICE + (SELECT performance_price FROM performance_info_m WHERE PERFORMANCE_ID = B.PERFORMANCE_ID) as seatPrice
+		    ,'N' AS seatStatus 
+		FROM PERFORMANCE_LOCATION_M A
+	    INNER JOIN performance_schedule_d B
+	    ON A.PERFORMANCE_LOCATION_ID = B.PERFORMANCE_LOCATION_ID
+		WHERE B.PERFORMANCE_ID = #{performanceId}
+		AND  TO_CHAR(B.PERFORMANCE_DATE, 'YYYYMMDDHH24MI') = #{performanceDate}
+	    AND A.SEAT_KIND_CD || A.SEAT_NUMBER = #{seatKindCd} || #{seatNumber}
+	</select>
+	
+	<insert id="insertReservationInfo" parameterType="com.spring_boot_dolls_ticket.project.model.ReservationVO">
+	
+	INSERT INTO RESERVATION_INFO_M (
+	    RESERVATION_ID, 
+	    PERFORMANCE_ID, 
+	    CUST_ID, 
+	    PERFORMANCE_DATE, 
+	    RESERVATION_SEAT_INFORMATION, 
+	    RESERVATION_STATUS, 
+	    FIRST_CHANGE_DATE, 
+	    LAST_CHANGE_DATE
+	) 
+	VALUES (
+	    ( select 'R0' || TO_CHAR(MAX(TO_NUMBER(SUBSTR(RESERVATION_ID, 2)))+1) from RESERVATION_INFO_M) ,         
+	    #{performanceId},
+	    #{custId},
+	    TO_DATE(#{performanceDate}, 'YYYY-MM-DD HH24:MI'),
+	    #{reservationSeatInformation},
+	    'Y',
+	    SYSDATE,         
+	    SYSDATE          
+	)
+	</insert>
+	
 </mapper>

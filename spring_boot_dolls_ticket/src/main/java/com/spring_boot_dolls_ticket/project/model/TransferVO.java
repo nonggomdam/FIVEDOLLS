@@ -1,9 +1,5 @@
 package com.spring_boot_dolls_ticket.project.model;
 
-import java.util.Date;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
 public class TransferVO {
 	
 	private String custId;

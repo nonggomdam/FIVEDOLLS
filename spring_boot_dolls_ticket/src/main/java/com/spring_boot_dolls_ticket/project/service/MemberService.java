@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.spring_boot_dolls_ticket.project.model.MemberVO;
+import com.spring_boot_dolls_ticket.project.model.ReservationVO;
 import com.spring_boot_dolls_ticket.project.dao.IMemberDAO;
 
 @Service
@@ -122,6 +123,12 @@ public class MemberService implements IMemberService {
 	public void updateMember(MemberVO in) {
 		// TODO Auto-generated method stub
 		dao.updateMember(in);
+	}
+
+	@Override
+	public ArrayList<ReservationVO> ReservationList(String custId) {
+		// TODO Auto-generated method stub
+		return dao.ReservationList(custId);
 	}
 
 

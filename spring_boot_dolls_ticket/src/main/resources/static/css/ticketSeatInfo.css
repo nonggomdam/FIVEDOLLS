@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+        /* 스타일 설정 */
+        .container {
+            width: 60%;
+            display: flex;
+            align-items: center;
+            margin-top : 100px;
+            margin-bottom: 170px;
+        }
+        .header {
+        	display:inline-block;
+            font-size: 24px;
+            margin-bottom: 10px;
+            margin-left:50px;
+        }
+        .seating-container {
+            display: flex;
+        }
+        .seats {
+            flex: 2;
+            width: 900px;
+            text-align: center;
+            border: 2px solid #ddd;
+            padding: 40px;
+        }
+        .seat-selection {
+            display: inline-block;
+            margin: 5px;
+            width: 40px;
+            height: 40px;
+            background-color: #58a;
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+        }
+        .seat-selection2 {
+            display: inline-block;
+            margin: 5px;
+            width: 40px;
+            height: 40px;
+            background-color: #5d0777;
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+        }
+
+        .seat-selected {
+            background-color: green;
+        }
+        .seat-disabled {
+            background-color: gray;
+            cursor: not-allowed;
+        }
+        .seat-checkDisabled {
+            background-color: red;
+            cursor: not-allowed;
+        }
+        .seatSelect{
+        	margin-top : 32px;
+        }
+        .seat-info {
+            width:300px;
+            padding: 40px;
+            border: 1px solid #ddd;
+            margin-left: 50px;
+        }
+        .seat-info .movie-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .seat-info .selected-seats {
+            margin-top: 20px;
+        }
+        .resetSeats {
+        	float: right;
+        }
+        .people {
+        	margin-left:60px;
+        	margin-bottom : 50px;
+        }
+        .performanceName {
+		    display: flex;
+		    width: 90%;
+		    justify-content: center;
+		    align-items: center;
+		    margin-bottom: 20px;
+		}
+		
+		.performanceName h2 {
+		    text-align: center;
+		}

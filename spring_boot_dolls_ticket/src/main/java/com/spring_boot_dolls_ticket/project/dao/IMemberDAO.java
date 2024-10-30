@@ -1,9 +1,11 @@
 package com.spring_boot_dolls_ticket.project.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import com.spring_boot_dolls_ticket.project.model.MemberVO;
+import com.spring_boot_dolls_ticket.project.model.ReservationVO;
 
 public interface IMemberDAO {
 	public String loginCheck(String id);
@@ -14,5 +16,6 @@ public interface IMemberDAO {
 	public boolean resetPassword(String name, String email, String newPassword);
 	public MemberVO selectCustInfo(String custId);
 	public void updateMember(MemberVO in);
+	public ArrayList<ReservationVO> ReservationList(String custId);
 }  
   

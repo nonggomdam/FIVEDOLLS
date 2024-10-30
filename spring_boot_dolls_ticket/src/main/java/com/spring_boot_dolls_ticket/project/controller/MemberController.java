@@ -7,39 +7,35 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.spring_boot_dolls_ticket.project.model.MemberVO;
+import com.spring_boot_dolls_ticket.project.model.ReservationVO;
 import com.spring_boot_dolls_ticket.project.service.MemberService;
 
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.spring_boot_dolls_ticket.project.model.MemberVO;
 
 @Controller
 public class MemberController {
@@ -472,6 +468,22 @@ public class MemberController {
 		return "member/signupSuccess";
 	}
 	
+	@RequestMapping("member/myPage")
+	public String myPage(Model model,HttpSession session) {
+		
+		if(session.getAttribute("sid") == null || session.getAttribute("sid") == "" ) {
+			return "member/loginPage";
+		}
+		
+		String custId = (String)session.getAttribute("sid");
+		ArrayList<ReservationVO> myPageReservationList = memService.ReservationList(custId);
+		
+		model.addAttribute("myPageReservationList",myPageReservationList);
+		
+		return "member/myPage";
+	}
+	
+	
 	/**
 	 * 회원정보 수정
 	 */
@@ -486,7 +498,8 @@ public class MemberController {
 		return "member/correctionMember";
 	}
 	
-	/*
+	
+	/**
 	 * 비밀번호 제외 수정
 	 */
 	@RequestMapping("/member/memberUpdate")
@@ -496,5 +509,35 @@ public class MemberController {
 		
 		return "redirect:/member/myPage"; 
 	}
+	
+	/**
+	 * 예매내역
+	 */
+	@RequestMapping("member/Confirmation")
+	public String Confirmation(Model model,HttpSession session) {
+		
+		if(session.getAttribute("sid") == null || session.getAttribute("sid") == "" ) {
+			return "member/loginPage";
+		}
+		
+		String custId = (String)session.getAttribute("sid");
+		ArrayList<ReservationVO> ReservationList = memService.ReservationList(custId);
+		
+		
+		
+		model.addAttribute("ReservationList",ReservationList);
+		
+		return "member/Confirmation";
+	}
+	
+	/**
+	 * 비밀번호 변경
+	 */
+	@RequestMapping("member/passwordChange")
+	public String showChangePassword() {
+		return "member/changePasswordPage";
+	}
+	
+	
 
 }

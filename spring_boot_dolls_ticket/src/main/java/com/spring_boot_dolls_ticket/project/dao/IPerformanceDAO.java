@@ -6,6 +6,8 @@ import java.util.List;
 import com.spring_boot_dolls_ticket.project.model.PerformanceScheduleVO;
 import com.spring_boot_dolls_ticket.project.model.PerformanceSeatVO;
 import com.spring_boot_dolls_ticket.project.model.PerformanceVO;
+import com.spring_boot_dolls_ticket.project.model.ReservationVO;
+
 
 
 public interface IPerformanceDAO {
@@ -23,5 +25,6 @@ public interface IPerformanceDAO {
 	void incrementClickCount(String performanceId);
 	void updateImgPath(PerformanceVO performance); // UPDATE - 이미지 경로 수정
 	String selectGeneratedId();
-	
+	public PerformanceSeatVO selectPerformanceSeatInfo(PerformanceSeatVO performanceSeatVO);
+	public int insertReservationInfo(ReservationVO reservationVO);
 }
