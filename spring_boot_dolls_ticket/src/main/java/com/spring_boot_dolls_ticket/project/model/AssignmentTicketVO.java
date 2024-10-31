@@ -10,7 +10,7 @@ public class AssignmentTicketVO {
 	private String assignmentSqno;
 	private String performanceId;
 	private String reservationSeatInformation;
-	private String reservationNumber;
+	private String reservationId;
 	private String receiveCustId;
 	private String soldYn;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -43,11 +43,11 @@ public class AssignmentTicketVO {
 	public void setReservationSeatInformation(String reservationSeatInformation) {
 		this.reservationSeatInformation = reservationSeatInformation;
 	}
-	public String getReservationNumber() {
-		return reservationNumber;
+	public String getReservationId() {
+		return reservationId;
 	}
-	public void setReservationNumber(String reservationNumber) {
-		this.reservationNumber = reservationNumber;
+	public void setReservationId(String reservationId) {
+		this.reservationId = reservationId;
 	}
 	public String getReceiveCustId() {
 		return receiveCustId;
@@ -77,10 +77,12 @@ public class AssignmentTicketVO {
 	@Override
 	public String toString() {
 		return "AssignmentTicketVO [noticeId=" + noticeId + ", assignmentSqno=" + assignmentSqno + ", performanceId="
-				+ performanceId + ", reservationSeatInformation=" + reservationSeatInformation + ", reservationNumber="
-				+ reservationNumber + ", receiveCustId=" + receiveCustId + ", soldYn=" + soldYn + ", firstChangeDate="
+				+ performanceId + ", reservationSeatInformation=" + reservationSeatInformation + ", reservationId="
+				+ reservationId + ", receiveCustId=" + receiveCustId + ", soldYn=" + soldYn + ", firstChangeDate="
 				+ firstChangeDate + ", lastChangeDate=" + lastChangeDate + "]";
 	}
+	
+	
 	
 
 	

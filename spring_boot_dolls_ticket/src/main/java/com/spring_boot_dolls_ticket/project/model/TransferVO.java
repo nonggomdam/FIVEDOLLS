@@ -1,21 +1,27 @@
 package com.spring_boot_dolls_ticket.project.model;
 
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class TransferVO {
 	
 	private String custId;
 	private String performanceKindCd;
 	private String performanceName;
-	private int performancePrice;
+	private int totalSeatPrice;
 	private String performanceDate;
 	private String reservationSeatInformation;
-	private String reservationNumber;
+	private String reservationId;
+	private String performanceImagePath;
+	private String performanceId;
 	
 	
-	public String getReservationNumber() {
-		return reservationNumber;
+	public String getReservationId() {
+		return reservationId;
 	}
-	public void setReservationNumber(String reservationNumber) {
-		this.reservationNumber = reservationNumber;
+	public void setReservationId(String reservationId) {
+		this.reservationId = reservationId;
 	}
 	public String getCustId() {
 		return custId;
@@ -35,14 +41,12 @@ public class TransferVO {
 	public void setPerformanceName(String performanceName) {
 		this.performanceName = performanceName;
 	}
-	public int getPerformancePrice() {
-		return performancePrice;
+	public int getTotalSeatPrice() {
+		return totalSeatPrice;
 	}
-	public void setPerformancePrice(int performancePrice) {
-		this.performancePrice = performancePrice;
+	public void setTotalSeatPrice(int totalSeatPrice) {
+		this.totalSeatPrice = totalSeatPrice;
 	}
-	
-	
 	public String getPerformanceDate() {
 		return performanceDate;
 	}
@@ -55,16 +59,32 @@ public class TransferVO {
 	public void setReservationSeatInformation(String reservationSeatInformation) {
 		this.reservationSeatInformation = reservationSeatInformation;
 	}
-	
-	
+	public String getPerformanceImagePath() {
+		return performanceImagePath;
+	}
+	public void setPerformanceImagePath(String performanceImagePath) {
+		this.performanceImagePath = performanceImagePath;
+	}
+	public String getPerformanceId() {
+		return performanceId;
+	}
+	public void setPerformanceId(String performanceId) {
+		this.performanceId = performanceId;
+	}
 	@Override
 	public String toString() {
 		return "TransferVO [custId=" + custId + ", performanceKindCd=" + performanceKindCd + ", performanceName="
-				+ performanceName + ", performancePrice=" + performancePrice + ", performanceDate=" + performanceDate
-				+ ", reservationSeatInformation=" + reservationSeatInformation + ", reservationNumber="
-				+ reservationNumber + "]";
+				+ performanceName + ", totalSeatPrice=" + totalSeatPrice + ", performanceDate=" + performanceDate
+				+ ", reservationSeatInformation=" + reservationSeatInformation + ", reservationId=" + reservationId
+				+ ", performanceImagePath=" + performanceImagePath + ", performanceId=" + performanceId + "]";
 	}
+
 	
+	
+
+	
+	
+
 	
 	
 	

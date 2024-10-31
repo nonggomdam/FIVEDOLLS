@@ -6,12 +6,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 public class TransferReservationInfoVO {
 	
-	private String reservationNumber;
+	private String reservationId;
 	private String performanceId;
 	private String custId;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date performanceDate;
-	private int performancePrice;
+	private int totalSeatPrice;
 	private String reservationSeatInformation;
 	private String reservationStatus;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -20,11 +20,12 @@ public class TransferReservationInfoVO {
 	private Date lastChangeDate; 
 	
 	
-	public String getReservationNumber() {
-		return reservationNumber;
+	
+	public String getReservationId() {
+		return reservationId;
 	}
-	public void setReservationNumber(String reservationNumber) {
-		this.reservationNumber = reservationNumber;
+	public void setReservationId(String reservationId) {
+		this.reservationId = reservationId;
 	}
 	public String getPerformanceId() {
 		return performanceId;
@@ -44,11 +45,11 @@ public class TransferReservationInfoVO {
 	public void setPerformanceDate(Date performanceDate) {
 		this.performanceDate = performanceDate;
 	}
-	public int getPerformancePrice() {
-		return performancePrice;
+	public int getTotalSeatPrice() {
+		return totalSeatPrice;
 	}
-	public void setPerformancePrice(int performancePrice) {
-		this.performancePrice = performancePrice;
+	public void setTotalSeatPrice(int totalSeatPrice) {
+		this.totalSeatPrice = totalSeatPrice;
 	}
 	public String getReservationSeatInformation() {
 		return reservationSeatInformation;
@@ -77,12 +78,13 @@ public class TransferReservationInfoVO {
 	
 	@Override
 	public String toString() {
-		return "TransferReservationInfoVO [reservationNumber=" + reservationNumber + ", performanceId=" + performanceId
-				+ ", custId=" + custId + ", performanceDate=" + performanceDate + ", performancePrice="
-				+ performancePrice + ", reservationSeatInformation=" + reservationSeatInformation
-				+ ", reservationStatus=" + reservationStatus + ", firstChangeDate=" + firstChangeDate
-				+ ", lastChangeDate=" + lastChangeDate + "]";
+		return "TransferReservationInfoVO [reservationId=" + reservationId + ", performanceId=" + performanceId
+				+ ", custId=" + custId + ", performanceDate=" + performanceDate + ", totalSeatPrice=" + totalSeatPrice
+				+ ", reservationSeatInformation=" + reservationSeatInformation + ", reservationStatus="
+				+ reservationStatus + ", firstChangeDate=" + firstChangeDate + ", lastChangeDate=" + lastChangeDate
+				+ "]";
 	}
+	
 	
 	
 

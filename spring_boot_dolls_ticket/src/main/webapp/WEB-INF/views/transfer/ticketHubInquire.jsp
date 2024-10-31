@@ -14,16 +14,19 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/font3.css'/>">
 	<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 	<script src="<c:url value='/js/ticketHubChangePrice.js'/>"></script>
-	<script src="<c:url value='/js/ticketHubInquireModal.js'/>"></script>
+	<script src="<c:url value='/js/ticketHubInquireModal.js?v0.1'/>"></script>
 </head>
 <body>
 
 	<div id="wrapper">
-		<div>
-			<h1>Ticket Hub</h1>
-			<br>
-			<h4>안전하고 투명한 티켓 양도 거래!</h4>
-			<h4>신뢰할 수 있는 파이브돌스에서 안전하게 티켓을 양도하세요</h4>
+		<div class="banner" style="width:100%; height:140px;">
+		    <div class="text-box small-text">안전하고 투명한 티켓 양도 거래!</div>
+		    <div class="text-inline">
+		        <span style="font-size:25px;">신뢰할 수 있는</span>
+		        <span class="large-text">파이브돌스</span>
+		        <span style="font-size:25px;">에서 안전하게</span>
+		        <span class="text-box2 small-text hide-and-slide" style="display:inline-block;">티켓을 양도하세요</span>
+		    </div>
 		</div>
 		
 		<div id="status">
@@ -41,7 +44,7 @@
 			<span id="hit">조회 <span>${nb.hit}</span></span>
 		</div>
 		
-		<div id="box">
+		<div id="box" style="width:60%;">
 			<table>
 				
 				<tr>
@@ -59,24 +62,34 @@
 				<tr>
 					<th style="padding:20px;"><span class="back">양수 가능 티켓</span></th>
 					<td>
-						<form action="<c:url value='/receive/complete'/>" method="post" name="frm1">
+						<!--form action="<c:url value='/receive/complete'/>" method="post" name="frm1"-->
+						<form action="<c:url value='/transfer/pay'/>" method="post" name="frm1">
 						<input type="hidden" name="noticeId" value="${nb.noticeId}">
 						<c:forEach var="item" items="${list}"> 
 							<div class="show-item ${item.soldYn =='Y'?'sold':'' }">
-								<input type="checkbox"  ${item.soldYn =='Y'?'disabled':'' } class="chkbox" style="width:20px;" name="assignmentSqno" value="${item.assignmentSqno}">
-								
-								<span>${item.performanceKindCd}</span>
-								<span>${item.performanceName}</span>
-								<br>
-								<span style="margin-left:40px;">일시:${item.performanceDate}</span>
-								<span>&nbsp;&nbsp;&nbsp;좌석:${item.reservationSeatInformation}</span>
-								<span class="price" data-price=${item.performancePrice }>
-									&nbsp;&nbsp;&nbsp;가격:<fmt:formatNumber value="${item.performancePrice}" pattern="#,###"/>원
-								</span>
-								<c:if test="${item.soldYn == 'Y'}">
-								<span style="margin-left:30px;color:red;font-weight:bold;border:3px solid red;border-radius:5px;padding:8px;">판매완료</span> 
-								</c:if>
-							</div>	
+								<table style='width:100%;'>
+									<tr>
+										<td><input type="checkbox"  ${item.soldYn =='Y'?'disabled':'' } class="chkbox" style="width:10px;" name="assignmentSqno" value="${item.assignmentSqno}"></td>
+										<td style='width:150px'><a href="<c:url value='/performance/detailViewPerformance/${item.performanceId}'/>"><img src="${item.performanceImagePath}" width='150px'></a></td>
+										<td>
+											
+											<div><span>${item.performanceKindCd}</span><span>${item.performanceName}</span></div>
+											<div>
+												<span>일시 : ${item.performanceDate}</span>
+											</div>
+											<div>
+												<span>좌석 : ${item.reservationSeatInformation}석</span>
+											</div>
+											<div>
+												<span class="price" data-price=${item.totalSeatPrice }>가격 : <fmt:formatNumber value="${item.totalSeatPrice}" pattern="#,###"/>원</span>
+												<c:if test="${item.soldYn == 'Y'}">
+													<span style="margin-left:30px;color:red;font-weight:bold;border:3px solid red;border-radius:5px;padding:8px;">판매완료</span> 
+												</c:if>											
+											</div>									
+										</td>
+									</tr>
+								</table>							
+							</div>
 						</c:forEach>
 						</form>	
 					</td>
@@ -95,15 +108,15 @@
 				</div>
 				<div>
 							
-			
 					<div class="receiveBtn">
 						<c:if test="${sessionScope.sid == null }">
-							<span onclick="alert('로그인이 필요합니다.');return false;">양수하기</span>
+							<span onclick="showLoginAlert();return false;">양수하기</span>
 						</c:if> 
 						<c:if test="${sessionScope.sid != null }"> 
-							<span id="receiveBtn">양수하기</span>
+							<span id='receiveBtn'>양수하기</span>
 						</c:if>		
 					</div>
+	
 				</div>
 			</div>
 			</c:if>
@@ -116,7 +129,7 @@
 		        <p style="font-weight:bold;"><span class="confirm-price">원</span></p>
 		        <p>결제 하시겠습니까?</p>
 		        <div id="ask">
-		        	<span class="ok" onclick="receiveTicket()">확인</span>
+		        	<!--  <span class="ok" onclick="receiveTicket()">확인</span> -->
 		        	<span class="close">취소</span>
 		        </div>   
 		    </div>
@@ -127,8 +140,14 @@
 		function receiveTicket(){
 			frm1.submit();
 		}
-	
+		
+		function showLoginAlert() {
+		    alert('로그인이 필요합니다.');
+		    window.location.href="<c:url value='/member/loginForm'/>"; // 로그인 페이지 URL로 변경하세요
+		}
 	</script>
+	 
+     
 	
 	<c:import url="/WEB-INF/views/layout/footer.jsp"/>
 	
