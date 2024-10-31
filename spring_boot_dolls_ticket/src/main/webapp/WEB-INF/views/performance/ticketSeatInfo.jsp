@@ -75,7 +75,8 @@ input {
 				
 				<c:set var="dateString" value="${performanceDate}" />
 				<fmt:parseDate var="parsedDate" value="${dateString}" pattern="yyyyMMddHHmm" />
-				<div class="movie-time">공연일: ${parsedDate}</div>
+				<div class="movie-time">공연일: <fmt:formatDate value="${parsedDate}"
+							pattern="yyyy.MM.dd HH:mm" /></div>
 				<div class="selected-seats">
 					선택한 좌석: <span id="selectedSeats"></span>
 				</div>

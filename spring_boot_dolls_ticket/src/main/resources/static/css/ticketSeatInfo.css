@@ -95,3 +95,20 @@
 		.performanceName h2 {
 		    text-align: center;
 		}
+		.movie-time{
+			margin-top : 12px;
+		}
+		
+		.movie-title{
+			margin-top : 12px;
+		}
+		.selected-seats{
+			margin-top : 15px;
+			margin-bottom : 12px;
+		}
+		.total-price{
+			margin-bottom : 15px;
+		}
+		#resetSeats{
+			margin-top : 15px;
+		}
