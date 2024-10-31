@@ -151,13 +151,20 @@
 		    ,A.SEAT_KIND_CD as seatKindCd
 		    ,A.SEAT_NUMBER as seatNumber
 		    ,A.SEAT_PRICE + (SELECT performance_price FROM performance_info_m WHERE PERFORMANCE_ID = B.PERFORMANCE_ID) as seatPrice
-		    ,'N' AS seatStatus
+		    --,'N' AS seatStatus
+	        ,CASE WHEN (SELECT COUNT(RESERVATION_ID) 
+	        			FROM RESERVATION_INFO_M 
+	                    WHERE PERFORMANCE_ID = #{performanceId} 
+	                    AND TO_CHAR(PERFORMANCE_DATE, 'YYYYMMDDHH24MI') = #{performanceDate}
+	                    AND RESERVATION_SEAT_INFORMATION LIKE '%' || A.SEAT_KIND_CD || A.SEAT_NUMBER ||'%') = 1 THEN 'Y'
+	                    ELSE 'N' END AS seatStatus
 		FROM PERFORMANCE_LOCATION_M A
 	    INNER JOIN performance_schedule_d B
 	    ON A.PERFORMANCE_LOCATION_ID = B.PERFORMANCE_LOCATION_ID
 		WHERE B.PERFORMANCE_ID = #{performanceId}
 		AND  TO_CHAR(B.PERFORMANCE_DATE, 'YYYYMMDDHH24MI') = #{performanceDate}
 	</select>
+
 	<select id="getLatestEvent" resultType="com.spring_boot_dolls_ticket.project.model.PerformanceVO">
     SELECT PERFORMANCE_ID AS performanceId,
            PERFORMANCE_KIND_CD AS performanceKindCd,
