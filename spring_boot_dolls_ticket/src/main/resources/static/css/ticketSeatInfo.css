@@ -67,6 +67,9 @@
             border: 1px solid #ddd;
             margin-left: 50px;
         }
+        .seat-info img{
+        	width: 100%;
+        }
         .seat-info .movie-title {
             font-size: 18px;
             font-weight: bold;
