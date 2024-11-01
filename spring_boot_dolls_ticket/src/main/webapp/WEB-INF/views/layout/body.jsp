@@ -76,7 +76,7 @@
 		        </c:if>
 				<td class="ranking">
 					<div class="info">
-						<a href="/performance/detailView/${performanceOpen.performanceId}"><img src="../<c:out value="${performanceOpen.performanceImagePath}"/>"
+						<a href="/performance/detailViewPerformance/${performanceOpen.performanceId}"><img src="../<c:out value="${performanceOpen.performanceImagePath}"/>"
 		                     alt="${performanceOpen.performanceImagePath}">
 							<div class="textinfo">
 								<span>${performanceOpen.performanceName}<br>
