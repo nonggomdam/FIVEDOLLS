@@ -18,7 +18,7 @@
 	
   <div class="form-container sign-in-container">
     <form id="loginForm" name="loginForm" >
-      <a href="/"><h1>Five Dolls</h1></a>
+      <a href="/" class="logo">FiveDolls</a>
       <!-- <div class="social-container">
         <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
         <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
@@ -28,6 +28,9 @@
       <div id = "inputbox">
       	<input type="text" id="signupId" placeholder="아이디" />
       	<input type="password" id="signupPwd" placeholder="비밀번호" />
+      </div>
+      <div id=loginbox>
+      	<button type="submit">로그인</button>
       </div>
       <div id="finemenu">
       	<a href="<c:url value='/member/privacyPolicy'/>">회원가입</a>
@@ -42,9 +45,7 @@
     		<img src="../image/kakaologin.png" alt="카카오 로그인">
 		</a>
       </div> 
-      <div id=loginbox>
-      	<button type="submit">로그인</button>
-      </div>
+      
       
       <!-- kakaoInfo 변수를 숨겨진 요소로 추가 -->
       <div style="display:none;">
