@@ -17,23 +17,26 @@
 <body>
 
 	<div id="wrapper">
-		<div>
-			<h1>Ticket Hub</h1>
-			<br>
-			<h4>안전하고 투명한 티켓 양도 거래!</h4>
-			<h4>신뢰할 수 있는 파이브돌스에서 안전하게 티켓을 양도하세요</h4>
+		<div class="banner" style="width:100%; height:140px;">
+		    <div class="text-box small-text">안전하고 투명한 티켓 양도 거래!</div>
+		    <div class="text-inline">
+		        <span style="font-size:25px;">신뢰할 수 있는</span>
+		        <span class="large-text">파이브돌스</span>
+		        <span style="font-size:25px;">에서 안전하게</span>
+		        <span class="text-box2 small-text hide-and-slide" style="display:inline-block;">티켓을 양도하세요</span>
+		    </div>
 		</div>
 		
 		<div id="fillout">
 			<c:if test="${sessionScope.sid == null }">
-				<a onclick="alert('로그인이 필요합니다.')"><span>티켓 양도하기</span></a>
+				<a onclick="showLoginAlert()"><span>티켓 양도하기</span></a>
 			</c:if>
 			<c:if test="${sessionScope.sid != null }">
 				<a href="<c:url value='/transfer/regForm'/>"><span>티켓 양도하기</span></a>
 			</c:if>
 		</div>
 		
-		<div id="box">
+		<div id="box" style="width:60%;">
 			<table>
 				<tr id="firstrow">
 					<th>글번호</th>
@@ -84,6 +87,12 @@
  	
  	
  	<c:import url="/WEB-INF/views/layout/footer.jsp"/>
-
+	
+	<script>
+		function showLoginAlert() {
+		    alert('로그인이 필요합니다.');
+		    window.location.href="<c:url value='/member/loginForm'/>"; // 로그인 페이지 URL로 변경하세요
+		}
+	</script>
 </body>
 </html>

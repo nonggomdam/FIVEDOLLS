@@ -15,12 +15,15 @@
 </head>
 <body>
 
-	<div id="wrapper">
-		<div>
-			<h1>Ticket Hub</h1>
-			<br>
-			<h4>안전하고 투명한 티켓 양도 거래!</h4>
-			<h4>신뢰할 수 있는 파이브돌스에서 안전하게 티켓을 양도하세요</h4>
+		<div id="wrapper">
+			<div class="banner" style="width:100%; height:140px;">
+			    <div class="text-box small-text">안전하고 투명한 티켓 양도 거래!</div>
+			    <div class="text-inline">
+			        <span style="font-size:25px;">신뢰할 수 있는</span>
+			        <span class="large-text">파이브돌스</span>
+			        <span style="font-size:25px;">에서 안전하게</span>
+			        <span class="text-box2 small-text hide-and-slide" style="display:inline-block;">티켓을 양도하세요</span>
+		    </div>
 		</div>
 		
 		
@@ -28,6 +31,8 @@
 			<p>${msg}</p>
 			<a href="<c:url value='/transfer/list'/>"><h4 class="line">[로그인 하기]</h4></a>
 		</div>
+	
+	</div>
 		
 	<c:import url="/WEB-INF/views/layout/footer.jsp"/>
 		

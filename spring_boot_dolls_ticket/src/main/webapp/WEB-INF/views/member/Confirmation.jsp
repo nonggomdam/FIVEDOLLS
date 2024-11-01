@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -12,6 +13,7 @@
     <c:import url="/WEB-INF/views/layout/head.jsp"/>
     <script src="jquery-3.7.1.min.js"></script>
 	<script type="text/javascript">	</script>
+	
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -30,12 +32,15 @@
 		    margin-bottom : 60px;
         }
         .event h2{
+        	margin-bottom: 20px;
             border-bottom: 2px solid #333;
+            padding-bottom: 10px;
         }
         
         .event img{
         	width: 100%;
-        	margin-bottom : 15px;
+        	margin-top : 10px;
+        	margin-bottom : 40px;
         }
 
         .sidebar {
@@ -102,12 +107,21 @@
 
         .order-table th, .order-table td {
             border: 1px solid #ddd;
-            padding: 15px;
+            padding: 12px;
             text-align: left;
+            
         }
+        .order-table img{
+        	width:80px;
+        }
+        
+        .order-table p{
+        	margin-left : 10px;
+		}
 
         .order-table th {
             background-color: #f4f4f4;
+            width: 20%;
         }
 
         .order-status {
@@ -176,88 +190,68 @@
 		h3{
 			margin-top:65px;
 		}
+		.filter-bar {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            margin-bottom : 15px;
+        }
+
+        .filter-bar select, 
+        .filter-bar input[type="date"],
+        .filter-bar button {
+            padding: 8px 12px;
+            margin-right: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 3px;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        .filter-bar button {
+            background-color: #333;
+            color: white;
+            border: none;
+        }
+
+        .filter-bar .date-range {
+            display: flex;
+            align-items: center;
+        }
+
+        .filter-bar .date-range input[type="date"] {
+            margin-right: 5px;
+        }
+
+        .filter-bar .time-periods button {
+            padding: 8px 12px;
+            margin-right: 5px;
+            border: 1px solid #e0e0e0;
+            background-color: white;
+            cursor: pointer;
+            color:black;
+        }
+
+        .filter-bar .time-periods button.active {
+            border: 1px solid black;
+        }
+        
+		.interest {
+		    display: flex;
+		    flex-wrap: wrap; /* 요소가 줄 바꿈되도록 설정 */
+		    gap: 10px; /* 이미지 사이에 간격 추가 (선택 사항) */
+		    margin-top : 40px;
+		}
 		
-		.container {
-            display: flex;
-            margin: 20px;
-            width: 90%;
-        }
+		.interest img {
+		    width: calc(25% - 20px); /* 이미지가 5개 들어가도록 너비를 설정, 간격 고려 */
+		    height: 360px; /* 비율에 맞게 자동으로 높이 조정 */
+		}
+		
 
-        .section-title {
-            font-size: 18px;
-            color: #5A2D82; /* 보라색 제목 */
-            text-align:left;
-        }
-        
-        
-
-        .movie-info, .preference-info {
-        	margin:0 auto;
-        	width: 40%;
-        	height: 80%;
-        }
-
-        .movie-info .stats{
-            display: flex;
-            justify-content: space-around;
-            margin-top: 16px;
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        
-         .preference-info .details {
-         	margin-top: 16px;
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-         }
-        
-        .details li{
-        	justify-content: flex-start; /* 요소를 왼쪽으로 붙임 */
-        	margin-top: 6px;
-        }
-
-        .stat-item {
-            text-align: center;
-            font-size: 24px;
-            color: #009688; /* 파란색 숫자 */
-        }
-
-        .stat-item label {
-            display: block;
-            font-size: 14px;
-            color: #666;
-        }
-
-        .button {
-            padding: 8px 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: white;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        .button:hover {
-            background-color: #eee;
-        }
-
-        .settings-button {
-            width: 80px;
-            height:25px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: white;
-            cursor: pointer;
-            float:right;
-        }
-
-        .settings-button:hover {
-            background-color: #eee;
-        }
     </style>
 </head>
 <body>
@@ -272,7 +266,7 @@
         	<p>김태우 님은 일반 회원입니다.</p>
         </div>
         <button onclick="location.href='http://localhost:8080/member/correctionMember';">회원정보 변경</button>
-        <button onclick="location.href='http://localhost:8080/member/Confirmation';">예약확인/취소</button>
+        <button>예약확인/취소</button>
         <button>나의 관람내역</button>
 		<div class="service-center">
 	        <h2>고객센터</h2>
@@ -290,88 +284,105 @@
             <h2>안녕하세요! 김**님</h2>
            	<p>현재 등급: WELCOME | 0P</p>
         </div>
+        <h3>나의 관람내역</h3>
         
-         <div class="container">
-	        <!-- 나의 무비스토리 영역 -->
-	        <div class="movie-info">
-	            <div class="section-title">나의 무비스토리</div>
-	            <div class="stats">
-	                <div class="stat-item">
-	                    1
-	                    <label>관람한 공연</label>
-	                </div>
-	                <div class="stat-item">
-	                    0
-	                    <label>관람평</label>
-	                </div>
-	                <div class="stat-item">
-	                    0
-	                    <label>위시리스트</label>
-	                </div>
-	            </div>
+	    <div class="filter-bar">
+	        <!-- 드롭다운 메뉴 -->
+	
+	        <select>
+	            <option>구분</option>
+	            <option value="M">뮤지컬</option>
+   				<option value="C">콘서트</option>
+	        </select>
+	
+	        <!-- 기간 선택 버튼들 -->
+	        <div class="time-periods">
+	            <button>당일</button>
+	            <button>1주</button>
+	            <button class="active">1개월</button>
+	            <button>3개월</button>
+	            <button>6개월</button>
 	        </div>
 	
-	        <!-- 선호관람정보 영역 -->
-	        <div class="preference-info">
-	            <div class="section-title">선호관람정보<button class="settings-button">설정</button></div><!-- <button class="settings-button">설정</button> -->
-	            <div class="details">
-	                <ul>
-	                    <li>내 선호장르 : 뮤지컬</li>
-	                    <li>내 선호시간 : 20시</li>
-	                </ul>
-	            </div>
+	        <!-- 날짜 범위 선택 -->
+	        <div class="date-range">
+	            <input type="date" value="2024-09-24">
+	            <span>~</span>
+	            <input type="date" value="2024-10-24">
 	        </div>
+	
+	        <!-- 조회 버튼 -->
+	        <button>조회</button>
 	    </div>
-	    <div class="event">
-			<h3>이벤트 현황</h3>
-    		<img src="<c:url value='/image/banner12.gif'/>">
-    	</div>
-        <h3>나의 관람내역 <span style="font-size: 12px; font-weight: normal;">한달 이내의 예매내역이 표시됩니다.</span></h3>
         <table class="order-table">
             <thead>
                 <tr>
                     <th>상품 정보</th>
+                    <th>좌석정보</th>
                     <th>공연날짜</th>
                     <th>진행상태</th>
                     <th>구매확정 및 리뷰</th>                   
                 </tr>
             </thead>
             <tbody>
-            <c:forEach var="myPageList" items="${myPageReservationList}">
+            <c:forEach var="List" items="${ReservationList}">
                 <tr>
-                    <td>
-                        ${myPageList.performanceName}<p>금액 : ${myPageList.performancePrice}원</p>
+                    <td style="width:220px;">
+                       	<img src="../<c:out value="${List.performanceImagePath}"/>" alt="공연 이미지" width="50">
+                       	<p>${List.performanceName}</p>
+                       	<p>${List.performancePrice}원</p>
                     </td>
-                    <td>${myPageList.performanceDate}분</td>
+                    <td>${List.reservationSeatInformation}</td>
+                    <td>${List.performanceDate}</td>
                     <td>
                     	<c:choose>
-						    <c:when test="${myPageList.reservationStatus == 'Y'}">
+						    <c:when test="${List.reservationStatus == 'Y'}">
 						        <span>결제완료</span>
 						    </c:when>
-						    <c:when test="${myPageList.reservationStatus == 'N'}">
+						    <c:when test="${List.reservationStatus == 'N'}">
 						        <span>결제대기</span>
 						    </c:when>
 					    </c:choose>
-					    <td><button>리뷰작성</button>
-                    </td>
+					</td>
+                    <td><button>구매확정</button><button onclick="deleteCartItem('${List.reservationId}')">삭제</button>
                 </tr>
             </c:forEach>
             </tbody>
         </table>
-        
-        
+        <h3>관심목록</h3>
+		<div class="interest">
+			<img src="<c:url value='/img/musicul1.jpg'/>">
+    		<img src="<c:url value='/img/musicul11.jpg'/>">
+    		<img src="<c:url value='/img/musicul7.jpg'/>">	
+    		<img src="<c:url value='/img/consert11.jpg'/>">
+    	</div>
 
         <h3>유의사항</h3>
         <div class="warning">
-        	<h4>예매 유의사항</h4> 
-			<p>- 다른 좌석등급이나 다른 상품으로 변경은 불가합니다.</p>
-			<p>유효기간내에 사용하지 않으면 자동소멸됩니다. 유효기간 연장이나 환불은 불가하오니, 유효기간내에 이용하시기 바랍니다.</p>
-			<p>-예매권으로 예매시에는, 별도 예매수수료 없이 예매됩니다.</p>
-			<p>-웹에서만 예매가 가능하오니, 유의하시기 바랍니다.</p>
+        	<h4>취소 유의사항</h4>
+			<p>- 취소 시 예매수수료는 예매 당일 밤 12시 이전까지 환불되며, 그 이후 기간에는 환불되지 않습니다.</p>
+			<p>- 예매 취소 시 결제 금액에서 수수료를 제외한 금액만큼 환불 처리 됩니다.</p>
+			<p>(부분 취소 시에는 잔여 티켓 금액 + 수수료 등을 제외하고 환불 처리 됩니다.)</p>
+			<p>- 예매 취소 시점과 해당 카드사의 환불 처리 기준에 따라 환급방법과 환급일은 다소 차이가 있을 수 있습니다.</p>
 		</div>
     </div>
 </div>
 <c:import url="/WEB-INF/views/layout/footer.jsp"/>
 </body>
+<script>
+function deleteCartItem(reservationId) {
+    fetch(`/deleteCart?reservationId=` + reservationId, {
+        method: 'POST'
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert("삭제되었습니다.");
+            // 삭제 후 화면 갱신 등의 로직
+        }
+    })
+    .catch(error => console.error('삭제 오류:', error));
+}
+</script>
 </html>
 

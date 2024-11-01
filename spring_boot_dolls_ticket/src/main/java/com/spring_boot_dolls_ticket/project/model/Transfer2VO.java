@@ -4,7 +4,7 @@ public class Transfer2VO {
 	
 	private String custId;
 	private String assignmentSqno;
-	private String reservationNumber;
+	private String reservationId;
 	private String reservationSeatInformation;
 	private String performanceKindCd;
 	private String performanceName;
@@ -12,6 +12,8 @@ public class Transfer2VO {
 	private String performanceDate;
 	private String performanceId;
 	private String soldYn;
+	private int totalSeatPrice;
+	private String performanceImagePath;
 	
 	
 	public String getCustId() {
@@ -26,12 +28,7 @@ public class Transfer2VO {
 	public void setAssignmentSqno(String assignmentSqno) {
 		this.assignmentSqno = assignmentSqno;
 	}
-	public String getReservationNumber() {
-		return reservationNumber;
-	}
-	public void setReservationNumber(String reservationNumber) {
-		this.reservationNumber = reservationNumber;
-	}
+ 
 	public String getReservationSeatInformation() {
 		return reservationSeatInformation;
 	}
@@ -74,15 +71,38 @@ public class Transfer2VO {
 	public void setSoldYn(String soldYn) {
 		this.soldYn = soldYn;
 	}
+	public String getReservationId() {
+		return reservationId;
+	}
+	public void setReservationId(String reservationId) {
+		this.reservationId = reservationId;
+	}
 	
+	public int getTotalSeatPrice() {
+		return totalSeatPrice;
+	}
+	public void setTotalSeatPrice(int totalSeatPrice) {
+		this.totalSeatPrice = totalSeatPrice;
+	}
+	public String getPerformanceImagePath() {
+		return performanceImagePath;
+	}
+	public void setPerformanceImagePath(String performanceImagePath) {
+		this.performanceImagePath = performanceImagePath;
+	}
 	@Override
 	public String toString() {
-		return "Transfer2VO [custId=" + custId + ", assignmentSqno=" + assignmentSqno + ", reservationNumber="
-				+ reservationNumber + ", reservationSeatInformation=" + reservationSeatInformation
-				+ ", performanceKindCd=" + performanceKindCd + ", performanceName=" + performanceName
-				+ ", performancePrice=" + performancePrice + ", performanceDate=" + performanceDate + ", performanceId="
-				+ performanceId + ", soldYn=" + soldYn + "]";
+		return "Transfer2VO [custId=" + custId + ", assignmentSqno=" + assignmentSqno + ", reservationId="
+				+ reservationId + ", reservationSeatInformation=" + reservationSeatInformation + ", performanceKindCd="
+				+ performanceKindCd + ", performanceName=" + performanceName + ", performancePrice=" + performancePrice
+				+ ", performanceDate=" + performanceDate + ", performanceId=" + performanceId + ", soldYn=" + soldYn
+				+ ", totalSeatPrice=" + totalSeatPrice + ", performanceImagePath=" + performanceImagePath + "]";
 	}
+
+
+	
+	
+	
 	
 	
 	

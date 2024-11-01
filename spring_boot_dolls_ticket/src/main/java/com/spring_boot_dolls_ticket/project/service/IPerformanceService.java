@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.spring_boot_dolls_ticket.project.model.PerformanceScheduleVO;
 import com.spring_boot_dolls_ticket.project.model.PerformanceSeatVO;
 import com.spring_boot_dolls_ticket.project.model.PerformanceVO;
+import com.spring_boot_dolls_ticket.project.model.ReservationVO;
 
 public interface IPerformanceService {
 
@@ -24,5 +25,8 @@ public interface IPerformanceService {
 	List<PerformanceVO> getRankedPerformances(); // 클릭 순 랭킹 정렬
 	void incrementClickCount(String performanceId);
 	void updateImgPath(PerformanceVO performance);
+	public PerformanceSeatVO selectPerformanceSeatInfo(PerformanceSeatVO performanceSeatVO);
+	public int insertReservationInfo(ReservationVO reservationVO);
+	
 	
 }

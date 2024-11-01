@@ -1,9 +1,11 @@
 package com.spring_boot_dolls_ticket.project.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import com.spring_boot_dolls_ticket.project.model.MemberVO;
+import com.spring_boot_dolls_ticket.project.model.ReservationVO;
 
 public interface IMemberService {
 	public String loginCheck(HashMap<String , Object> map);
@@ -15,5 +17,6 @@ public interface IMemberService {
 	public MemberVO selectCustInfo(String custId);
 	public void updateMember(MemberVO in);
 	public String findAdministratorYnById(String id);
+	public ArrayList<ReservationVO> ReservationList(String custId);
 }  
   

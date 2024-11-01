@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.spring_boot_dolls_ticket.project.model.MemberVO;
+import com.spring_boot_dolls_ticket.project.model.ReservationVO;
 import com.spring_boot_dolls_ticket.project.dao.IMemberDAO;
 
 @Service
@@ -128,6 +129,12 @@ public class MemberService implements IMemberService {
 	public String findAdministratorYnById(String id) {
 		return dao.findAdministratorYnById(id);
 	}
+	@Override
+	public ArrayList<ReservationVO> ReservationList(String custId) {
+		// TODO Auto-generated method stub
+		return dao.ReservationList(custId);
+	}
+
 
 
 	

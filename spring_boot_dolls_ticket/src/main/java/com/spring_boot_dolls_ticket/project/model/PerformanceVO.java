@@ -28,6 +28,7 @@ public class PerformanceVO {
 	private Date reservationOpenExpectedDate;
     private Date maxPerformanceDate;
     private Date minPerformanceDate;
+    private Date performanceDate;
 	private String performanceImagePath;
 	private String performanceInformationImagePath;
 	private Date firstChangeDate;
@@ -178,5 +179,14 @@ public class PerformanceVO {
 	public void setMinPerformanceDate(Date minPerformanceDate) {
 		this.minPerformanceDate = minPerformanceDate;
 	}
+	
+	
+	public Date getPerformanceDate() {
+		return performanceDate;
+	}
+	public void setPerformanceDate(Date performanceDate) {
+		this.performanceDate = performanceDate;
+	}
+    
 	
 }

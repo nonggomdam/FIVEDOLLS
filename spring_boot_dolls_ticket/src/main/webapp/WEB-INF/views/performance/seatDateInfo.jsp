@@ -132,33 +132,44 @@
 						break; // Stop when all days are filled
 					} else {
 						cell.innerHTML = date;
+						
+						//공연있는날짜 빨간표시
+						const makeDate = year + _makeZero(month) + _makeZero(cell.innerText);
+						if(_checkPerformanceToCalendal(makeDate)){
+							cell.style.backgroundColor = 'red';	
+						}else{
+							cell.style.backgroundColor = 'gray';	
+						}
 						cell.addEventListener(
 										'click',
 										function() {
-											curruntCheckDate = "" //회차선택 초기화
+											//회차선택 화면 초기화
+											document.getElementById('round').replaceChildren();
+											//잔여석 화면 초기화
+											document.getElementById('remainingSeat').replaceChildren();
+											
+											//회차선택 전역변수 초기화 (다음단계 누를때 현재 체크된 시간 넘어감)
+											curruntCheckDate = ""
+											
 											// 캘린더 자식요소 다가져오기
 											const children = document.querySelector('#calendar-day tbody').querySelectorAll('*');
 											// 모든 자식 요소의 스타일을 초기화
-											children.forEach(function(child) {
-											    child.style.cssText = ''; // 인라인 스타일을 초기화
+										 	children.forEach(function(child) {
+												if(child.style.cssText == "background-color: yellow;" ){
+													child.style.backgroundColor = 'red'; // 인라인 스타일을 초기화
+												}
 											    child.removeAttribute('class'); // 클래스 제거
-											});
+											}); 
 											
-											//클릭날짜 노란색표시
-											cell.style.backgroundColor = 'yellow';
-											
+											//공연날짜 외에 다른거 클릭시 return;
+											if(!_checkPerformanceToCalendal(makeDate)){
+											 	alert("해당 날짜에는 공연이 없습니다.");		
+											 	return;
+											}
+											cell.style.backgroundColor = 'yellow';	
 											
 											//현재 캘린더 클릭 연도및날짜
-											var makeMonth = month;
-											var makeDay = cell.innerText;
-											
-											if(makeMonth.length == 1){
-												makeMonth = "0" + makeMonth.toString();
-											}
-											if(makeDay.length == 1){
-												makeDay = "0" + makeDay.toString();
-											}
-											var makeDate = year + makeMonth + makeDay;
+											const makeDate2 = year + _makeZero(month) + _makeZero(cell.innerText);
 											
 											//회차선택 동적셋팅
 											_changeCalendalDate(makeDate);
@@ -174,18 +185,31 @@
 		// Initial calendar render
 		renderCalendar();
 		
+		function _makeZero(str){
+			if(str.length == 1){
+				str = "0" + str.toString();
+			}
+			return str;
+		}
+		
+		//공연날짜 있으면 true
+		function _checkPerformanceToCalendal(makeDate){
+			<c:forEach items="${performanceDateList}" var="item">
+			//공연있는날짜 판단
+				if(  makeDate == "${item}".substr(0, 8)){
+					return true;	
+				}
+			</c:forEach>
+			return false;
+		};
+		
 		//회차 동적컨트롤
 		function _changeCalendalDate(makeDate){
-			//회차선택 초기화
-			document.getElementById('round').replaceChildren();
-			//잔여석 초기화
-			document.getElementById('remainingSeat').replaceChildren();
-			
 			
 			<c:forEach items="${performanceDateList}" var="item">
 				//클릭한 날짜와 공연날짜가 일치하면 일시넣기
 				if(  makeDate == "${item}".substr(0, 8)){
-					//p태그로 넣기
+					//회차 p태그로 넣기
 					const p = document.createElement("p");
 					p.innerText =  "${item}".substr(8);
 					
@@ -210,8 +234,6 @@
 									//좌석수 가져오기
 									_getSeatInfo(makeDate+p.innerText);
 								}); 
-					 
-					 
 					document.querySelector("#round").appendChild(p);
 				}
 			</c:forEach>
@@ -254,10 +276,9 @@
 			
 			//태그 넣기
 			const p = document.createElement("p");
-	        
 	        var cnt = 0;
 			data.forEach(function(data) {
-				if(  seatKndCd == data.seatKindCd ){
+				if(  seatKndCd == data.seatKindCd &&  data.seatStatus == 'N'){
 					cnt++;					
 				}
 			});

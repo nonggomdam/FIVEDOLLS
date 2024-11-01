@@ -37,15 +37,15 @@ public class TransferService implements ITransferService{
 		tdao.insertAssignmentNotice(vo);
 		
 		
-		String[] arr = vo.getReservationNumber();
+		String[] arr = vo.getReservationId();
 		
 		for(int i=0; i < arr.length; i++) {
 			AssignmentTicketVO ticketvo = new AssignmentTicketVO();
 			ticketvo.setNoticeId(noticeId);
-			ticketvo.setReservationNumber(arr[i]);
+			ticketvo.setReservationId(arr[i]);
 			
 			TransferReservationInfoVO infovo = new TransferReservationInfoVO();
-			infovo.setReservationNumber(arr[i]);
+			infovo.setReservationId(arr[i]);
 			infovo.setCustId(vo.getCustId());
 			infovo = tdao.selectSeatInfo(infovo);
 			

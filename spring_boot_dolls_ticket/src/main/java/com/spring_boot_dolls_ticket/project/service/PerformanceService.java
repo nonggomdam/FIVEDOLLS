@@ -20,6 +20,7 @@ import com.spring_boot_dolls_ticket.project.dao.IPerformanceDAO;
 import com.spring_boot_dolls_ticket.project.model.PerformanceScheduleVO;
 import com.spring_boot_dolls_ticket.project.model.PerformanceSeatVO;
 import com.spring_boot_dolls_ticket.project.model.PerformanceVO;
+import com.spring_boot_dolls_ticket.project.model.ReservationVO;
 
 @Service
 public class PerformanceService implements IPerformanceService {
@@ -192,6 +193,20 @@ public class PerformanceService implements IPerformanceService {
 	public void incrementClickCount(String performanceId) {
 	    System.out.println("서비스 메서드 호출됨: " + performanceId); // 로그 추가
 	    dao.incrementClickCount(performanceId);
+	}
+
+
+	@Override
+	public PerformanceSeatVO selectPerformanceSeatInfo(PerformanceSeatVO performanceSeatVO) {
+		// TODO Auto-generated method stub
+		return dao.selectPerformanceSeatInfo(performanceSeatVO);
+	}
+
+
+	@Override
+	public int insertReservationInfo(ReservationVO reservationVO) {
+		// TODO Auto-generated method stub
+		return dao.insertReservationInfo(reservationVO);
 	}
 
 

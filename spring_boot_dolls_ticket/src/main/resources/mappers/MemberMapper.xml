@@ -77,5 +77,23 @@
 	    FROM Member 
 	    WHERE CUST_ID = #{id}
 	</select>
+
+<select id="ReservationList" parameterType="string" resultType="com.spring_boot_dolls_ticket.project.model.ReservationVO">
+	 SELECT
+	    A.CUST_ID AS custId
+	    ,A.RESERVATION_STATUS AS reservationStatus
+	    ,A.RESERVATION_ID AS reservationId
+	    ,A.PERFORMANCE_ID AS performanceId
+	    ,A.PERFORMANCE_DATE AS performanceDate
+	    ,A.RESERVATION_SEAT_INFORMATION AS reservationSeatInformation
+	    ,B.PERFORMANCE_NAME  AS performanceName
+	    ,B.PERFORMANCE_PRICE AS performancePrice
+	    ,B.PERFORMANCE_IMAGE_PATH AS performanceImagePath
+	FROM Reservation_Info_M A
+	INNER JOIN Performance_Info_M B
+	ON A.PERFORMANCE_ID = B.PERFORMANCE_ID
+	WHERE A.CUST_ID = #{custId}
+           
+</select>	
     
 </mapper>	 

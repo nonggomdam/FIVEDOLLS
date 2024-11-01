@@ -3,7 +3,7 @@
  */
  
 window.onload=function(){
-
+	/*
 	var modal=document.getElementById('open-modal');
 	var closeBtn=document.getElementsByClassName('close')[0];
 
@@ -17,6 +17,7 @@ window.onload=function(){
 	        modal.style.display='none';
 	    }
 	}
+	*/
 	
 	
 	$('#receiveBtn').click(function(event){
@@ -24,9 +25,14 @@ window.onload=function(){
 		if($('input[type="checkbox"]:checked').length === 0){
 			event.preventDefault();
 			alert("티켓을 선택하세요.");
-		}else {
+		}
+		/*
+		else {
             modal.style.display = 'block';
         }
+        */
+        
+        receiveTicket()
 	
 	});
 

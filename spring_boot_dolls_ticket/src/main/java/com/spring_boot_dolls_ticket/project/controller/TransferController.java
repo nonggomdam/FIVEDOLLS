@@ -65,7 +65,7 @@ public class TransferController {
 		String custId=(String)session.getAttribute("sid");
 		
 		if(custId == null) {
-			model.addAttribute("msg", "로그인이 필요합니다.");
+			model.addAttribute("msg", "로그인이 필요합니다."); 
 			return "transfer/ticketHubAskLogin";
 		}
 		
@@ -96,7 +96,7 @@ public class TransferController {
 	
 	@RequestMapping("/transfer/regist")
 	public String transferRegist(@RequestParam("noticeTitle") String noticeTitle,
-								 @RequestParam("reservationNumber") String[] reservationNumber,
+								 @RequestParam("reservationId") String[] reservationId,
 								 Model model, HttpSession session) {
 		
 		String custId=(String)session.getAttribute("sid");
@@ -105,7 +105,7 @@ public class TransferController {
 		vo.setNoticeTitle(noticeTitle);
 		vo.setCustId(custId);
 		vo.setAssignmentStatus("A");
-		vo.setReservationNumber(reservationNumber);
+		vo.setReservationId(reservationId);
 		
 		
 		tservice.insertAssignmentNotice(vo);
@@ -128,6 +128,44 @@ public class TransferController {
 		
 		
 		return "transfer/ticketHubInquire";
+	}
+	
+	@RequestMapping("/transfer/pay")
+	public String pay(HttpSession session, 
+			@RequestParam("noticeId") String noticeId,
+			@RequestParam("assignmentSqno") String[] values, Model model) {
+		
+		AssignmentTicket2VO assignmentTicket2VO = new AssignmentTicket2VO();
+		assignmentTicket2VO.setNoticeId(noticeId);
+		assignmentTicket2VO.setAssignmentSqnos( Arrays.asList(values) );
+		
+		List<Transfer2VO> list =tservice.showInfoInEmail(assignmentTicket2VO);
+		
+		int sum = 0;
+		int etcCnt=0;
+		StringBuffer sb = new StringBuffer();
+		for (Transfer2VO transfer2vo : list) {
+			sum = sum + transfer2vo.getTotalSeatPrice();
+			
+			if(etcCnt==0) {
+				sb.append( transfer2vo.getPerformanceName() );
+			}
+			
+			etcCnt++;				
+			 
+		}
+//		 외 2건
+		etcCnt--;
+		if(etcCnt > 0) {
+			sb.append(" 외 ").append(etcCnt).append("건");
+		}
+		
+		model.addAttribute("list", list);
+		model.addAttribute("totalPrice", sum);
+		
+		model.addAttribute("itemName", sb.toString());
+		
+		return "transfer/pay";
 	}
 	
 	@RequestMapping("/receive/complete")
@@ -179,7 +217,7 @@ public class TransferController {
 			for(int i=0; i < rslt.size();i++) {
 				
 				String content =  String.format("<tr><td style='border:1px solid #eeeeee;padding:5px;'><div style='widh:250px;'><span style='display: inline-block;width:70px;text-align:right;'>예매번호</span> %s</div><div style='width:250px;'><span style='display: inline-block;width:70px;text-align:right;'>공연명</span> %s</div><div style='width:250px;'><span style='display: inline-block;width:70px;text-align:right;'>공연날짜</span> %s</div><div style='width:250px;'><span style='display: inline-block;width:70px;text-align:right;'>좌석</span> %s</div><div style='width:250px;'><span style='display: inline-block;width:70px;text-align:right;'>가격</span> %,d원</div></td></tr>", 
-				    rslt.get(i).getReservationNumber(), 
+				    rslt.get(i).getReservationId(), 
 				    rslt.get(i).getPerformanceName(), 
 				    rslt.get(i).getPerformanceDate(), 
 				    rslt.get(i).getReservationSeatInformation(), 

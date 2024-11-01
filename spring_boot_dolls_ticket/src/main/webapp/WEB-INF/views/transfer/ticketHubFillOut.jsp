@@ -18,14 +18,18 @@
 <body>
 
 	<div id="wrapper">
-		<div>
-			<h1>Ticket Hub</h1>
-			<br>
-			<h4>안전하고 투명한 티켓 양도 거래!</h4>
-			<h4>신뢰할 수 있는 파이브돌스에서 안전하게 티켓을 양도하세요</h4>
+		<div class="banner" style="width:100%; height:140px;">
+		    <div class="text-box small-text">안전하고 투명한 티켓 양도 거래!</div>
+		    <div class="text-inline">
+		        <span style="font-size:25px;">신뢰할 수 있는</span>
+		        <span class="large-text">파이브돌스</span>
+		        <span style="font-size:25px;">에서 안전하게</span>
+		        <span class="text-box2 small-text hide-and-slide" style="display:inline-block;">티켓을 양도하세요</span>
+		    </div>
 		</div>
+	
 		
-		<div id="box">
+		<div id="box" style="width:60%;">
 			<form action="<c:url value='/transfer/regist'/>" method="post">
 			<table>
 				
@@ -59,13 +63,30 @@
 					<td>
 						<c:forEach var="show" items="${showInfo}"> 
 							<div class="show-item">
-								<input type="checkbox" style="width:20px;" value="${show.reservationNumber}" name="reservationNumber">
-								<span>${show.performanceKindCd}</span>
-								<span>${show.performanceName}</span>
-								<br>
-								<span style="margin-left:40px;">일시:${show.performanceDate}</span>
-								<span>&nbsp;&nbsp;&nbsp;좌석:${show.reservationSeatInformation}석</span>
-								<span>&nbsp;&nbsp;&nbsp;가격:<fmt:formatNumber value="${show.performancePrice}" pattern="#,###"/>원</span>
+								<table style='width:100%;'>
+								<tr>
+									<td><input type="checkbox" style="width:20px;" value="${show.reservationId}" name="reservationId"></td>
+									<td><a href="<c:url value='/performance/detailViewPerformance/${show.performanceId}'/>"><img src="${show.performanceImagePath}" width='150px'></a></td>
+									<td>
+										
+										<div>
+											<span>${show.performanceKindCd}</span>
+										</div>
+										<div>
+											<span>${show.performanceName}</span>
+										</div>
+										<div>
+											<span>일시 : ${show.performanceDate}</span>
+										</div>
+										<div>
+											<span>좌석 : ${show.reservationSeatInformation}석</span>
+										</div>
+										<div>
+											<span>가격 : <fmt:formatNumber value="${show.totalSeatPrice}" pattern="#,###"/>원</span>
+										</div>									
+									</td>
+								</tr>
+								</table>
 							</div>	
 						</c:forEach>	
 					</td>	

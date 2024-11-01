@@ -16,7 +16,7 @@ public class AssignmentNoticeBoardVO {
 	private Date lastChangeDate;
 	private String assignmentStatus;
 	private int hit;
-	private String[] reservationNumber;
+	private String[] reservationId;
 	
 	
 	public String getNoticeId() {
@@ -61,20 +61,21 @@ public class AssignmentNoticeBoardVO {
 	public void setHit(int hit) {
 		this.hit = hit;
 	}
-	public String[] getReservationNumber() {
-		return reservationNumber;
+	public String[] getReservationId() {
+		return reservationId;
 	}
-	public void setReservationNumber(String[] reservationNumber) {
-		this.reservationNumber = reservationNumber;
+	public void setReservationId(String[] reservationId) {
+		this.reservationId = reservationId;
 	}
 	
 	@Override
 	public String toString() {
 		return "AssignmentNoticeBoardVO [noticeId=" + noticeId + ", noticeTitle=" + noticeTitle + ", custId=" + custId
 				+ ", firstChangeDate=" + firstChangeDate + ", lastChangeDate=" + lastChangeDate + ", assignmentStatus="
-				+ assignmentStatus + ", hit=" + hit + ", reservationNumber=" + Arrays.toString(reservationNumber) + "]";
+				+ assignmentStatus + ", hit=" + hit + ", reservationId=" + Arrays.toString(reservationId) + "]";
 	}
 
+	
 	
 	
 	
