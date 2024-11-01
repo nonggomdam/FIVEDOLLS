@@ -160,7 +160,7 @@ if (userId == null) {
 						<input type="hidden" id="performanceId" name="performanceId" value="${pfm.performanceId}">
 						<div class="write">
 							<c:if test="${sessionScope.sid == null}">
-								<a onclick="alert('로그인이 필요합니다.')"> 
+								<a onclick="showLoginAlert()"> 
 								<input type="checkbox" id="layer_popup"><label for="layer_popup">후기 작성하기</label></a>
 							</c:if>
 							<c:if test="${sessionScope.sid != null}">
@@ -234,16 +234,23 @@ if (userId == null) {
 						</c:otherwise>
 						</c:choose>
 					</ul>
-					<div class="list-pagination" style="display: block;">
-						<a href="" class="list-page-first"><img src="<c:url value='/image/icons8-arrow-20.png'/>"></a>
-						<div>
-							<a href="#" onclick="return false;" class="on"><span>1</span></a><a
-								href=""><span>2</span></a><a href=""><span>3</span></a><a href=""><span>4</span></a><a
-								href=""><span>5</span></a><a href=""><span>6</span></a><a href=""><span>7</span></a><a
-								href=""><span>8</span></a><a href=""><span>9</span></a><a href=""><span>10</span></a>
-						</div>
-						<a href="" class="list-page-last"><img src="<c:url value='/image/icons8-arrow-20_2.png'/>"></a>
-						</div>
+						<c:choose>
+							<c:when test="${!empty reviewList}">
+								<div class="list-pagination" style="display: block;">
+									<a href="" class="list-page-first"><img
+										src="<c:url value='/image/icons8-arrow-20.png'/>"></a>
+									<div>
+										<a href="#" onclick="return false;" class="on"><span>1</span></a><a
+											href=""><span>2</span></a><a href=""><span>3</span></a><a
+											href=""><span>4</span></a><a href=""><span>5</span></a>
+									</div>
+									<a href="" class="list-page-last"><img
+										src="<c:url value='/image/icons8-arrow-20_2.png'/>"></a>
+								</div>
+							</c:when>
+							<c:otherwise>
+							</c:otherwise>
+						</c:choose>
 					</div>
 				</c:if>
 	</div>
@@ -255,7 +262,7 @@ if (userId == null) {
 $(document).ready(function() {
     $('#ticketOpenBtn').on('click', function() {
     	var userId = "<%=userId%>";
-        var userConfirmed = confirm(" 좌석예약 페이지로 이동하시겠습니까?");
+        var userConfirmed = confirm("좌석예약 페이지로 이동하시겠습니까?");
         
         if (userConfirmed && userId != "") {
             // 사용자가 "예"를 눌렀을 때 페이지 이동
@@ -266,5 +273,9 @@ $(document).ready(function() {
         }
     });
 });
+function showLoginAlert() {
+    alert('로그인이 필요합니다.');
+    window.location.href='/member/loginForm'; 
+}
 </script>
 </html>

@@ -86,13 +86,13 @@ footer a:hover {
 #cs {
 	font-family: 'TheJamsil2Light', sans-serif;
 }
-dt {
+.tel dt {
 	float: left;
     width: 45px;
     font-size: 14px;
     line-height: 20px;
 }
-dd {
+.tel dd {
 	clear: right;
     font-size: 14px;
     line-height: 20px;

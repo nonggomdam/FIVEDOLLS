@@ -258,14 +258,13 @@
     padding-bottom: 19px;
     border-bottom: 1px solid #ddd;
     overflow: hidden;
-    
+    font-family: 'TheJamsil2Light', sans-serif;
 }
 .review li .writerBox {
     width: 100%;
     height: 30px;
     margin-bottom: 21px;
     font-size: 0;
-    font-family: 'TheJamsil2Light', sans-serif;
 }
 .review li .writerBox .writerId {
     top: 19px;
@@ -315,7 +314,9 @@
 .write a {
 	text-decoration:none;
 }
-
+.deleteReview {
+	color: #666;
+}
 #layer_popup {
 	display: none;
 }
@@ -327,6 +328,7 @@
 	background-color:white;
 	color:#20B2AA;
 	padding:7px;
+	font-family: 'TheJamsil4Medium', sans-serif;
 }
 #layer_bg {
     display: none;
@@ -345,11 +347,11 @@
     border-radius: 15px;
     background: #fff;
     width: 690px;
-    height: 700px;
-    top: 97%;
+    height: 670px;
+    top: 97.5%;
     left: 50%;
     transform: translate(-50%, -50%);
-    box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.2); /*x y 锅咙 祸惑*/
+    box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.2); 
 }
 #popup > h2{
 	padding-left: 10px;
@@ -414,25 +416,23 @@
 }
 #popup .write-caution {
     border-bottom: 1px solid #000;
-    padding: 24px 0 10px 6px;
+    padding: 10px 0 5px 6px;
 }
 #popup .w-caution-tit {
     line-height: 20px;
     padding-left: 27px;
     font-size: 16px;
     color: #20B2AA;
-    margin-bottom: 10px;
     font-weight: bold;
 }
 #popup .w-caution-txt {
     font-size: 13px;
     color: #666;
-    margin: 0 0 10px 3px;
     line-height: 20px;
   	font-weight: bold;
 }
 #popup .w-caution-list {
-    margin: 0 0 18px 5px;
+    margin-bottom: 18px;
 }
 #popup .w-caution-list li {
 	list-style: none;
