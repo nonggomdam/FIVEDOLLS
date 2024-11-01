@@ -2,7 +2,7 @@ CREATE TABLE ASSIGNMENT_TICKET
 (
     NOTICE_ID                       VARCHAR2(20) NOT NULL,
     ASSIGNMENT_SQNO                  VARCHAR2(3) NOT NULL,
-    RESERVATION_NUMBER              VARCHAR2(60) NOT NULL,
+    RESERVATION_ID              VARCHAR2(60) NOT NULL,
     RECEIVE_CUST_ID                 VARCHAR2(20),
     SOLD_YN                         CHAR(1) NOT NULL,
     FIRST_CHANGE_DATE               DATE NOT NULL,
