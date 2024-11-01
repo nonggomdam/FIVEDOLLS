@@ -78,7 +78,7 @@
 			<div class="images">
 		        <c:forEach items="${consertOpenList}" var="consertOpen">
 		            <div class="item">
-		                <img src="../<c:out value="${consertOpen.performanceImagePath}"/>"
+		                <img src="/image/<c:out value="${consertOpen.performanceImagePath}"/>"
 		                     alt="${consertOpen.performanceImagePath}">
 		                <p id="deteail"> <fmt:formatDate value="${consertOpen.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${consertOpen.maxPerformanceDate}" pattern="yyyy.MM.dd"/> </p>
 		                	<h2 >${consertOpen.performanceName}</h2>

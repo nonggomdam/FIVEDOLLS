@@ -53,7 +53,7 @@ if (userId == null) {
 				<div class="dt-03-left">
 					<!--포스터-->
 					<div class="dt-product-imgbox">
-						<img src="<c:url value='${pfm.performanceImagePath}'/>">
+						<img src="<c:url value='/image/${pfm.performanceImagePath}'/>">
 					</div>
 				</div>
 				<div class="dt-03-right">

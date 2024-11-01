@@ -38,7 +38,12 @@
                                                 <tr id="${performance.performanceId}" class="performanceRow" style="cursor:pointer; display: ${status.index < 5? 'table-row' : 'none'};">
                                                     <td>${performance.performanceId}</td>
                                                     <td>${performance.performanceName}</td>
-                                                    <td>${performance.performanceKindCd}</td>
+                                                    <td>
+	                                                    <c:choose>
+												            <c:when test="${performance.performanceKindCd == 'C'}">콘서트</c:when>
+												            <c:when test="${performance.performanceKindCd == 'M'}">뮤지컬</c:when>
+												        </c:choose>
+													</td>
                                                     <td><fmt:formatDate value="${performance.firstChangeDate}" pattern="yyyy년 MM월 dd일"/></td>
                                                 </tr>
                                             </c:forEach>

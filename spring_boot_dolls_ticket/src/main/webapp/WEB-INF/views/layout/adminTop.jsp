@@ -8,12 +8,14 @@
 	<body>
 		<div class="navbar">
 			<div style="width:20%; text-align: center;" class="mainLogo">
-				<a href="/admin">FiveDolls</a>
+				<a href="/">FiveDolls</a>
 			</div>
 	        <!-- Center: Musical and Concert Categories -->
 	        <div style="width:60%; text-align: center;" class="categories">
+	        	<a href="/admin">메인</a>
 	            <a href="/admin/performanceList">공연 관리</a>
 	            <a href="/admin/noticeList">공지 사항</a>
+	            <a href="/admin/qaList">1:1 문의</a>
 	            <a href="/admin/memberList">사용자 관리</a>
 	        </div>
 	        

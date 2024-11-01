@@ -194,7 +194,7 @@ hr {
 		<div class="right-section">
 			<div class="ticket-info">
 				<img
-					src="../../<c:out value ="${performanceInfo.performanceImagePath}">
+					src="/image/<c:out value ="${performanceInfo.performanceImagePath}">
 	                </c:out>"
 					alt="${performanceInfo.performanceImagePath}">
 				<div class="ticket-details">

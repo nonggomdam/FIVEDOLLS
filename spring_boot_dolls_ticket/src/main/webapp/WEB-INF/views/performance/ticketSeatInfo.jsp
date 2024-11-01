@@ -68,7 +68,7 @@ input {
 
 			<div class="seat-info">
 				<img
-					src="../../../<c:out value ="${performanceInfo.performanceImagePath}">
+					src="/image/<c:out value ="${performanceInfo.performanceImagePath}">
 	                </c:out>"
 					alt="${performanceInfo.performanceImagePath}">
 				<div class="movie-title">${performanceInfo.performanceName}</div>

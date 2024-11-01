@@ -66,7 +66,7 @@
 								<table style='width:100%;'>
 								<tr>
 									<td><input type="checkbox" style="width:20px;" value="${show.reservationId}" name="reservationId"></td>
-									<td><a href="<c:url value='/performance/detailViewPerformance/${show.performanceId}'/>"><img src="${show.performanceImagePath}" width='150px'></a></td>
+									<td><a href="<c:url value='/performance/detailViewPerformance/${show.performanceId}'/>"><img src="/image/${show.performanceImagePath}" width='150px'></a></td>
 									<td>
 										
 										<div>

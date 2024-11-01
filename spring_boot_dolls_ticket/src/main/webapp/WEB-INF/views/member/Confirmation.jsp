@@ -328,7 +328,7 @@
             <c:forEach var="List" items="${ReservationList}">
                 <tr>
                     <td style="width:220px;">
-                       	<img src="../<c:out value="${List.performanceImagePath}"/>" alt="공연 이미지" width="50">
+                       	<img src="/image/<c:out value="${List.performanceImagePath}"/>" alt="공연 이미지" width="50">
                        	<p>${List.performanceName}</p>
                        	<p>${List.performancePrice}원</p>
                     </td>
