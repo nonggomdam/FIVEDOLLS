@@ -162,9 +162,11 @@ public class TransferController {
 		
 		model.addAttribute("list", list);
 		model.addAttribute("totalPrice", sum);
-		
 		model.addAttribute("itemName", sb.toString());
 		
+		//바로 양수하기를 보여주기위해 넣은 값 
+		model.addAttribute("noticeId", noticeId);
+		model.addAttribute("assignmentSqno", values );
 		return "transfer/pay";
 	}
 	
@@ -221,7 +223,7 @@ public class TransferController {
 				    rslt.get(i).getPerformanceName(), 
 				    rslt.get(i).getPerformanceDate(), 
 				    rslt.get(i).getReservationSeatInformation(), 
-				    rslt.get(i).getPerformancePrice());
+				    rslt.get(i).getTotalSeatPrice());
 				
 				sb.append(content);
 		

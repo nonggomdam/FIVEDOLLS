@@ -102,7 +102,8 @@ td div {
 }
 
 .show-item {
-    gap: 10px;              
+    gap: 10px;
+    margin-left:110px;              
 }
 
 .show-item input[type="checkbox"] {
