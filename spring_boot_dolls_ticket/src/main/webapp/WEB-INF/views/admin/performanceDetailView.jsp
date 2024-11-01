@@ -46,7 +46,6 @@
 								<c:choose>
 						            <c:when test="${performance.performanceKindCd == 'C'}">콘서트</c:when>
 						            <c:when test="${performance.performanceKindCd == 'M'}">뮤지컬</c:when>
-						            <c:otherwise>기타</c:otherwise>
 						        </c:choose>
 							</td>
 						</tr>

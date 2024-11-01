@@ -93,7 +93,7 @@
 	</select>
 	<!-- 공연 정보 수정 -->
 	<update id="updatePerformance" parameterType="com.spring_boot_dolls_ticket.project.model.PerformanceVO">
-		UPDATE PERFORMANCE_INFO_M SET PERFORMANCE_KIND_CD = #{performanceKindCd}, PERFORMANCE_RATING_CODE = #{performanceRatingCode}, PERFORMANCE_NAME = #{performanceName}, PERFORMANCE_PRICE_R = #{performancePriceR}, PERFORMANCE_PRICE_S = #{performancePriceS}, PERFORMANCE_ZIPCODE = #{performanceZipcode}, PERFORMANCE_ADDRESS = #{performanceAddress}, PERFORMANCE_DETAILADDRESS = #{performanceDetailAddress}, PERFORMANCE_DATE1 = TRUNC(#{performanceDate1}), PERFORMANCE_DATE2 = TRUNC(#{performanceDate2}), PERFORMANCE_TIME = #{performanceTime}, RESERVATION_OPEN_EXPECTED_DATE = TRUNC(#{reservationOpenExpectedDate}), LAST_CHANGE_DATE = SYSDATE, PERFORMANCE_PRICE = #{performancePriceR} WHERE PERFORMANCE_ID = #{performanceId}
+		UPDATE PERFORMANCE_INFO_M SET PERFORMANCE_KIND_CD = #{performanceKindCd}, PERFORMANCE_RATING_CODE = #{performanceRatingCode}, PERFORMANCE_NAME = #{performanceName}, PERFORMANCE_PRICE_R = #{performancePriceR}, PERFORMANCE_PRICE_S = #{performancePriceS}, PERFORMANCE_DATE1 = TRUNC(#{performanceDate1}), PERFORMANCE_DATE2 = TRUNC(#{performanceDate2}), PERFORMANCE_TIME = #{performanceTime}, RESERVATION_OPEN_EXPECTED_DATE = TRUNC(#{reservationOpenExpectedDate}), LAST_CHANGE_DATE = SYSDATE, PERFORMANCE_PRICE = #{performancePriceR}, PERFORMANCE_LOCATION_ID = #{performanceLocationId} WHERE PERFORMANCE_ID = #{performanceId}
 	</update>
 	<!-- 공연 정보 삭제 -->
 	<delete id="deletePerformance" parameterType="string">
@@ -119,6 +119,11 @@
 	        #{performanceId}, #{performanceLocationId}, #{performanceDate}, SYSDATE, SYSDATE
 	    )
 	</insert>
+	<!-- 기존 공연 스케줄 삭제 구문 -->
+	<delete id="deletePerformanceSchedulesByPerformanceId" parameterType="String">
+	    DELETE FROM PERFORMANCE_SCHEDULE_D
+	    WHERE PERFORMANCE_ID = #{performanceId}
+	</delete>
 	<!-- 카테고리 page -->
 	<select id="selectPerformance" resultMap="performanceList">
 		SELECT 

@@ -31,4 +31,5 @@ public interface IPerformanceDAO {
 	public ArrayList<PerformanceSeatVO> locationList();
 	public PerformanceSeatVO getLocation(String performanceLocationId);
 	public void insertPerformanceSchedule(PerformanceScheduleVO performanceScheduleVO);
+	public void deletePerformanceSchedulesByPerformanceId(String performanceId);
 }
