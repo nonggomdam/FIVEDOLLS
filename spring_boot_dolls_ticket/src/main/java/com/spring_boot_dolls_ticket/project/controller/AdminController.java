@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.spring_boot_dolls_ticket.project.model.NoticeVO;
 import com.spring_boot_dolls_ticket.project.model.PerformanceVO;
 import com.spring_boot_dolls_ticket.project.service.PerformanceService;
 
@@ -112,5 +113,17 @@ public class AdminController {
 
         return "redirect:/admin/performanceList";
     }
+    
+//    // 관리자 공지 사항 목록 페이지 이동 처리
+// 	@RequestMapping("/admin/performanceList")
+// 	public String noticeList(Model model) {
+// 		
+// 		ArrayList<NoticeVO> performanceList = performanceService.listAllPerformance();
+// 		
+// 		model.addAttribute("performanceList", performanceList);
+// 		
+// 		return "admin/performanceList";
+// 		
+// 	}
 
 }

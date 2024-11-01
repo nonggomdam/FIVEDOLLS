@@ -92,7 +92,7 @@
 	</select>
 	<!-- 공연 정보 수정 -->
 	<update id="updatePerformance" parameterType="com.spring_boot_dolls_ticket.project.model.PerformanceVO">
-		UPDATE PERFORMANCE_INFO_M SET PERFORMANCE_KIND_CD = #{performanceKindCd}, PERFORMANCE_RATING_CODE = #{performanceRatingCode}, PERFORMANCE_NAME = #{performanceName}, PERFORMANCE_PRICE_R = #{performancePriceR}, PERFORMANCE_PRICE_S = #{performancePriceS}, PERFORMANCE_ZIPCODE = #{performanceZipcode}, PERFORMANCE_ADDRESS = #{performanceAddress}, PERFORMANCE_DETAILADDRESS = #{performanceDetailAddress}, PERFORMANCE_DATE1 = TRUNC(#{performanceDate1}), PERFORMANCE_DATE2 = TRUNC(#{performanceDate2}), PERFORMANCE_TIME = #{performanceTime}, RESERVATION_OPEN_EXPECTED_DATE = TRUNC(#{reservationOpenExpectedDate}), LAST_CHANGE_DATE = SYSDATE WHERE PERFORMANCE_ID = #{performanceId}
+		UPDATE PERFORMANCE_INFO_M SET PERFORMANCE_KIND_CD = #{performanceKindCd}, PERFORMANCE_RATING_CODE = #{performanceRatingCode}, PERFORMANCE_NAME = #{performanceName}, PERFORMANCE_PRICE_R = #{performancePriceR}, PERFORMANCE_PRICE_S = #{performancePriceS}, PERFORMANCE_ZIPCODE = #{performanceZipcode}, PERFORMANCE_ADDRESS = #{performanceAddress}, PERFORMANCE_DETAILADDRESS = #{performanceDetailAddress}, PERFORMANCE_DATE1 = TRUNC(#{performanceDate1}), PERFORMANCE_DATE2 = TRUNC(#{performanceDate2}), PERFORMANCE_TIME = #{performanceTime}, RESERVATION_OPEN_EXPECTED_DATE = TRUNC(#{reservationOpenExpectedDate}), LAST_CHANGE_DATE = SYSDATE WHERE PERFORMANCE_ID = #{performanceId}, PERFORMANCE_PRICE = #{performancePriceR}
 	</update>
 	<!-- 공연 정보 삭제 -->
 	<delete id="deletePerformance" parameterType="string">
@@ -104,12 +104,12 @@
 	        PERFORMANCE_KIND_CD, PERFORMANCE_RATING_CODE, PERFORMANCE_NAME,
 	        PERFORMANCE_PRICE_R, PERFORMANCE_PRICE_S, PERFORMANCE_ZIPCODE, PERFORMANCE_ADDRESS,
 	        PERFORMANCE_DETAILADDRESS, PERFORMANCE_DATE1, PERFORMANCE_DATE2, PERFORMANCE_TIME,
-	        RESERVATION_OPEN_EXPECTED_DATE, FIRST_CHANGE_DATE, LAST_CHANGE_DATE
+	        RESERVATION_OPEN_EXPECTED_DATE, FIRST_CHANGE_DATE, LAST_CHANGE_DATE, PERFORMANCE_PRICE
 	    ) VALUES (
 	        #{performanceKindCd}, #{performanceRatingCode}, #{performanceName},
 	        #{performancePriceR}, #{performancePriceS}, #{performanceZipcode}, #{performanceAddress},
 	        #{performanceDetailAddress}, #{performanceDate1}, #{performanceDate2}, #{performanceTime},
-	        #{reservationOpenExpectedDate}, SYSDATE, SYSDATE
+	        #{reservationOpenExpectedDate}, SYSDATE, SYSDATE, #{performancePriceR}
 	    )
 	</insert>
 	<!-- 카테고리 page -->

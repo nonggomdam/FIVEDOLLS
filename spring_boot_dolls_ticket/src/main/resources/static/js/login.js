@@ -15,10 +15,14 @@
             url: "/member/login",
             data: data,
             success: function(response) {
-                if (response === 'success') {
-                    // 성공적인 로그인 처리
-                    alert("로그인 성공!");
-                    window.location.href = "/"; // 로그인 성공시 메인페이지로
+                if (response === 'admin') {
+                    // 관리자 로그인 성공
+                    alert("관리자 로그인 성공!");
+                    window.location.href = "/admin";
+                } else if (response == 'main') {
+                	// 일반 사용자 로그인 성공
+                	alert("로그인 성공");
+                	window.location.href = "/";
                 } else {
                     // 로그인 실패 처리
                     alert("로그인 실패!");
@@ -31,4 +35,4 @@
             }
         });
     }); // on 끝
-}); // ready 끝
+}); // ready 

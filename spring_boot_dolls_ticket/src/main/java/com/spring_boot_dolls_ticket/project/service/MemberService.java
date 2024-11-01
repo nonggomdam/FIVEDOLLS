@@ -124,7 +124,10 @@ public class MemberService implements IMemberService {
 		dao.updateMember(in);
 	}
 
-
+	@Override
+	public String findAdministratorYnById(String id) {
+		return dao.findAdministratorYnById(id);
+	}
 
 
 	

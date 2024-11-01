@@ -71,7 +71,11 @@
 		    ,CUST_DETAILADDRESS = #{custDetailAddress}
 		WHERE CUST_ID = #{custId}
 </update>
-
-	
+	<!-- 관리자 여부 확인 -->
+	<select id="findAdministratorYnById" parameterType="string" resultType="string">
+	    SELECT ADMINISTRATOR_YN 
+	    FROM Member 
+	    WHERE CUST_ID = #{id}
+	</select>
     
 </mapper>	 

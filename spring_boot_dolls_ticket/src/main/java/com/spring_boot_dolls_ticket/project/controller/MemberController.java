@@ -92,6 +92,18 @@ public class MemberController {
         
         if("success".equals(result)) { // 로그인 성공시 세션 부여
         	session.setAttribute("sid", id);
+        	
+        	String administratorYn = memService.findAdministratorYnById(id);
+        	session.setAttribute("administratorYn", administratorYn);
+        	
+        	// 관리자일 경우 /admin 리다이렉트 경로 반환
+            if ("Y".equals(administratorYn)) {
+                result = "admin";
+            } else {
+                result = "main";
+            }
+        } else {
+        	result = "fail";
         }
         
         return result;
