@@ -1,6 +1,7 @@
 package com.spring_boot_dolls_ticket.project.dao;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.spring_boot_dolls_ticket.project.model.PerformanceScheduleVO;
@@ -27,4 +28,7 @@ public interface IPerformanceDAO {
 	String selectGeneratedId();
 	public PerformanceSeatVO selectPerformanceSeatInfo(PerformanceSeatVO performanceSeatVO);
 	public int insertReservationInfo(ReservationVO reservationVO);
+	public ArrayList<PerformanceSeatVO> locationList();
+	public PerformanceSeatVO getLocation(String performanceLocationId);
+	public void insertPerformanceSchedule(PerformanceScheduleVO performanceScheduleVO);
 }

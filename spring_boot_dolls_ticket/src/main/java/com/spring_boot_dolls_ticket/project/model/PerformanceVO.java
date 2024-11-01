@@ -34,7 +34,14 @@ public class PerformanceVO {
 	private Date firstChangeDate;
 	private Date lastChangeDate;
 	private int clickCount; // 클릭 수
+	private String performanceLocationId;
 	
+	public String getPerformanceLocationId() {
+		return performanceLocationId;
+	}
+	public void setPerformanceLocationId(String performanceLocationId) {
+		this.performanceLocationId = performanceLocationId;
+	}
 	public int getClickCount() {
 		return clickCount;
 	}

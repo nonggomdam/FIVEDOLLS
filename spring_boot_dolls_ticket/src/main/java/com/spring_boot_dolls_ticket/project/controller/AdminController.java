@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.spring_boot_dolls_ticket.project.model.NoticeVO;
+import com.spring_boot_dolls_ticket.project.model.PerformanceSeatVO;
 import com.spring_boot_dolls_ticket.project.model.PerformanceVO;
 import com.spring_boot_dolls_ticket.project.service.PerformanceService;
 
@@ -52,8 +54,10 @@ public class AdminController {
 	public String adminPerformanceDetailView(@PathVariable String performanceId, Model model) {
 		
 		PerformanceVO performance = performanceService.detailViewPerformance(performanceId);
+		PerformanceSeatVO location = performanceService.getLocation(performance.getPerformanceLocationId());
 		
 		model.addAttribute("performance", performance);
+		model.addAttribute("performanceLocation", location);
 		
 		return "admin/performanceDetailView";
 		
@@ -97,7 +101,9 @@ public class AdminController {
 	}
 	// 관리자 공연 정보 등록
 	@RequestMapping("/admin/newPerformanceForm")
-	public String newPerformanceForm() {
+	public String newPerformanceForm(Model model) {
+		List<PerformanceSeatVO> locationList = performanceService.locationList();
+		model.addAttribute("locationList", locationList);
 		
 		return "admin/newPerformanceForm";
 		

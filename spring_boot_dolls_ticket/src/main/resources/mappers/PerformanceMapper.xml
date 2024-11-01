@@ -40,7 +40,7 @@
 		<result property="firstChangeDate" column="firstChangeDate"/>
 		<result property="lastChangeDate" column="lastChangeDate"/>
 	</resultMap>
-
+	<!-- 공연 정보 조회 -->
 	<select id="detailViewPerformance" parameterType="string" resultType="com.spring_boot_dolls_ticket.project.model.PerformanceVO">
 		SELECT PERFORMANCE_ID as performanceId
          , PERFORMANCE_KIND_CD as performanceKindCd
@@ -59,6 +59,7 @@
          , PERFORMANCE_INFORMATION_IMAGE_PATH as performanceInformationImagePath
          , FIRST_CHANGE_DATE as firstChangeDate
          , LAST_CHANGE_DATE as lastChangeDate
+         , PERFORMANCE_LOCATION_ID as performanceLocationId
         FROM PERFORMANCE_INFO_M WHERE PERFORMANCE_ID=#{performanceId}    
 	</select>
 	
@@ -102,14 +103,20 @@
 	<insert id="insertPerformance" parameterType="com.spring_boot_dolls_ticket.project.model.PerformanceVO" useGeneratedKeys="true" keyProperty="performanceId">
 	    INSERT INTO PERFORMANCE_INFO_M (
 	        PERFORMANCE_KIND_CD, PERFORMANCE_RATING_CODE, PERFORMANCE_NAME,
-	        PERFORMANCE_PRICE_R, PERFORMANCE_PRICE_S, PERFORMANCE_ZIPCODE, PERFORMANCE_ADDRESS,
-	        PERFORMANCE_DETAILADDRESS, PERFORMANCE_DATE1, PERFORMANCE_DATE2, PERFORMANCE_TIME,
-	        RESERVATION_OPEN_EXPECTED_DATE, FIRST_CHANGE_DATE, LAST_CHANGE_DATE, PERFORMANCE_PRICE
+	        PERFORMANCE_PRICE_R, PERFORMANCE_PRICE_S, PERFORMANCE_DATE1, PERFORMANCE_DATE2, PERFORMANCE_TIME,
+	        RESERVATION_OPEN_EXPECTED_DATE, FIRST_CHANGE_DATE, LAST_CHANGE_DATE, PERFORMANCE_PRICE, PERFORMANCE_LOCATION_ID
 	    ) VALUES (
 	        #{performanceKindCd}, #{performanceRatingCode}, #{performanceName},
-	        #{performancePriceR}, #{performancePriceS}, #{performanceZipcode}, #{performanceAddress},
-	        #{performanceDetailAddress}, #{performanceDate1}, #{performanceDate2}, #{performanceTime},
-	        #{reservationOpenExpectedDate}, SYSDATE, SYSDATE, #{performancePriceR}
+	        #{performancePriceR}, #{performancePriceS}, #{performanceDate1}, #{performanceDate2}, #{performanceTime},
+	        #{reservationOpenExpectedDate}, SYSDATE, SYSDATE, #{performancePriceR}, #{performanceLocationId}
+	    )
+	</insert>
+	<!-- 공연 스케줄 정보 테이블에 삽입하는 구문 -->
+	<insert id="insertPerformanceSchedule" parameterType="com.spring_boot_dolls_ticket.project.model.PerformanceScheduleVO">
+	    INSERT INTO PERFORMANCE_SCHEDULE_D (
+	        PERFORMANCE_ID, PERFORMANCE_LOCATION_ID, PERFORMANCE_DATE, FIRST_CHANGE_DATE, LAST_CHANGE_DATE
+	    ) VALUES (
+	        #{performanceId}, #{performanceLocationId}, #{performanceDate}, SYSDATE, SYSDATE
 	    )
 	</insert>
 	<!-- 카테고리 page -->
@@ -164,7 +171,23 @@
 		WHERE B.PERFORMANCE_ID = #{performanceId}
 		AND  TO_CHAR(B.PERFORMANCE_DATE, 'YYYYMMDDHH24MI') = #{performanceDate}
 	</select>
-
+	<resultMap id="PerformanceLocationMap" type="com.spring_boot_dolls_ticket.project.model.PerformanceSeatVO">
+	    <result property="performanceLocationId" column="PERFORMANCE_LOCATION_ID" />
+	    <result property="performanceLocationNm" column="PERFORMANCE_LOCATION_NM" />
+	</resultMap>
+	<!-- 공연장 리스트 불러오기 -->
+	<select id="locationList" resultMap="PerformanceLocationMap">
+		SELECT PERFORMANCE_LOCATION_ID, PERFORMANCE_LOCATION_NM
+		FROM PERFORMANCE_LOCATION_M
+		GROUP BY PERFORMANCE_LOCATION_ID, PERFORMANCE_LOCATION_NM
+	</select>
+	<!-- 관리자 공연 상세 정보 페이지에서 공연 정보 테이블에 저장된 공연장 ID와 공연장 정보 테이블의 공연장 ID 일치하는 공연장 가져오기 -->
+	<select id="getLocation" resultMap="PerformanceLocationMap">
+		SELECT pl.PERFORMANCE_LOCATION_ID, pl.PERFORMANCE_LOCATION_NM
+		FROM PERFORMANCE_LOCATION_M pl
+		WHERE pl.PERFORMANCE_LOCATION_ID = #{performanceLocationId}
+		FETCH FIRST 1 ROWS ONLY
+	</select>
 	<select id="getLatestEvent" resultType="com.spring_boot_dolls_ticket.project.model.PerformanceVO">
     SELECT PERFORMANCE_ID AS performanceId,
            PERFORMANCE_KIND_CD AS performanceKindCd,
@@ -260,5 +283,4 @@
 	    SYSDATE          
 	)
 	</insert>
-	
 </mapper>

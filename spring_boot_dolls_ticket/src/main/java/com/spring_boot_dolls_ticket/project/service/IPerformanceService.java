@@ -27,6 +27,7 @@ public interface IPerformanceService {
 	void updateImgPath(PerformanceVO performance);
 	public PerformanceSeatVO selectPerformanceSeatInfo(PerformanceSeatVO performanceSeatVO);
 	public int insertReservationInfo(ReservationVO reservationVO);
-	
-	
+	public ArrayList<PerformanceSeatVO> locationList();
+	public PerformanceSeatVO getLocation(String performanceLocationId);
+	void insertPerformanceSchedule(PerformanceScheduleVO performanceScheduleVO);
 }

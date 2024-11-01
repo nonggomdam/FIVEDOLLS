@@ -42,7 +42,13 @@
 						</tr>
 						<tr>
 							<th>공연 종류</th>
-							<td>${performance.performanceKindCd}</td>
+							<td>
+								<c:choose>
+						            <c:when test="${performance.performanceKindCd == 'C'}">콘서트</c:when>
+						            <c:when test="${performance.performanceKindCd == 'M'}">뮤지컬</c:when>
+						            <c:otherwise>기타</c:otherwise>
+						        </c:choose>
+							</td>
 						</tr>
 						<tr>
 							<th>공연 일시1</th>
@@ -68,13 +74,17 @@
 							<th>관람 시간</th>
 							<td>총 ${performance.performanceTime}분</td>
 						</tr>
-						<tr>
+						<%-- <tr>
 							<th>주소</th>
 							<td colspan="3">
 								우편 번호 : ${performance.performanceZipcode}<br>
 								주소 : ${performance.performanceAddress}<br>
 								상세 주소 : ${performance.performanceDetailAddress}<br>
 							</td>
+						</tr> --%>
+						<tr>
+							<th>공연장</th>
+							<td>${performanceLocation.performanceLocationNm}</td>
 						</tr>
 						<tr>
 							<th>티켓 오픈 일자</th>

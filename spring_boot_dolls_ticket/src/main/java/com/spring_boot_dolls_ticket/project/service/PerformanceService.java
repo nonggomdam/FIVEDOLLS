@@ -25,8 +25,6 @@ import com.spring_boot_dolls_ticket.project.model.ReservationVO;
 @Service
 public class PerformanceService implements IPerformanceService {
 	
-	
-	
 	@Autowired
 	@Qualifier("IPerformanceDAO")
 	IPerformanceDAO dao;
@@ -129,6 +127,9 @@ public class PerformanceService implements IPerformanceService {
         // 이미지 파일 저장
         saveFile(performancePoster, posterPath);
         saveFile(performanceInfoImg, infoImgPath);
+        
+        // 스케줄 테이블에 공연 ID, 공연장 ID, 공연 일시 삽입
+        insertPerformanceSchedule(performance);
 
         // 이미지 경로를 DB에 업데이트
         dao.updateImgPath(performance);
@@ -210,5 +211,30 @@ public class PerformanceService implements IPerformanceService {
 	}
 
 
+	@Override
+	public ArrayList<PerformanceSeatVO> locationList() {
+		return dao.locationList();
+	}
+
+	@Override
+	public PerformanceSeatVO getLocation(String performanceLocationId) {
+		return dao.getLocation(performanceLocationId);
+	}
+
+	private void insertPerformanceSchedule(PerformanceVO performance) {
+	    PerformanceScheduleVO schedule1 = new PerformanceScheduleVO();
+	    schedule1.setPerformanceId(performance.getPerformanceId());
+	    schedule1.setPerformanceLocationId(performance.getPerformanceLocationId());
+	    schedule1.setPerformanceDate(performance.getPerformanceDate1());
+	    
+	    PerformanceScheduleVO schedule2 = new PerformanceScheduleVO();
+	    schedule2.setPerformanceId(performance.getPerformanceId());
+	    schedule2.setPerformanceLocationId(performance.getPerformanceLocationId());
+	    schedule2.setPerformanceDate(performance.getPerformanceDate2());
+
+	    // 두 개의 스케줄 정보를 DB에 삽입
+	    dao.insertPerformanceSchedule(schedule1);
+	    dao.insertPerformanceSchedule(schedule2);
+	}
 
 }
