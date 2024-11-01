@@ -13,16 +13,25 @@
 	</div>
 	<div id="companyInfo">
 		<div id="siteName">
-			<span>FIVE DOLLS</span>
+			<span>FiveDolls</span>
 		</div>
 		<div id="info">
-			<b>파이브 돌스(주)</b><br>
+			<p class="name">파이브 돌스(주)</p>
+			<p>
 			대표 : 홍길동<br>
 			주소 : 서울특별시 강남구 도곡로 112 서한 빌딩 3층<br>
-			고객 센터 : 1544-1234&nbsp;&nbsp;<a href="">1:1 문의 > </a><br>
+			이메일 : fivedollsmail@gmail.com<br>
+			고객 센터 : 1234-1234&nbsp;&nbsp;<a href="">1:1 문의 > </a><br>
 			사업자 등록 번호 : 123-45-6789<br>
-			통신 판매업 신고 : 제1234-5678호&nbsp;&nbsp;<a href="">사업자 정보 확인 > </a><br>
-			<b>Copyright © 파이브돌스 Corp. All Rights Reserved. </b><br>
+			통신 판매업 신고 : 제1234-5678호&nbsp;&nbsp;<a href="">사업자 정보 확인 > </a></p>
+			<p>Copyright © FiveDolls Corp. All Rights Reserved. </p>
+		</div>
+		<div id="cs">
+			<p class="tel">1234-1234</p>
+			<dl>
+				<dt>평일</dt><dd>09:00~18:00</dd>
+				<dt>토요일</dt><dd>09:00~17:00<br>(일요일 및 공휴일 휴무)</dd>
+			</dl>
 		</div>
 	</div>
 	<div class="goTop">
