@@ -89,10 +89,13 @@ public class PerformanceService implements IPerformanceService {
 		// 7. 이미지 경로 먼저 update
 		dao.updateImgPath(performance);
 		dao.updatePerformance(performance);
+		dao.deletePerformanceSchedulesByPerformanceId(performanceId);
+		insertPerformanceSchedule(performance);
 		
     }
 	@Override
 	public void deletePerformance(String performanceId) {
+		dao.deletePerformanceSchedulesByPerformanceId(performanceId);
 		dao.deletePerformance(performanceId);
 	}
 	// 공연 정보 등록 및 이미지 경로 설정
@@ -128,11 +131,11 @@ public class PerformanceService implements IPerformanceService {
         saveFile(performancePoster, posterPath);
         saveFile(performanceInfoImg, infoImgPath);
         
-        // 스케줄 테이블에 공연 ID, 공연장 ID, 공연 일시 삽입
-        insertPerformanceSchedule(performance);
-
         // 이미지 경로를 DB에 업데이트
         dao.updateImgPath(performance);
+        
+        // 스케줄 테이블에 공연 ID, 공연장 ID, 공연 일시 삽입
+        insertPerformanceSchedule(performance);
     }
 	// 파일 삭제 메서드
     private void deleteFile(String filePath) {
@@ -235,6 +238,13 @@ public class PerformanceService implements IPerformanceService {
 	    // 두 개의 스케줄 정보를 DB에 삽입
 	    dao.insertPerformanceSchedule(schedule1);
 	    dao.insertPerformanceSchedule(schedule2);
+	}
+
+
+	@Override
+	public void insertPerformanceSchedule(PerformanceScheduleVO performanceScheduleVO) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

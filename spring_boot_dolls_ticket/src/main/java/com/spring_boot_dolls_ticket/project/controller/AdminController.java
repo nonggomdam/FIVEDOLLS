@@ -71,12 +71,14 @@ public class AdminController {
 		Date performanceDate2 = performance.getPerformanceDate2();
 		Date reservationOpenExpectedDate = performance.getReservationOpenExpectedDate();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+		List<PerformanceSeatVO> locationList = performanceService.locationList();
 		
 		model.addAttribute("formattedDate1", df.format(performanceDate1));
 	    model.addAttribute("formattedDate2", df.format(performanceDate2));
 	    model.addAttribute("reservationOpenExpectedDate", df.format(reservationOpenExpectedDate));
 		
 		model.addAttribute("performance", performance);
+		model.addAttribute("locationList", locationList);
 		
 		return "admin/updatePerformanceForm";
 		

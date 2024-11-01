@@ -93,13 +93,27 @@
 						<th>관람 등급</th>
 						<td><input type="text" name="performanceRatingCode" id="performanceRatingCode" value="${performance.performanceRatingCode}">세 이상</td>
 					</tr>
-					<tr>
+					<%-- <tr>
 						<th>주소</th>
 						<td colspan="3">
 							<input type="text" id="performanceZipcode" name="performanceZipcode" size="5" value="${performance.performanceZipcode}" readonly>
 							<input type="button" id="searchZipBtn" name="searchZipBtn" value="우편 번호 찾기"><br>
 							<input type="text" id="performanceAddress" name="performanceAddress" placeholder="주소 입력" size="70" value="${performance.performanceAddress}" readonly><br>
 							<input type="text" id="performanceDetailAddress" name="performanceDetailAddress" placeholder="상세 주소 입력" size="70" value="${performance.performanceDetailAddress}">
+						</td>
+					</tr> --%>
+					<tr>
+						<th>공연장</th>
+						<td>
+							<select name="performanceLocationId">
+								<c:forEach var="location" items="${locationList}">
+									<option value="${location.performanceLocationId}"
+					                    <c:if test="${location.performanceLocationId == performance.performanceLocationId}">selected</c:if>
+					                >
+					                    ${location.performanceLocationNm}
+					                </option>
+								</c:forEach>
+							</select>
 						</td>
 					</tr>
 					<tr>
