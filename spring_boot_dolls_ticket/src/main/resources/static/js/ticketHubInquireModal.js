@@ -25,6 +25,7 @@ window.onload=function(){
 		if($('input[type="checkbox"]:checked').length === 0){
 			event.preventDefault();
 			alert("티켓을 선택하세요.");
+			return;
 		}
 		/*
 		else {

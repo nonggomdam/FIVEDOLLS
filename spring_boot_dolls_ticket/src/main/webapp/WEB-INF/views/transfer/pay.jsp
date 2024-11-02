@@ -9,7 +9,7 @@
 	<title>Insert title here</title>
 	<c:import url="/WEB-INF/views/layout/top.jsp"/>
 	<c:import url="/WEB-INF/views/layout/head.jsp"/>
-	<link rel="stylesheet" type="text/css" href="<c:url value='/css/ticketHubInquire.css'/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value='/css/ticketHubPay.css'/>">
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/footer.css'/>">
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/font3.css'/>">
 	<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
@@ -27,12 +27,13 @@
 		        <span class="text-box2 small-text hide-and-slide" style="display:inline-block;">티켓을 양도하세요</span>
 		    </div>
 		</div>
-	
-	<c:forEach var="item" items="${list}"> 
+	<div style='margin-top:100px;'></div>
+	<c:forEach var="item" items="${list}" varStatus="status"> 
+	<hr style="border:1px solid #eee;width:1000px;"/>
 	<div class="show-item">
-		<table style='width:1000px;'>
+		<table style='width:1000px;border-top:0px solid lightgray;border-collapse:collapse;'>
 			<tr>
-				<td style='width:150px'><img src="${item.performanceImagePath}" width='150px'></td>
+				<td style='width:150px'><img src="${item.performanceImagePath}" width='120px'></td>
 				<td>
 					
 					<div><span>${item.performanceName}</span></div>
@@ -49,23 +50,31 @@
 			</tr>
 		</table>								
 	</div>
-</c:forEach>
+	</c:forEach>
+	<hr style="border:1px solid #eee;width:1000px;"/>
 
- 	<div style='width:1000px;'>
- 		<div>
-			가격 ${totalPrice}
+ 	<div style='width:1000px;margin-top: 20px;'>
+ 		<div style="font-size:20px;">
+			최종 결제 금액 <span style="font-size:30px;font-weight:bold;">&nbsp;&nbsp;<fmt:formatNumber value="${totalPrice}" pattern="#,###"/></span><span style="font-size:30px;">원</span>
 		</div>
 	
 	    <div id="payment-method" ></div>
 	    <div id="agreement"></div>
 	    <!-- 결제하기 버튼 -->
-	    <button id="payment-button">결제하기</button>
-		
+	    <button id="payment-button"  style='display: none;' class="payment-button">결제하기</button>
+	    <button id="payment-button1" class="payment-button">결제하기</button>
+		<form action="<c:url value='/receive/complete'/>" method="post" name="frm1">
+			<input type="hidden" value="${noticeId}" name="noticeId"/>
+			<c:forEach items="${assignmentSqno}" var="item">
+				<input type='hidden' name="assignmentSqno" value="${item}"/>
+			</c:forEach>
+		</form>
 	</div>
     <script>
    
       //const coupon = document.getElementById("coupon-box");
       const button = document.getElementById("payment-button");
+      const button1 = document.getElementById("payment-button1");
       const amount = ${totalPrice};
 
       // 구매자의 고유 아이디를 불러와서 customerKey로 설정하세요.
@@ -101,6 +110,10 @@
           customerName: "",
           customerMobilePhone: "01011111111",
         });
+      });
+      
+      button1.addEventListener("click", function() {
+    	  frm1.submit();
       });
     </script>
 	</div>
