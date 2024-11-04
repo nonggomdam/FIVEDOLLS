@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.spring_boot_dolls_ticket.project.model.NoticeVO;
 import com.spring_boot_dolls_ticket.project.model.PerformanceSeatVO;
 import com.spring_boot_dolls_ticket.project.model.PerformanceVO;
+import com.spring_boot_dolls_ticket.project.service.NoticeService;
 import com.spring_boot_dolls_ticket.project.service.PerformanceService;
 
 @Controller
@@ -27,13 +28,18 @@ public class AdminController {
 	@Autowired
 	PerformanceService performanceService;
 	
+	@Autowired
+	NoticeService noticeService;
+	
 	// 관리자 메인 페이지 이동 처리
 	@RequestMapping("/admin")
 	public String adminMainPage(Model model) {
 		
 		ArrayList<PerformanceVO> performanceList = performanceService.listAllPerformance();
+		ArrayList<NoticeVO> noticeList = noticeService.listAllNotice();
 		
 		model.addAttribute("performanceList", performanceList);
+		model.addAttribute("noticeList", noticeList);
 		
 		return "admin/adminMain";
 		
@@ -104,9 +110,7 @@ public class AdminController {
 	// 관리자 공연 정보 등록
 	@RequestMapping("/admin/newPerformanceForm")
 	public String newPerformanceForm(Model model) {
-		List<PerformanceSeatVO> locationList = performanceService.locationList();
-		model.addAttribute("locationList", locationList);
-		
+
 		return "admin/newPerformanceForm";
 		
 	}
@@ -122,16 +126,73 @@ public class AdminController {
         return "redirect:/admin/performanceList";
     }
     
-//    // 관리자 공지 사항 목록 페이지 이동 처리
-// 	@RequestMapping("/admin/performanceList")
-// 	public String noticeList(Model model) {
-// 		
-// 		ArrayList<NoticeVO> performanceList = performanceService.listAllPerformance();
-// 		
-// 		model.addAttribute("performanceList", performanceList);
-// 		
-// 		return "admin/performanceList";
-// 		
-// 	}
+    // 관리자 공지 사항 목록 페이지 이동 처리
+ 	@RequestMapping("/admin/noticeList")
+ 	public String noticeList(Model model) {
+ 		
+ 		ArrayList<NoticeVO> noticeList = noticeService.listAllNotice();
+ 		
+ 		model.addAttribute("noticeList", noticeList);
+ 		
+ 		return "admin/noticeList";
+ 		
+ 	}
+ 	
+ 	// 관리자 공지 사항 등록
+ 	@RequestMapping("/admin/newNoticeForm")
+	public String newNoticeForm(Model model) {
+		
+		return "admin/newNoticeForm";
+		
+	}
+ 	// 관리자 공지 사항 등록 처리
+    @RequestMapping("/admin/insertNotice")
+    public String insertNotice(@ModelAttribute NoticeVO notice)  {
+        
+        // 공연 정보를 DB에 등록하고 이미지 경로를 업데이트
+        noticeService.insertNotice(notice);
+
+        return "redirect:/admin/noticeList";
+    }
+    // 관리자 공지 사항 상세 페이지 이동 처리
+ 	@RequestMapping("/admin/noticeDetailView/{noticeNo}")
+ 	public String noticeDetailView(@PathVariable int noticeNo, Model model) {
+ 		
+ 		NoticeVO notice = noticeService.detailViewNotice(noticeNo);
+ 		
+ 		model.addAttribute("notice", notice);
+ 		
+ 		return "admin/noticeDetailView";
+ 		
+ 	}
+	// 관리자 공지 사항 수정 페이지 이동 처리
+	@RequestMapping("/admin/updateNoticeForm/{noticeNo}")
+	public String updateNoticeForm(@PathVariable int noticeNo, Model model) {
+		
+		NoticeVO notice = noticeService.detailViewNotice(noticeNo);
+		
+		model.addAttribute("notice", notice);
+		
+		return "admin/updateNoticeForm";
+		
+	}
+	// 관리자 공지 사항 수정 처리
+	@RequestMapping("/admin/updateNotice")
+	public String updateNotice(@ModelAttribute NoticeVO notice) {
+	
+        noticeService.updateNotice(notice);
+       
+        return "redirect:/admin/noticeList";  // 공연 목록 페이지로 리다이렉트
+		
+	}
+	// 관리자 공지 사항 삭제 처리
+	@RequestMapping("/admin/deleteNotice/{noticeNo}")
+	public String deleteNotice(@PathVariable int noticeNo) {
+		
+		noticeService.deleteNotice(noticeNo);
+		
+		return "redirect:/admin/noticeList";
+		
+	}
 
 }

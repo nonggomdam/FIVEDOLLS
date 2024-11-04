@@ -7,7 +7,7 @@
 		<meta charset="UTF-8">
 		<title>관리자 공연 정보 등록 페이지</title>
 		<c:import url="/WEB-INF/views/layout/adminHead.jsp"/>
-		<c:import url="/WEB-INF/views/layout/adminTop.jsp"/>
+		<c:import url="/WEB-INF/views/layout/top.jsp"/>
 		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 		<script src="<c:url value='/js/adminSearchZip.js'/>"></script>
 		<script src="<c:url value='/js/newPerformance.js'/>"></script>

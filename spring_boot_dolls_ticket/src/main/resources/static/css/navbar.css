@@ -6,60 +6,77 @@
    font-style: normal;
 }
 
+/* 공통 스타일 */
 .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #000000; /* 배경을 검은색으로 변경 */
-            height : 100px;
-            padding: 10px;
-            font-family: 'TheJamsil5Bold', sans-serif;
-        }
-        .navbar a {
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 15px;
-            font-weight: bold;
-        }
-        .navbar a:hover {
-            color: #c4c0c0;
-        }
-        .navbar .categories a {
-            margin: 0 60px;
-            color: #ffffff;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .navbar .categories a:hover {
-            color: #c4c0c0; /* 카테고리 링크에 마우스를 올리면 밝은 회색으로 변경 */
-        }
-        .navbar .categories {
-            margin-left: auto;
-            margin-right: auto;
-            background-color: #000000;
-        }
-        
-     	.content {
-            text-align: center;
-            margin-top: 100px;
-        }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    height: 100px;
+    padding: 10px;
+    font-family: 'TheJamsil5Bold', sans-serif;
+}
 
-        .mainLogo{
-            text-decoration: none;
-            margin-left: -30px;
-        }
+.navbar a {
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 15px;
+    font-weight: bold;
+}
 
-        .mainLogo a{
-            color: #b3a18c;
-            font-size: 50px;
-            font-weight: bold;
-        }
-        .member{
-            width: 300px;
-        }
-        
-        .member a{
-            color: #ffffff;
-            float : right;
-            font-size:20px;
-        }
+.navbar a:hover {
+    color: #c4c0c0;
+}
+
+.navbar .categories {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #000000;
+}
+
+.content {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.mainLogo {
+    text-decoration: none;
+    margin-left: -30px;
+}
+
+.mainLogo a {
+    color: #b3a18c;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.member {
+    width: 300px;
+}
+
+.member a {
+    color: #ffffff;
+    float: right;
+    font-size: 20px;
+}
+
+/* 일반 사용자 스타일 */
+.navbar.user .categories a {
+    margin: 0 60px;
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* 관리자 스타일 */
+.navbar.admin .categories a {
+    margin: 0 30px;
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* 공통 카테고리 링크 hover 효과 */
+.navbar .categories a:hover {
+    color: #c4c0c0;
+}

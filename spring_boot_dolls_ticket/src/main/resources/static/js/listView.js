@@ -5,7 +5,11 @@ $(document).ready(function() {
 	$(".performanceRow").on("click", function() {
 		var performanceId = $(this).attr("id");
 		
-		console.log(performanceId);
 		window.location.href = "/admin/performanceDetailView/" + performanceId;
+	});
+	$(".noticeRow").on("click", function() {
+		var noticeNo = $(this).attr("id");
+		
+		window.location.href = "/admin/noticeDetailView/" + noticeNo;
 	});
 });

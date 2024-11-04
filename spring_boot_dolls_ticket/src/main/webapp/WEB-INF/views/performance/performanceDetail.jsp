@@ -103,7 +103,7 @@ if (userId == null) {
 				<p>※ 본 공연은 할인쿠폰이벤트 대상에서 제외됩니다.</p>
 				<p>※ 불법적인 경로 혹은 불법적인 시스템을 통해 티켓을 구매할 경우 법적 제재를 받을 수 있습니다.</p>
 				<p class="dt05-tit">공연정보<br><br> 
-				<img src="<c:url value='${pfm.performanceInformationImagePath}'/>"></p>
+				<img src="<c:url value='/image/${pfm.performanceInformationImagePath}'/>"></p>
 				<p class="dt05-tit">장소안내</p>
 				<div id="map"></div>
 				<input type="hidden" id="performanceDetailAddress" value="${pfm.performanceDetailAddress}">

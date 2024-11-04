@@ -2,47 +2,59 @@ package com.spring_boot_dolls_ticket.project.model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class NoticeVO {
-	private int noticeId;
-	public int getNoticeId() {
-		return noticeId;
+	private int noticeNo;
+	private String noticeTitle;
+	private String noticeContent;
+	private String noticeType;
+	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+	private Date firstChangeDate;
+	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+	private Date lastChangeDate;
+	private int hitNum;
+	
+	public int getNoticeNo() {
+		return noticeNo;
 	}
-	public void setNoticeId(int noticeId) {
-		this.noticeId = noticeId;
+	public void setNoticeNo(int noticeNo) {
+		this.noticeNo = noticeNo;
 	}
-	public String getTitle() {
-		return title;
+	public String getNoticeTitle() {
+		return noticeTitle;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setNoticeTitle(String noticeTitle) {
+		this.noticeTitle = noticeTitle;
 	}
-	public String getContent() {
-		return content;
+	public String getNoticeContent() {
+		return noticeContent;
 	}
-	public void setContent(String content) {
-		this.content = content;
+	public void setNoticeContent(String noticeContent) {
+		this.noticeContent = noticeContent;
 	}
-	public Date getRegDate() {
-		return regDate;
+	public String getNoticeType() {
+		return noticeType;
 	}
-	public void setRegDate(Date regDate) {
-		this.regDate = regDate;
+	public void setNoticeType(String noticeType) {
+		this.noticeType = noticeType;
 	}
-	public Date getUpDate() {
-		return upDate;
+	public Date getFirstChangeDate() {
+		return firstChangeDate;
 	}
-	public void setUpDate(Date upDate) {
-		this.upDate = upDate;
+	public void setFirstChangeDate(Date firstChangeDate) {
+		this.firstChangeDate = firstChangeDate;
 	}
-	public String getType() {
-		return type;
+	public Date getLastChangeDate() {
+		return lastChangeDate;
 	}
-	public void setType(String type) {
-		this.type = type;
+	public void setLastChangeDate(Date lastChangeDate) {
+		this.lastChangeDate = lastChangeDate;
 	}
-	private String title;
-	private String content;
-	private Date regDate;
-	private Date upDate;
-	private String type;
+	public int getHitNum() {
+		return hitNum;
+	}
+	public void setHitNum(int hitNum) {
+		this.hitNum = hitNum;
+	}
 }

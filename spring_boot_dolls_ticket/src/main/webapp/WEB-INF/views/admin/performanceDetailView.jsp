@@ -7,7 +7,7 @@
 		<meta charset="UTF-8">
 		<title>관리자 공연 상세 페이지</title>
 		<c:import url="/WEB-INF/views/layout/adminHead.jsp"/>
-		<c:import url="/WEB-INF/views/layout/adminTop.jsp"/>
+		<c:import url="/WEB-INF/views/layout/top.jsp"/>
 		<script>
 			function deleteCheck() {
 				let answer = confirm("등록된 공연 정보를 삭제하시겠습니까? ");

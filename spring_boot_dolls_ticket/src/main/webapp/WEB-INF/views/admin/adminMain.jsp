@@ -7,8 +7,8 @@
 		<meta charset="UTF-8">
 		<title>관리자 메인 페이지</title>
 		<c:import url="/WEB-INF/views/layout/adminHead.jsp"/>
-		<c:import url="/WEB-INF/views/layout/adminTop.jsp"/>
-		<script src="<c:url value='/js/adminPerformanceDetailView.js'/>"></script>
+		<c:import url="/WEB-INF/views/layout/top.jsp"/>
+		<script src="<c:url value='/js/listView.js'/>"></script>
 	</head>
 	<body>
         <div class="adminMainWrapper">
@@ -60,25 +60,25 @@
                                 <thead>
                                     <tr>
                                         <th>NO</th>
-                                        <th>분류</th>
-                                        <th>제목</th>
-                                        <th>등록일</th>
+										<th>분류</th>
+										<th>제목</th>
+										<th>등록일</th>
                                     </tr>
                                 </thead>
                                 <tbody id="noticeItems">
                                 	<c:choose>
-                                        <c:when test="${empty notiecList}">
+                                        <c:when test="${empty noticeList}">
                                             <tr>
                                                 <td colspan="4">등록된 공지 사항이 없습니다.</td>
                                             </tr>
                                         </c:when>
                                         <c:otherwise>
-                                            <c:forEach items="${notiecList}" var="notice">
-                                                <tr id="${notice.noticeNo}" class="noticeRow" style="cursor:pointer">
+                                            <c:forEach items="${noticeList}" var="notice" varStatus="status">
+                                                <tr id="${notice.noticeNo}" class="noticeRow" style="cursor:pointer; display: ${status.index < 5? 'table-row' : 'none'};">
                                                     <td>${notice.noticeNo}</td>
                                                     <td>${notice.noticeType}</td>
                                                     <td>${notice.noticeTitle}</td>
-                                                    <td><fmt:formatDate value="${notice.firstChangeDate}" pattern="yyyy-MM-dd"/></td>
+                                                    <td><fmt:formatDate value="${notice.firstChangeDate}" pattern="yyyy년 MM월 dd일"/></td>
                                                 </tr>
                                             </c:forEach>
                                         </c:otherwise>

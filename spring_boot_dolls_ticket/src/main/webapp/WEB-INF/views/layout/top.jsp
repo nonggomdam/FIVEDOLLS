@@ -6,15 +6,28 @@
 <html>
 
 	<body>
-		<div class="navbar">
+		<div class="navbar ${sessionScope.administratorYn == 'Y' ? 'admin' : 'user'}">
 			<div style="width:20%; text-align: center;" class="mainLogo">
 				<a href="/">FiveDolls</a>
 			</div>
-	        <!-- Center: Musical and Concert Categories -->
+	      	<!-- 관리자 여부에 따라 메뉴 표시 -->
 	        <div style="width:60%; text-align: center;" class="categories">
-	            <a href="<c:url value='/performance/musical'/>">뮤지컬</a>
-	            <a href="<c:url value='/performance/concert'/>">콘서트</a>
-	            <a href="<c:url value='/transfer/list'/>">양도하기</a>
+	            <c:choose>
+	                <c:when test="${sessionScope.administratorYn == 'Y'}">
+	                    <!-- 관리자 메뉴 -->
+	                    <a href="/admin">메인</a>
+	                    <a href="/admin/performanceList">공연 관리</a>
+	                    <a href="/admin/noticeList">공지 사항</a>
+	                    <a href="/admin/qaList">1:1 문의</a>
+	                    <a href="/admin/memberList">사용자 관리</a>
+	                </c:when>
+	                <c:otherwise>
+	                    <!-- 일반 사용자 메뉴 -->
+	                    <a href="<c:url value='/performance/musical'/>">뮤지컬</a>
+	                    <a href="<c:url value='/performance/concert'/>">콘서트</a>
+	                    <a href="<c:url value='/transfer/list'/>">양도하기</a>
+	                </c:otherwise>
+	            </c:choose>
 	        </div>
 	        
 			
