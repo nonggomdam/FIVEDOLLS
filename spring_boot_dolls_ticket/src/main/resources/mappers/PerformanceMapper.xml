@@ -183,9 +183,8 @@
 	</resultMap>
 	<!-- 공연장 리스트 불러오기 -->
 	<select id="locationList" resultMap="PerformanceLocationMap">
-		SELECT PERFORMANCE_LOCATION_ID, PERFORMANCE_LOCATION_NM
-		FROM PERFORMANCE_LOCATION_M
-		GROUP BY PERFORMANCE_LOCATION_ID, PERFORMANCE_LOCATION_NM
+	    SELECT DISTINCT PERFORMANCE_LOCATION_ID, PERFORMANCE_LOCATION_NM
+	    FROM PERFORMANCE_LOCATION_M
 	</select>
 	<!-- 관리자 공연 상세 정보 페이지에서 공연 정보 테이블에 저장된 공연장 ID와 공연장 정보 테이블의 공연장 ID 일치하는 공연장 가져오기 -->
 	<select id="getLocation" resultMap="PerformanceLocationMap">
