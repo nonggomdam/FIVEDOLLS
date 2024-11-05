@@ -49,9 +49,27 @@ h1 {
 	display: block;
     margin: 15px;
 }
+.ranking .info a .info-txt {
+	font-family: 'TheJamsil2Light', sans-serif;
+	text-decoration: none;
+	width: 230px;
+    height: 108px;
+    text-align: center;
+    position: relative;
+}
+.info a .info-txt1 {
+    font-size: 16px;
+    line-height: 22px;
+    color: #888;
+    padding: 10px 0 12px 0;
+}
 
-.empty {
-	margin-bottom: 40px;
+.info a .info-txt2 {
+    font-size: 16px;
+    color: #000;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .info {
@@ -93,6 +111,19 @@ h1 {
     cursor:pointer; 
 }
 
+.textinfo a {
+	color: #fff;
+	background-color: #585454;
+	text-decoration: none;
+	padding : 7px;
+	border-radius : 5px;
+	margin-top : 16px;
+	font-size:14px;
+}	
+.textinfo a:hover {
+	color: #000000;
+	background-color: #ffffff;			
+}
 .infocoming {
     position: relative; 
     display: inline-block;
@@ -199,6 +230,21 @@ h1 {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.donut-dday {
+    width: 111px;
+    height: 111px;
+    line-height: 111px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    font-size: 22px;
+    color: #fff;
+    position: absolute;
+    top: 101px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    text-align: center;
 }
 
 .banner {

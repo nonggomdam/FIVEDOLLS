@@ -129,19 +129,19 @@
     opacity: 0.8;
     cursor:pointer; 
 }
-		.textinfo a {
-			color: #fff;
-			background-color: #585454;
-			text-decoration: none;
-			padding : 7px;
-			border-radius : 5px;
-			margin-top : 16px;
-			font-size:14px;
-		}	
-		.textinfo a:hover {
-			color: #000000;
-			background-color: #ffffff;			
-		}
+.textinfo a {
+	color: #fff;
+	background-color: #585454;
+	text-decoration: none;
+	padding : 7px;
+	border-radius : 5px;
+	margin-top : 16px;
+	font-size:14px;
+}	
+.textinfo a:hover {
+	color: #000000;
+	background-color: #ffffff;			
+}
 .info-txt {
 	font-family: 'TheJamsil2Light', sans-serif;
 	width: 230px;
@@ -162,6 +162,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
 /*  		.images {
 			width : 70%;
             display: flex;

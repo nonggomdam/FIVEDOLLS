@@ -72,13 +72,11 @@
         </c:if>
 			<td class="ranking">
 				<div class="info">				
+					<a href="/performance/detailViewPerformance/${consertOpen.performanceId}">
 					<img src="<c:url value='/image/${consertOpen.performanceImagePath}'/>">
-						<div class="textinfo">
-							<span>${consertOpen.performanceName}<br>
-								  <br>
-								  <fmt:formatDate value="${consertOpen.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${consertOpen.maxPerformanceDate}" pattern="yyyy.MM.dd"/><br>
-								  <br><a href="/performance/detailViewPerformance/${consertOpen.performanceId}">공연 상세정보</a>
-						 	</span>
+						<div class="info-txt">
+							<p class="info-txt1">${consertOpen.performanceName}</p>
+							<p class="info-txt2"><fmt:formatDate value="${consertOpen.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${consertOpen.maxPerformanceDate}" pattern="yyyy.MM.dd"/></p>
 						</div>
 					</a>						
 				</div>	
@@ -102,19 +100,14 @@
         </c:if>
 			<td class="ranking">
 				<div class="info">				
+					<a href="/performance/detailViewPerformance/${consertOpenExpected.performanceId}">
 					<img src="<c:url value='/image/${consertOpenExpected.performanceImagePath}'/>">
-						<div class="textinfo">
-							<span>${consertOpenExpected.performanceName}<br>
-								  <br>
-								  <fmt:formatDate value="${consertOpenExpected.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${consertOpenExpected.maxPerformanceDate}" pattern="yyyy.MM.dd"/><br>
-								  <br>오픈예정일자: <fmt:formatDate value="${consertOpenExpected.reservationOpenExpectedDate}" pattern="yyyy.MM.dd"/>
-								  <br><br><a href="/performance/detailViewPerformance/${consertOpenExpected.performanceId}">공연 상세정보</a>
-						 	</span>
-						</div>
 						<div class="info-txt">
 							<p class="info-txt1">${consertOpenExpected.performanceName}</p>
-							<p class="info-txt2"><fmt:formatDate value="${consertOpenExpected.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${consertOpenExpected.maxPerformanceDate}" pattern="yyyy.MM.dd"/></p>
-						</div>						
+							<p class="info-txt2"><fmt:formatDate value="${consertOpenExpected.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${consertOpenExpected.maxPerformanceDate}" pattern="yyyy.MM.dd"/>
+							<br><br><fmt:formatDate value="${consertOpenExpected.reservationOpenExpectedDate}" pattern="yyyy.MM.dd"/> 오픈예정</p>
+						</div>
+					</a>						
 				</div>	
 			</td>
 		    <c:if test="${(status.index + 1) % 4 == 0}">
@@ -122,27 +115,6 @@
 	        </c:if>
 		</c:forEach>
 		</tr>
-			<%-- <tr>
-			<td class="">
-	            <div class="images">
-	                <c:forEach items = "${consertOpenExpectedList}"  var = "consertOpenExpected">
-	                	<div class="item">
-			                <img src="<c:url value='/image/${consertOpenExpected.performanceImagePath}'/>">			                  
-			                <p id="deteail"> <fmt:formatDate value="${consertOpenExpected.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${consertOpenExpected.maxPerformanceDate}" pattern="yyyy.MM.dd"/> </p>
-			                <p>오픈예정일자: <fmt:formatDate value="${consertOpenExpected.reservationOpenExpectedDate}" pattern="yyyy.MM.dd"/></p>
-			                	<h2 >${consertOpenExpected.performanceName}</h2>
-			                <div class="caption">
-			                    <h2>${consertOpenExpected.performanceName}</h2>
-			                    <p>공연날짜: <fmt:formatDate value="${consertOpenExpected.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${consertOpenExpected.maxPerformanceDate}" pattern="yyyy.MM.dd"/>  </p>
-			                    <p>공연장소</p>
-			                    <p>${consertOpenExpected.performanceAddress} ${consertOpenExpected.performanceDetailAddress}</p>
-			                    <a href="/performance/detailViewPerformance/${consertOpenExpected.performanceId}">공연 상세정보</a>
-			                </div>
-			            </div>
-	                </c:forEach>
-	            </div>
-			</td>
-			</tr> --%>
 		</table>
 
 	<div class="empty2"></div>

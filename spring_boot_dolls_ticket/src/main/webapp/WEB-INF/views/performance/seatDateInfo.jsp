@@ -85,10 +85,10 @@
 				<p>공연명 : ${performanceInfo.performanceName}</p>
 				<p>관람 등급 : ${performanceInfo.performanceRatingCode}세</p>
 				<p>공연 날짜 :
-					<fmt:formatDate value="${performanceInfo.minPerformanceDate}"
+					<fmt:formatDate value="${performanceInfo.performanceDate1}"
 						pattern="yyyy.MM.dd" />
 					~
-					<fmt:formatDate value="${performanceInfo.maxPerformanceDate}"
+					<fmt:formatDate value="${performanceInfo.performanceDate2}"
 						pattern="yyyy.MM.dd" />
 				</p>
 				<p id = "reservationDate">일시 : 선택된 날짜 및 시간</p>
