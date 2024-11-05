@@ -69,16 +69,12 @@ if (userId == null) {
 						<dt>관람시간</dt>
 						<dd>&nbsp;총 ${pfm.performanceTime}분</dd>
 						<dt>장소</dt>
-						<dd>&nbsp;
-						    <c:choose>
-						        <c:when test="${pfm.performanceLocationId == 1}">
-						            올림픽 홀
-						        </c:when>
-						        <c:when test="${pfm.performanceLocationId == 2}">
-						            샤롯데 씨어터
-						        </c:when>
-						    </c:choose>
-						</dd>
+						<c:if test="${pfm.performanceLocationId == 'SE0000001'}">
+							<dd>&nbsp;올림픽 홀</dd>
+						</c:if>
+						<c:if test="${pfm.performanceLocationId != 'SE0000001'}">
+							<dd>&nbsp;샤롯데 씨어터</dd>
+						</c:if>
 						<dt>가격</dt>
 						<dd>&nbsp;R석 <fmt:formatNumber value="${pfm.performancePriceR}" pattern="###,###"/>원</dd>
 						<dd>&nbsp;S석 <fmt:formatNumber value="${pfm.performancePriceS}" pattern="###,###"/>원</dd>
