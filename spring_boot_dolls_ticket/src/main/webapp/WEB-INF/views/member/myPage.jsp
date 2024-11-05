@@ -11,11 +11,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>마이 페이지</title>
 <script src="jquery-3.7.1.min.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/css/font5.css'/>">
 <script type="text/javascript"></script>
 <c:import url="/WEB-INF/views/layout/top.jsp" />
 <style>
 body {
-	font-family: Arial, sans-serif;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -161,6 +162,7 @@ body {
 	color: red;
 	font-size: 0.9em;
 	margin-top: 30px;
+	margin-bottom : 50px;
 	text-align: left;
 }
 
