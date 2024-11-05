@@ -9,7 +9,6 @@
 		<c:import url="/WEB-INF/views/layout/adminHead.jsp"/>
 		<c:import url="/WEB-INF/views/layout/top.jsp"/>
 		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-		<script src="<c:url value='/js/adminSearchZip.js'/>"></script>
 		<script src="<c:url value='/js/newPerformance.js'/>"></script>
 		<style>
 	        #posterPreview, #infoPreview {

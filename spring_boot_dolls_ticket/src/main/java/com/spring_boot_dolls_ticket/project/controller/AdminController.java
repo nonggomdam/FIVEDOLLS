@@ -110,6 +110,9 @@ public class AdminController {
 	// 관리자 공연 정보 등록
 	@RequestMapping("/admin/newPerformanceForm")
 	public String newPerformanceForm(Model model) {
+		
+		List<PerformanceSeatVO> locationList = performanceService.locationList();
+		model.addAttribute("locationList", locationList);
 
 		return "admin/newPerformanceForm";
 		
