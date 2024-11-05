@@ -102,8 +102,7 @@ if (userId == null) {
 				<img src="<c:url value='/image/${pfm.performanceInformationImagePath}'/>"></p>
 				<p class="dt05-tit">장소안내</p>
 				<div id="map"></div>
-				<input type="hidden" id="performanceDetailAddress" value="${pfm.performanceDetailAddress}">
-				<p>주소: ${pfm.performanceZipcode} ${pfm.performanceAddress} ${pfm.performanceDetailAddress}</p>
+				<input type="hidden" id="performanceLocationId" value="${pfm.performanceLocationId}">
 				<p>주차공간이 없으므로 대중교통을 이용하시기 바랍니다.</p>
 				<p class="dt05-tit">상품정보제공 고시</p>
 				<div class="dt05-txt">
