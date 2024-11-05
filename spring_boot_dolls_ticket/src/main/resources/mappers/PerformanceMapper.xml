@@ -20,6 +20,7 @@
 		<result property="lastChangeDate" column="lastChangeDate"/>
 		<result property="maxPerformanceDate" column="maxPerformanceDate"/>
 		<result property="minPerformanceDate" column="minPerformanceDate"/>
+		<result property="reservationStatusYCount" column="reservationStatusYCount"/>
 	</resultMap>
 	
 	<resultMap id="performanceScheduleList" type="com.spring_boot_dolls_ticket.project.model.PerformanceScheduleVO">
@@ -144,6 +145,44 @@
 	    FROM performance_info_m A 
 	    order by maxPerformanceDate 
 	</select>
+	
+	<!-- 11월5일 selectRanking 추가 -->
+	<select id="selectRanking" resultMap="performanceList">
+		SELECT 
+		    COUNT(CASE WHEN B.RESERVATION_STATUS = 'Y' THEN 1 END) AS reservationStatusYCount,
+		    A.PERFORMANCE_ID AS performanceId,
+		    A.performance_kind_cd AS performanceKindCd,
+		    A.performance_rating_code AS performanceRatingCode,
+		    A.performance_name AS performanceName,
+		    A.performance_price AS performancePrice,
+		    A.performance_zipcode AS performanceZipcode, 
+		    A.performance_address AS performanceAddress,
+		    A.performance_detailaddress AS performanceDetailAddress,
+		    A.reservation_open_expected_date AS reservationOpenExpectedDate,
+		    A.performance_image_path AS performanceImagePath,
+		    A.first_change_date AS firstChangeDate,
+		    A.last_change_date AS lastChangeDate,
+		    (SELECT MAX(PERFORMANCE_DATE) FROM PERFORMANCE_SCHEDULE_D WHERE PERFORMANCE_ID = A.PERFORMANCE_ID) AS maxPerformanceDate,
+		    (SELECT MIN(PERFORMANCE_DATE) FROM PERFORMANCE_SCHEDULE_D WHERE PERFORMANCE_ID = A.PERFORMANCE_ID) AS minPerformanceDate
+		FROM performance_info_m A 
+		INNER JOIN RESERVATION_INFO_M B ON A.PERFORMANCE_ID = B.PERFORMANCE_ID
+		GROUP BY 
+		    A.PERFORMANCE_ID,
+		    A.performance_kind_cd,
+		    A.performance_rating_code,
+		    A.performance_name,
+		    A.performance_price,
+		    A.performance_zipcode, 
+		    A.performance_address,
+		    A.performance_detailaddress,
+		    A.reservation_open_expected_date,
+		    A.performance_image_path,
+		    A.first_change_date,
+		    A.last_change_date
+		ORDER BY reservationStatusYCount DESC
+	</select>
+	
+	
 	
 	<select id="selectPerformanceDate" resultMap="performanceScheduleList" parameterType="string" >
 	 	SELECT 

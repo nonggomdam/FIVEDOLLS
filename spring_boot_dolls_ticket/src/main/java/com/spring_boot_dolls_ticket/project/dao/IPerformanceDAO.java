@@ -32,4 +32,5 @@ public interface IPerformanceDAO {
 	public PerformanceSeatVO getLocation(String performanceLocationId);
 	public void insertPerformanceSchedule(PerformanceScheduleVO performanceScheduleVO);
 	public void deletePerformanceSchedulesByPerformanceId(String performanceId);
+	public List<PerformanceVO> selectRanking(); // 메인랭킹
 }

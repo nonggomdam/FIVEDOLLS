@@ -247,4 +247,11 @@ public class PerformanceService implements IPerformanceService {
 		
 	}
 
+
+	@Override
+	public List<PerformanceVO> selectRanking() {
+		// TODO Auto-generated method stub
+		return dao.selectRanking();
+	}
+
 }

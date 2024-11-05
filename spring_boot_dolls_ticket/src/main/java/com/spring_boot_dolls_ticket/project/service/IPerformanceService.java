@@ -30,4 +30,5 @@ public interface IPerformanceService {
 	public ArrayList<PerformanceSeatVO> locationList();
 	public PerformanceSeatVO getLocation(String performanceLocationId);
 	void insertPerformanceSchedule(PerformanceScheduleVO performanceScheduleVO);
+	public List<PerformanceVO> selectRanking(); // 메인랭킹
 }
