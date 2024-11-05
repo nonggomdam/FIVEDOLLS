@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import com.spring_boot_dolls_ticket.project.dao.ITransferDAO;
 import com.spring_boot_dolls_ticket.project.model.AssignmentNoticeBoardVO;
+import com.spring_boot_dolls_ticket.project.model.AssignmentOrderDetailVO;
+import com.spring_boot_dolls_ticket.project.model.AssignmentOrderVO;
 import com.spring_boot_dolls_ticket.project.model.AssignmentTicket2VO;
 import com.spring_boot_dolls_ticket.project.model.AssignmentTicketVO;
 import com.spring_boot_dolls_ticket.project.model.Transfer2VO;
@@ -107,6 +109,51 @@ public class TransferService implements ITransferService{
 		
 		return tdao.showInfoInEmail(assignmentTicket2VO);
 	}
+
+	@Override
+	public void insertAssignmentOrder(AssignmentOrderVO orderVo) {
+		tdao.insertAssignmentOrder(orderVo);
+		
+	}
+
+	@Override
+	public void insertAssignmentOrderDetail(AssignmentOrderDetailVO orderDetailVo) {
+		tdao.insertAssignmentOrderDetail(orderDetailVo);
+		
+	}
+
+	@Override
+	public int orderVerification(AssignmentOrderVO orderVo) {
+		int amt = tdao.orderVerification(orderVo);
+		return amt;
+	}
+
+	@Override
+	public int updateFail(AssignmentOrderVO orderVo) {
+		int fail = tdao.updateFail(orderVo);
+		return fail;
+	}
+
+	@Override
+	public int updateSuccess(AssignmentOrderVO orderVo) {
+		int success = tdao.updateSuccess(orderVo);
+		return success;
+	}
+
+	
+	@Override
+	public List<AssignmentTicketVO> selectSoldYn(String orderNo) {
+		List<AssignmentTicketVO> checkY = tdao.selectSoldYn(orderNo);
+		return checkY;
+	}
+
+	@Override
+	public int updateAlreadySold(AssignmentOrderVO orderVo) {
+		int already = tdao.updateAlreadySold(orderVo);
+		return already;
+	}
+
+	
 
 	
 	

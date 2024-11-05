@@ -33,7 +33,7 @@
 	<div class="show-item">
 		<table style='width:1000px;border-top:0px solid lightgray;border-collapse:collapse;'>
 			<tr>
-				<td style='width:150px'><img src="${item.performanceImagePath}" width='120px'></td>
+				<td style='width:150px'><img src="/image/${item.performanceImagePath}" width='120px'></td>
 				<td>
 					
 					<div><span>${item.performanceName}</span></div>
@@ -41,10 +41,10 @@
 						<span>일시 : ${item.performanceDate}</span>
 					</div>
 					<div>
-						<span>좌석 : ${item.reservationSeatInformation}석</span>
+						<span>좌석 : ${item.reservationSeatKindCd}${item.reservationSeatNumber}석</span>
 					</div>
 					<div>
-						<span class="price" data-price=${item.totalSeatPrice }>가격 : <fmt:formatNumber value="${item.totalSeatPrice}" pattern="#,###"/>원</span>						 										
+						<span class="price" data-price=${item.price }>가격 : <fmt:formatNumber value="${item.price}" pattern="#,###"/>원</span>						 										
 					</div>									
 				</td>
 			</tr>
@@ -61,8 +61,10 @@
 	    <div id="payment-method" ></div>
 	    <div id="agreement"></div>
 	    <!-- 결제하기 버튼 -->
-	    <button id="payment-button"  style='display: none;' class="payment-button">결제하기</button>
-	    <button id="payment-button1" class="payment-button">결제하기</button>
+	    <button id="payment-button" class="payment-button">결제하기</button>
+	    
+	    <!-- <button id="payment-button1" class="payment-button">결제하기</button> -->
+	    
 		<form action="<c:url value='/receive/complete'/>" method="post" name="frm1">
 			<input type="hidden" value="${noticeId}" name="noticeId"/>
 			<c:forEach items="${assignmentSqno}" var="item">
@@ -98,12 +100,12 @@
  
 
       button.addEventListener("click", function () {
-    	     	
+    	alert('success 직전');
         // 결제를 요청하기 전에 orderId, amount를 서버에 저장하세요.
         // 결제 과정에서 악의적으로 결제 금액이 바뀌는 것을 확인하는 용도입니다.
         paymentWidget.requestPayment({
-          orderId: "_-7x8c2gaVt4k-PjOrnPL",
-          orderName: '${itemName}',
+          orderId: "${orderNo}",
+          orderName: "${itemName}",
           successUrl: window.location.origin + "/success",
           failUrl: window.location.origin + "/fail",
           customerEmail: "",

@@ -78,10 +78,10 @@
 												<span>일시 : ${item.performanceDate}</span>
 											</div>
 											<div>
-												<span>좌석 : ${item.reservationSeatInformation}석</span>
+												<span>좌석 : ${item.reservationSeatKindCd}${item.reservationSeatNumber}석</span>
 											</div>
 											<div>
-												<span class="price" data-price=${item.totalSeatPrice }>가격 : <fmt:formatNumber value="${item.totalSeatPrice}" pattern="#,###"/>원</span>
+												<span class="price" data-price=${item.price }>가격 : <fmt:formatNumber value="${item.price}" pattern="#,###"/>원</span>
 												<c:if test="${item.soldYn == 'Y'}">
 													<span style="margin-left:30px;color:red;font-weight:bold;border:3px solid red;border-radius:5px;padding:8px;">판매완료</span> 
 												</c:if>											

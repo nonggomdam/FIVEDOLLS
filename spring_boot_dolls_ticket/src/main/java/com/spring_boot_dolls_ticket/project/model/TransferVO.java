@@ -10,11 +10,14 @@ public class TransferVO {
 	private String performanceKindCd;
 	private String performanceName;
 	private int totalSeatPrice;
+	private int price;
 	private String performanceDate;
 	private String reservationSeatInformation;
 	private String reservationId;
 	private String performanceImagePath;
 	private String performanceId;
+	private String reservationSeatKindCd;
+	private int reservationSeatNumber;
 	
 	
 	public String getReservationId() {
@@ -47,6 +50,12 @@ public class TransferVO {
 	public void setTotalSeatPrice(int totalSeatPrice) {
 		this.totalSeatPrice = totalSeatPrice;
 	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
 	public String getPerformanceDate() {
 		return performanceDate;
 	}
@@ -71,13 +80,29 @@ public class TransferVO {
 	public void setPerformanceId(String performanceId) {
 		this.performanceId = performanceId;
 	}
+	public String getReservationSeatKindCd() {
+		return reservationSeatKindCd;
+	}
+	public void setReservationSeatKindCd(String reservationSeatKindCd) {
+		this.reservationSeatKindCd = reservationSeatKindCd;
+	}
+	public int getReservationSeatNumber() {
+		return reservationSeatNumber;
+	}
+	public void setReservationSeatNumber(int reservationSeatNumber) {
+		this.reservationSeatNumber = reservationSeatNumber;
+	}
 	@Override
 	public String toString() {
 		return "TransferVO [custId=" + custId + ", performanceKindCd=" + performanceKindCd + ", performanceName="
-				+ performanceName + ", totalSeatPrice=" + totalSeatPrice + ", performanceDate=" + performanceDate
-				+ ", reservationSeatInformation=" + reservationSeatInformation + ", reservationId=" + reservationId
-				+ ", performanceImagePath=" + performanceImagePath + ", performanceId=" + performanceId + "]";
+				+ performanceName + ", totalSeatPrice=" + totalSeatPrice + ", price=" + price + ", performanceDate="
+				+ performanceDate + ", reservationSeatInformation=" + reservationSeatInformation + ", reservationId="
+				+ reservationId + ", performanceImagePath=" + performanceImagePath + ", performanceId=" + performanceId
+				+ ", reservationSeatKindCd=" + reservationSeatKindCd + ", reservationSeatNumber="
+				+ reservationSeatNumber + "]";
 	}
+	
+
 
 	
 	

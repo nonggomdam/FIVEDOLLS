@@ -79,10 +79,10 @@
 											<span>일시 : ${show.performanceDate}</span>
 										</div>
 										<div>
-											<span>좌석 : ${show.reservationSeatInformation}석</span>
+											<span>좌석 : ${show.reservationSeatKindCd}${show.reservationSeatNumber}석</span>
 										</div>
 										<div>
-											<span>가격 : <fmt:formatNumber value="${show.totalSeatPrice}" pattern="#,###"/>원</span>
+											<span>가격 : <fmt:formatNumber value="${show.price}" pattern="#,###"/>원</span>
 										</div>									
 									</td>
 								</tr>

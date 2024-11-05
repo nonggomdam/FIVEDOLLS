@@ -10,9 +10,13 @@
 		     , b.performance_name as performanceName
 		     , b.performance_image_path as performanceImagePath
 		     , b.performance_id as performanceId
-		     , c.total_seat_price as totalSeatPrice
-		     , c.performance_date as performanceDate
-		     , c.reservation_seat_information as reservationSeatInformation
+		     , case when c.reservation_seat_kind_cd='R' then b.performance_price_r
+                    else b.performance_price_s 
+                end as price
+		     <!-- , c.performance_date as performanceDate -->
+		     , to_char(c.performance_date, 'YYYY-MM-DD AM HH:MI') as performanceDate
+		     , c.reservation_seat_kind_cd as reservationSeatKindCd
+		     , c.reservation_seat_number as reservationSeatNumber
 		     , c.reservation_id as reservationId
 		  from member a
 		     , performance_info_m b
@@ -69,7 +73,8 @@
  	
  	<select id="selectSeatInfo" parameterType="com.spring_boot_dolls_ticket.project.model.TransferReservationInfoVO" resultType="com.spring_boot_dolls_ticket.project.model.TransferReservationInfoVO">
  		select performance_id as performanceId
- 			 , reservation_seat_information as reservationSeatInformation
+ 			 , reservation_seat_kind_cd as reservationSeatKindCd
+             , reservation_seat_number as reservationSeatNumber
  		  from reservation_info_m
  		 where reservation_id=#{reservationId}
  		   and cust_id=#{custId}
@@ -78,15 +83,19 @@
  	
  	
  	<select id="selectListTicketAndPerformance" parameterType="string" resultType="com.spring_boot_dolls_ticket.project.model.Transfer2VO">
-		select c.reservation_seat_information as reservationSeatInformation
+		select c.reservation_seat_kind_cd as reservationSeatKindCd
+			 , c.reservation_seat_number as reservationSeatNumber		
  			 , c.performance_id as performanceId
  			 , a.sold_yn as soldYn
  			 , a.assignment_sqno as assignmentSqno
      		 , b.performance_kind_cd as performanceKindCd
              , b.performance_name as performanceName
              , b.performance_image_path as performanceImagePath
-             , c.total_seat_price as totalSeatPrice
-             , c.performance_date as performanceDate
+		     , case when c.reservation_seat_kind_cd='R' then b.performance_price_r
+                    else b.performance_price_s 
+                end as price
+             <!-- , c.performance_date as performanceDate -->
+             , to_char(c.performance_date, 'YYYY-MM-DD AM HH:MI') as performanceDate
           from assignment_ticket a, performance_info_m b, reservation_info_m c
          where b.performance_id=c.performance_id
            and a.reservation_id=c.reservation_id
@@ -126,12 +135,17 @@
  	
  	
  	<select id="showInfoInEmail" parameterType="com.spring_boot_dolls_ticket.project.model.AssignmentTicket2VO" resultType="com.spring_boot_dolls_ticket.project.model.Transfer2VO">
-           select c.reservation_seat_information as reservationSeatInformation
-                , c.performance_date as performanceDate
-                , c.total_seat_price as totalSeatPrice
+           select c.reservation_seat_kind_cd as reservationSeatKindCd
+			    , c.reservation_seat_number as reservationSeatNumber
+                <!-- , c.performance_date as performanceDate -->
+                , to_char(c.performance_date, 'YYYY-MM-DD AM HH:MI') as performanceDate
+		        , case when c.reservation_seat_kind_cd='R' then b.performance_price_r
+                  else b.performance_price_s 
+                  end as price
                 , c.reservation_id as reservationId
                 , b.performance_name as performanceName
                 , b.performance_image_path as performanceImagePath
+                , a.assignment_sqno as assignmentSqno
              from assignment_ticket a, performance_info_m b, reservation_info_m c
             where b.performance_id=c.performance_id
               and a.reservation_id=c.reservation_id
@@ -141,4 +155,71 @@
     				#{assignmentSqno}
     	 </foreach> 
  	</select>
+ 	
+ 	<insert id="insertAssignmentOrder" parameterType="com.spring_boot_dolls_ticket.project.model.AssignmentOrderVO">
+ 		INSERT INTO ASSIGNMENT_ORDER (ORDER_NO, ITEM_CONTENT, AMOUNT, STATUS_CD, SETTLE_DT, RECEIVE_CUST_ID, FIRST_CHANGE_DATE, LAST_CHANGE_DATE)
+		VALUES ( 
+			  #{orderNo}  
+			, #{itemContent, jdbcType=VARCHAR}
+			, #{amount}
+			, #{statusCd, jdbcType=VARCHAR}
+			, #{settleDt, jdbcType=VARCHAR}
+			, #{receiveCustId, jdbcType=VARCHAR}
+			, sysdate
+			, sysdate 
+		)
+ 	</insert>
+ 	
+ 	<insert id="insertAssignmentOrderDetail" parameterType="com.spring_boot_dolls_ticket.project.model.AssignmentOrderDetailVO">
+ 		INSERT INTO ASSIGNMENT_ORDER_DETAIL (ORDER_NO, SQNO, NOTICE_ID, ASSIGNMENT_SQNO, PRICE, FIRST_CHANGE_DATE, LAST_CHANGE_DATE)
+		VALUES ( 
+			  #{orderNo}  
+			, (select lpad(nvl(max(SQNO), '0')+1, 3, '0') from assignment_order_detail where ORDER_NO = #{orderNo} )
+			, #{noticeId}
+			, #{assignmentSqno}
+			, #{price}
+			, sysdate
+			, sysdate 
+		)
+ 	</insert>
+ 	
+ 	<select id="orderVerification" parameterType="com.spring_boot_dolls_ticket.project.model.AssignmentOrderVO" resultType="int">
+ 		select amount
+	      from assignment_order
+         where order_no=#{orderNo}
+           and status_cd=#{statusCd}
+ 	</select>
+ 	
+ 	<update id="updateFail" parameterType="com.spring_boot_dolls_ticket.project.model.AssignmentOrderVO">
+ 		update assignment_order 
+   		   set status_cd='F' 
+   		     , payment_key=#{paymentKey}
+   		     , LAST_CHANGE_DATE=sysdate
+         where order_no=#{orderNo}
+ 	</update>
+ 	
+ 	<update id="updateSuccess" parameterType="com.spring_boot_dolls_ticket.project.model.AssignmentOrderVO">
+ 		update assignment_order 
+   		   set status_cd='S' 
+   		     , payment_key=#{paymentKey}
+   		     , LAST_CHANGE_DATE=sysdate
+         where order_no=#{orderNo}
+ 	</update>
+ 	
+ 	<select id="selectSoldYn" parameterType="string" resultType="com.spring_boot_dolls_ticket.project.model.AssignmentTicketVO">
+		select b.sold_yn, b.notice_id, b.assignment_sqno
+		  from assignment_order_detail a, assignment_ticket b
+		 where a.notice_id=b.notice_id
+		   and a.assignment_sqno=b.assignment_sqno
+		   and a.order_no=#{orderNo}
+ 	</select>
+ 	
+ 	<update id="updateAlreadySold" parameterType="com.spring_boot_dolls_ticket.project.model.AssignmentOrderVO">
+ 		update assignment_order 
+   		   set status_cd='A' 
+   		     , payment_key=#{paymentKey}
+   		     , LAST_CHANGE_DATE=sysdate
+         where order_no=#{orderNo}
+ 	</update>
+ 	
  </mapper>

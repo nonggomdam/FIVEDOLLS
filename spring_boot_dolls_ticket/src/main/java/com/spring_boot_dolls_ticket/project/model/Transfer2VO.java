@@ -14,7 +14,9 @@ public class Transfer2VO {
 	private String soldYn;
 	private int totalSeatPrice;
 	private String performanceImagePath;
-	
+	private int price;
+	private String reservationSeatKindCd;
+	private int reservationSeatNumber;
 	
 	public String getCustId() {
 		return custId;
@@ -90,14 +92,35 @@ public class Transfer2VO {
 	public void setPerformanceImagePath(String performanceImagePath) {
 		this.performanceImagePath = performanceImagePath;
 	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	public String getReservationSeatKindCd() {
+		return reservationSeatKindCd;
+	}
+	public void setReservationSeatKindCd(String reservationSeatKindCd) {
+		this.reservationSeatKindCd = reservationSeatKindCd;
+	}
+	public int getReservationSeatNumber() {
+		return reservationSeatNumber;
+	}
+	public void setReservationSeatNumber(int reservationSeatNumber) {
+		this.reservationSeatNumber = reservationSeatNumber;
+	}
 	@Override
 	public String toString() {
 		return "Transfer2VO [custId=" + custId + ", assignmentSqno=" + assignmentSqno + ", reservationId="
 				+ reservationId + ", reservationSeatInformation=" + reservationSeatInformation + ", performanceKindCd="
 				+ performanceKindCd + ", performanceName=" + performanceName + ", performancePrice=" + performancePrice
 				+ ", performanceDate=" + performanceDate + ", performanceId=" + performanceId + ", soldYn=" + soldYn
-				+ ", totalSeatPrice=" + totalSeatPrice + ", performanceImagePath=" + performanceImagePath + "]";
+				+ ", totalSeatPrice=" + totalSeatPrice + ", performanceImagePath=" + performanceImagePath + ", price="
+				+ price + ", reservationSeatKindCd=" + reservationSeatKindCd + ", reservationSeatNumber="
+				+ reservationSeatNumber + "]";
 	}
+	
 
 
 	

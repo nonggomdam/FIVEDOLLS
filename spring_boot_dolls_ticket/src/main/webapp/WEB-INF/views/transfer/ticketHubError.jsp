@@ -29,7 +29,7 @@
 		
 		<div id="complete">
 			<p>${msg}</p>
-			<p>나의 예매내역을 확인해주세요</p>
+			<p>${msg2}</p>
 			<a href="<c:url value='/transfer/list'/>"><h4 class="line">[양도 리스트 이동]</h4></a>
 		</div>
 	</div>
