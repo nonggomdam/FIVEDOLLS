@@ -274,7 +274,7 @@ h3 {
 			<div class="myInfo">
 				<h2>나의 정보</h2>
 				<p>환영합니다!</p>
-				<p>김태우 님은 일반 회원입니다.</p>
+				<p>${myInfo.custName} 님은 일반 회원입니다.</p>
 			</div>
 			<button
 				onclick="location.href='http://localhost:8080/member/correctionMember';">회원정보
@@ -294,7 +294,7 @@ h3 {
 
 		<div class="mypage-content">
 			<div class="welcome-box">
-				<h2>안녕하세요! 김**님</h2>
+				<h2>안녕하세요! ${myInfo.custName}님</h2>
 				<p>현재 등급: WELCOME | 0P</p>
 			</div>
 

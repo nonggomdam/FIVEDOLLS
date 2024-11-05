@@ -502,12 +502,15 @@ public class MemberController {
 		}
 		String custId = (String)session.getAttribute("sid");
 		
+		MemberVO myInfo = memService.selectCustInfo(custId);
+		
 		ReservationVO reservationVO = new ReservationVO();
 		reservationVO.setCustId(custId);
 		reservationVO.setPageNbr(0);
 		reservationVO.setPageOffSet(10000);
 		ArrayList<ReservationVO> myPageReservationList = reservationService.reservationList(reservationVO);
 		
+		model.addAttribute("myInfo", myInfo);
 		model.addAttribute("totalCnt",myPageReservationList.size());
 		//model.addAttribute("myPageReservationList",myPageReservationList);
 		
@@ -558,7 +561,7 @@ public class MemberController {
 		// 1개월 빼기
         LocalDate oneMonthBefore = now.minusMonths(1);
 		int nowBefore1MonthDate = Integer.parseInt(oneMonthBefore.format(formatter));
-		
+		MemberVO myInfo = memService.selectCustInfo(custId);
 		
 		//총 페이징수 조회
 		ReservationVO reservationVO = new ReservationVO();
@@ -580,6 +583,7 @@ public class MemberController {
 		reservationVO.setPageOffSet(10); 
 		ArrayList<ReservationVO> reservationList2 = reservationService.reservationList(reservationVO);
 		model.addAttribute("ReservationList",reservationList2);
+		model.addAttribute("myInfo", myInfo);
 		
 		return "member/confirmation";
 	}
