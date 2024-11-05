@@ -18,7 +18,7 @@
         <header>
             <!-- LOGO -->
             <div class="logo">
-                <h1><a href="/">Five Dolls</a></h1>
+                <a href="/">FiveDolls</a>
             </div>
         </header>
 
@@ -51,7 +51,7 @@
 
                 </div>
 
-                <div style="margin-top: 35px;">
+                <div style="margin-top: 20px;">
                     <!--이름,성년월일,성별,이메일-->
                     <h3>이름</h3>
                     <span class="signup-input">
@@ -78,11 +78,11 @@
 
                 </div>
 
-                <div style="margin-top: 35px;">
+                <div style="margin-top: 20px;">
                     <!--휴대전화-->
                     <h3>휴대전화</h3>
                     <div style="display: flex;">
-                        <span class="signup-input" style="width:100%; margin: 10px 0px 0px 0px">
+                        <span class="signup-input" style="width:100%;">
                             <input id="signupPhoneNumber" type="text" name="custPhoneNumber" placeholder="전화번호 입력"></input>
                         </span>
                     </div>  

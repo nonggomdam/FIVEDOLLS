@@ -1,5 +1,10 @@
 @charset "UTF-8";
-
+@font-face {
+   font-family: 'TheJamsil5Bold';
+   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+   font-weight: 500; /*이미 위에서 5Bold 이렇게 정해져서 font-weight 의미 없음*/
+   font-style: normal;
+}
 * {
   box-sizing: border-box;
 }
@@ -33,12 +38,10 @@ ul {
 }
 
 .wrap .logo a {
-  text-decoration: none; /* 밑줄 제거 */
-  color: black; /* 검은색으로 설정 */
-}
-
-.wrap .logo a:hover {
-  color: black; /* 마우스 오버 시 색상 유지 */
+  color: #b3a18c;
+  font-family: 'TheJamsil5Bold', sans-serif;
+  font-size: 50px;
+  text-decoration: none;
 }
 
 .wrap .logo h1 {
@@ -102,7 +105,7 @@ label.required::after {
   height: 40px;
   outline: none;
   cursor: pointer;
-  background-color: #242222;
+  background-color: #1769ff;
   color: #ffffff;
   border: none;
   border-radius: 5px;

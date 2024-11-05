@@ -13,7 +13,7 @@
 </head>
 <body>
 	<div class="wrap">
-      <div class="logo"><a href="/"><h1>Five Dolls</h1></a></div>
+      <div class="logo"><a href="/">FiveDolls</a></div>
       <div class="contents">
         <form action="joinForm" method="POST" id="form__wrap">
           <div class="terms__check__all">
