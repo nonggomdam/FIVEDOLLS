@@ -67,10 +67,7 @@ input {
 
 
 			<div class="seat-info">
-				<img
-					src="../../../<c:out value ="${performanceInfo.performanceImagePath}">
-	                </c:out>"
-					alt="${performanceInfo.performanceImagePath}">
+				<img src="<c:url value ='/image/${performanceInfo.performanceImagePath}'/>">
 				<div class="movie-title">${performanceInfo.performanceName}</div>
 				
 				<c:set var="dateString" value="${performanceDate}" />

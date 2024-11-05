@@ -746,4 +746,3 @@ function confirmCancellation(reservationId) {
 
 </script>
 </html>
-

@@ -50,9 +50,9 @@
 							<a href="/performance/detailViewPerformance/${consertOpen.performanceId}"><img src="<c:url value='/image/${consertOpen.performanceImagePath}'/>">
 								<div class="textinfo">
 									<span>${consertOpen.performanceName}<br>
-										  <br>
-										  <fmt:formatDate value="${consertOpen.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${consertOpen.maxPerformanceDate}" pattern="yyyy.MM.dd"/><br>
-										  ${consertOpen.performanceAddress}<br>${consertOpen.performanceDetailAddress}
+									  <br><fmt:formatDate value="${consertOpen.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${consertOpen.maxPerformanceDate}" pattern="yyyy.MM.dd"/><br>
+									  <br><c:if test="${consertOpen.performanceLocationId == 'SE0000001'}">올림픽 홀</c:if>
+									  <c:if test="${consertOpen.performanceLocationId != 'SE0000001'}">샤롯데 씨어터</c:if>
 								 	</span>
 								</div>
 							</a>						
@@ -80,7 +80,8 @@
 								<span>${performanceOpen.performanceName}<br>
 									  <br>
 									  <fmt:formatDate value="${performanceOpen.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${performanceOpen.maxPerformanceDate}" pattern="yyyy.MM.dd"/><br>
-									  ${performanceOpen.performanceAddress}<br>${performanceOpen.performanceDetailAddress}
+									  <br><c:if test="${consertOpen.performanceLocationId == 'SE0000001'}">올림픽 홀</c:if>
+									  <c:if test="${consertOpen.performanceLocationId != 'SE0000001'}">샤롯데 씨어터</c:if>
 								</span>	  
 							</div>
 						</a>	
@@ -110,7 +111,8 @@
 							<a href="/performance/detailViewPerformance/${performanceOpenExpected.performanceId}"><img src="<c:url value='/image/${performanceOpenExpected.performanceImagePath}'/>">
 								<div class="info-txt">
 									<p class="info-txt1">${performanceOpenExpected.performanceName}</p>
-									<p class="info-txt2"><fmt:formatDate value="${performanceOpenExpected.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${performanceOpenExpected.maxPerformanceDate}" pattern="yyyy.MM.dd"/></p>
+									<p class="info-txt2"><fmt:formatDate value="${performanceOpenExpected.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${performanceOpenExpected.maxPerformanceDate}" pattern="yyyy.MM.dd"/>
+									<br><br><fmt:formatDate value="${performanceOpenExpected.reservationOpenExpectedDate}" pattern="yyyy.MM.dd"/> 오픈예정</p>
 								</div></a>
 						</div>
 					</td>

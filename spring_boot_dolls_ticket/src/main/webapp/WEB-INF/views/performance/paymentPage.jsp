@@ -193,10 +193,7 @@ hr {
 		<!-- 오른쪽 섹션 -->
 		<div class="right-section">
 			<div class="ticket-info">
-				<img
-					src="../../<c:out value ="${performanceInfo.performanceImagePath}">
-	                </c:out>"
-					alt="${performanceInfo.performanceImagePath}">
+				<img src="<c:url value ='/image/${performanceInfo.performanceImagePath}'/>">
 				<div class="ticket-details">
 					<p class="title">${performanceInfo.performanceName}</p>
 					<p>
