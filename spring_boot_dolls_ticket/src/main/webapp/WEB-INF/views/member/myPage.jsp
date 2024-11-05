@@ -162,7 +162,6 @@ body {
 	color: red;
 	font-size: 0.9em;
 	margin-top: 30px;
-	margin-bottom : 50px;
 	text-align: left;
 }
 
@@ -181,7 +180,7 @@ h3 {
 
 .container {
 	display: flex;
-	margin: 20px;
+	margin: 50px;
 	width: 90%;
 }
 
