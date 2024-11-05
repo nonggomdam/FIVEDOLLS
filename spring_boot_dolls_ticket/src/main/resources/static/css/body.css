@@ -175,21 +175,6 @@ h1 {
 
 #controlPanel img{float:left;margin:10px;}
 
-.donut-dday {
-    width: 111px;
-    height: 111px;
-    line-height: 111px;
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 50%;
-    font-size: 22px;
-    color: #fff;
-    position: absolute;
-    top: 101px;
-    left: 50%;
-    transform: translate(-50%, 0);
-    text-align: center;
-}
-
 .infocoming > a {
 	text-decoration: none;
 }

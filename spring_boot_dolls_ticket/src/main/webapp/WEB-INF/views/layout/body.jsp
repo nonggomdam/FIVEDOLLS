@@ -47,8 +47,7 @@
 		        </c:if>
 					<td class="ranking">
 						<div class="info">				
-							<a href="/performance/detailViewPerformance/${consertOpen.performanceId}"><img src="../<c:out value="${consertOpen.performanceImagePath}"/>"
-		                     alt="${consertOpen.performanceImagePath}">
+							<a href="/performance/detailViewPerformance/${consertOpen.performanceId}"><img src="<c:url value='/image/${consertOpen.performanceImagePath}'/>">
 								<div class="textinfo">
 									<span>${consertOpen.performanceName}<br>
 										  <br>
@@ -76,8 +75,7 @@
 		        </c:if>
 				<td class="ranking">
 					<div class="info">
-						<a href="/performance/detailViewPerformance/${performanceOpen.performanceId}"><img src="../<c:out value="${performanceOpen.performanceImagePath}"/>"
-		                     alt="${performanceOpen.performanceImagePath}">
+						<a href="/performance/detailViewPerformance/${performanceOpen.performanceId}"><img src="<c:url value='/image/${performanceOpen.performanceImagePath}'/>">
 							<div class="textinfo">
 								<span>${performanceOpen.performanceName}<br>
 									  <br>
@@ -109,9 +107,7 @@
 		        </c:if>
 					<td class="ranking">
 						<div class="infocoming">
-							<a href="/performance/detailView/${performanceOpenExpected.performanceId}"><img src="../<c:out value="${performanceOpenExpected.performanceImagePath}"/>"
-		                     alt="${performanceOpenExpected.performanceImagePath}">
-								<div class="donut-dday">D-16</div>
+							<a href="/performance/detailViewPerformance/${performanceOpenExpected.performanceId}"><img src="<c:url value='/image/${performanceOpenExpected.performanceImagePath}'/>">
 								<div class="info-txt">
 									<p class="info-txt1">${performanceOpenExpected.performanceName}</p>
 									<p class="info-txt2"><fmt:formatDate value="${performanceOpenExpected.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${performanceOpenExpected.maxPerformanceDate}" pattern="yyyy.MM.dd"/></p>
