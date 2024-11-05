@@ -10,12 +10,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>마이 페이지</title>
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/css/font5.css'/>">
 <c:import url="/WEB-INF/views/layout/top.jsp" />
 <script src="jquery-3.7.1.min.js"></script>
 <script type="text/javascript">	</script>
 <style>
 body {
-	font-family: Arial, sans-serif;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -123,6 +124,12 @@ body {
 
 .order-table th {
 	background-color: #f4f4f4;
+}
+
+.order-table a {
+	text-decoration: none; /* 링크의 밑줄 제거 */
+    color:#28288C; /* 링크 텍스트 색상 */
+    font-size: 15px;
 }
 
 .order-status {
@@ -308,6 +315,31 @@ h3 {
 .button-link:hover {
     background-color: #0056b3; /* 호버 시 색상 */
 }
+.updatebutton {
+    background-color: #ff6b6b; /* 버튼 배경색 (밝은 빨간색) */
+    color: #ffffff; /* 텍스트 색상 */
+    border: none; /* 테두리 제거 */
+    padding: 10px 20px; /* 안쪽 여백 */
+    font-size: 12px; /* 글자 크기 */
+    border-radius: 5px; /* 모서리 둥글게 */
+    cursor: pointer; /* 클릭할 수 있는 손가락 커서 */
+    transition: background-color 0.3s ease; /* 배경색 전환 효과 */
+}
+
+.updatebutton:hover {
+    background-color: #ff4c4c; /* 호버 시 배경색 (더 짙은 빨간색) */
+}
+
+.updatebutton:active {
+    background-color: #e04848; /* 클릭 시 배경색 */
+    transform: scale(0.98); /* 클릭 시 살짝 축소 */
+}
+
+.updatebutton:disabled {
+    background-color: #ddd; /* 비활성화 시 배경색 (회색) */
+    cursor: not-allowed; /* 비활성화 시 커서 변경 */
+    color: #aaa; /* 비활성화 시 텍스트 색상 */
+}
 
 </style>
 </head>
@@ -320,12 +352,12 @@ h3 {
 			<div class="myInfo">
 				<h2>나의 정보</h2>
 				<p>환영합니다!</p>
-				<p>김태우 님은 일반 회원입니다.</p>
+				<p>${myInfo.custName} 님은 일반 회원입니다.</p>
 			</div>
 			<button
 				onclick="location.href='http://localhost:8080/member/correctionMember';">회원정보
 				변경</button>
-			<button>예약확인/취소</button>
+			<button onclick="location.href='http://localhost:8080/member/confirmation/0';">예약확인/취소</button>
 			<div class="service-center">
 				<h2>고객센터</h2>
 				<p>전화 상담: 1544-5555</p>
@@ -339,7 +371,7 @@ h3 {
 
 		<div class="mypage-content">
 			<div class="welcome-box">
-				<h2>안녕하세요! 김**님</h2>
+				<h2>안녕하세요! ${myInfo.custName}님</h2>
 				<p>현재 등급: WELCOME | 0P</p>
 			</div>
 			<h3>나의 관람내역</h3>
@@ -418,12 +450,12 @@ h3 {
 							        <td>
 							            <form id="updateForm_${myPageList.reservationId}" method="post" action="<c:url value='/member/updateReservation'/>">
 							                <input type="hidden" name="reservationId" value="${myPageList.reservationId}" />
-							                <button type="button" class="updatebutton" onclick="confirmCancellation('${myPageList.reservationId}')">구매취소</button>
+							                <button type="button" class="updatebutton" onclick="confirmCancellation('${myPageList.reservationId}')">예매취소</button>
 							            </form>
 							        </td>
 							    </c:when>
 							    <c:otherwise>
-							        <td></td>
+							        <td><button type="button" class="updatebutton" onclick="confirmCancellation('${myPageList.reservationId}')" disabled>예매취소</button></td>
 							    </c:otherwise>
 						 	</c:choose>
 			
@@ -714,4 +746,3 @@ function confirmCancellation(reservationId) {
 
 </script>
 </html>
-

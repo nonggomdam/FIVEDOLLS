@@ -64,39 +64,70 @@
   	</div>
   	
 	<h1>NOW OPEN</h1>
-		<table id="initialTable">
-			<tr>
-			<div class="images">
-		        <c:forEach items="${consertOpenList}" var="consertOpen">
-		            <div class="item">
-		                <img src="../<c:out value="${consertOpen.performanceImagePath}"/>"
-		                     alt="${consertOpen.performanceImagePath}">
-		                <p id="deteail"> <fmt:formatDate value="${consertOpen.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${consertOpen.maxPerformanceDate}" pattern="yyyy.MM.dd"/> </p>
-		                	<h2 >${consertOpen.performanceName}</h2>
-		                <div class="caption">
-		                    <h2>${consertOpen.performanceName}</h2>
-		                    <p>공연날짜: <fmt:formatDate value="${consertOpen.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${consertOpen.maxPerformanceDate}" pattern="yyyy.MM.dd"/>  </p>
-		                    <p>공연장소</p>
-		                    <p>${consertOpen.performanceAddress} ${consertOpen.performanceDetailAddress}</p>
-		                    <a href="/performance/detailViewPerformance/${consertOpen.performanceId}">공연 상세정보</a>
-		                </div>
-		            </div>
-		        </c:forEach>
-		    </div>
-			</tr>
-		</table>
+	<table id="initialTable">
+		<tr>
+		<c:forEach items="${consertOpenList}" var="consertOpen" varStatus="status">
+		<c:if test="${status.index % 4 == 0}">
+            <tr>
+        </c:if>
+			<td class="ranking">
+				<div class="info">				
+					<img src="<c:url value='/image/${consertOpen.performanceImagePath}'/>">
+						<div class="textinfo">
+							<span>${consertOpen.performanceName}<br>
+								  <br>
+								  <fmt:formatDate value="${consertOpen.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${consertOpen.maxPerformanceDate}" pattern="yyyy.MM.dd"/><br>
+								  <br><a href="/performance/detailViewPerformance/${consertOpen.performanceId}">공연 상세정보</a>
+						 	</span>
+						</div>
+					</a>						
+				</div>	
+			</td>
+		    <c:if test="${(status.index + 1) % 4 == 0}">
+	            </tr>
+	        </c:if>
+		</c:forEach>
+		</tr>
+	</table>
+
 		<div class="banner">
 				<a href="<c:url value='/performance/detailViewPerformance/P0017'/>"><img src="<c:url value='/image/long_banner.png'/>"></a>
 		</div>
 		<h1>TICKET COMING SOON</h1>
 		<table id="initialTable">
-			<tr>
+		<tr>
+		<c:forEach items="${consertOpenExpectedList}" var="consertOpenExpected" varStatus="status">
+		<c:if test="${status.index % 4 == 0}">
+            <tr>
+        </c:if>
+			<td class="ranking">
+				<div class="info">				
+					<img src="<c:url value='/image/${consertOpenExpected.performanceImagePath}'/>">
+						<div class="textinfo">
+							<span>${consertOpenExpected.performanceName}<br>
+								  <br>
+								  <fmt:formatDate value="${consertOpenExpected.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${consertOpenExpected.maxPerformanceDate}" pattern="yyyy.MM.dd"/><br>
+								  <br>오픈예정일자: <fmt:formatDate value="${consertOpenExpected.reservationOpenExpectedDate}" pattern="yyyy.MM.dd"/>
+								  <br><br><a href="/performance/detailViewPerformance/${consertOpenExpected.performanceId}">공연 상세정보</a>
+						 	</span>
+						</div>
+						<div class="info-txt">
+							<p class="info-txt1">${consertOpenExpected.performanceName}</p>
+							<p class="info-txt2"><fmt:formatDate value="${consertOpenExpected.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${consertOpenExpected.maxPerformanceDate}" pattern="yyyy.MM.dd"/></p>
+						</div>						
+				</div>	
+			</td>
+		    <c:if test="${(status.index + 1) % 4 == 0}">
+	            </tr>
+	        </c:if>
+		</c:forEach>
+		</tr>
+			<%-- <tr>
 			<td class="">
 	            <div class="images">
 	                <c:forEach items = "${consertOpenExpectedList}"  var = "consertOpenExpected">
 	                	<div class="item">
-			                <img src="../<c:out value="${consertOpenExpected.performanceImagePath}"/>"
-			                     alt="${consertOpenExpected.performanceImagePath}">			                  
+			                <img src="<c:url value='/image/${consertOpenExpected.performanceImagePath}'/>">			                  
 			                <p id="deteail"> <fmt:formatDate value="${consertOpenExpected.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${consertOpenExpected.maxPerformanceDate}" pattern="yyyy.MM.dd"/> </p>
 			                <p>오픈예정일자: <fmt:formatDate value="${consertOpenExpected.reservationOpenExpectedDate}" pattern="yyyy.MM.dd"/></p>
 			                	<h2 >${consertOpenExpected.performanceName}</h2>
@@ -111,7 +142,7 @@
 	                </c:forEach>
 	            </div>
 			</td>
-			</tr>
+			</tr> --%>
 		</table>
 
 	<div class="empty2"></div>

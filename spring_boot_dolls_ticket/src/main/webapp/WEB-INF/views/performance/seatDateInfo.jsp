@@ -81,10 +81,7 @@
 
 			<div class="my-info">
 				<h3>My예매정보</h3>
-				<img
-					src="../../../<c:out value ="${performanceInfo.performanceImagePath}">
-	                </c:out>"
-					alt="${performanceInfo.performanceImagePath}">
+				<img src="<c:url value='/image/${performanceInfo.performanceImagePath}'/>">
 				<p>공연명 : ${performanceInfo.performanceName}</p>
 				<p>관람 등급 : ${performanceInfo.performanceRatingCode}세</p>
 				<p>공연 날짜 :
