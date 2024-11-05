@@ -168,14 +168,14 @@
 	        			FROM RESERVATION_INFO_M 
 	                    WHERE PERFORMANCE_ID = #{performanceId} 
 	                    AND TO_CHAR(PERFORMANCE_DATE, 'YYYYMMDDHH24MI') = #{performanceDate}
-	                    AND RESERVATION_SEAT_INFORMATION LIKE '%' || A.SEAT_KIND_CD || A.SEAT_NUMBER ||'%') = 1 THEN 'Y'
+	                    AND RESERVATION_SEAT_KIND_CD = A.SEAT_KIND_CD
+	                    AND RESERVATION_SEAT_NUMBER = A.SEAT_NUMBER ) = 1 THEN 'Y'
 	                    ELSE 'N' END AS seatStatus
 		FROM PERFORMANCE_LOCATION_M A
 	    INNER JOIN performance_schedule_d B
 	    ON A.PERFORMANCE_LOCATION_ID = B.PERFORMANCE_LOCATION_ID
 		WHERE B.PERFORMANCE_ID = #{performanceId}
 		AND  TO_CHAR(B.PERFORMANCE_DATE, 'YYYYMMDDHH24MI') = #{performanceDate}
-		ORDER BY A.SEAT_NUMBER ASC
 	</select>
 	<resultMap id="PerformanceLocationMap" type="com.spring_boot_dolls_ticket.project.model.PerformanceSeatVO">
 	    <result property="performanceLocationId" column="PERFORMANCE_LOCATION_ID" />
@@ -266,26 +266,28 @@
 	</select>
 	
 	<insert id="insertReservationInfo" parameterType="com.spring_boot_dolls_ticket.project.model.ReservationVO">
-	
-	INSERT INTO RESERVATION_INFO_M (
-	    RESERVATION_ID, 
-	    PERFORMANCE_ID, 
-	    CUST_ID, 
-	    PERFORMANCE_DATE, 
-	    RESERVATION_SEAT_INFORMATION, 
-	    RESERVATION_STATUS, 
-	    FIRST_CHANGE_DATE, 
-	    LAST_CHANGE_DATE
-	) 
-	VALUES (
-	    ( select 'R0' || TO_CHAR(MAX(TO_NUMBER(SUBSTR(RESERVATION_ID, 2)))+1) from RESERVATION_INFO_M) ,         
-	    #{performanceId},
-	    #{custId},
-	    TO_DATE(#{performanceDate}, 'YYYY-MM-DD HH24:MI'),
-	    #{reservationSeatInformation},
-	    'Y',
-	    SYSDATE,         
-	    SYSDATE          
-	)
+		
+		INSERT INTO RESERVATION_INFO_M (
+		    RESERVATION_ID, 
+		    PERFORMANCE_ID, 
+		    CUST_ID, 
+		    PERFORMANCE_DATE, 
+		    RESERVATION_SEAT_KIND_CD,
+		    RESERVATION_SEAT_NUMBER, 
+		    RESERVATION_STATUS, 
+		    FIRST_CHANGE_DATE, 
+		    LAST_CHANGE_DATE
+		) 
+		VALUES (
+		    ( select 'R0' || TO_CHAR(MAX(TO_NUMBER(SUBSTR(RESERVATION_ID, 2)))+1) from RESERVATION_INFO_M) ,         
+		    #{performanceId},
+		    #{custId},
+		    TO_DATE(#{performanceDate}, 'YYYY-MM-DD HH24:MI'),
+		    #{reservationSeatKindCd},
+		    #{reservationSeatNumber},
+		    'Y',
+		    SYSDATE,         
+		    SYSDATE          
+		)
 	</insert>
 </mapper>

@@ -40,7 +40,7 @@ input {
 						<div>R</div>
 						<c:forEach items="${performanceRSeatInfoList}"
 							var="performanceRSeatInfo">
-							<c:if test="${performanceRSeatInfo.seatStatus != 'N'}">
+							<c:if test="${performanceRSeatInfo.seatStatus == 'Y'}">
 								<div class="seat-selection seat-checkDisabled">${performanceRSeatInfo.seatKindCd}${performanceRSeatInfo.seatNumber}</div>
 							</c:if>
 							<c:if test="${performanceRSeatInfo.seatStatus == 'N'}">
@@ -68,7 +68,7 @@ input {
 
 			<div class="seat-info">
 				<img
-					src="/image/<c:out value ="${performanceInfo.performanceImagePath}">
+					src="../../../<c:out value ="${performanceInfo.performanceImagePath}">
 	                </c:out>"
 					alt="${performanceInfo.performanceImagePath}">
 				<div class="movie-title">${performanceInfo.performanceName}</div>

@@ -47,7 +47,7 @@
 		        </c:if>
 					<td class="ranking">
 						<div class="info">				
-							<a href="/performance/detailViewPerformance/${consertOpen.performanceId}"><img src="/image/<c:out value="${consertOpen.performanceImagePath}"/>"
+							<a href="/performance/detailViewPerformance/${consertOpen.performanceId}"><img src="../<c:out value="${consertOpen.performanceImagePath}"/>"
 		                     alt="${consertOpen.performanceImagePath}">
 								<div class="textinfo">
 									<span>${consertOpen.performanceName}<br>
