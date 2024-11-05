@@ -19,5 +19,6 @@ public interface IMemberDAO {
 	public void updateMember(MemberVO in);
 	public String findAdministratorYnById(String id);
 	public ArrayList<ReservationVO> ReservationList(String custId);
+	public void  updateReservation(ReservationVO in);
 }  
   

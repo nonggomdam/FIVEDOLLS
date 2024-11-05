@@ -95,5 +95,12 @@
 	WHERE A.CUST_ID = #{custId}
            
 </select>	
+
+ <update id="updateReservation"  parameterType="com.spring_boot_dolls_ticket.project.model.ReservationVO">
+	UPDATE RESERVATION_INFO_M 
+	SET RESERVATION_STATUS = 'N'
+	    ,RESERVATION_SEAT_NUMBER = 0
+	WHERE RESERVATION_ID = #{reservationId}
+</update>
     
 </mapper>	 

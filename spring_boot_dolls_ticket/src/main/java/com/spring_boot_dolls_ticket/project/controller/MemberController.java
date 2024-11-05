@@ -593,5 +593,15 @@ public class MemberController {
 	}
 	
 	
+	/**
+	 * 예매내역 수정
+	 */
+	@RequestMapping("member/updateReservation")
+	public String updateMemberReservation(ReservationVO in) {
+		
+		memService.updateReservation(in);
+		
+		return "redirect:/member/confirmation/0"; 
+	}
 
 }
