@@ -1,5 +1,7 @@
 package com.spring_boot_dolls_ticket.project.controller;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -23,7 +25,7 @@ public class HomeController {
 	PerformanceService performanceService;
 
 	@RequestMapping("/")
-	public String index(ModelMap modelMap) {
+	public String index(ModelMap modelMap,PerformanceVO in) {
 		
 		
 		List<PerformanceVO> performanceList = performanceService.selectPerformance();
@@ -36,11 +38,8 @@ public class HomeController {
 		
 		if(performanceList != null && performanceList.size() != 0) {
 			
-			//현재시간 구하기
-			//LocalDate now = LocalDate.now();
-			//DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
-			//int nowDate = Integer.parseInt(now.format(formatter));
 			
+
 			Date today = new Date();
 			//뮤지컬, 예매가능한 뮤지컬만 필터링
 			performanceOpenList = performanceRankingList.stream().filter( o -> "M".equals(o.getPerformanceKindCd()))

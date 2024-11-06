@@ -125,7 +125,9 @@
 	    DELETE FROM PERFORMANCE_SCHEDULE_D
 	    WHERE PERFORMANCE_ID = #{performanceId}
 	</delete>
+	
 	<!-- 카테고리 page -->
+	<!-- 김태우 11월 06일 수정 -->
 	<select id="selectPerformance" resultMap="performanceList">
 		SELECT 
 	        A.PERFORMANCE_ID AS performanceId
@@ -143,7 +145,7 @@
 	        , (SELECT MAX(PERFORMANCE_DATE) FROM PERFORMANCE_SCHEDULE_D WHERE PERFORMANCE_ID = A.PERFORMANCE_ID) AS maxPerformanceDate
 	        , (SELECT MIN(PERFORMANCE_DATE) FROM PERFORMANCE_SCHEDULE_D WHERE PERFORMANCE_ID = A.PERFORMANCE_ID) AS minPerformanceDate
 	    FROM performance_info_m A 
-	    order by maxPerformanceDate 
+	    order by reservationOpenExpectedDate ASC
 	</select>
 	
 	<!-- 11월5일 selectRanking 추가 -->
