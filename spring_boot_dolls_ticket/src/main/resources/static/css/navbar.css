@@ -7,16 +7,18 @@
 }
 
 .navbar {
-position: fixed;
+position: sticky;
+top: 0;
 justify-content: space-between;
 align-items: center;
 display : flex;
-background-color: #000000; /* 배경을 검은색으로 변경 */
+background-color: #274b3a; /* 배경을 검은색으로 변경 */
 height : 80px;
 padding: 10px;  
 z-index : 1000;
 width: 100%;
-font-family: 'TheJamsil5Bold', sans-serif; 
+font-family: 'TheJamsil5Bold', sans-serif;
+transition: background-color 0.3s, height 0.3s; /* 부드러운 전환 효과 */ 
 }
 
 .navbar a {
@@ -32,7 +34,11 @@ font-family: 'TheJamsil5Bold', sans-serif;
 .navbar .categories {
     margin-left: auto;
     margin-right: auto;
-    background-color: #000000;
+    /* background-color: #000000; */
+}
+
+div .categories {
+	background-color: transparent;
 }
 
 .content {
@@ -78,3 +84,25 @@ font-family: 'TheJamsil5Bold', sans-serif;
 .navbar .categories a:hover {
     color: #c4c0c0;
 }
+
+/* 스크롤 시 변경될 스타일 */
+.navbar.scrolled {
+    background-color: #eeeeee; 
+    height: 60px; 
+}
+.navbar.scrolled a:hover {
+    color: #c4c0c0;
+}
+/* 네브바 링크에 스크롤 시 색상 변경 적용 */
+.navbar.scrolled a {
+    color: #274b3a; 
+}
+
+.navbar.scrolled .categories a {
+    color: #8f735b;
+}
+
+.navbar.scrolled .categories a:hover {
+    color: #b3a18c;
+}
+

@@ -9,3 +9,16 @@
 		<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 		<script src="<c:url value='/js/index.js'/>"></script>
 		<script src="<c:url value='/js/performance.js'/>"></script>
+
+		
+
+<script>
+  window.addEventListener('scroll', function () {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+</script>
