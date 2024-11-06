@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>양도 결제</title>
 	<c:import url="/WEB-INF/views/layout/top.jsp"/>
 	<c:import url="/WEB-INF/views/layout/head.jsp"/>
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/ticketHubPay.css'/>">
@@ -60,10 +60,9 @@
 	
 	    <div id="payment-method" ></div>
 	    <div id="agreement"></div>
-	    <!-- 결제하기 버튼 -->
+	  
 	    <button id="payment-button" class="payment-button">결제하기</button>
-	    
-	    <!-- <button id="payment-button1" class="payment-button">결제하기</button> -->
+
 	    
 		<form action="<c:url value='/receive/complete'/>" method="post" name="frm1">
 			<input type="hidden" value="${noticeId}" name="noticeId"/>
@@ -73,19 +72,15 @@
 		</form>
 	</div>
     <script>
-   
-      //const coupon = document.getElementById("coupon-box");
+    
       const button = document.getElementById("payment-button");
       const button1 = document.getElementById("payment-button1");
       const amount = ${totalPrice};
 
-      // 구매자의 고유 아이디를 불러와서 customerKey로 설정하세요.
-      // 이메일・전화번호와 같이 유추가 가능한 값은 안전하지 않습니다.
+ 
       const widgetClientKey = "test_gck_docs_Ovk5rk1EwkEbP0W43n07xlzm";
       const customerKey = '${sessionScope.sid}';
-      const paymentWidget = PaymentWidget(widgetClientKey, customerKey); // 회원 결제
-      // const paymentWidget = PaymentWidget(widgetClientKey, PaymentWidget.ANONYMOUS) // 비회원 결제
-
+      const paymentWidget = PaymentWidget(widgetClientKey, customerKey); 
       const paymentMethodWidget = paymentWidget.renderPaymentMethods(
         "#payment-method",
         { value: amount },
@@ -100,9 +95,7 @@
  
 
       button.addEventListener("click", function () {
-    	alert('success 직전');
-        // 결제를 요청하기 전에 orderId, amount를 서버에 저장하세요.
-        // 결제 과정에서 악의적으로 결제 금액이 바뀌는 것을 확인하는 용도입니다.
+    	 
         paymentWidget.requestPayment({
           orderId: "${orderNo}",
           orderName: "${itemName}",

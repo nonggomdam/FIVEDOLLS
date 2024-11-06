@@ -207,7 +207,9 @@
  	</update>
  	
  	<select id="selectSoldYn" parameterType="string" resultType="com.spring_boot_dolls_ticket.project.model.AssignmentTicketVO">
-		select b.sold_yn, b.notice_id, b.assignment_sqno
+		select b.sold_yn as soldYn
+		     , b.notice_id as noticeId
+		     , b.assignment_sqno as assignmentSqno
 		  from assignment_order_detail a, assignment_ticket b
 		 where a.notice_id=b.notice_id
 		   and a.assignment_sqno=b.assignment_sqno

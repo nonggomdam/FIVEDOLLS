@@ -209,12 +209,11 @@ public class TransferController {
 		}
 		
 		
-		
 		model.addAttribute("list", list);
 		model.addAttribute("totalPrice", sum);
 		model.addAttribute("itemName", sb.toString());
 		
-		//바로 양수하기를 보여주기위해 넣은 값 
+		
 		model.addAttribute("orderNo", order.getOrderNo());
 		
 		return "transfer/pay";
@@ -235,66 +234,12 @@ public class TransferController {
 
 		for(String value:values) {
  
-	      System.out.println(" AssignmentSqno " +value);
-		  
- 
 	      ticketvo.setAssignmentSqno(value);
 	      
 		  int ticketUpdate=tservice.updateAssignmentTicket(ticketvo);
 		  
-		  System.out.println(ticketUpdate);
 		}
 		
-		//결제모듈
-		//결제완료
-		//파일 읽는 모듈 호출했다고 하면
-		
-		String htmlContent ="";
-		try {
-			Path path = Paths.get(new ClassPathResource("templates/transferEmailTemplate.html").getURI());
-			
-			htmlContent =  new String (  Files.readAllBytes(path) , "UTF-8" ) ;
-			
-			System.out.println("htmlContent 내용");
-			System.out.println( htmlContent );
-			
-			AssignmentTicket2VO assignmentTicket2VO = new AssignmentTicket2VO();
-			assignmentTicket2VO.setNoticeId(noticeId);
-			assignmentTicket2VO.setAssignmentSqnos( Arrays.asList(values) );
-			
-			List<Transfer2VO> rslt =tservice.showInfoInEmail(assignmentTicket2VO);
-			System.out.println(rslt);
-			
-			StringBuilder sb = new StringBuilder();
-			for(int i=0; i < rslt.size();i++) {
-				
-				String content =  String.format("<tr><td style='border:1px solid #eeeeee;padding:5px;'><div style='widh:250px;'><span style='display: inline-block;width:70px;text-align:right;'>예매번호</span> %s</div><div style='width:250px;'><span style='display: inline-block;width:70px;text-align:right;'>공연명</span> %s</div><div style='width:250px;'><span style='display: inline-block;width:70px;text-align:right;'>공연날짜</span> %s</div><div style='width:250px;'><span style='display: inline-block;width:70px;text-align:right;'>좌석</span> %s</div><div style='width:250px;'><span style='display: inline-block;width:70px;text-align:right;'>가격</span> %,d원</div></td></tr>", 
-				    rslt.get(i).getReservationId(), 
-				    rslt.get(i).getPerformanceName(), 
-				    rslt.get(i).getPerformanceDate(), 
-				    rslt.get(i).getReservationSeatInformation(), 
-				    rslt.get(i).getPrice());
-				
-				sb.append(content);
-		
-			}
-			
-			htmlContent = htmlContent.replace("${receiveCustId}", receiveId);
-			htmlContent = htmlContent.replace("${content}", sb);
-			
-		} catch (IOException e) {
-			System.out.println("이메일 템플릿 오류");
-			e.printStackTrace();
-		}
-		
-		
-		//메일 보내기
-		TransferEmailMessageVO transmail= new TransferEmailMessageVO();
-		transmail.setSubject("FiveDolls에서 구매하신 티켓 내역입니다.");
-		transmail.setMessage(htmlContent);
-		transmail.setTo(tservice.selectEmail(receiveId));
-		mailservice.send(transmail);
-		//mailservice.scheduleEmailAsync(transmail);
 		
 		return "transfer/ticketHubReceiveComplete";
 	}
@@ -310,15 +255,16 @@ public class TransferController {
 	}
 	
 	@RequestMapping("/success")
+	@Transactional
 	public String orderSuccess(@RequestParam("orderId") String orderId,
 			@RequestParam("amount") String amount,
 			@RequestParam("paymentKey") String paymentKey,
 			RedirectAttributes redirectAttributes,
-			Model model
+			Model model,
+			HttpSession session
+			
 						) throws Exception {
 		
-		System.out.println("@@@@@@@@@@@@  confirm start");
-		System.out.println("orderId : "  + orderId);
 		
 		AssignmentOrderVO order = new AssignmentOrderVO();
 		order.setOrderNo(orderId);
@@ -359,15 +305,11 @@ public class TransferController {
 	    connection.setRequestMethod("POST");
 	    connection.setDoOutput(true);
 	    
-	    System.out.println("@@@@@@@@@@@@  confirm connect");
-	    
 	    OutputStream outputStream = connection.getOutputStream();
 	    outputStream.write(obj.toString().getBytes("UTF-8"));
 	    
 	    int code = connection.getResponseCode();
 	    boolean isSuccess = code == 200 ? true : false;
-	    
-	    System.out.println("@@@@@@@@@@@@  confirm isSuccess : " + isSuccess);
 	    
 	    InputStream responseStream = isSuccess ? connection.getInputStream() : connection.getErrorStream();
 	    
@@ -376,9 +318,6 @@ public class TransferController {
 	    JSONObject jsonObject = (JSONObject) parser.parse(reader);
 	    responseStream.close();
 	    
-	    System.out.println("@@@@@@@@@@@@  confirm 로직구현 : " + jsonObject.toJSONString());
-	    
-	    System.out.println("$$$$$$$$$$$1. sold_yn 체크 start");
 	    //1. sold_yn 체크 
 	    List<AssignmentTicketVO> checkY = tservice.selectSoldYn(orderId);
 	    
@@ -392,34 +331,76 @@ public class TransferController {
 	    	}
 	    }
 
-	    System.out.println("$$$$$$$$$$$1. sold_yn 체크 end");
-	    
-	    System.out.println("$$$$$$$$$$$2. 성공했을 때 주문번호의 상태코드 업데이트 start");
 	    //2. 성공했을 때 주문번호의 상태코드 업데이트
 	    order.setPaymentKey(paymentKey);
 	    tservice.updateSuccess(order);
 	    
-	    System.out.println("$$$$$$$$$$$2. 성공했을 때 주문번호의 상태코드 업데이트 end");
-	    
-	    System.out.println("$$$$$$$$$$$3. 양수인 변경 start");
 	    //3. 양수인 변경
+	    String receiveId=(String)session.getAttribute("sid");
+	    String noticeId= "";
+	    		
+	    List<String> sqnoList = new ArrayList<>();	
 	    for(AssignmentTicketVO checky : checkY) {
-    		tservice.updateAssignmentTicket(checky);
+	    	noticeId = checky.getNoticeId();
+	    	checky.setReceiveCustId(receiveId);
+	    	sqnoList.add(checky.getAssignmentSqno());
+	    	tservice.updateAssignmentTicket(checky);	    	
 	    }
 	    
-	    System.out.println("$$$$$$$$$$$3. 양수인 변경 end");
-	    //4. 메일 전송
+
 	    
+	    
+	    //4. 메일 전송
+	    String htmlContent ="";
+		try {
+			Path path = Paths.get(new ClassPathResource("templates/transferEmailTemplate.html").getURI());
+			
+			htmlContent =  new String (  Files.readAllBytes(path) , "UTF-8" ) ;
+			
+			
+			AssignmentTicket2VO assignmentTicket2VO = new AssignmentTicket2VO();
+			assignmentTicket2VO.setNoticeId(noticeId);
+			assignmentTicket2VO.setAssignmentSqnos( sqnoList);
+			
+			List<Transfer2VO> rslt =tservice.showInfoInEmail(assignmentTicket2VO);
+		
+			
+			StringBuilder sb = new StringBuilder();
+			for(int i=0; i < rslt.size();i++) {
+				
+				String content =  String.format("<tr><td style='border:1px solid #eeeeee;padding:5px;'><div style='widh:250px;'><span style='display: inline-block;width:70px;text-align:right;'>예매번호</span> %s</div><div style='width:250px;'><span style='display: inline-block;width:70px;text-align:right;'>공연명</span> %s</div><div style='width:250px;'><span style='display: inline-block;width:70px;text-align:right;'>공연날짜</span> %s</div><div style='width:250px;'><span style='display: inline-block;width:70px;text-align:right;'>좌석</span> %s</div><div style='width:250px;'><span style='display: inline-block;width:70px;text-align:right;'>가격</span> %,d원</div></td></tr>", 
+				    rslt.get(i).getReservationId(), 
+				    rslt.get(i).getPerformanceName(), 
+				    rslt.get(i).getPerformanceDate(), 
+				    rslt.get(i).getReservationSeatKindCd()+rslt.get(i).getReservationSeatNumber(), 
+				    rslt.get(i).getPrice());
+				
+				sb.append(content);
+		
+			}
+			
+			htmlContent = htmlContent.replace("${receiveCustId}", receiveId);
+			htmlContent = htmlContent.replace("${content}", sb);
+			
+		} catch (IOException e) {
+			System.out.println("이메일 템플릿 오류");
+			e.printStackTrace();
+		}
+		
+		
+		//메일 보내기
+		TransferEmailMessageVO transmail= new TransferEmailMessageVO();
+		transmail.setSubject("FiveDolls에서 구매하신 티켓 내역입니다.");
+		transmail.setMessage(htmlContent);
+		transmail.setTo(tservice.selectEmail(receiveId));
+		mailservice.send(transmail);
+		//mailservice.scheduleEmailAsync(transmail);
 		return "redirect:/transfer/success/ticketHubReceiveComplete";
 	}
 	
 	@RequestMapping(value = "/confirm2")
 	  public ResponseEntity<JSONObject> confirmPayment(@RequestBody String jsonBody) throws Exception {
 	    
-		/*
-		 { ss: "sss", aa:'bbb"}
-		 */
-		System.out.println("@@@@@@@@@@@@  confirm start");
 	    JSONParser parser = new JSONParser();
 	    String orderId;
 	    String amount;
@@ -474,7 +455,6 @@ public class TransferController {
 	    connection.setRequestMethod("POST");
 	    connection.setDoOutput(true);
 	    
-	    System.out.println("@@@@@@@@@@@@  confirm connect");
 	    
 	    OutputStream outputStream = connection.getOutputStream();
 	    outputStream.write(obj.toString().getBytes("UTF-8"));
@@ -482,7 +462,6 @@ public class TransferController {
 	    int code = connection.getResponseCode();
 	    boolean isSuccess = code == 200 ? true : false;
 	    
-	    System.out.println("@@@@@@@@@@@@  confirm isSuccess : " + isSuccess);
 	    
 	    InputStream responseStream = isSuccess ? connection.getInputStream() : connection.getErrorStream();
 	    
@@ -491,8 +470,7 @@ public class TransferController {
 	    JSONObject jsonObject = (JSONObject) parser.parse(reader);
 	    responseStream.close();
 	    
-	    System.out.println("@@@@@@@@@@@@  confirm 로직구현 : ");
-	    
+	 
 	    
 	    return ResponseEntity.status(code).body(jsonObject);
 	  }
