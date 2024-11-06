@@ -232,9 +232,12 @@ public class PerformanceController {
 		//공연정보
 		PerformanceVO performanceInfo = pfmservice.detailViewPerformance(performanceId);
 		
+		PerformanceVO performanceVO = new PerformanceVO();
+		
 		model.addAttribute("performanceId", performanceId);
 		model.addAttribute("performanceDate", performanceDate);
 		model.addAttribute("performanceInfo", performanceInfo);
+		
 		modelMap.put("performanceRSeatInfoList", performanceSeatInfoList.stream().filter( o -> "R".equals(o.getSeatKindCd())).collect(Collectors.toList())); //공연스케쥴
 		modelMap.put("performanceSSeatInfoList", performanceSeatInfoList.stream().filter( o -> "S".equals(o.getSeatKindCd())).collect(Collectors.toList())); //공연스케쥴
 		

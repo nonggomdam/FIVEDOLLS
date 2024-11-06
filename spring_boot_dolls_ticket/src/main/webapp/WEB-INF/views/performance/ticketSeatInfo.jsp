@@ -33,24 +33,12 @@ input {
 		<!-- 좌석 선택 및 정보 -->
 		<div class="seating-container">
 			<div class="seats">
-				<div>SCREEN</div>
+				<div><h2>Stage</h2></div>
 				<div>
-					<div>A</div>
-					<div class=seatSelect>
-						<div>R석</div>
-						<c:forEach items="${performanceRSeatInfoList}"
-							var="performanceRSeatInfo">
-							<c:if test="${performanceRSeatInfo.seatStatus == 'Y'}">
-								<div class="seat-selection seat-checkDisabled">${performanceRSeatInfo.seatKindCd}${performanceRSeatInfo.seatNumber}</div>
-							</c:if>
-							<c:if test="${performanceRSeatInfo.seatStatus == 'N'}">
-								<div class="seat-selection">${performanceRSeatInfo.seatKindCd}${performanceRSeatInfo.seatNumber}</div>
-							</c:if>
-						</c:forEach>
-					</div>
+
 
 					<div class=seatSelect>
-						<div>S석</div>
+						<div><h3>S좌석</h3></div>
 						<c:forEach items="${performanceSSeatInfoList}"
 							var="performanceSSeatInfo">
 							<c:if test="${performanceSSeatInfo.seatStatus != 'N'}">
@@ -61,6 +49,20 @@ input {
 							</c:if>
 						</c:forEach>
 					</div>
+					
+					<div class=seatSelect>
+						<div><h3>R좌석</h3></div>
+						<c:forEach items="${performanceRSeatInfoList}"
+							var="performanceRSeatInfo">
+							<c:if test="${performanceRSeatInfo.seatStatus == 'Y'}">
+								<div class="seat-selectionR seat-checkDisabled">${performanceRSeatInfo.seatKindCd}${performanceRSeatInfo.seatNumber}</div>
+							</c:if>
+							<c:if test="${performanceRSeatInfo.seatStatus == 'N'}">
+								<div class="seat-selectionR">${performanceRSeatInfo.seatKindCd}${performanceRSeatInfo.seatNumber}</div>
+							</c:if>
+						</c:forEach>
+					</div>
+					
 				</div>
 				<!-- 다른 행 추가 가능 -->
 			</div>
@@ -79,8 +81,18 @@ input {
 				</div>
 				<div class="total-price">
 					총 결제 금액: <span id="totalAmt"></span>원
+				
+				</div>				
+					<div style="display: inline-block; width: 20px; height: 20px; background-color: #5F9EA0; margin-top: 20px; margin-right: 8px;"></div>
+					<div style="display: inline-block; line-height: 50px;">S석  <fmt:formatNumber type="number"	maxFractionDigits="3"
+																			value="${performanceInfo.performancePrice+30000}" />원</div>
+				<div>
+				
+				    <div style="display: inline-block; width: 20px; height: 20px; background-color: #834683; margin-right: 8px;"></div>
+				    <div style="display: inline-block; margin-bottom: 8px;">R석 <fmt:formatNumber type="number"	maxFractionDigits="3"
+																			value="${performanceInfo.performancePrice}" />원</div>
 				</div>
-
+				
 				<form class="Performance-payment"action="/performance/paymentPage" method="POST"
 					onsubmit="return setDataForm()">
 					<input type="hidden" name="performanceId" id="performanceId">
@@ -111,6 +123,68 @@ input {
 
 		// 좌석 선택
 		$('.seat-selection').click(
+				function() {
+					if (!$(this).hasClass('seat-disabled')
+							&& !$(this).hasClass('seat-checkDisabled')) {
+						var seatNumber = $(this).text();
+
+						if ($(this).hasClass('seat-selected')) {
+							//금액 해지
+							<c:forEach items="${performanceRSeatInfoList}" var="item">
+							if (seatNumber == '${item.seatKindCd}'
+									+ '${item.seatNumber}') {
+								totalAmt -= parseInt('${item.seatPrice}');
+							}
+							</c:forEach>
+							//금액 해지
+							<c:forEach items="${performanceSSeatInfoList}" var="item">
+							if (seatNumber == '${item.seatKindCd}'
+									+ '${item.seatNumber}') {
+								totalAmt -= parseInt('${item.seatPrice}');
+							}
+							</c:forEach>
+
+
+							// 좌석 선택 해제
+							$(this).removeClass('seat-selected');
+							selectedSeats = selectedSeats.filter(function(seat) {
+										return seat !== seatNumber;
+									});
+						} else {
+							// 좌석 선택
+							$(this).addClass('seat-selected');
+							selectedSeats.push(seatNumber);
+
+							if (seatNumber.substr(0, 1) == "R") {
+								//금액 선택
+								<c:forEach items="${performanceRSeatInfoList}" var="item">
+								if (seatNumber == '${item.seatKindCd}'
+										+ '${item.seatNumber}') {
+									totalAmt += parseInt('${item.seatPrice}');
+								}
+								</c:forEach>
+							} else {
+								//금액 선택
+								<c:forEach items="${performanceSSeatInfoList}" var="item">
+								if (seatNumber == '${item.seatKindCd}'
+										+ '${item.seatNumber}') {
+									totalAmt += parseInt('${item.seatPrice}');
+								}
+								</c:forEach>
+							}
+						}
+
+						// 선택한 좌석 업데이트
+						$('#selectedSeats').text(selectedSeats.join(', '));
+						// 선택한 좌석 업데이트
+
+						const tempTotalAmt = totalAmt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+						$('#totalAmt').text(tempTotalAmt);
+					}
+				});
+		
+		// 좌석 선택
+		$('.seat-selectionR').click(
 				function() {
 					if (!$(this).hasClass('seat-disabled')
 							&& !$(this).hasClass('seat-checkDisabled')) {

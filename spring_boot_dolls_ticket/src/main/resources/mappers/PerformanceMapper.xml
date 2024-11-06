@@ -42,12 +42,14 @@
 		<result property="lastChangeDate" column="lastChangeDate"/>
 	</resultMap>
 	<!-- 공연 정보 조회 -->
+	<!-- 11-07 김태우 수정 performanceprice 셀렉트 추가 -->
 	<select id="detailViewPerformance" parameterType="string" resultType="com.spring_boot_dolls_ticket.project.model.PerformanceVO">
 		SELECT PERFORMANCE_ID as performanceId
          , PERFORMANCE_KIND_CD as performanceKindCd
          , PERFORMANCE_RATING_CODE as performanceRatingCode
          , PERFORMANCE_NAME as performanceName
          , PERFORMANCE_PRICE_R as performancePriceR
+         , PERFORMANCE_PRICE as performancePrice
          , PERFORMANCE_ZIPCODE as performanceZipcode
          , PERFORMANCE_ADDRESS as performanceAddress
          , PERFORMANCE_DETAILADDRESS as performanceDetailAddress
