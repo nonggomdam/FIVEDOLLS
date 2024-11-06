@@ -6,7 +6,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>concert page</title>
+		<title>musical page</title>
 		<c:import url="/WEB-INF/views/layout/top.jsp"/>
 		<c:import url="/WEB-INF/views/layout/head.jsp"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/body.css'/>">
