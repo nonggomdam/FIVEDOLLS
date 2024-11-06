@@ -17,12 +17,14 @@
 	<div class="step-header"><h2>관람일/회차선택</h2></div>
 	<div class="performanceDateInfo">
 		<div class="left-panel">
-
+			<h3>공연일자 선택</h3>
+			<p>지난공연은 선택이 불가합니다</p>
 			<div class="calendar-time-container">
 				<!-- 새로운 컨테이너 추가 -->
 				<div class="calendar">
 					<div class="calendar-entire">
 						<div class="calendar-header">
+						
 							 <select id="year"
 								onchange="renderCalendar()"></select><label for="year">  년</label>
 							<select id="month" onchange="renderCalendar()">
@@ -96,7 +98,8 @@
 			</div>
 			<div class="total-section">
 				<div class="next">
-						<button type="button" onclick="_changePage()">다음단계</button>
+						<button type="button" onclick="alert('이전 단계로 이동합니다.'); history.back()">이전단계</button>
+						<button type="button" onclick="_changePage()" id="nextbutton">다음단계</button>
 				</div>
 			</div>
 		</div>
@@ -254,7 +257,7 @@
 									p.style.backgroundColor = 'lightgray';
 									
 									document.getElementById('reservationDate').innerText = 
-										"선택일시 : "+ /* makeDate */p1.innerText + "-" + p2.innerText+"-"+p3.innerText + "  " + p.innerText;
+										"선택일시 : "+ /* makeDate */p1.innerText + "-" + p2.innerText+"-"+p3.innerText + "일\n\n공연시간 : " + p.innerText+"시";
 									
 									//좌석수 가져오기
 									_getSeatInfo(makeDate+p.innerText);
@@ -348,6 +351,8 @@
 		        window.location.href = "/performance/seatReservation/${performanceId}/" +curruntCheckDate;
 		    }
 		}
+
+
 	</script>
 
 	<c:import url="/WEB-INF/views/layout/footer.jsp"/>
