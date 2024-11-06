@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -100,6 +101,7 @@ public class PerformanceService implements IPerformanceService {
 	}
 	// 공연 정보 등록 및 이미지 경로 설정
 	@Override
+	@Transactional(propagation = Propagation.REQUIRES_NEW)
     public void insertPerformance(PerformanceVO performance, MultipartFile performancePoster, MultipartFile performanceInfoImg) throws IOException {
         // 공연 정보 삽입 -> 삽입 후 performanceId가 자동으로 설정됨
         dao.insertPerformance(performance);
@@ -245,13 +247,6 @@ public class PerformanceService implements IPerformanceService {
 	public void insertPerformanceSchedule(PerformanceScheduleVO performanceScheduleVO) {
 		// TODO Auto-generated method stub
 		
-	}
-
-
-	@Override
-	public List<PerformanceVO> selectRanking() {
-		// TODO Auto-generated method stub
-		return dao.selectRanking();
 	}
 
 }
