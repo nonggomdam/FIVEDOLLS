@@ -182,7 +182,7 @@ hr {
 
 			<div class="form-group">
 				<label for="phone">연락처</label> <input type="text" id="phone"
-					value="${custInfo.custPhonenumber}" readonly>
+					value="${custInfo.custPhoneNumber}" readonly>
 			</div>
 
 			<div class="form-group">
