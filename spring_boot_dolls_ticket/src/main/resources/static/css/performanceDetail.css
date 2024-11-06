@@ -340,6 +340,7 @@
     background: rgba(0, 0, 0, 0.5);
 }
 #popup{
+	z-index: 1000;
     position: absolute;
     padding: 15px;
     box-sizing: border-box;
