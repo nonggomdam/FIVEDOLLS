@@ -37,7 +37,7 @@ input {
 				<div>
 					<div>A</div>
 					<div class=seatSelect>
-						<div>R</div>
+						<div>R석</div>
 						<c:forEach items="${performanceRSeatInfoList}"
 							var="performanceRSeatInfo">
 							<c:if test="${performanceRSeatInfo.seatStatus == 'Y'}">
@@ -50,7 +50,7 @@ input {
 					</div>
 
 					<div class=seatSelect>
-						<div>S</div>
+						<div>S석</div>
 						<c:forEach items="${performanceSSeatInfoList}"
 							var="performanceSSeatInfo">
 							<c:if test="${performanceSSeatInfo.seatStatus != 'N'}">
@@ -67,7 +67,7 @@ input {
 
 
 			<div class="seat-info">
-				<img src="<c:url value ='/image/${performanceInfo.performanceImagePath}'/>">
+				<img src="<c:url value='/image/${performanceInfo.performanceImagePath}'/>">
 				<div class="movie-title">${performanceInfo.performanceName}</div>
 				
 				<c:set var="dateString" value="${performanceDate}" />
@@ -81,17 +81,18 @@ input {
 					총 결제 금액: <span id="totalAmt"></span>원
 				</div>
 
-				<form action="/performance/paymentPage" method="POST"
+				<form class="Performance-payment"action="/performance/paymentPage" method="POST"
 					onsubmit="return setDataForm()">
 					<input type="hidden" name="performanceId" id="performanceId">
 					<input type="hidden" name="performanceDate" id="performanceDate">
 					<input type="hidden" name="totalSeatInfo" id="totalSeatInfo">
-					<input type="submit" value="결제하기">
+					<input type="button" onclick="alert('이전 단계로 이동합니다.'); history.back()" value="이전단계" class="button-shadow">
+					<input type="submit" value="결제하기" class="button-shadow">
 				</form>
 
 				<div class="people">
-					<label>인원수 : </label>
-					<button id="resetSeats">초기화</button>
+	
+					<button id="resetSeats">좌석초기화</button>
 				</div>
 
 			</div>
