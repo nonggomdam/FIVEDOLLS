@@ -21,6 +21,18 @@
 .left-panel {
 	width: 32%;
 }
+.left-panel h3{
+	margin-top : 20px;
+	margin-bottom:15px;
+	margin-left : 15px;
+
+}
+
+.left-panel p{
+	margin-left : 15px;
+	margin-bottom:20px;
+	color: #ff0000; /* 제목 색상 */
+}
 
 .right-panel {
 	width: 40%;
@@ -31,6 +43,8 @@
 	border: 1px solid #ccc;
 	padding: 10px;
 	box-sizing: border-box;
+	border-radius: 5px;
+	
 }
 
 .step-header {
@@ -40,6 +54,7 @@
 	font-weight: bold;
 	color: black;
 	border-bottom: 2px solid #333;
+	padding-bottom: 14px;
 }
 
 .date-select, .time-select {
@@ -57,6 +72,7 @@
 .poster, .my-info {
 	border: 1px solid #ccc;
 	padding: 25px;
+	border-radius: 5px;
 }
 
 .my-info p{
@@ -78,22 +94,28 @@
 }
 
 .next button {
-	width: 250px;
-	background-color: red;
-	color: white;
-	text-align: center;
-	font-weight: bold;
-	font-size: 15px;
-	padding: 10px;
-	cursor: pointer;
+    background-color: #e74c3c;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: box-shadow 0.3s, transform 0.3s;
+    margin-bottom:10px;
+    margin-right:10px;
 }
-
+.next button:hover {
+	opacity: 0.9;
+}
 .calendar {
-	width: 360px;
+	width: 360px;	
 	border: 1px solid #ddd;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	border-radius: 10px;
 	padding: 25px;
+	height:390px;
 }
 
 .calendar-header {
@@ -106,6 +128,7 @@
 }
 
 .calendar-body {
+	
 	padding: 16px;
 }
 
@@ -135,6 +158,8 @@ td:hover {
 	background-color: #007bff;
 	color: white;
 	border-radius: 50%;
+	height:380px;
+	
 }
 
 
@@ -143,6 +168,7 @@ td:hover {
 	justify-content: space-between; /* 좌우 공간을 균등하게 배치 */
 	align-items: flex-start; /* 두 요소의 상단을 맞춤 */
 	gap: 20px; /* 두 요소 사이의 간격 설정 */
+	height:450px;
 }
 
 .calendar {
@@ -157,8 +183,10 @@ td:hover {
 }
 
 .calendar-entire {
+	margin-top:20px;
 	border: 1px solid #ddd;
 	border-radius: 10px;
+	height:360px;
 }
 #round p{
 	text-align: center;
