@@ -418,7 +418,7 @@ h3 {
 					<c:forEach var="myPageList" items="${ReservationList}">
 						<tr>
 							<td><a
-								href="/performance/detailView/${myPageList.performanceId}">${myPageList.performanceName}</a>
+								href="/performance/detailViewPerformance/${myPageList.performanceId}">${myPageList.performanceName}</a>
 							</td>
 							<td>
 							<c:choose>

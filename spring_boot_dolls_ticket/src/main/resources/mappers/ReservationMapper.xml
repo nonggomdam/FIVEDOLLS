@@ -60,6 +60,7 @@
 		<if test="startDateStr != null and endDateStr != null" >
 			AND A.FIRST_CHANGE_DATE BETWEEN TO_DATE(#{startDateStr}, 'YYYYMMDD') AND TO_DATE(#{endDateStr}, 'YYYYMMDD') + 1
 	   	</if>
+	   	ORDER BY firstChangeDate DESC
 		OFFSET #{pageNbr} ROWS FETCH NEXT #{pageOffSet} ROWS ONLY 
 	</select>
 </mapper>
