@@ -45,7 +45,7 @@ input {
 								<div class="seat-selection seat-checkDisabled">${performanceSSeatInfo.seatKindCd}${performanceSSeatInfo.seatNumber}</div>
 							</c:if>
 							<c:if test="${performanceSSeatInfo.seatStatus == 'N'}">
-								<div class="seat-selection">${performanceSSeatInfo.seatKindCd}${performanceSSeatInfo.seatNumber}</div>
+								<div class="seat-selection" >${performanceSSeatInfo.seatKindCd}${performanceSSeatInfo.seatNumber}</div>
 							</c:if>
 						</c:forEach>
 					</div>
