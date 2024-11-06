@@ -69,8 +69,8 @@
 							<div class="show-item ${item.soldYn =='Y'?'sold':'' }">
 								<table style='width:100%;'>
 									<tr>
-										<td><input type="checkbox"  ${item.soldYn =='Y'?'disabled':'' } class="chkbox" style="width:10px;" name="assignmentSqno" value="${item.assignmentSqno}"></td>
-										<td style='width:150px'><a href="<c:url value='/performance/detailViewPerformance/${item.performanceId}'/>"><img src="/image/${item.performanceImagePath}" width='120px'></a></td>
+										<td style='width:20px;'><input type="checkbox"  ${item.soldYn =='Y'?'disabled':'' } class="chkbox" style="width:10px;" name="assignmentSqno" value="${item.assignmentSqno}"></td>
+										<td style='width:130px;'><a href="<c:url value='/performance/detailViewPerformance/${item.performanceId}'/>"><img src="/image/${item.performanceImagePath}" width='120px'></a></td>
 										<td>
 											
 											<div><span>${item.performanceKindCd}</span><span>${item.performanceName}</span></div>

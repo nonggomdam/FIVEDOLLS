@@ -86,14 +86,11 @@ td,th div {
 	text-align:left;
 }
  
-
-
- 
 #combine {
     display:flex;            
-    justify-content:space-between; 
+    justify-content:center; 
     align-items:stretch;   
-    width:50%;
+    width:370px;
     margin-top:60px;       
 }
 
@@ -103,7 +100,7 @@ td,th div {
     border-radius:10px;
     padding:10px;
     box-sizing:border-box;    
-    margin-right:-60px;
+    margin-right:0px;
 }
 
 .receiveBtn {
@@ -114,15 +111,20 @@ td,th div {
     background-color:#20B2AA;
     border-radius:10px;
     padding:10px;
-    margin-left:-60px;
+    margin-left:0px;
+    color:white;
 }
+
+/* .receiveBtn:hover {
+	background-color:#5f6aa1;
+	color:white;
+} */
 .receiveBtn a {
 	text-decoration:none;
 }
 .receiveBtn span {
     font-size:25px;
     font-weight:bold;
-    color:white;
     padding:15px;
 }
 

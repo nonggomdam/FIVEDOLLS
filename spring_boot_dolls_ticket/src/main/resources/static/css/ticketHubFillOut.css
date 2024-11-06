@@ -94,7 +94,7 @@ button {
 
 td div {
 	padding:10px;
-	width:80%;
+	width:90%;
 	font-size:21px;
 	box-sizing:border-box;
 	display:inline-block;
@@ -103,7 +103,7 @@ td div {
 
 .show-item {
     gap: 10px;
-    margin-left:110px;              
+    margin-left:50px;              
 }
 
 .show-item input[type="checkbox"] {
