@@ -86,5 +86,13 @@
 	    ,RESERVATION_SEAT_NUMBER = 0
 	WHERE RESERVATION_ID = #{reservationId}
 </update>
-    
+	<resultMap id="memberList" type="com.spring_boot_dolls_ticket.project.model.MemberVO">
+		<result property="custId" column="CUST_ID" />
+		<result property="administratorYN" column="ADMINISTRATOR_YN" />
+		<result property="custPhoneNumber" column="CUST_PHONENUMBER" />
+		<result property="custEmail" column="CUST_EMAIL" />
+	</resultMap>
+	<select id="listAllMember" resultMap="memberList">
+		SELECT * FROM MEMBER
+	</select>
 </mapper>	 

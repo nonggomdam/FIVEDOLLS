@@ -19,10 +19,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.spring_boot_dolls_ticket.project.model.InquiryVO;
+import com.spring_boot_dolls_ticket.project.model.MemberVO;
 import com.spring_boot_dolls_ticket.project.model.NoticeVO;
 import com.spring_boot_dolls_ticket.project.model.PerformanceSeatVO;
 import com.spring_boot_dolls_ticket.project.model.PerformanceVO;
 import com.spring_boot_dolls_ticket.project.service.InquiryService;
+import com.spring_boot_dolls_ticket.project.service.MemberService;
 import com.spring_boot_dolls_ticket.project.service.NoticeService;
 import com.spring_boot_dolls_ticket.project.service.PerformanceService;
 
@@ -38,6 +40,9 @@ public class AdminController {
 	@Autowired
 	InquiryService inquiryService;
 	
+	@Autowired
+	MemberService memberService;
+	
 	// 관리자 메인 페이지 이동 처리
 	@RequestMapping("/admin")
 	public String adminMainPage(Model model) {
@@ -45,10 +50,12 @@ public class AdminController {
 		ArrayList<PerformanceVO> performanceList = performanceService.listAllPerformance();
 		ArrayList<NoticeVO> noticeList = noticeService.listAllNotice();
 		ArrayList<InquiryVO> inquiryList = inquiryService.qaList();
+		ArrayList<MemberVO> memberList = memberService.listAllMember();
 		
 		model.addAttribute("performanceList", performanceList);
 		model.addAttribute("noticeList", noticeList);
 		model.addAttribute("inquiryList", inquiryList);
+		model.addAttribute("memberList", memberList);
 		
 		return "admin/adminMain";
 		

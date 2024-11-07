@@ -141,6 +141,11 @@ public class MemberService implements IMemberService {
 		
 	}
 
+	@Override
+	public ArrayList<MemberVO> listAllMember() {
+		return dao.listAllMember();
+	}
+
 
 
 	

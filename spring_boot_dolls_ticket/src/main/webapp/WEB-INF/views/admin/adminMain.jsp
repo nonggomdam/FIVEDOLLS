@@ -126,18 +126,35 @@
                     </td>
                     <td>
                         <div class="section">
-                            <h3><a href="/admin/memList">사용자 관리</a></h3>
-                            <table id="userTable">
+                            <h3><a href="/admin/memberList">사용자 관리</a></h3>
+                            <table id="memberTable">
                             	<thead>
                             		<tr>
                                         <th>ID</th>
-                                        <th>가입일</th>
+                                        <th>권한</th>
                                         <th>전화 번호</th>
                                         <th>이메일</th>
                                     </tr>
                             	</thead>
-                            	<tbody id="userItems">
-                            	</tbody>
+                            	<tbody id="memberItems">
+                                	<c:choose>
+                                        <c:when test="${empty memberList}">
+                                            <tr>
+                                                <td colspan="4">등록된 회원이 없습니다.</td>
+                                            </tr>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <c:forEach items="${memberList}" var="member" varStatus="status">
+                                                <tr id="${member.custId}" class="memberRow" style="cursor:pointer; display: ${status.index < 5? 'table-row' : 'none'};">
+                                                    <td>${member.custId}</td>
+                                                    <td>${member.administratorYN}</td>
+                                                    <td>${member.custPhoneNumber}</td>
+                                                    <td>${member.custEmail}</td>
+                                                </tr>
+                                            </c:forEach>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </tbody>
                             </table>
                         </div>
                     </td>
