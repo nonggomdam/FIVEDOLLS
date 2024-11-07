@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원가입</title>
 <link href="/css/join.css" rel="stylesheet" type="text/css">
 <link href="/css/font3.css" rel="stylesheet" type="text/css">
 <script src="/js/jquery-3.7.1.min.js"></script>

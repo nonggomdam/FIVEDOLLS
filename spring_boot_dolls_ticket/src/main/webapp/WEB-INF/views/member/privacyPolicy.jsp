@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>약관동의</title>
 <script src="/js/privacyPolicy.js"></script>
 <link href="/css/privacyPolicy.css" rel="stylesheet" type="text/css">
 <%-- <c:import url="/WEB-INF/views/layout/head.jsp"></c:import>

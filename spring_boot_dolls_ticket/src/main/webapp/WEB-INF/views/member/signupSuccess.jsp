@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>가입완료</title>
 <link href="/css/signup_Success.css" rel="stylesheet" type="text/css">
 <link href="/css/font3.css" rel="stylesheet" type="text/css">
 </head>
