@@ -11,4 +11,5 @@ public interface INoticeService {
 	public NoticeVO detailViewNotice(int noticeNo);
 	public void updateNotice(NoticeVO noticeNo); // 공지 사항 수정
 	public void deleteNotice(int noticeNo); // 공지 사항 삭제
+	public void updateHitNum(int noticeNo); // 공지 사항 조회수 증가
 }

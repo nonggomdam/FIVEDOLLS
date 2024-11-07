@@ -7,9 +7,11 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,12 +30,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.spring_boot_dolls_ticket.project.model.InquiryVO;
 import com.spring_boot_dolls_ticket.project.model.MemberVO;
 import com.spring_boot_dolls_ticket.project.model.ReservationVO;
+import com.spring_boot_dolls_ticket.project.service.InquiryService;
 import com.spring_boot_dolls_ticket.project.service.MemberService;
 import com.spring_boot_dolls_ticket.project.service.ReservationService;
 
@@ -48,9 +53,11 @@ public class MemberController {
 	@Autowired
 	MemberService memService;
 	
-	
 	@Autowired
 	ReservationService reservationService;
+	
+	@Autowired
+	InquiryService inquiryService;
 	
 	private Map<String, Object> store = new ConcurrentHashMap<>(); // 세션 저장소
 	
@@ -596,6 +603,39 @@ public class MemberController {
 		return "member/changePasswordPage";
 	}
 	
+	// 1:1 문의 내역 페이지 이동
+	@RequestMapping("/member/myInquiry")
+	public String inquiryList(Model model, @SessionAttribute("sid") String custId) {
+	    List<InquiryVO> inquiryList = inquiryService.listAllInquiry(custId);
+	    model.addAttribute("inquiryList", inquiryList);
+	    return "member/myInquiryList";
+	}
+	
+	// 1:1 문의 등록 페이지 이동
+	@RequestMapping("/member/newInquiryForm")
+	public String newInquiryForm() {
+		return "member/newInquiryForm";
+	}
+	
+	// 1:1 문의 등록 처리
+	@RequestMapping("/member/insertInquiry")
+	public String insertInquiry(@ModelAttribute InquiryVO inquiry, @SessionAttribute("sid") String custId) {
+		inquiry.setCustId(custId);
+		
+		inquiryService.insertInquiry(inquiry);
+		
+		return "redirect:/member/myInquiry";
+	}
+	
+	// 1:1 문의 상세 페이지 이동 처리
+	@RequestMapping("/member/inquiryDetailView/{inquiryId}")
+	public String inquiryDetailView(@PathVariable("inquiryId") int inquiryId, Model model) {
+		InquiryVO inquiry = inquiryService.selectInquiry(inquiryId);
+
+		model.addAttribute("inquiry", inquiry);
+		
+		return "member/inquiryDetailView";
+	}
 	
 	/**
 	 * 예매내역 수정
