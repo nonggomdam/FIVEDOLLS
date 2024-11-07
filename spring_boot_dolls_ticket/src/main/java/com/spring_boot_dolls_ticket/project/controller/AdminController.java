@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -16,9 +18,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.spring_boot_dolls_ticket.project.model.InquiryVO;
 import com.spring_boot_dolls_ticket.project.model.NoticeVO;
 import com.spring_boot_dolls_ticket.project.model.PerformanceSeatVO;
 import com.spring_boot_dolls_ticket.project.model.PerformanceVO;
+import com.spring_boot_dolls_ticket.project.service.InquiryService;
 import com.spring_boot_dolls_ticket.project.service.NoticeService;
 import com.spring_boot_dolls_ticket.project.service.PerformanceService;
 
@@ -31,15 +35,20 @@ public class AdminController {
 	@Autowired
 	NoticeService noticeService;
 	
+	@Autowired
+	InquiryService inquiryService;
+	
 	// 관리자 메인 페이지 이동 처리
 	@RequestMapping("/admin")
 	public String adminMainPage(Model model) {
 		
 		ArrayList<PerformanceVO> performanceList = performanceService.listAllPerformance();
 		ArrayList<NoticeVO> noticeList = noticeService.listAllNotice();
+		ArrayList<InquiryVO> inquiryList = inquiryService.qaList();
 		
 		model.addAttribute("performanceList", performanceList);
 		model.addAttribute("noticeList", noticeList);
+		model.addAttribute("inquiryList", inquiryList);
 		
 		return "admin/adminMain";
 		
@@ -196,6 +205,33 @@ public class AdminController {
 		
 		return "redirect:/admin/noticeList";
 		
+	}
+	// 관리자 1:1 문의 목록 페이지 이동 처리
+	@RequestMapping("/admin/inquiryList")
+	public String inquiryList(Model model) {
+		
+		ArrayList<InquiryVO> inquiryList = inquiryService.qaList();
+		
+		model.addAttribute("inquiryList", inquiryList);
+		
+		return "admin/inquiryList";
+		
+	}
+	// 관리자 1:1 문의 상세 페이지 이동 처리
+	@RequestMapping("/admin/inquiryResponseView/{inquiryId}")
+	public String responseInquiry(@PathVariable("inquiryId") int inquiryId, Model model) {
+		InquiryVO inquiry = inquiryService.selectInquiry(inquiryId);
+		
+		model.addAttribute("inquiry", inquiry);
+		
+		return "admin/inquiryResponseView";
+	}
+	// 관리자 1:1 문의 답변 처리
+	@RequestMapping("/admin/updateResponse")
+	public String updateResponse(@RequestParam("inquiryId") int inquiryId, @RequestParam("responseContent") String responseContent) {
+		inquiryService.updateResponse(inquiryId, responseContent);
+		
+		return "redirect:/admin/inquiryResponseView/" + inquiryId;
 	}
 
 }

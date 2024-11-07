@@ -7,7 +7,11 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,18 +23,24 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.spring_boot_dolls_ticket.project.model.InquiryVO;
 import com.spring_boot_dolls_ticket.project.model.MemberVO;
 import com.spring_boot_dolls_ticket.project.model.ReservationVO;
+import com.spring_boot_dolls_ticket.project.service.InquiryService;
 import com.spring_boot_dolls_ticket.project.service.MemberService;
+import com.spring_boot_dolls_ticket.project.service.ReservationService;
 
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
@@ -42,6 +52,13 @@ public class MemberController {
 	
 	@Autowired
 	MemberService memService;
+	
+	@Autowired
+	ReservationService reservationService;
+	
+	@Autowired
+	InquiryService inquiryService;
+	
 	private Map<String, Object> store = new ConcurrentHashMap<>(); // 세션 저장소
 	
 	@RequestMapping("/member/loginForm")
@@ -480,21 +497,32 @@ public class MemberController {
 		return "member/signupSuccess";
 	}
 	
+	
+	/**
+	 * 마이페이지
+	 */
 	@RequestMapping("member/myPage")
 	public String myPage(Model model,HttpSession session) {
 		
 		if(session.getAttribute("sid") == null || session.getAttribute("sid") == "" ) {
 			return "member/loginPage";
 		}
-		
 		String custId = (String)session.getAttribute("sid");
-		ArrayList<ReservationVO> myPageReservationList = memService.ReservationList(custId);
 		
-		model.addAttribute("myPageReservationList",myPageReservationList);
+		MemberVO myInfo = memService.selectCustInfo(custId);
+		
+		ReservationVO reservationVO = new ReservationVO();
+		reservationVO.setCustId(custId);
+		reservationVO.setPageNbr(0);
+		reservationVO.setPageOffSet(10000);
+		ArrayList<ReservationVO> myPageReservationList = reservationService.reservationList(reservationVO);
+		
+		model.addAttribute("myInfo", myInfo);
+		model.addAttribute("totalCnt",myPageReservationList.size());
+		//model.addAttribute("myPageReservationList",myPageReservationList);
 		
 		return "member/myPage";
 	}
-	
 	
 	/**
 	 * 회원정보 수정
@@ -525,21 +553,45 @@ public class MemberController {
 	/**
 	 * 예매내역
 	 */
-	@RequestMapping("member/Confirmation")
-	public String Confirmation(Model model,HttpSession session) {
+	@RequestMapping("member/confirmation/{pageNbr}")
+	public String Confirmation(@ModelAttribute ReservationVO in, @PathVariable int pageNbr, Model model,HttpSession session) {
 		
 		if(session.getAttribute("sid") == null || session.getAttribute("sid") == "" ) {
 			return "member/loginPage";
 		}
-		
 		String custId = (String)session.getAttribute("sid");
-		ArrayList<ReservationVO> ReservationList = memService.ReservationList(custId);
+		//현재시간 구하기
+		LocalDate now = LocalDate.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+		int nowDate = Integer.parseInt(now.format(formatter));
+		
+		// 1개월 빼기
+        LocalDate oneMonthBefore = now.minusMonths(1);
+		int nowBefore1MonthDate = Integer.parseInt(oneMonthBefore.format(formatter));
 		
 		
+		//총 페이징수 조회
+		ReservationVO reservationVO = new ReservationVO();
+		reservationVO.setCustId(custId);
+		reservationVO.setPageNbr(0);
+		reservationVO.setPageOffSet(10000);
+		reservationVO.setStartDateStr(in.getStartDateStr() == null ? String.valueOf(nowBefore1MonthDate) : in.getStartDateStr());
+		reservationVO.setEndDateStr(in.getEndDateStr() == null ? String.valueOf(nowDate) : in.getEndDateStr());
+		ArrayList<ReservationVO> reservationList = reservationService.reservationList(reservationVO);
+		if(reservationList.size() > 0) {
+			model.addAttribute("totalPages",reservationList.size()/10 + 1);
+		}
+		model.addAttribute("currentPage",pageNbr);
+		model.addAttribute("startDateStr",in.getStartDateStr());
+		model.addAttribute("endDateStr",in.getEndDateStr());
 		
-		model.addAttribute("ReservationList",ReservationList);
+		//리스트 조회
+		reservationVO.setPageNbr(10 * pageNbr);
+		reservationVO.setPageOffSet(10); 
+		ArrayList<ReservationVO> reservationList2 = reservationService.reservationList(reservationVO);
+		model.addAttribute("ReservationList",reservationList2);
 		
-		return "member/Confirmation";
+		return "member/confirmation";
 	}
 	
 	/**
@@ -550,6 +602,49 @@ public class MemberController {
 		return "member/changePasswordPage";
 	}
 	
+	// 1:1 문의 내역 페이지 이동
+	@RequestMapping("/member/myInquiry")
+	public String inquiryList(Model model, @SessionAttribute("sid") String custId) {
+	    List<InquiryVO> inquiryList = inquiryService.listAllInquiry(custId);
+	    model.addAttribute("inquiryList", inquiryList);
+	    return "member/myInquiryList";
+	}
 	
+	// 1:1 문의 등록 페이지 이동
+	@RequestMapping("/member/newInquiryForm")
+	public String newInquiryForm() {
+		return "member/newInquiryForm";
+	}
+	
+	// 1:1 문의 등록 처리
+	@RequestMapping("/member/insertInquiry")
+	public String insertInquiry(@ModelAttribute InquiryVO inquiry, @SessionAttribute("sid") String custId) {
+		inquiry.setCustId(custId);
+		
+		inquiryService.insertInquiry(inquiry);
+		
+		return "redirect:/member/myInquiry";
+	}
+	
+	// 1:1 문의 상세 페이지 이동 처리
+	@RequestMapping("/member/inquiryDetailView/{inquiryId}")
+	public String inquiryDetailView(@PathVariable("inquiryId") int inquiryId, Model model) {
+		InquiryVO inquiry = inquiryService.selectInquiry(inquiryId);
+
+		model.addAttribute("inquiry", inquiry);
+		
+		return "member/inquiryDetailView";
+	}
+	
+	/**
+	 * 예매내역 수정
+	 */
+	@RequestMapping("member/updateReservation")
+	public String updateMemberReservation(ReservationVO in) {
+		
+		memService.updateReservation(in);
+		
+		return "redirect:/member/confirmation/0"; 
+	}
 
 }

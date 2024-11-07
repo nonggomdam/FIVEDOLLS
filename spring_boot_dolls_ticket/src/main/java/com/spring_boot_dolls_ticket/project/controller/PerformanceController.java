@@ -29,6 +29,7 @@ import com.spring_boot_dolls_ticket.project.model.ReservationVO;
 import com.spring_boot_dolls_ticket.project.model.ReviewVO;
 import com.spring_boot_dolls_ticket.project.service.MemberService;
 import com.spring_boot_dolls_ticket.project.service.PerformanceService;
+import com.spring_boot_dolls_ticket.project.service.ReservationService;
 import com.spring_boot_dolls_ticket.project.service.ReviewService;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -45,6 +46,9 @@ public class PerformanceController {
 	
 	@Autowired
 	MemberService memberService;
+	
+	@Autowired
+	ReservationService reservationService;
 	
 	@RequestMapping("/performance/musical")
 	public String musical(ModelMap modelMap) {
@@ -173,6 +177,7 @@ public class PerformanceController {
 		 * 공연 스케쥴 목록 조회
 		 */
 		List<PerformanceScheduleVO> performanceDateList = pfmservice.selectPerformanceDate(performanceId);
+		PerformanceVO performanceInfo = pfmservice.detailViewPerformance(performanceId);
 		if(performanceDateList != null && performanceDateList.size() > 0) {
 			for (PerformanceScheduleVO o : performanceDateList) {
 				SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHH:mm");
@@ -183,7 +188,7 @@ public class PerformanceController {
 		Collections.sort(arr);
 	    modelMap.put("performanceDateList", arr); //공연스케쥴
 	    model.addAttribute("performanceId", performanceId);
-	    
+	    model.addAttribute("performanceInfo", performanceInfo);
 	    
 		return "performance/seatDateInfo";
 	}
@@ -305,17 +310,40 @@ public class PerformanceController {
 	@RequestMapping("performance/paymentPage/payment")
 	public String payment(@ModelAttribute ReservationVO reservationVO, HttpSession session, Model model, ModelMap modelMap) {
 		
-		/*
-		 * if(session.getAttribute("sid") == null || session.getAttribute("sid") == "" )
-		 * { return "erorrPage"; }
-		 */
-		System.out.println(reservationVO.getPerformanceId());
-		System.out.println(reservationVO.getPerformanceDate());
-		System.out.println(reservationVO.getReservationSeatInformation());
+		if(session.getAttribute("sid") == null || session.getAttribute("sid") == "" ) {
+			return "erorrPage";
+		}
+		
 		reservationVO.setCustId(session.getAttribute("sid").toString());
-		pfmservice.insertReservationInfo(reservationVO);
-		return "member/myPage";
+		String[] seatInfo = reservationVO.getReservationSeatInformation().trim().split(",");
+		
+		
+		for (String seat : seatInfo) {
+			
+			ReservationVO in = new ReservationVO();
+			in.setPerformanceId(reservationVO.getPerformanceId());
+			in.setCustId(reservationVO.getCustId());
+			in.setPerformanceDate(reservationVO.getPerformanceDate());
+			in.setReservationSeatKindCd(seat.substring(0,1).trim());
+			in.setReservationSeatNumber(Integer.parseInt(seat.substring(1).trim()));
+			
+			System.out.println(in.getPerformanceId());
+			System.out.println(in.getCustId());
+			System.out.println(in.getPerformanceDate());
+			System.out.println(in.getReservationSeatKindCd());
+			System.out.println(in.getReservationSeatNumber());
+			
+			ReservationVO out = reservationService.getReservation(in);
+			System.out.println(out);
+			if( out != null) {
+				return "erorrPage";
+			}
+			pfmservice.insertReservationInfo(in);
+		}
+		
+		return "redirect:/member/myPage";
 	}
+	
 	
 /*	
 	@GetMapping("/") // DB에서 메인페이지로 정보 가져오기

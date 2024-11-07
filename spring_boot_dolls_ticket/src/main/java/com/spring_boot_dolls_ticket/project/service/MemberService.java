@@ -135,6 +135,12 @@ public class MemberService implements IMemberService {
 		return dao.ReservationList(custId);
 	}
 
+	@Override
+	public void updateReservation(ReservationVO in) {
+		dao.updateReservation(in);
+		
+	}
+
 
 
 	

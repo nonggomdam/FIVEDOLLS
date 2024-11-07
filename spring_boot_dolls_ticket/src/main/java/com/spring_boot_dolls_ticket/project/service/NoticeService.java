@@ -48,5 +48,12 @@ public class NoticeService implements INoticeService {
 		dao.deleteNotice(noticeNo);
 		
 	}
+	
+	@Override
+	public void updateHitNum(int noticeNo) {
+		
+		dao.updateHitNum(noticeNo);
+		
+	}
 
 }

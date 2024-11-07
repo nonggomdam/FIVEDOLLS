@@ -9,14 +9,22 @@ public class ReservationVO {
     private String performanceId;                    // PERFORMANCE_ID
     private String custId;
     private String performanceDate;
-    private String reservationSeatInformation;
+    private Date performanceDate2;
+    private String reservationSeatInformation; // 화면에서 넘길떄필요
+    private String reservationSeatKindCd;
+    private int reservationSeatNumber;
     private String reservationStatus;
     private String performanceImagePath;
     private String performanceName;
     private int performancePrice;
+    private int totalPerformancePrice;
     private Date firstChangeDate;                 // 최초 변경 날짜 (first_change_date)
     private Date lastChangeDate;                  // 마지막 변경 날짜 (last_change_date)
-    
+    private int pageNbr;
+    private int pageOffSet;
+    private int currentPage;
+    private String startDateStr;
+    private String endDateStr;
     
     
     
@@ -85,6 +93,60 @@ public class ReservationVO {
 	}
 	public void setReservationStatus(String reservationStatus) {
 		this.reservationStatus = reservationStatus;
+	}
+	public Date getPerformanceDate2() {
+		return performanceDate2;
+	}
+	public void setPerformanceDate2(Date performanceDate2) {
+		this.performanceDate2 = performanceDate2;
+	}
+	public String getReservationSeatKindCd() {
+		return reservationSeatKindCd;
+	}
+	public void setReservationSeatKindCd(String reservationSeatKindCd) {
+		this.reservationSeatKindCd = reservationSeatKindCd;
+	}
+	public int getReservationSeatNumber() {
+		return reservationSeatNumber;
+	}
+	public void setReservationSeatNumber(int reservationSeatNumber) {
+		this.reservationSeatNumber = reservationSeatNumber;
+	}
+	public int getTotalPerformancePrice() {
+		return totalPerformancePrice;
+	}
+	public void setTotalPerformancePrice(int totalPerformancePrice) {
+		this.totalPerformancePrice = totalPerformancePrice;
+	}
+	public int getPageNbr() {
+		return pageNbr;
+	}
+	public void setPageNbr(int pageNbr) {
+		this.pageNbr = pageNbr;
+	}
+	public int getPageOffSet() {
+		return pageOffSet;
+	}
+	public void setPageOffSet(int pageOffSet) {
+		this.pageOffSet = pageOffSet;
+	}
+	public int getCurrentPage() {
+		return currentPage;
+	}
+	public void setCurrentPage(int currentPage) {
+		this.currentPage = currentPage;
+	}
+	public String getStartDateStr() {
+		return startDateStr;
+	}
+	public void setStartDateStr(String startDateStr) {
+		this.startDateStr = startDateStr;
+	}
+	public String getEndDateStr() {
+		return endDateStr;
+	}
+	public void setEndDateStr(String endDateStr) {
+		this.endDateStr = endDateStr;
 	}
     
     

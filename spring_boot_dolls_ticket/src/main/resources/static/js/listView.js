@@ -12,4 +12,9 @@ $(document).ready(function() {
 		
 		window.location.href = "/admin/noticeDetailView/" + noticeNo;
 	});
+	$(".inquiryRow").on("click", function() {
+		var inquiryId = $(this).attr("id");
+		
+		window.location.href = "/admin/inquiryResponseView/" + inquiryId;
+	});
 });

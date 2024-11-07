@@ -11,4 +11,5 @@ public interface INoticeDAO {
 	public NoticeVO detailViewNotice(int noticeNo); // 공지 사항 상세
 	public void updateNotice(NoticeVO notice); // 공지 사항 수정
 	public void deleteNotice(int noticeNo); // 공지 사항 삭제
+	public void updateHitNum(int noticeNo);
 }
