@@ -88,9 +88,7 @@ if (userId == null) {
 		</div>
 		<div class="dt-04">
 			<a href="" id="describe"><span>상세정보</span></a>
-			<c:if test="${pfm.performanceKindCd eq 'M'}">
 				<a href="" id="goReview"><span>관람후기<span class="dt-04-count">(${reviewList.size()})</span></span></a>
-			</c:if>
 		</div>
 		<div class="detailPage-describe">
 			<div class="dt-05">
@@ -158,7 +156,6 @@ if (userId == null) {
 						</table>
 					</div>
 				</div>
-				<c:if test="${pfm.performanceKindCd eq 'M'}">
 					<p class="dt05-tit">관람후기</p>
 					<form id="reviewForm" name="reviewForm" method="post" action="<c:url value='/performance/insertReview'/>">
 						<input type="hidden" id="performanceId" name="performanceId" value="${pfm.performanceId}">
@@ -250,7 +247,6 @@ if (userId == null) {
 							</c:otherwise>
 						</c:choose>
 					</div>
-				</c:if>
 	</div>
 	</div>
 	</div>
