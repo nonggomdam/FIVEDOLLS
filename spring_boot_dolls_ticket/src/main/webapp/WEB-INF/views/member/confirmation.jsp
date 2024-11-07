@@ -341,6 +341,21 @@ h3 {
     color: #aaa; /* 비활성화 시 텍스트 색상 */
 }
 
+#myForm{
+		text-align: center;
+}
+
+#myForm a{
+	margin-right:5px;
+	margin-left:5px;
+}
+
+#myForm span{
+		margin-right:5px;
+		margin-left:5px;
+		font-weight: bold; /* 버튼 텍스트 굵게 */
+}
+
 </style>
 </head>
 <body>
