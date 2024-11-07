@@ -12,6 +12,18 @@
 <script src="jquery-3.7.1.min.js"></script>
 <script type="text/javascript"></script>
 <style>
+@font-face {
+ font-family: 'TheJamsil3Regular';
+ src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil3Regular.woff2') format('woff2');
+ font-weight: 300; /*이미 위에서 3Regular 이렇게 정해져서 font-weight 의미 없음*/
+ font-style: normal;
+}
+@font-face {
+   font-family: 'TheJamsil2Light';
+   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil2Light.woff2') format('woff2');
+   font-weight: 200; /*이미 위에서 2Light 이렇게 정해져서 font-weight 의미 없음*/
+   font-style: normal;
+}
 .container {
 	margin-top: 7%;
 	width: 70%;
@@ -25,6 +37,7 @@
 	padding: 60px;
 	border: 1px solid #ddd;
 	border-radius: 6px;
+	font-family: 'TheJamsil2Light', sans-serif;
 }
 
 .right-section {
@@ -34,12 +47,14 @@
 	background-color: #f0f0f0;
 	border-left: 1px solid #ddd;
 	margin-left: 120px;
+	font-family: 'TheJamsil2Light', sans-serif;
 }
 
 .section-title {
 	font-size: 1.5em;
 	margin-bottom: 40px;
 	font-weight: bold;
+	font-family: 'TheJamsil3Regular', sans-serif;
 }
 
 .form-group {
@@ -141,6 +156,7 @@
 	 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: box-shadow 0.3s, transform 0.3s;
+    font-family: 'TheJamsil2Light', sans-serif;
 }
 .buttons button:hover {
 	opacity: 0.9;
@@ -206,10 +222,10 @@ hr {
 					<p class="title">${performanceInfo.performanceName}</p>
 					<p>
 						뮤지컬 공연날짜:
-						<fmt:formatDate value="${performanceInfo.minPerformanceDate}"
+						<fmt:formatDate value="${performanceInfo.performanceDate1}"
 							pattern="yyyy.MM.dd" />
 						~
-						<fmt:formatDate value="${performanceInfo.maxPerformanceDate}"
+						<fmt:formatDate value="${performanceInfo.performanceDate2}"
 							pattern="yyyy.MM.dd" />
 					</p>
 					<p>

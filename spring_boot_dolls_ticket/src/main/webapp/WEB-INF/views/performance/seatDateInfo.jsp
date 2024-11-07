@@ -84,7 +84,7 @@
 			<div class="my-info">
 				<h3>My예매정보</h3>
 				<img src="<c:url value='/image/${performanceInfo.performanceImagePath}'/>">
-				<p>공연명 : ${performanceInfo.performanceName}</p>
+				<p class="id">${performanceInfo.performanceName}</p>
 				<p>관람 등급 : ${performanceInfo.performanceRatingCode}세</p>
 				<p>공연 날짜 :
 					<fmt:formatDate value="${performanceInfo.performanceDate1}"
@@ -257,7 +257,7 @@
 									p.style.backgroundColor = 'lightgray';
 									
 									document.getElementById('reservationDate').innerText = 
-										"선택일시 : "+ /* makeDate */p1.innerText + "-" + p2.innerText+"-"+p3.innerText + "일\n\n공연시간 : " + p.innerText+"시";
+										"선택일시 : "+ /* makeDate */p1.innerText + "-" + p2.innerText+"-"+p3.innerText + "\n\n공연시간 : " + p.innerText;
 									
 									//좌석수 가져오기
 									_getSeatInfo(makeDate+p.innerText);
