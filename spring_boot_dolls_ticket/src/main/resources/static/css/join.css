@@ -1,7 +1,27 @@
 @charset "UTF-8";
-
+@font-face {
+   font-family: 'TheJamsil2Light';
+   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil2Light.woff2') format('woff2');
+   font-weight: 200; /*이미 위에서 2Light 이렇게 정해져서 font-weight 의미 없음*/
+   font-style: normal;
+}
+@font-face {
+   font-family: 'TheJamsil5Bold';
+   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+   font-weight: 500; /*이미 위에서 5Bold 이렇게 정해져서 font-weight 의미 없음*/
+   font-style: normal;
+}
 body{
     background-color: #ffffff;
+}
+.logo {
+	margin-top: 50px;
+}
+.logo a {
+  color: #b3a18c;
+  font-family: 'TheJamsil5Bold', sans-serif;
+  font-size: 50px;
+  text-decoration: none;
 }
 select{
     width:85px;
@@ -9,10 +29,6 @@ select{
     outline: none;
     background: #f5f6f7;
     border: 1px solid #999;
-}
-a{
-    color: black;
-    text-decoration: none;
 }
 .main{
     text-align: center;
@@ -169,15 +185,15 @@ h3{
 .signup-btn-wrap {
     height: 52px;
     line-height: 55px;
-    margin: 10px 0px 50px 0px;
-    background-color: #03c75a;
+    margin: 20px 0px 50px 0px;
+    background-color: #1769ff;
     color: #fff;
     cursor: pointer;
 }
 /*회원가입버튼*/
 #signupBtn{
     width:100px;
-    background-color: #03c75a;
+    background-color: #1769ff;
     border: none;
     color:#fff;
     font-size: 18px;

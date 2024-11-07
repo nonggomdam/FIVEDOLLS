@@ -20,6 +20,7 @@
 		<result property="lastChangeDate" column="lastChangeDate"/>
 		<result property="maxPerformanceDate" column="maxPerformanceDate"/>
 		<result property="minPerformanceDate" column="minPerformanceDate"/>
+		<result property="reservationStatusYCount" column="reservationStatusYCount"/>
 	</resultMap>
 	
 	<resultMap id="performanceScheduleList" type="com.spring_boot_dolls_ticket.project.model.PerformanceScheduleVO">
@@ -41,12 +42,14 @@
 		<result property="lastChangeDate" column="lastChangeDate"/>
 	</resultMap>
 	<!-- 공연 정보 조회 -->
+	<!-- 11-07 김태우 수정 performanceprice 셀렉트 추가 -->
 	<select id="detailViewPerformance" parameterType="string" resultType="com.spring_boot_dolls_ticket.project.model.PerformanceVO">
 		SELECT PERFORMANCE_ID as performanceId
          , PERFORMANCE_KIND_CD as performanceKindCd
          , PERFORMANCE_RATING_CODE as performanceRatingCode
          , PERFORMANCE_NAME as performanceName
          , PERFORMANCE_PRICE_R as performancePriceR
+         , PERFORMANCE_PRICE as performancePrice
          , PERFORMANCE_ZIPCODE as performanceZipcode
          , PERFORMANCE_ADDRESS as performanceAddress
          , PERFORMANCE_DETAILADDRESS as performanceDetailAddress
@@ -124,7 +127,9 @@
 	    DELETE FROM PERFORMANCE_SCHEDULE_D
 	    WHERE PERFORMANCE_ID = #{performanceId}
 	</delete>
+	
 	<!-- 카테고리 page -->
+	<!-- 김태우 11월 06일 수정 -->
 	<select id="selectPerformance" resultMap="performanceList">
 		SELECT 
 	        A.PERFORMANCE_ID AS performanceId
@@ -142,8 +147,46 @@
 	        , (SELECT MAX(PERFORMANCE_DATE) FROM PERFORMANCE_SCHEDULE_D WHERE PERFORMANCE_ID = A.PERFORMANCE_ID) AS maxPerformanceDate
 	        , (SELECT MIN(PERFORMANCE_DATE) FROM PERFORMANCE_SCHEDULE_D WHERE PERFORMANCE_ID = A.PERFORMANCE_ID) AS minPerformanceDate
 	    FROM performance_info_m A 
-	    order by maxPerformanceDate 
+	    order by reservationOpenExpectedDate ASC
 	</select>
+	
+	<!-- 11월5일 selectRanking 추가 -->
+	<select id="selectRanking" resultMap="performanceList">
+		SELECT 
+		    COUNT(CASE WHEN B.RESERVATION_STATUS = 'Y' THEN 1 END) AS reservationStatusYCount,
+		    A.PERFORMANCE_ID AS performanceId,
+		    A.performance_kind_cd AS performanceKindCd,
+		    A.performance_rating_code AS performanceRatingCode,
+		    A.performance_name AS performanceName,
+		    A.performance_price AS performancePrice,
+		    A.performance_zipcode AS performanceZipcode, 
+		    A.performance_address AS performanceAddress,
+		    A.performance_detailaddress AS performanceDetailAddress,
+		    A.reservation_open_expected_date AS reservationOpenExpectedDate,
+		    A.performance_image_path AS performanceImagePath,
+		    A.first_change_date AS firstChangeDate,
+		    A.last_change_date AS lastChangeDate,
+		    (SELECT MAX(PERFORMANCE_DATE) FROM PERFORMANCE_SCHEDULE_D WHERE PERFORMANCE_ID = A.PERFORMANCE_ID) AS maxPerformanceDate,
+		    (SELECT MIN(PERFORMANCE_DATE) FROM PERFORMANCE_SCHEDULE_D WHERE PERFORMANCE_ID = A.PERFORMANCE_ID) AS minPerformanceDate
+		FROM performance_info_m A 
+		INNER JOIN RESERVATION_INFO_M B ON A.PERFORMANCE_ID = B.PERFORMANCE_ID
+		GROUP BY 
+		    A.PERFORMANCE_ID,
+		    A.performance_kind_cd,
+		    A.performance_rating_code,
+		    A.performance_name,
+		    A.performance_price,
+		    A.performance_zipcode, 
+		    A.performance_address,
+		    A.performance_detailaddress,
+		    A.reservation_open_expected_date,
+		    A.performance_image_path,
+		    A.first_change_date,
+		    A.last_change_date
+		ORDER BY reservationStatusYCount DESC
+	</select>
+	
+	
 	
 	<select id="selectPerformanceDate" resultMap="performanceScheduleList" parameterType="string" >
 	 	SELECT 
@@ -168,14 +211,14 @@
 	        			FROM RESERVATION_INFO_M 
 	                    WHERE PERFORMANCE_ID = #{performanceId} 
 	                    AND TO_CHAR(PERFORMANCE_DATE, 'YYYYMMDDHH24MI') = #{performanceDate}
-	                    AND RESERVATION_SEAT_INFORMATION LIKE '%' || A.SEAT_KIND_CD || A.SEAT_NUMBER ||'%') = 1 THEN 'Y'
+	                    AND RESERVATION_SEAT_KIND_CD = A.SEAT_KIND_CD
+	                    AND RESERVATION_SEAT_NUMBER = A.SEAT_NUMBER ) = 1 THEN 'Y'
 	                    ELSE 'N' END AS seatStatus
 		FROM PERFORMANCE_LOCATION_M A
 	    INNER JOIN performance_schedule_d B
 	    ON A.PERFORMANCE_LOCATION_ID = B.PERFORMANCE_LOCATION_ID
 		WHERE B.PERFORMANCE_ID = #{performanceId}
 		AND  TO_CHAR(B.PERFORMANCE_DATE, 'YYYYMMDDHH24MI') = #{performanceDate}
-		ORDER BY A.SEAT_NUMBER ASC
 	</select>
 	<resultMap id="PerformanceLocationMap" type="com.spring_boot_dolls_ticket.project.model.PerformanceSeatVO">
 	    <result property="performanceLocationId" column="PERFORMANCE_LOCATION_ID" />
@@ -266,26 +309,28 @@
 	</select>
 	
 	<insert id="insertReservationInfo" parameterType="com.spring_boot_dolls_ticket.project.model.ReservationVO">
-	
-	INSERT INTO RESERVATION_INFO_M (
-	    RESERVATION_ID, 
-	    PERFORMANCE_ID, 
-	    CUST_ID, 
-	    PERFORMANCE_DATE, 
-	    RESERVATION_SEAT_INFORMATION, 
-	    RESERVATION_STATUS, 
-	    FIRST_CHANGE_DATE, 
-	    LAST_CHANGE_DATE
-	) 
-	VALUES (
-	    ( select 'R0' || TO_CHAR(MAX(TO_NUMBER(SUBSTR(RESERVATION_ID, 2)))+1) from RESERVATION_INFO_M) ,         
-	    #{performanceId},
-	    #{custId},
-	    TO_DATE(#{performanceDate}, 'YYYY-MM-DD HH24:MI'),
-	    #{reservationSeatInformation},
-	    'Y',
-	    SYSDATE,         
-	    SYSDATE          
-	)
+		
+		INSERT INTO RESERVATION_INFO_M (
+		    RESERVATION_ID, 
+		    PERFORMANCE_ID, 
+		    CUST_ID, 
+		    PERFORMANCE_DATE, 
+		    RESERVATION_SEAT_KIND_CD,
+		    RESERVATION_SEAT_NUMBER, 
+		    RESERVATION_STATUS, 
+		    FIRST_CHANGE_DATE, 
+		    LAST_CHANGE_DATE
+		) 
+		VALUES (
+		    ( select 'R0' || TO_CHAR(MAX(TO_NUMBER(SUBSTR(RESERVATION_ID, 2)))+1) from RESERVATION_INFO_M) ,         
+		    #{performanceId},
+		    #{custId},
+		    TO_DATE(#{performanceDate}, 'YYYY-MM-DD HH24:MI'),
+		    #{reservationSeatKindCd},
+		    #{reservationSeatNumber},
+		    'Y',
+		    SYSDATE,         
+		    SYSDATE          
+		)
 	</insert>
 </mapper>

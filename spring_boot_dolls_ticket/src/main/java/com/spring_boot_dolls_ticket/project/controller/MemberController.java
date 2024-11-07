@@ -568,7 +568,7 @@ public class MemberController {
 		// 1개월 빼기
         LocalDate oneMonthBefore = now.minusMonths(1);
 		int nowBefore1MonthDate = Integer.parseInt(oneMonthBefore.format(formatter));
-		
+		MemberVO myInfo = memService.selectCustInfo(custId);
 		
 		//총 페이징수 조회
 		ReservationVO reservationVO = new ReservationVO();
@@ -590,6 +590,7 @@ public class MemberController {
 		reservationVO.setPageOffSet(10); 
 		ArrayList<ReservationVO> reservationList2 = reservationService.reservationList(reservationVO);
 		model.addAttribute("ReservationList",reservationList2);
+		model.addAttribute("myInfo", myInfo);
 		
 		return "member/confirmation";
 	}

@@ -5,7 +5,7 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+    box-sizing:content-box;
 }
 
 #wrapper, .banner, #box {
@@ -19,7 +19,7 @@ body {
 #wrapper {
    width:100%;
    text-align:center;
-   line-height:28px;
+   line-height:10px;
    margin-bottom:200px;
 }
 
@@ -94,7 +94,7 @@ button {
 
 td div {
 	padding:10px;
-	width:80%;
+	width:90%;
 	font-size:21px;
 	box-sizing:border-box;
 	display:inline-block;
@@ -103,7 +103,7 @@ td div {
 
 .show-item {
     gap: 10px;
-    margin-left:110px;              
+    margin-left:50px;              
 }
 
 .show-item input[type="checkbox"] {
@@ -117,14 +117,18 @@ td div {
 
 
 .banner {
-    background-color: #ffe4ea;
+    background-color: #f3e8d2;
     padding: 20px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px; 
+    gap: 10px;
+    margin-top:-10px;
+    color:#4a2f27;
+    /* font-weight:bold;  */
 }
+
 
 
 .text-inline {
@@ -135,21 +139,24 @@ td div {
 }
 
 .text-box {
-    background-color: #f97b97;
+    background-color: #f5e8d0;
     padding: 10px 10px;
-    transform: rotate(-5deg);
+    transform: rotate(-1deg);
     display: inline-block;
-    border-top-left-radius:30px;
+    /* border-top-left-radius:30px; */
     border-bottom-left-radius:30px; 
     border-bottom-right-radius:30px;
+    color:#a22110;
 }
+
 
 .small-text {
     font-size: 30px;
-    font-weight: normal;
+    /* font-weight: bold; */
     transform: rotate(2deg);
     animation: slideDown 1s ease-out forwards;
 }
+
 
 .hide-and-slide {
     opacity: 0;
@@ -159,20 +166,23 @@ td div {
 }
 
 .large-text {
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
-    transform: rotate(-2deg);
+    transform: rotate(-1deg);
 }
 
+
 .text-box2 {
-    background-color: #f97b97;
+    background-color: #274b3a;
     padding: 10px 10px;
     transform: rotate(-5deg);
     display: inline-block;
     border-top-left-radius:30px;
     border-bottom-left-radius:30px; 
     border-top-right-radius:30px;
+    color:white;
 }
+
 
 @keyframes slideDown {
     0% {

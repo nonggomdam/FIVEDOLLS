@@ -71,7 +71,7 @@ public class PerformanceController {
 			performanceOpenList = performanceList.stream().filter( o -> "M".equals(o.getPerformanceKindCd()))
 														  .filter( o -> o.getMinPerformanceDate() != null) //일단 오류 막기위해 널인애들 제거, 원래는 디비에서 다넣어줘야함.
 														  .filter(o -> o.getReservationOpenExpectedDate() != null) //일단 오류 막기위해 널인애들 제거, 원래는 디비에서 다넣어줘야함.
-														  .filter( o -> today.compareTo(o.getMaxPerformanceDate()) < 0)
+														  .filter( o -> today.compareTo(o.getReservationOpenExpectedDate()) > 0)
 														  .limit(8)
 														  .collect(Collectors.toList());
 			//뮤지컬, 오픈예정인 애들만 필터링	
@@ -232,9 +232,12 @@ public class PerformanceController {
 		//공연정보
 		PerformanceVO performanceInfo = pfmservice.detailViewPerformance(performanceId);
 		
+		PerformanceVO performanceVO = new PerformanceVO();
+		
 		model.addAttribute("performanceId", performanceId);
 		model.addAttribute("performanceDate", performanceDate);
 		model.addAttribute("performanceInfo", performanceInfo);
+		
 		modelMap.put("performanceRSeatInfoList", performanceSeatInfoList.stream().filter( o -> "R".equals(o.getSeatKindCd())).collect(Collectors.toList())); //공연스케쥴
 		modelMap.put("performanceSSeatInfoList", performanceSeatInfoList.stream().filter( o -> "S".equals(o.getSeatKindCd())).collect(Collectors.toList())); //공연스케쥴
 		

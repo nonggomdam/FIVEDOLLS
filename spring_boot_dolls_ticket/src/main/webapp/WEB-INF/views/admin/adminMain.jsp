@@ -7,6 +7,7 @@
 		<meta charset="UTF-8">
 		<title>관리자 메인 페이지</title>
 		<c:import url="/WEB-INF/views/layout/adminHead.jsp"/>
+		<c:import url="/WEB-INF/views/layout/head.jsp"/>
 		<c:import url="/WEB-INF/views/layout/top.jsp"/>
 		<script src="<c:url value='/js/listView.js'/>"></script>
 	</head>

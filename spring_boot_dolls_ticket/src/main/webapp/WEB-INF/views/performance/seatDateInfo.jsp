@@ -14,18 +14,19 @@
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/datechoice.css'/>">
 </head>
 <body>
-
+	<div class="step-header"><h2>관람일/회차선택</h2></div>
 	<div class="performanceDateInfo">
 		<div class="left-panel">
-			<div class="step-header">01 관람일/회차선택</div>
-
+			<h3>공연일자 선택</h3>
+			<p>지난공연은 선택이 불가합니다</p>
 			<div class="calendar-time-container">
 				<!-- 새로운 컨테이너 추가 -->
 				<div class="calendar">
 					<div class="calendar-entire">
 						<div class="calendar-header">
-							<label for="year">년 </label> <select id="year"
-								onchange="renderCalendar()"></select> <label for="month">월	</label>
+						
+							 <select id="year"
+								onchange="renderCalendar()"></select><label for="year">  년</label>
 							<select id="month" onchange="renderCalendar()">
 								<option value="1">1월</option>
 								<option value="2">2월</option>
@@ -39,7 +40,7 @@
 								<option value="10">10월</option>
 								<option value="11">11월</option>
 								<option value="12">12월</option>
-							</select>
+							</select><label for="month">   월</label>
 						</div>
 
 						<div class="calendar-body">
@@ -82,17 +83,38 @@
 
 			<div class="my-info">
 				<h3>My예매정보</h3>
-				<p id = "reservationDate">일시: 선택된 날짜 및 시간</p>
+				<img src="<c:url value='/image/${performanceInfo.performanceImagePath}'/>">
+				<p>공연명 : ${performanceInfo.performanceName}</p>
+				<p>관람 등급 : ${performanceInfo.performanceRatingCode}세</p>
+				<p>공연 날짜 :
+					<fmt:formatDate value="${performanceInfo.performanceDate1}"
+						pattern="yyyy.MM.dd" />
+					~
+					<fmt:formatDate value="${performanceInfo.performanceDate2}"
+						pattern="yyyy.MM.dd" />
+				</p>
+				<p id = "reservationDate">일시 : 선택된 날짜 및 시간</p>
+				
 			</div>
 			<div class="total-section">
 				<div class="next">
-						<button type="button" onclick="_changePage()">다음단계</button>
+						<button type="button" onclick="alert('이전 단계로 이동합니다.'); history.back()">이전단계</button>
+						<button type="button" onclick="_changePage()" id="nextbutton">다음단계</button>
 				</div>
 			</div>
 		</div>
 	</div>
-	
-		
+	<div class="notice">
+	    <h4>유의사항</h4>
+	    <ul>
+	        <li>유효기간내에 사용하지 않으면 자동소멸됩니다. 유효기간 연장이나 환불은 불가하오니, 유효기간내에 이용하시기 바랍니다.</li>
+	        <li>지각 시 입장이 제한될 수 있습니다.</li>
+	        <li>입장 시 신분증을 확인할 수 있습니다.</li>
+	        <li>웹에서만 예매가 가능하오니, 유의하시기 바랍니다.</li>
+	        <li>당일관람 상품예매시에는 취소불가합니다.</li>
+	    </ul>
+	</div>
+			
 	<script>
 		var curruntCheckDate = "" ;
 	
@@ -101,7 +123,7 @@
 		const currentYear = new Date().getFullYear();
 		
 		//100년치 달력넣기
-		for (let i = currentYear - 50; i <= currentYear + 50; i++) {
+		for (let i = currentYear - 1; i <= currentYear + 1; i++) {
 			const option = document.createElement('option');
 			option.value = i;
 			option.text = i;
@@ -136,9 +158,9 @@
 						//공연있는날짜 빨간표시
 						const makeDate = year + _makeZero(month) + _makeZero(cell.innerText);
 						if(_checkPerformanceToCalendal(makeDate)){
-							cell.style.backgroundColor = 'red';	
+							cell.style.backgroundColor = 'peachpuff';	
 						}else{
-							cell.style.backgroundColor = 'gray';	
+							cell.style.backgroundColor = 'white';	
 						}
 						cell.addEventListener(
 										'click',
@@ -155,8 +177,8 @@
 											const children = document.querySelector('#calendar-day tbody').querySelectorAll('*');
 											// 모든 자식 요소의 스타일을 초기화
 										 	children.forEach(function(child) {
-												if(child.style.cssText == "background-color: yellow;" ){
-													child.style.backgroundColor = 'red'; // 인라인 스타일을 초기화
+												if(child.style.cssText == "background-color: salmon;" ){
+													child.style.backgroundColor = 'peachpuff'; // 인라인 스타일을 초기화
 												}
 											    child.removeAttribute('class'); // 클래스 제거
 											}); 
@@ -166,7 +188,7 @@
 											 	alert("해당 날짜에는 공연이 없습니다.");		
 											 	return;
 											}
-											cell.style.backgroundColor = 'yellow';	
+											cell.style.backgroundColor = 'salmon';	
 											
 											//현재 캘린더 클릭 연도및날짜
 											const makeDate2 = year + _makeZero(month) + _makeZero(cell.innerText);
@@ -211,8 +233,13 @@
 				if(  makeDate == "${item}".substr(0, 8)){
 					//회차 p태그로 넣기
 					const p = document.createElement("p");
+					const p1 = document.createElement("p1");
+					const p2 = document.createElement("p2");
+					const p3 = document.createElement("p3");
 					p.innerText =  "${item}".substr(8);
-					
+					p1.innerText =  "${item}".substr(0, 4);
+					p2.innerText =  "${item}".substr(4, 2);
+					p3.innerText =  "${item}".substr(6, 2);
 					//리스너 넣기
 					p.addEventListener(
 								'click',
@@ -227,9 +254,10 @@
 									});
 									
 									//클릭날짜 노란색표시
-									p.style.backgroundColor = 'red';
+									p.style.backgroundColor = 'lightgray';
 									
-									document.getElementById('reservationDate').innerText = "일시:"+ makeDate +" "+ p.innerText;
+									document.getElementById('reservationDate').innerText = 
+										"선택일시 : "+ /* makeDate */p1.innerText + "-" + p2.innerText+"-"+p3.innerText + "일\n\n공연시간 : " + p.innerText+"시";
 									
 									//좌석수 가져오기
 									_getSeatInfo(makeDate+p.innerText);
@@ -289,7 +317,6 @@
 		
 		//화면이동
 		function _changePage(){
-			
 			if( "${sessionScope.sid }" == ""){
 				window.location.href='/member/loginPage';	
 			}
@@ -299,10 +326,33 @@
 				return false;
 			}
 			
+			const now = new Date();
+			const year = now.getFullYear();
+			const month = now.getMonth() + 1; // 월은 0부터 시작하므로 +1 필요
+			const day = now.getDate();
+			const hours = now.getHours();
+			const minutes = now.getMinutes();
+			const seconds = now.getSeconds();
+			
+			const tempTime = _makeZero(year.toString()) 
+								+ _makeZero(month.toString())
+								+ _makeZero(day.toString()) 
+								+ _makeZero(hours.toString()) 
+								+ _makeZero(minutes.toString()) 
+			console.log(tempTime ); 
+
+			if(  curruntCheckDate < tempTime ){
+				alert("관람시간이 지나 예매 불가능 합니다.");
+				return false;
+			}			
+			
+			
 		    if (confirm("좌석 예약 페이지로 이동하시겠습니까?")) {  // userConfirmed가 true일 경우에만 창을 엽니다
 		        window.location.href = "/performance/seatReservation/${performanceId}/" +curruntCheckDate;
 		    }
 		}
+
+
 	</script>
 
 	<c:import url="/WEB-INF/views/layout/footer.jsp"/>

@@ -35,6 +35,7 @@ public class PerformanceVO {
 	private Date lastChangeDate;
 	private int clickCount; // 클릭 수
 	private String performanceLocationId;
+	private int reservationStatusYCount;
 	
 	public String getPerformanceLocationId() {
 		return performanceLocationId;
@@ -194,6 +195,13 @@ public class PerformanceVO {
 	public void setPerformanceDate(Date performanceDate) {
 		this.performanceDate = performanceDate;
 	}
+	public int getReservationStatusYCount() {
+		return reservationStatusYCount;
+	}
+	public void setReservationStatusYCount(int reservationStatusYCount) {
+		this.reservationStatusYCount = reservationStatusYCount;
+	}
     
+	
 	
 }

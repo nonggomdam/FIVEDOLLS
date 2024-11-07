@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>약관동의</title>
 <script src="/js/privacyPolicy.js"></script>
 <link href="/css/privacyPolicy.css" rel="stylesheet" type="text/css">
 <%-- <c:import url="/WEB-INF/views/layout/head.jsp"></c:import>
@@ -13,7 +13,7 @@
 </head>
 <body>
 	<div class="wrap">
-      <div class="logo"><a href="/"><h1>Five Dolls</h1></a></div>
+      <div class="logo"><a href="/">FiveDolls</a></div>
       <div class="contents">
         <form action="joinForm" method="POST" id="form__wrap">
           <div class="terms__check__all">

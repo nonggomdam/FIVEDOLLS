@@ -101,7 +101,7 @@ public class PerformanceService implements IPerformanceService {
 	}
 	// 공연 정보 등록 및 이미지 경로 설정
 	@Override
-	@Transactional(propagation = Propagation.REQUIRES_NEW)
+	//@Transactional(propagation = Propagation.REQUIRES_NEW)
     public void insertPerformance(PerformanceVO performance, MultipartFile performancePoster, MultipartFile performanceInfoImg) throws IOException {
         // 공연 정보 삽입 -> 삽입 후 performanceId가 자동으로 설정됨
         dao.insertPerformance(performance);
@@ -137,7 +137,7 @@ public class PerformanceService implements IPerformanceService {
         dao.updateImgPath(performance);
         
         // 스케줄 테이블에 공연 ID, 공연장 ID, 공연 일시 삽입
-        insertPerformanceSchedule(performance);
+        //insertPerformanceSchedule(performance);
     }
 	// 파일 삭제 메서드
     private void deleteFile(String filePath) {
@@ -247,6 +247,12 @@ public class PerformanceService implements IPerformanceService {
 	public void insertPerformanceSchedule(PerformanceScheduleVO performanceScheduleVO) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public List<PerformanceVO> selectRanking() {
+		// TODO Auto-generated method stub
+		return dao.selectRanking();
 	}
 
 }

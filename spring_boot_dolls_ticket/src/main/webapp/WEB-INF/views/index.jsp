@@ -5,12 +5,13 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>main page</title>
+		<title>FiveDolls 티켓</title>
 		<c:import url="/WEB-INF/views/layout/top.jsp"/>
 		<c:import url="/WEB-INF/views/layout/head.jsp"/>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/body.css'/>">
 		<script src="<c:url value='/js/body.js'/>"></script>
-		<script src="<c:url value='/js/slideShow.js'/>"></script>		
+		<script src="<c:url value='/js/slideShow.js'/>"></script>	
+		<script src="<c:url value='/js/index.js'/>"></script>
 	</head>
 	<body>
 	 	<c:import url="/WEB-INF/views/layout/body.jsp"/>	 	

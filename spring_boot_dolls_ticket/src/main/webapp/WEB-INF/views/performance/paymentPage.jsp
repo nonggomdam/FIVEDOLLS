@@ -17,6 +17,7 @@
 	width: 70%;
 	display: flex;
 	align-items: start;
+	margin-bottom:120px;
 }
 
 .left-section {
@@ -121,6 +122,7 @@
 }
 
 .buttons {
+	margin-left: 13%;
 	text-align: center;
 	margin-top: 45px;
 	display: flex;         /* Flexbox를 사용하여 가로로 배치 */
@@ -135,8 +137,14 @@
 	background-color: #000;
 	color: white;
 	cursor: pointer;
+	 border-radius: 8px;
+	 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: box-shadow 0.3s, transform 0.3s;
 }
-
+.buttons button:hover {
+	opacity: 0.9;
+}
 .buttons button:last-child {
 	background-color: #007bff;
 }
@@ -193,10 +201,7 @@ hr {
 		<!-- 오른쪽 섹션 -->
 		<div class="right-section">
 			<div class="ticket-info">
-				<img
-					src="/image/<c:out value ="${performanceInfo.performanceImagePath}">
-	                </c:out>"
-					alt="${performanceInfo.performanceImagePath}">
+				<img src="<c:url value='/image/${performanceInfo.performanceImagePath}'/>">
 				<div class="ticket-details">
 					<p class="title">${performanceInfo.performanceName}</p>
 					<p>

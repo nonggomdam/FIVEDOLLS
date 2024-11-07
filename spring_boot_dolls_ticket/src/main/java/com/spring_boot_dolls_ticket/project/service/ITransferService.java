@@ -7,6 +7,8 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.spring_boot_dolls_ticket.project.model.AssignmentNoticeBoardVO;
+import com.spring_boot_dolls_ticket.project.model.AssignmentOrderDetailVO;
+import com.spring_boot_dolls_ticket.project.model.AssignmentOrderVO;
 import com.spring_boot_dolls_ticket.project.model.AssignmentTicket2VO;
 import com.spring_boot_dolls_ticket.project.model.AssignmentTicketVO;
 import com.spring_boot_dolls_ticket.project.model.Transfer2VO;
@@ -21,4 +23,11 @@ public interface ITransferService {
 	public int updateAssignmentTicket(AssignmentTicketVO ticketVo);
 	public String selectEmail(String custId);
 	public List<Transfer2VO> showInfoInEmail(AssignmentTicket2VO assignmentTicket2VO);
+	public void insertAssignmentOrder(AssignmentOrderVO orderVo);
+	public void insertAssignmentOrderDetail(AssignmentOrderDetailVO orderDetailVo);
+	public int orderVerification(AssignmentOrderVO orderVo);
+	public int updateFail(AssignmentOrderVO orderVo);
+	public int updateSuccess(AssignmentOrderVO orderVo);
+	public List<AssignmentTicketVO> selectSoldYn(String orderNo);
+	public int updateAlreadySold(AssignmentOrderVO orderVo);
 }

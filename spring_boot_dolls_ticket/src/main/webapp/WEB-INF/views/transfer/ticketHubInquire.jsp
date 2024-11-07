@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>티켓 양도</title>
 	<c:import url="/WEB-INF/views/layout/top.jsp"/>
 	<c:import url="/WEB-INF/views/layout/head.jsp"/>
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/ticketHubInquire.css'/>">
@@ -19,13 +19,13 @@
 <body>
 
 	<div id="wrapper">
-		<div class="banner" style="width:100%; height:140px;">
-		    <div class="text-box small-text">안전하고 투명한 티켓 양도 거래!</div>
+		<div class="banner" style="width:100%; height:80px;line-height:20px;">
+		    <div class="text-box small-text">안전하고 투명한 <span style="font-weight:bold;color:#a22110;">티켓 양도</span> 거래!</div>
 		    <div class="text-inline">
 		        <span style="font-size:25px;">신뢰할 수 있는</span>
 		        <span class="large-text">파이브돌스</span>
 		        <span style="font-size:25px;">에서 안전하게</span>
-		        <span class="text-box2 small-text hide-and-slide" style="display:inline-block;">티켓을 양도하세요</span>
+		        <span class="text-box2 small-text hide-and-slide stylish-box" style="display:inline-block;"><span style="font-weight:bold;">티켓</span>을 <span style="font-weight:bold;">양도</span>하세요</span>
 		    </div>
 		</div>
 		
@@ -69,8 +69,8 @@
 							<div class="show-item ${item.soldYn =='Y'?'sold':'' }">
 								<table style='width:100%;'>
 									<tr>
-										<td><input type="checkbox"  ${item.soldYn =='Y'?'disabled':'' } class="chkbox" style="width:10px;" name="assignmentSqno" value="${item.assignmentSqno}"></td>
-										<td style='width:150px'><a href="<c:url value='/performance/detailViewPerformance/${item.performanceId}'/>"><img src="/image/${item.performanceImagePath}" width='120px'></a></td>
+										<td style='width:20px;'><input type="checkbox"  ${item.soldYn =='Y'?'disabled':'' } class="chkbox" style="width:10px;" name="assignmentSqno" value="${item.assignmentSqno}"></td>
+										<td style='width:130px;'><a href="<c:url value='/performance/detailViewPerformance/${item.performanceId}'/>"><img src="/image/${item.performanceImagePath}" width='120px'></a></td>
 										<td>
 											
 											<div><span>${item.performanceKindCd}</span><span>${item.performanceName}</span></div>
@@ -78,10 +78,10 @@
 												<span>일시 : ${item.performanceDate}</span>
 											</div>
 											<div>
-												<span>좌석 : ${item.reservationSeatInformation}석</span>
+												<span>좌석 : ${item.reservationSeatKindCd}${item.reservationSeatNumber}석</span>
 											</div>
 											<div>
-												<span class="price" data-price=${item.totalSeatPrice }>가격 : <fmt:formatNumber value="${item.totalSeatPrice}" pattern="#,###"/>원</span>
+												<span class="price" data-price=${item.price }>가격 : <fmt:formatNumber value="${item.price}" pattern="#,###"/>원</span>
 												<c:if test="${item.soldYn == 'Y'}">
 													<span style="margin-left:30px;color:red;font-weight:bold;border:3px solid red;border-radius:5px;padding:8px;">판매완료</span> 
 												</c:if>											

@@ -47,16 +47,14 @@
 		        </c:if>
 					<td class="ranking">
 						<div class="info">				
-							<a href="/performance/detailViewPerformance/${consertOpen.performanceId}"><img src="/image/<c:out value="${consertOpen.performanceImagePath}"/>"
-		                     alt="${consertOpen.performanceImagePath}">
+							<img src="<c:url value='/image/${consertOpen.performanceImagePath}'/>">
 								<div class="textinfo">
 									<span>${consertOpen.performanceName}<br>
 										  <br>
 										  <fmt:formatDate value="${consertOpen.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${consertOpen.maxPerformanceDate}" pattern="yyyy.MM.dd"/><br>
-										  ${consertOpen.performanceAddress}<br>${consertOpen.performanceDetailAddress}
-								 	</span>
-								</div>
-							</a>						
+										  <br><a href="/performance/detailViewPerformance/${consertOpen.performanceId}">공연 상세정보</a>
+									</span>	  
+								</div>						
 						</div>	
 					</td>
 				    <c:if test="${(status.index + 1) % 4 == 0}">
@@ -76,16 +74,14 @@
 		        </c:if>
 				<td class="ranking">
 					<div class="info">
-						<a href="/performance/detailViewPerformance/${performanceOpen.performanceId}"><img src="../<c:out value="${performanceOpen.performanceImagePath}"/>"
-		                     alt="${performanceOpen.performanceImagePath}">
+						<img src="<c:url value='/image/${performanceOpen.performanceImagePath}'/>">
 							<div class="textinfo">
 								<span>${performanceOpen.performanceName}<br>
 									  <br>
 									  <fmt:formatDate value="${performanceOpen.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${performanceOpen.maxPerformanceDate}" pattern="yyyy.MM.dd"/><br>
-									  ${performanceOpen.performanceAddress}<br>${performanceOpen.performanceDetailAddress}
+									  <br><a href="/performance/detailViewPerformance/${performanceOpen.performanceId}">공연 상세정보</a>
 								</span>	  
 							</div>
-						</a>	
 					</div>
 				</td>
 				<c:if test="${(status.index + 1) % 4 == 0}">
@@ -100,7 +96,6 @@
 		</div>
 		<div id="box2">
 			<h1>TICKET COMING SOON</h1>
-			<div class="empty"></div>
 			<table>
 				<tr>
 				<c:forEach items="${performanceOpenExpectedList}" var="performanceOpenExpected" varStatus="status">
@@ -109,12 +104,12 @@
 		        </c:if>
 					<td class="ranking">
 						<div class="infocoming">
-							<a href="/performance/detailView/${performanceOpenExpected.performanceId}"><img src="../<c:out value="${performanceOpenExpected.performanceImagePath}"/>"
-		                     alt="${performanceOpenExpected.performanceImagePath}">
-								<div class="donut-dday">D-16</div>
+							<a href="/performance/detailViewPerformance/${performanceOpenExpected.performanceId}"><img src="<c:url value='/image/${performanceOpenExpected.performanceImagePath}'/>">
+								<div class="donut-dday">D-6</div>
 								<div class="info-txt">
 									<p class="info-txt1">${performanceOpenExpected.performanceName}</p>
-									<p class="info-txt2"><fmt:formatDate value="${performanceOpenExpected.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${performanceOpenExpected.maxPerformanceDate}" pattern="yyyy.MM.dd"/></p>
+									<p class="info-txt2"><fmt:formatDate value="${performanceOpenExpected.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${performanceOpenExpected.maxPerformanceDate}" pattern="yyyy.MM.dd"/>
+									<br><br><fmt:formatDate value="${performanceOpenExpected.reservationOpenExpectedDate}" pattern="yyyy.MM.dd"/> 오픈예정</p>
 								</div></a>
 						</div>
 					</td>

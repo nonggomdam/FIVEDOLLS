@@ -21,10 +21,11 @@ footer {
 	margin-top: 50px;
     width: 100%;
     border-top: 1px solid #ddd;
-    height: 230px;
+    height: 280px;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+	background-color: #eeeeee;
 }
 #footerMenuItem {
 	border-bottom: 1px solid #f6f6f6;
@@ -57,6 +58,7 @@ footer a:hover {
 	display: flex;
 	justify-content: space-between;
 	padding-bottom: 30px;
+	background-color: #eeeeee;
 }
 #siteName { 
 	font-family: 'TheJamsil5Bold', sans-serif;
@@ -100,7 +102,7 @@ footer a:hover {
 }
 .goTop a {
     position: fixed;
-    bottom: 250px;
+    bottom: 280px;
     right: 40px;
     z-index: 999;
     cursor: pointer;

@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>양도 결제</title>
 	<c:import url="/WEB-INF/views/layout/top.jsp"/>
 	<c:import url="/WEB-INF/views/layout/head.jsp"/>
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/ticketHubPay.css'/>">
@@ -18,13 +18,13 @@
 
 <body>
 	<div id="wrapper">
-		<div class="banner" style="width:100%; height:140px;">
-		    <div class="text-box small-text">안전하고 투명한 티켓 양도 거래!</div>
+		<div class="banner" style="width:100%; height:80px;line-height:20px;">
+		    <div class="text-box small-text">안전하고 투명한 <span style="font-weight:bold;color:#a22110;">티켓 양도</span> 거래!</div>
 		    <div class="text-inline">
 		        <span style="font-size:25px;">신뢰할 수 있는</span>
 		        <span class="large-text">파이브돌스</span>
 		        <span style="font-size:25px;">에서 안전하게</span>
-		        <span class="text-box2 small-text hide-and-slide" style="display:inline-block;">티켓을 양도하세요</span>
+		        <span class="text-box2 small-text hide-and-slide stylish-box" style="display:inline-block;"><span style="font-weight:bold;">티켓</span>을 <span style="font-weight:bold;">양도</span>하세요</span>
 		    </div>
 		</div>
 	<div style='margin-top:100px;'></div>
@@ -33,7 +33,7 @@
 	<div class="show-item">
 		<table style='width:1000px;border-top:0px solid lightgray;border-collapse:collapse;'>
 			<tr>
-				<td style='width:150px'><img src="${item.performanceImagePath}" width='120px'></td>
+				<td style='width:150px'><img src="/image/${item.performanceImagePath}" width='120px'></td>
 				<td>
 					
 					<div><span>${item.performanceName}</span></div>
@@ -41,10 +41,10 @@
 						<span>일시 : ${item.performanceDate}</span>
 					</div>
 					<div>
-						<span>좌석 : ${item.reservationSeatInformation}석</span>
+						<span>좌석 : ${item.reservationSeatKindCd}${item.reservationSeatNumber}석</span>
 					</div>
 					<div>
-						<span class="price" data-price=${item.totalSeatPrice }>가격 : <fmt:formatNumber value="${item.totalSeatPrice}" pattern="#,###"/>원</span>						 										
+						<span class="price" data-price=${item.price }>가격 : <fmt:formatNumber value="${item.price}" pattern="#,###"/>원</span>						 										
 					</div>									
 				</td>
 			</tr>
@@ -60,9 +60,10 @@
 	
 	    <div id="payment-method" ></div>
 	    <div id="agreement"></div>
-	    <!-- 결제하기 버튼 -->
-	    <button id="payment-button"  style='display: none;' class="payment-button">결제하기</button>
-	    <button id="payment-button1" class="payment-button">결제하기</button>
+	  
+	    <button id="payment-button" class="payment-button">결제하기</button>
+
+	    
 		<form action="<c:url value='/receive/complete'/>" method="post" name="frm1">
 			<input type="hidden" value="${noticeId}" name="noticeId"/>
 			<c:forEach items="${assignmentSqno}" var="item">
@@ -71,19 +72,15 @@
 		</form>
 	</div>
     <script>
-   
-      //const coupon = document.getElementById("coupon-box");
+    
       const button = document.getElementById("payment-button");
       const button1 = document.getElementById("payment-button1");
       const amount = ${totalPrice};
 
-      // 구매자의 고유 아이디를 불러와서 customerKey로 설정하세요.
-      // 이메일・전화번호와 같이 유추가 가능한 값은 안전하지 않습니다.
+ 
       const widgetClientKey = "test_gck_docs_Ovk5rk1EwkEbP0W43n07xlzm";
       const customerKey = '${sessionScope.sid}';
-      const paymentWidget = PaymentWidget(widgetClientKey, customerKey); // 회원 결제
-      // const paymentWidget = PaymentWidget(widgetClientKey, PaymentWidget.ANONYMOUS) // 비회원 결제
-
+      const paymentWidget = PaymentWidget(widgetClientKey, customerKey); 
       const paymentMethodWidget = paymentWidget.renderPaymentMethods(
         "#payment-method",
         { value: amount },
@@ -98,12 +95,10 @@
  
 
       button.addEventListener("click", function () {
-    	     	
-        // 결제를 요청하기 전에 orderId, amount를 서버에 저장하세요.
-        // 결제 과정에서 악의적으로 결제 금액이 바뀌는 것을 확인하는 용도입니다.
+    	 
         paymentWidget.requestPayment({
-          orderId: "_-7x8c2gaVt4k-PjOrnPL",
-          orderName: '${itemName}',
+          orderId: "${orderNo}",
+          orderName: "${itemName}",
           successUrl: window.location.origin + "/success",
           failUrl: window.location.origin + "/fail",
           customerEmail: "",

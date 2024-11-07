@@ -6,22 +6,25 @@
    font-style: normal;
 }
 
-/* 공통 스타일 */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #000000;
-    height: 100px;
-    padding: 10px;
-    font-family: 'TheJamsil5Bold', sans-serif;
+position: sticky;
+top: 0;
+justify-content: space-between;
+align-items: center;
+display : flex;
+background-color: #274b3a; /* 배경을 검은색으로 변경 */
+height : 80px;
+padding: 10px;  
+z-index : 1000;
+width: 100%;
+font-family: 'TheJamsil5Bold', sans-serif;
+transition: background-color 0.3s, height 0.3s; /* 부드러운 전환 효과 */ 
 }
 
 .navbar a {
     text-decoration: none;
     margin: 0 15px;
     font-size: 15px;
-    font-weight: bold;
 }
 
 .navbar a:hover {
@@ -31,7 +34,11 @@
 .navbar .categories {
     margin-left: auto;
     margin-right: auto;
-    background-color: #000000;
+    /* background-color: #000000; */
+}
+
+div .categories {
+	background-color: transparent;
 }
 
 .content {
@@ -47,7 +54,6 @@
 .mainLogo a {
     color: #b3a18c;
     font-size: 50px;
-    font-weight: bold;
 }
 
 .member {
@@ -57,15 +63,14 @@
 .member a {
     color: #ffffff;
     float: right;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 /* 일반 사용자 스타일 */
 .navbar.user .categories a {
     margin: 0 60px;
     color: #ffffff;
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 26px;
 }
 
 /* 관리자 스타일 */
@@ -73,10 +78,31 @@
     margin: 0 30px;
     color: #ffffff;
     font-size: 28px;
-    font-weight: bold;
 }
 
 /* 공통 카테고리 링크 hover 효과 */
 .navbar .categories a:hover {
     color: #c4c0c0;
 }
+
+/* 스크롤 시 변경될 스타일 */
+.navbar.scrolled {
+    background-color: #eeeeee; 
+    height: 60px; 
+}
+.navbar.scrolled a:hover {
+    color: #c4c0c0;
+}
+/* 네브바 링크에 스크롤 시 색상 변경 적용 */
+.navbar.scrolled a {
+    color: #274b3a; 
+}
+
+.navbar.scrolled .categories a {
+    color: #8f735b;
+}
+
+.navbar.scrolled .categories a:hover {
+    color: #b3a18c;
+}
+

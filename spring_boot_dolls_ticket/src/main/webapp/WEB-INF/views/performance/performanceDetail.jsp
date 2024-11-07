@@ -70,10 +70,10 @@ if (userId == null) {
 						<dd>&nbsp;총 ${pfm.performanceTime}분</dd>
 						<dt>장소</dt>
 						<c:if test="${pfm.performanceLocationId == 'SE0000001'}">
-							<dd>&nbsp;올림픽 홀</dd>
+							<dd>&nbsp;올림픽홀</dd>
 						</c:if>
 						<c:if test="${pfm.performanceLocationId != 'SE0000001'}">
-							<dd>&nbsp;샤롯데 씨어터</dd>
+							<dd>&nbsp;샤롯데씨어터</dd>
 						</c:if>
 						<dt>가격</dt>
 						<dd>&nbsp;R석 <fmt:formatNumber value="${pfm.performancePriceR}" pattern="###,###"/>원</dd>
@@ -102,8 +102,7 @@ if (userId == null) {
 				<img src="<c:url value='/image/${pfm.performanceInformationImagePath}'/>"></p>
 				<p class="dt05-tit">장소안내</p>
 				<div id="map"></div>
-				<input type="hidden" id="performanceDetailAddress" value="${pfm.performanceDetailAddress}">
-				<p>주소: ${pfm.performanceZipcode} ${pfm.performanceAddress} ${pfm.performanceDetailAddress}</p>
+				<input type="hidden" id="performanceLocationId" value="${pfm.performanceLocationId}">
 				<p>주차공간이 없으므로 대중교통을 이용하시기 바랍니다.</p>
 				<p class="dt05-tit">상품정보제공 고시</p>
 				<div class="dt05-txt">
@@ -164,13 +163,7 @@ if (userId == null) {
 					<form id="reviewForm" name="reviewForm" method="post" action="<c:url value='/performance/insertReview'/>">
 						<input type="hidden" id="performanceId" name="performanceId" value="${pfm.performanceId}">
 						<div class="write">
-							<c:if test="${sessionScope.sid == null}">
-								<a onclick="showLoginAlert()"> 
-								<input type="checkbox" id="layer_popup"><label for="layer_popup">후기 작성하기</label></a>
-							</c:if>
-							<c:if test="${sessionScope.sid != null}">
-								<input type="checkbox" id="layer_popup"><label for="layer_popup">후기 작성하기</label>
-							</c:if>
+							<input type="checkbox" id="layer_popup"><label for="layer_popup">후기 작성하기</label>
 							<div id="layer_bg">
 								<div id="popup">
 									<h2>${pfm.performanceName} <label for="layer_popup">X</label></h2>
@@ -278,9 +271,14 @@ $(document).ready(function() {
         }
     });
 });
-function showLoginAlert() {
-    alert('로그인이 필요합니다.');
-    window.location.href='/member/loginForm'; 
-}
+$(document).ready(function() {
+    $('#layer_popup').on('click', function() {
+    	var userId = "<%=userId%>";
+		if(userId == ""){
+        	confirm("로그인이 필요합니다.")
+        	location.href = '/member/loginForm';
+        }
+    });
+});
 </script>
 </html>

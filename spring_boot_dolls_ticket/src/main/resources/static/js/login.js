@@ -17,21 +17,19 @@
             success: function(response) {
                 if (response === 'admin') {
                     // 관리자 로그인 성공
-                    alert("관리자 로그인 성공!");
                     window.location.href = "/admin";
                 } else if (response == 'main') {
                 	// 일반 사용자 로그인 성공
-                	alert("로그인 성공");
                 	window.location.href = "/";
                 } else {
                     // 로그인 실패 처리
-                    alert("로그인 실패!");
+                    alert("로그인을 실패했습니다.");
                 }
             },
             error: function(xhr, status, error) {
                 console.error("Login error: ", error);
                 // 오류 처리
-                alert("로그인 중 오류 발생!"); // 오류 처리
+                alert("로그인 중 오류가 발생했습니다."); // 오류 처리
             }
         });
     }); // on 끝
