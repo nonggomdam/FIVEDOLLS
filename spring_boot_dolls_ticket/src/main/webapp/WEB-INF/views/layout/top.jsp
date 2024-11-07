@@ -18,7 +18,7 @@
 	                    <a href="/admin">메인</a>
 	                    <a href="/admin/performanceList">공연 관리</a>
 	                    <a href="/admin/noticeList">공지 사항</a>
-	                    <a href="/admin/qaList">1:1 문의</a>
+	                    <a href="/admin/inquiryList">1:1 문의</a>
 	                    <a href="/admin/memberList">사용자 관리</a>
 	                </c:when>
 	                <c:otherwise>

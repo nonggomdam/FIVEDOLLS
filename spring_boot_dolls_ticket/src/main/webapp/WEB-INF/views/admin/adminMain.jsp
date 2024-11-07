@@ -92,7 +92,7 @@
                 <tr>
                     <td>
                         <div class="section">
-                            <h3><a href="/admin/qaList">1:1 문의</a></h3>
+                            <h3><a href="/admin/inquiryList">1:1 문의</a></h3>
                             <table id="qaTable">
                                 <thead>
                                     <tr>
@@ -103,6 +103,23 @@
                                     </tr>
                                 </thead>
                                 <tbody id="qaItems">
+                                	<c:choose>
+								        <c:when test="${empty inquiryList}">
+								            <tr>
+								                <td colspan="4">등록된 문의 사항이 없습니다.</td>
+								            </tr>
+								        </c:when>
+								        <c:otherwise>
+								            <c:forEach items="${inquiryList}" var="inquiry" varStatus="status">
+								                <tr id="${inquiry.inquiryId}" class="inquiryRow" style="cursor:pointer; display: ${status.index < 5 ? 'table-row' : 'none'};">
+								                    <td>${inquiry.inquiryId}</td>
+								                    <td>${inquiry.status} </td>
+								                    <td>${inquiry.title}</td>
+								                    <td><fmt:formatDate value="${inquiry.regDate}" pattern="yyyy년 MM월 dd일" /></td>
+								                </tr>
+								            </c:forEach>
+								        </c:otherwise>
+								    </c:choose>
                                 </tbody>
                             </table>
                         </div>
