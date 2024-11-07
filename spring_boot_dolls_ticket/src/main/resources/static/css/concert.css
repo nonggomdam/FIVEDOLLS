@@ -64,10 +64,10 @@
 	text-decoration: none;
 }
 .ranking img {
-	width: 280px;
-	height: 350px;
+	width: 320px;
+	height: 380px;
 	display: block;
-    margin: 15px;
+    margin: 30px;
 }
 .ranking .info a .info-txt {
 	font-family: 'TheJamsil2Light', sans-serif;
@@ -162,6 +162,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+#now-open{
+	margin-top:120px;
+	margin-bottom : 80px;
+}
 
 /*  		.images {
 			width : 70%;
@@ -233,4 +237,5 @@
 		    opacity: 1;  마우스를 올렸을 때 글자 보이기
 		    transform: scale(1.1);
 		} */
+		
 
