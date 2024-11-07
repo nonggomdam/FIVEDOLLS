@@ -42,12 +42,12 @@ footer {
     border-right: #ddd;
 }
 #footerMenuItem li:last-child { border-right: none; }
-footer a {
+#footerMenuBox a {
 	font-family: 'TheJamsil2Light', sans-serif;
 	text-decoration: none;
 	color: black;
 }
-footer a:hover {
+#footerMenuBox a:hover {
 	opacity: 0.8;
 	cursor: pointer;
 }
@@ -64,7 +64,10 @@ footer a:hover {
 	font-family: 'TheJamsil5Bold', sans-serif;
     font-size: 50px; 
 	padding: 30px 0 0 50px;
-	color: #b3a18c;
+}
+#siteName a {
+	text-decoration: none;
+	color: #b3a18c; 
 }
 #info {
 	font-family: 'TheJamsil2Light', sans-serif;
@@ -78,6 +81,8 @@ footer a:hover {
 }
 #info a {
 	margin-left: 15px;
+	text-decoration: none;
+	color: black;
 }
 .tel {
 	font-size: 40px;
