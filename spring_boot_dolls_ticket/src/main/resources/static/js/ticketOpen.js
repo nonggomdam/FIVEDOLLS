@@ -83,7 +83,7 @@
 	
 	if (address === "SE0000001") {
 	    mapCenter = new kakao.maps.LatLng(37.5147044, 127.1275107); // 올림픽공원 올림픽홀 좌표
-	} else if (address === "SE0000001") {
+	} else if (address === "SE0000002") {
 	    mapCenter = new kakao.maps.LatLng(37.5107077, 127.0998494); // 샤롯데씨어터 좌표
 	} else {
 	    mapCenter = new kakao.maps.LatLng(37.5147044, 127.1275107); // 기본 좌표 (원하는 기본 좌표로 설정)
