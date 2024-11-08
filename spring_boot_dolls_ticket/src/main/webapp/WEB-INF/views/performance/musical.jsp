@@ -73,8 +73,11 @@
 					<img src="<c:url value='/image/${performanceOpen.performanceImagePath}'/>">
 						<div class="info-txt">
 							<p class="info-txt1">${performanceOpen.performanceName}</p>
-							<p class="info-txt2"><fmt:formatDate value="${performanceOpen.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${performanceOpen.maxPerformanceDate}" pattern="yyyy.MM.dd"/></p>
+							<p class="info-txt2" style="color: #ff9900; margin-bottom:10px;" ><fmt:formatDate value="${performanceOpen.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${performanceOpen.maxPerformanceDate}" pattern="yyyy.MM.dd"/></p>
+							<p class="info-txt2">${performanceOpen.performanceAddress}</p>
+							<p class="info-txt2">${performanceOpen.performanceDetailAddress}</p>
 						</div>
+					
 					</a>						
 				</div>	
 			</td>
@@ -84,7 +87,7 @@
 			</c:forEach>
 			</tr>
 		</table>
-		
+
 
 			
 			<div class="banner">

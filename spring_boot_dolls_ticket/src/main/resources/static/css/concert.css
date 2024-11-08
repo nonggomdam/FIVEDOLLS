@@ -77,11 +77,13 @@
     text-align: center;
     position: relative;
 }
+
 .info a .info-txt1 {
-    font-size: 16px;
+    font-size: 17px;
     line-height: 22px;
     color: #888;
     padding: 10px 0 12px 0;
+    font-weight: bold;
 }
 
 .info a .info-txt2 {
@@ -94,7 +96,10 @@
 .info {
     position: relative; 
     display: inline-block; 
+    margin-bottom:60px;
 }
+
+
 
 .textinfo {
 	font-family: 'TheJamsil2Light', sans-serif;
