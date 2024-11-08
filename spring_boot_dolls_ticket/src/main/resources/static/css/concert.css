@@ -65,7 +65,7 @@
 }
 .ranking img {
 	width: 320px;
-	height: 380px;
+	height: 420px;
 	display: block;
     margin: 30px;
 }
@@ -168,8 +168,18 @@
     text-overflow: ellipsis;
 }
 #now-open{
-	margin-top:120px;
-	margin-bottom : 80px;
+	margin-top:160px;
+	margin-bottom : 100px;
+	color: #5a5a5a;
+	font-weight: bold;
+}
+
+#comming-soon{
+		margin-top:160px;
+	margin-bottom : 100px;
+	color: #5a5a5a;
+	font-weight: bold;
+
 }
 
 /*  		.images {
