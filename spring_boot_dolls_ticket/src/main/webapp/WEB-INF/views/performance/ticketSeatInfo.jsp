@@ -105,7 +105,7 @@ input {
 					<input type="hidden" name="performanceId" id="performanceId">
 					<input type="hidden" name="performanceDate" id="performanceDate">
 					<input type="hidden" name="totalSeatInfo" id="totalSeatInfo">
-					<input type="button" onclick="alert('이전 단계로 이동합니다.'); history.back()" value="이전단계" class="button-shadow">
+					<input type="button" onclick="alert('이전 단계로 이동하시겠습니까?'); history.back()" value="이전단계" class="button-shadow">
 					<input type="submit" value="결제하기" class="button-shadow">
 				</form>
 

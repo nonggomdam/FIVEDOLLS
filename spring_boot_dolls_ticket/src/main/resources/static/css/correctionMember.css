@@ -64,41 +64,46 @@ input[type="text"], input[type="email"], input[type="password"] {
 
 
         .sidebar {
-            width: 250px;
-            background-color: #fff;
-            padding: 20px;
-            border-right: 1px solid #ddd;
-            height:720px;
-            border-radius: 10px;
-        }
+			width: 250px;
+			background-color: #fff;
+			padding: 20px;
+			border-right: 1px solid #ddd;
+			height: 720px;
+			border-radius: 10px;
+		}
+		
+		.sidebar h2 {
+			margin-top:10px;
+			font-size: 20px;
+			margin-bottom: 20px;
+			color: #333;
+		}
+		
+		.sidebar p {
+			margin: 10px 0;
+			color: #666;
+			font-weight: bold; /* 버튼 텍스트 굵게 */
+		}
+		
+		.sidebar button {
+			display: block;
+			width: 100%;
+			padding: 12px;
+			margin-top: 10px;
+			background-color: #e0e0e0;
+			border: none;
+			border-radius: 5px;
+			font-size: 16px;
+			color: #333;
+			cursor: pointer;
+			font-family: 'TheJamsil2Light', sans-serif;
+			font-weight: bold; /* 버튼 텍스트 굵게 */
+		}
+		
+		.sidebar button:hover {
+			background-color: #ccc;
+		}
 
-        .sidebar h2 {
-            font-size: 20px;
-            margin-bottom: 15px;
-            color: #333;
-        }
-
-        .sidebar p {
-            margin: 10px 0;
-            color: #666;
-        }
-
-        .sidebar button {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            margin-top: 10px;
-            background-color: #e0e0e0;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            color: #333;
-            cursor: pointer;
-        }
-
-        .sidebar button:hover {
-            background-color: #ccc;
-        }
 
         .mypage-content {
             flex: 1;
@@ -159,17 +164,20 @@ input[type="text"], input[type="email"], input[type="password"] {
             
         }
         
-        .myInfo{
-        	margin-top : 30px;
-        	margin-bottom : 40px;
-        	border: 1px solid #ddd;
-        	padding: 10px;
-        	align-items: center; /* 수직 중앙 정렬 */     
-        	border-radius: 8px;
-        }
-        .service-center{
-        	margin-top : 40px;
-        }
+       
+		.myInfo {
+			margin-top: 30px;
+			margin-bottom: 60px;
+			padding: 10px;
+			align-items: center; /* 수직 중앙 정렬 */
+			border-radius: 8px;
+			background-color: #D78E8E;
+		
+		}
+        .service-center {
+        	margin-left:15px;
+			margin-top: 60px;
+		}
         
 		h3{
 			margin-top:65px;

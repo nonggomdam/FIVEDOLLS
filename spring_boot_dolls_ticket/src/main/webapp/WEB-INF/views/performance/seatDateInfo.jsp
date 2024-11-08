@@ -84,7 +84,7 @@
 			<div class="my-info">
 				<h3>My예매정보</h3>
 				<img src="<c:url value='/image/${performanceInfo.performanceImagePath}'/>">
-				<p class="id">${performanceInfo.performanceName}</p>
+				<p id="id">${performanceInfo.performanceName}</p>
 				<p>관람 등급 : ${performanceInfo.performanceRatingCode}세</p>
 				<p>공연 날짜 :
 					<fmt:formatDate value="${performanceInfo.performanceDate1}"
@@ -98,7 +98,7 @@
 			</div>
 			<div class="total-section">
 				<div class="next">
-						<button type="button" onclick="alert('이전 단계로 이동합니다.'); history.back()">이전단계</button>
+						<button type="button" onclick="alert('이전 단계로 이동하시겠습니까?'); history.back()" value="이전단계" >이전단계</button>
 						<button type="button" onclick="_changePage()" id="nextbutton">다음단계</button>
 				</div>
 			</div>

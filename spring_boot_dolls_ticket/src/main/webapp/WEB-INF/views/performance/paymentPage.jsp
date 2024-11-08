@@ -215,6 +215,25 @@ hr {
 	color:	#ffa07a;
 	font-weight: bold;
 }
+		.button-shadow {
+		width:125px;	
+		padding: 10px 20px;
+	font-size: 1.1em;
+	margin: 5px;
+	border: none;
+	background-color: #e74c3c;
+	color: white;
+	cursor: pointer;
+	 border-radius: 8px;
+	 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: box-shadow 0.3s, transform 0.3s;
+    font-family: 'TheJamsil2Light', sans-serif;
+		}
+		
+		.button-shadow:hover {
+		    opacity: 0.9;
+		}
 </style>
 </head>
 <body>
@@ -296,7 +315,7 @@ hr {
 					<input type="hidden" name="performanceDate" id="performanceDate" value="<fmt:formatDate value="${performanceInfo.performanceDate}"
 							pattern="yyyy.MM.dd HH:mm" />" >
 					<input type="hidden" name="reservationSeatInformation" id="reservationSeatInformation" value="${performanceSeatInfo.totalSeat}" >
-					<button onclick="window.history.back()">뒤로가기</button>
+					<input type="button" onclick="alert('이전 단계로 이동하시겠습니까?'); history.back()" value="이전단계" class="button-shadow">
 					<button type="submit" >결제하기</button>
 				</form>
 			</div>
