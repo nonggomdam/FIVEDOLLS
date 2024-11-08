@@ -13,7 +13,6 @@ CartService.java
 ICartService.java
 IProductService.java
 ProductService.java
-WebSecurityConfig.java
 CartMapper.xml
 ProductMapper.xml
 
