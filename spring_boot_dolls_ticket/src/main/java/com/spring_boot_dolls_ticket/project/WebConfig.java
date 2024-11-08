@@ -14,9 +14,10 @@ public class WebConfig implements WebMvcConfigurer{
 	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		// 프로젝트 외부 경로 이미지 맵핑 설정
+		// upload 폴더 이미지 출력하기 위해 맵핑 설정
 		registry.addResourceHandler("/image/**")
-				.addResourceLocations("classpath:/static/image/");
+				//.addResourceLocations("classpath:/static/image/");
+				.addResourceLocations("file:///usr/local/project/upload/"); // 서버 경로
 	}
 	
 	@Override
