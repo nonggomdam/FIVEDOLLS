@@ -63,7 +63,7 @@
 	    </div>
   	</div>
   	
-	<h1>NOW OPEN</h1>
+	<h1 id="now-open">NOW OPEN</h1>
 	<table id="initialTable">
 		<tr>
 		<c:forEach items="${consertOpenList}" var="consertOpen" varStatus="status">
@@ -89,9 +89,9 @@
 	</table>
 
 		<div class="banner">
-				<a href="<c:url value='/performance/detailViewPerformance/P0017'/>"><img src="<c:url value='/image/long_banner.png'/>"></a>
+				<a href="<c:url value='/performance/detailViewPerformance/P0017'/>"><img src="<c:url value='/image/배너.png'/>"></a>
 		</div>
-		<h1>TICKET COMING SOON</h1>
+		<h1 id="comming-soon">TICKET COMING SOON</h1>
 		<table id="initialTable">
 		<tr>
 		<c:forEach items="${consertOpenExpectedList}" var="consertOpenExpected" varStatus="status">

@@ -71,6 +71,7 @@ body {
 	font-size: 16px;
 	color: #333;
 	cursor: pointer;
+	font-family: 'TheJamsil2Light', sans-serif;
 }
 
 .sidebar button:hover {
@@ -135,7 +136,9 @@ body {
 	margin-top: 30px;
 	margin-bottom: 65px;
 }
-
+.welcome-box p {
+	font-family: 'TheJamsil2Light', sans-serif;
+}
 .welcome-box h2 {
 	font-size: 22px;
 	margin-top: 8px;
@@ -145,16 +148,20 @@ body {
 .myInfo {
 	margin-top: 30px;
 	margin-bottom: 40px;
-	border: 1px solid #ddd;
 	padding: 10px;
 	align-items: center; /* 수직 중앙 정렬 */
-	border-radius: 8px;
+
+}
+.myInfo p{
+	font-family: 'TheJamsil2Light', sans-serif;
 }
 
 .service-center {
 	margin-top: 40px;
 }
-
+.service-center p{
+	font-family: 'TheJamsil2Light', sans-serif;
+}
 .warning {
 	background-color: #f9f9f9;
 	padding: 15px;
@@ -163,6 +170,9 @@ body {
 	font-size: 0.9em;
 	margin-top: 30px;
 	text-align: left;
+	font-family: 'TheJamsil2Light', sans-serif;
+	border-radius: 8px;
+	margin-bottom : 30px;
 }
 
 .warning p {
@@ -218,6 +228,8 @@ h3 {
 .details li {
 	justify-content: flex-start; /* 요소를 왼쪽으로 붙임 */
 	margin-top: 6px;
+	font-family: 'TheJamsil2Light', sans-serif;
+	font-weight: bold;
 }
 
 .stat-item {
@@ -234,8 +246,10 @@ h3 {
 .stat-item label {
 	display: block;
 	font-size: 14px;
+	padding-top: 5px;
 	color: #666;
-	
+	font-family: 'TheJamsil2Light', sans-serif;
+	font-weight: bold;
 }
 
 .button {
@@ -284,10 +298,10 @@ h3 {
 				onclick="location.href='http://localhost:8080/member/confirmation/0';">예약확인/취소</button>
 			<div class="service-center">
 				<h2>고객센터</h2>
-				<p>전화 상담: 1544-5555</p>
+				<p>전화 상담: 1234-1234</p>
 				<p>운영시간: 평일 09:00~18:00</p>
 				<p>토요일 09:00~17:00</p>
-				<p>일요일 및 공휴일 휴무.</p>
+				<p>일요일 및 공휴일 휴무</p>
 			</div>
 		</div>
 
@@ -407,10 +421,10 @@ h3 {
 			<div class="warning">
 				<h4>예매 유의사항</h4>
 				<p>- 다른 좌석등급이나 다른 상품으로 변경은 불가합니다.</p>
-				<p>유효기간내에 사용하지 않으면 자동소멸됩니다. 유효기간 연장이나 환불은 불가하오니, 유효기간내에 이용하시기
+				<p>- 유효기간내에 사용하지 않으면 자동소멸됩니다. 유효기간 연장이나 환불은 불가하오니, 유효기간내에 이용하시기
 					바랍니다.</p>
-				<p>-예매권으로 예매시에는, 별도 예매수수료 없이 예매됩니다.</p>
-				<p>-웹에서만 예매가 가능하오니, 유의하시기 바랍니다.</p>
+				<p>- 예매권으로 예매시에는, 별도 예매수수료 없이 예매됩니다.</p>
+				<p>- 웹에서만 예매가 가능하오니, 유의하시기 바랍니다.</p>
 			</div>
 		</div>
 	</div>

@@ -8,6 +8,10 @@
     box-sizing:content-box;
 }
 
+body {
+    padding-top: 95px; /* navbar 높이만큼 여백 추가 */
+}
+
 #wrapper, .banner, #box {
     max-width: 100%;
 }
@@ -45,7 +49,7 @@ h4 {
 }
 
 #fillout {
-	margin-left:1000px;
+	margin-left:900px;
 	margin-top:150px;
 	cursor:pointer;
 }

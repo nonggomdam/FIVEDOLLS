@@ -13,7 +13,7 @@
 	</div>
 	<div id="companyInfo">
 		<div id="siteName">
-			<span>FiveDolls</span>
+			<a href="<c:url value='/'/>"><span>FiveDolls</span></a>
 		</div>
 		<div id="info">
 			<p class="name">파이브 돌스(주)</p>

@@ -80,9 +80,16 @@ input {
 					선택한 좌석: <span id="selectedSeats"></span>
 				</div>
 				<div class="total-price">
-					총 결제 금액: <span id="totalAmt"></span>원
-				
+					총 결제 금액: <span id="totalAmt"></span>원				
 				</div>				
+				<div>
+				<c:if test="${performanceInfo.performanceLocationId == 'SE0000001'}">
+					<p>공연장 정보 : 올림픽홀</p>
+				</c:if>
+				<c:if test="${performanceInfo.performanceLocationId == 'SE0000002'}">
+					<p>공연장 정보 : 샤롯데홀</p>
+				</c:if>
+				</div>
 					<div style="display: inline-block; width: 20px; height: 20px; background-color: #5F9EA0; margin-top: 20px; margin-right: 8px;"></div>
 					<div style="display: inline-block; line-height: 50px;">S석  <fmt:formatNumber type="number"	maxFractionDigits="3"
 																			value="${performanceInfo.performancePrice+30000}" />원</div>

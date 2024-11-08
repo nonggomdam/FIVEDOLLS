@@ -6,8 +6,12 @@
    font-style: normal;
 }
 
+body {
+    padding-top: 80px; /* navbar 높이만큼 여백 추가 */
+}
+
 .navbar {
-position: sticky;
+position: fixed;
 top: 0;
 justify-content: space-between;
 align-items: center;

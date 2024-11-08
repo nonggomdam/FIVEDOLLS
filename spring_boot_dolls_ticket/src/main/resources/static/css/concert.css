@@ -64,10 +64,10 @@
 	text-decoration: none;
 }
 .ranking img {
-	width: 280px;
-	height: 350px;
+	width: 320px;
+	height: 420px;
 	display: block;
-    margin: 15px;
+    margin: 30px;
 }
 .ranking .info a .info-txt {
 	font-family: 'TheJamsil2Light', sans-serif;
@@ -77,11 +77,13 @@
     text-align: center;
     position: relative;
 }
+
 .info a .info-txt1 {
-    font-size: 16px;
+    font-size: 17px;
     line-height: 22px;
     color: #888;
     padding: 10px 0 12px 0;
+    font-weight: bold;
 }
 
 .info a .info-txt2 {
@@ -94,7 +96,10 @@
 .info {
     position: relative; 
     display: inline-block; 
+    margin-bottom:60px;
 }
+
+
 
 .textinfo {
 	font-family: 'TheJamsil2Light', sans-serif;
@@ -161,6 +166,20 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+#now-open{
+	margin-top:160px;
+	margin-bottom : 100px;
+	color: #5a5a5a;
+	font-weight: bold;
+}
+
+#comming-soon{
+		margin-top:160px;
+	margin-bottom : 100px;
+	color: #5a5a5a;
+	font-weight: bold;
+
 }
 
 /*  		.images {
@@ -233,4 +252,5 @@
 		    opacity: 1;  마우스를 올렸을 때 글자 보이기
 		    transform: scale(1.1);
 		} */
+		
 

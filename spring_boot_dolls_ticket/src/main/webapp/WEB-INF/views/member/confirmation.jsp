@@ -341,6 +341,21 @@ h3 {
     color: #aaa; /* 비활성화 시 텍스트 색상 */
 }
 
+#myForm{
+		text-align: center;
+}
+
+#myForm a{
+	margin-right:5px;
+	margin-left:5px;
+}
+
+#myForm span{
+		margin-right:5px;
+		margin-left:5px;
+		font-weight: bold; /* 버튼 텍스트 굵게 */
+}
+
 </style>
 </head>
 <body>
@@ -445,6 +460,7 @@ h3 {
 										<span>결제취소</span>
 									</c:when>
 								</c:choose>
+								<c:set var="now" value="${now}" />
 								<c:choose>
 							    <c:when test="${myPageList.reservationSeatNumber != 0}">
 							        <td>
@@ -454,6 +470,7 @@ h3 {
 							            </form>
 							        </td>
 							    </c:when>
+
 							    <c:otherwise>
 							        <td><button type="button" class="updatebutton" onclick="confirmCancellation('${myPageList.reservationId}')" disabled>예매취소</button></td>
 							    </c:otherwise>

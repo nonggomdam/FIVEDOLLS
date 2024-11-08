@@ -8,6 +8,10 @@
     box-sizing:content-box;
 }
 
+body {
+    padding-top: 95px; /* navbar 높이만큼 여백 추가 */
+}
+
 #wrapper, .banner, #box {
     max-width: 100%;
 }

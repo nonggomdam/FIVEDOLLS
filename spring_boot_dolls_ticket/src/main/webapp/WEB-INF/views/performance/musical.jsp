@@ -60,7 +60,7 @@
 			</div>
 		</div>
 	</div>
-		<h1>NOW OPEN</h1>
+		<h1 id="now-open">NOW OPEN</h1>
 		<table id="initialTable">
 			<tr>
 			<c:forEach items="${performanceOpenList}" var="performanceOpen" varStatus="status">
@@ -73,8 +73,11 @@
 					<img src="<c:url value='/image/${performanceOpen.performanceImagePath}'/>">
 						<div class="info-txt">
 							<p class="info-txt1">${performanceOpen.performanceName}</p>
-							<p class="info-txt2"><fmt:formatDate value="${performanceOpen.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${performanceOpen.maxPerformanceDate}" pattern="yyyy.MM.dd"/></p>
+							<p class="info-txt2" style="color: #ff9900; margin-bottom:10px;" ><fmt:formatDate value="${performanceOpen.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${performanceOpen.maxPerformanceDate}" pattern="yyyy.MM.dd"/></p>
+							<p class="info-txt2">${performanceOpen.performanceAddress}</p>
+							<p class="info-txt2">${performanceOpen.performanceDetailAddress}</p>
 						</div>
+					
 					</a>						
 				</div>	
 			</td>
@@ -84,11 +87,13 @@
 			</c:forEach>
 			</tr>
 		</table>
+
+
 			
 			<div class="banner">
-				<a href="<c:url value='/performance/detailViewPerformance/P0017'/>"><img src="<c:url value='/image/long_banner.png'/>"></a>
+				<a href="<c:url value='/performance/detailViewPerformance/P0017'/>"><img src="<c:url value='/image/뮤지컬.png'/>"></a>
 			</div>
-			<h1>TICKET COMING SOON</h1>
+			<h1 id="comming-soon" >TICKET COMING SOON</h1>
 			<table id="initialTable">
 			<tr>
 			<c:forEach items="${performanceOpenExpectedList}" var="performanceOpenExpected" varStatus="status">
@@ -119,6 +124,22 @@
 	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 	<script src="<c:url value='/js/swiper.js'/>"></script>
 	<c:import url="/WEB-INF/views/layout/footer.jsp"/>
+	
+	
+	<script>
+    let currentPage = 1;
+
+    function loadMorePerformances() {
+        currentPage++;
+        fetch(`/performance/musical?page=${currentPage}`)
+            .then(response => response.text())
+            .then(data => {
+                // 새로운 공연 데이터를 추가적으로 삽입
+                document.getElementById('performanceList').insertAdjacentHTML('beforeend', data);
+            })
+            .catch(error => console.error("Error loading more performances:", error));
+    }
+</script>
 	
 	</body>
 </html>
