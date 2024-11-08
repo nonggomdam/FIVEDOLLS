@@ -31,7 +31,7 @@
 					<c:choose>
 				        <c:when test="${empty inquiryList}">
 				            <tr>
-				                <td colspan="4">등록된 문의 사항이 없습니다.</td>
+				                <td colspan="6">등록된 문의 사항이 없습니다.</td>
 				            </tr>
 				        </c:when>
 				        <c:otherwise>
