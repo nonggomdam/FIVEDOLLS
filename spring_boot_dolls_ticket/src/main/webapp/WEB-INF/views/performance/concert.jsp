@@ -22,42 +22,42 @@
 				<a href="<c:url value='/performance/detailViewPerformance/P0001'/>"><img src="<c:url value='/image/c_banner1.jfif'/>">
 				<div class="slide-txt">
 						<p class="slide-tit">2024 나훈아 콘서트</p>
-						<p class="slide-detail">2024.12.14 ~ 2024.12.15</p>
+						<p class="slide-detail">2024.11.19 ~ 2024.11.20</p>
 				</div></a>
 		  </div>
 			<div class="swiper-slide">
-				<a href="<c:url value='/performance/detailViewPerformance/P0005'/>"><img src="<c:url value='/image/c_banner2.jfif'/>">
+				<a href="<c:url value='/performance/detailViewPerformance/P0003'/>"><img src="<c:url value='/image/c_banner2.jfif'/>">
 				<div class="slide-txt">
 						<p class="slide-tit">2024 NE-YO 콘서트</p>
-						<p class="slide-detail">2024.11.16 ~ 2024.11.17</p>
+						<p class="slide-detail">2024.11.18 ~ 2024.11.19</p>
 				</div></a>
 		  </div>
 			<div class="swiper-slide">
-				<a href="<c:url value='/performance/detailViewPerformance/P0004'/>"><img src="<c:url value='/image/c_banner3.jfif'/>">
+				<a href="<c:url value='/performance/detailViewPerformance/P0002'/>"><img src="<c:url value='/image/c_banner3.jfif'/>">
 				<div class="slide-txt">
 						<p class="slide-tit">2024 적재 콘서트</p>
-						<p class="slide-detail">2024.11.09 ~ 2024.11.10</p>
+						<p class="slide-detail">2024.11.23 ~ 2024.11.24</p>
 				</div></a>
 			</div>
 			<div class="swiper-slide">
-				<a href="<c:url value='/performance/detailViewPerformance/P0006'/>"><img src="<c:url value='/image/c_banner4.jfif'/>">
+				<a href="<c:url value='/performance/detailViewPerformance/P0004'/>"><img src="<c:url value='/image/c_banner4.jfif'/>">
 				<div class="slide-txt">
 						<p class="slide-tit">2024 이찬원 콘서트</p>
-						<p class="slide-detail">2024.12.14 ~ 2024.12.15</p>
+						<p class="slide-detail">2024.11.13 ~ 2024.11.14</p>
 				</div></a>
 			</div>
 			<div class="swiper-slide">
-				<a href="<c:url value='/performance/detailViewPerformance/P0007'/>"><img src="<c:url value='/image/c_banner5.jfif'/>">
+				<a href="<c:url value='/performance/detailViewPerformance/P0011'/>"><img src="<c:url value='/image/c_banner5.jfif'/>">
 				<div class="slide-txt">
 						<p class="slide-tit">2024 송골매 콘서트</p>
-						<p class="slide-detail">2024.11.16 ~ 2024.11.17</p>
+						<p class="slide-detail">2024.11.30 ~ 2024.12.01</p>
 				</div></a>
 			</div>
 	      <div class="swiper-slide">
-				<a href="<c:url value='/performance/detailViewPerformance/P0008'/>"><img src="<c:url value='/image/c_banner6.jfif'/>">
+				<a href="<c:url value='/performance/detailViewPerformance/P0012'/>"><img src="<c:url value='/image/c_banner6.jfif'/>">
 				<div class="slide-txt">
 						<p class="slide-tit">박진영 30주년 콘서트〈Still JYP〉</p>
-						<p class="slide-detail">2024.12.28 ~ 2024.12.29</p>
+						<p class="slide-detail">2024.12.14 ~ 2024.12.15</p>
 				</div></a>
 			</div>
 	    </div>
@@ -71,7 +71,7 @@
             <tr>
         </c:if>
 			<td class="ranking">
-				<div class="info">				
+				<div class="infocoming">				
 					<a href="/performance/detailViewPerformance/${consertOpen.performanceId}">
 					<img src="<c:url value='/image/${consertOpen.performanceImagePath}'/>">
 						<div class="info-txt">
@@ -99,7 +99,7 @@
             <tr>
         </c:if>
 			<td class="ranking">
-				<div class="info">				
+				<div class="infocoming">				
 					<a href="/performance/detailViewPerformance/${consertOpenExpected.performanceId}">
 					<img src="<c:url value='/image/${consertOpenExpected.performanceImagePath}'/>">
 						<div class="info-txt">

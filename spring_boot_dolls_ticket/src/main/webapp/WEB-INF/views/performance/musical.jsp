@@ -19,19 +19,19 @@
 	<div class="swiper mySwiper">
 		<div class="swiper-wrapper">
 			<div class="swiper-slide">
-				<a href="<c:url value='/performance/detailViewPerformance/P0009'/>"><img
+				<a href="<c:url value='/performance/detailViewPerformance/P0005'/>"><img
 					src="<c:url value='/image/m_banner1.jfif'/>">
 					<div class="slide-txt">
 						<p class="slide-tit">뮤지컬 [알라딘] 한국 초연 (ALADDIN The Musical)</p>
-						<p class="slide-detail">2024.12.24 ~ 2024.12.25</p>
+						<p class="slide-detail">2024.11.11 ~ 2024.11.12</p>
 					</div></a>
 			</div>
 			<div class="swiper-slide">
-				<a href="<c:url value='/performance/detailViewPerformance/P0010'/>"><img
+				<a href="<c:url value='/performance/detailViewPerformance/P0006'/>"><img
 					src="<c:url value='/image/m_banner2.jfif'/>">
 					<div class="slide-txt">
 						<p class="slide-tit">뮤지컬 [빈센트 반 고흐]</p>
-						<p class="slide-detail">2024.11.10 ~ 2024.11.11</p>
+						<p class="slide-detail">2024.11.13 ~ 2024.11.14</p>
 					</div></a>
 			</div>
 			<div class="swiper-slide">
@@ -43,19 +43,19 @@
 					</div></a>
 			</div>
 			<div class="swiper-slide">
-				<a href="<c:url value='/performance/detailViewPerformance/P0012'/>"><img
+				<a href="<c:url value='/performance/detailViewPerformance/P0007'/>"><img
 					src="<c:url value='/image/m_banner4.jfif'/>">
 					<div class="slide-txt">
 						<p class="slide-tit">뮤지컬 〈이터니티〉</p>
-						<p class="slide-detail">2024.12.07 ~ 2024.12.08</p>
+						<p class="slide-detail">2024.11.16 ~ 2024.11.17</p>
 					</div></a>
 			</div>
 			<div class="swiper-slide">
-				<a href="<c:url value='/performance/detailViewPerformance/P0013'/>"><img
+				<a href="<c:url value='/performance/detailViewPerformance/P0008'/>"><img
 					src="<c:url value='/image/m_banner5.jfif'/>">
 					<div class="slide-txt">
 						<p class="slide-tit">2024 뮤지컬 [지저스 크라이스트 수퍼스타]</p>
-						<p class="slide-detail">2024.11.07 ~ 2024.11.08</p>
+						<p class="slide-detail">2024.11.19 ~ 2024.11.20</p>
 					</div></a>
 			</div>
 		</div>
@@ -68,14 +68,12 @@
 	            <tr>
 	        </c:if>
 				<td class="ranking">
-				<div class="info">				
+				<div class="infocoming">				
 					<a href="/performance/detailViewPerformance/${performanceOpen.performanceId}">
 					<img src="<c:url value='/image/${performanceOpen.performanceImagePath}'/>">
 						<div class="info-txt">
 							<p class="info-txt1">${performanceOpen.performanceName}</p>
-							<p class="info-txt2" style="color: #ff9900; margin-bottom:10px;" ><fmt:formatDate value="${performanceOpen.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${performanceOpen.maxPerformanceDate}" pattern="yyyy.MM.dd"/></p>
-							<p class="info-txt2">${performanceOpen.performanceAddress}</p>
-							<p class="info-txt2">${performanceOpen.performanceDetailAddress}</p>
+							<p class="info-txt2"><fmt:formatDate value="${performanceOpen.minPerformanceDate}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${performanceOpen.maxPerformanceDate}" pattern="yyyy.MM.dd"/></p>
 						</div>
 					
 					</a>						
@@ -91,7 +89,7 @@
 
 			
 			<div class="banner">
-				<a href="<c:url value='/performance/detailViewPerformance/P0017'/>"><img src="<c:url value='/image/뮤지컬.png'/>"></a>
+				<a href="<c:url value='/performance/detailViewPerformance/P0006'/>"><img src="<c:url value='/image/뮤지컬.png'/>"></a>
 			</div>
 			<h1 id="comming-soon" >TICKET COMING SOON</h1>
 			<table id="initialTable">
@@ -101,7 +99,7 @@
 	            <tr>
 	        </c:if>
 				<td class="ranking">
-					<div class="info">				
+					<div class="infocoming">				
 						<a href="/performance/detailViewPerformance/${performanceOpenExpected.performanceId}">
 						<img src="<c:url value='/image/${performanceOpenExpected.performanceImagePath}'/>">
 							<div class="info-txt">
