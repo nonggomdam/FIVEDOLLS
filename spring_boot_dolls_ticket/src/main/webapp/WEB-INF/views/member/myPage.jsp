@@ -148,10 +148,9 @@ body {
 .myInfo {
 	margin-top: 30px;
 	margin-bottom: 40px;
-	border: 1px solid #ddd;
 	padding: 10px;
 	align-items: center; /* 수직 중앙 정렬 */
-	border-radius: 8px;
+
 }
 .myInfo p{
 	font-family: 'TheJamsil2Light', sans-serif;
@@ -172,6 +171,8 @@ body {
 	margin-top: 30px;
 	text-align: left;
 	font-family: 'TheJamsil2Light', sans-serif;
+	border-radius: 8px;
+	margin-bottom : 30px;
 }
 
 .warning p {

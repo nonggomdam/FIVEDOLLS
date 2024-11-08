@@ -27,17 +27,20 @@
         }
         .seating-container {
             display: flex;
+
         }
         .seating-container h2{
-            margin-bottom:65px;
+            margin-bottom:125px;
         }
         .seats {
             flex: 2;
             width: 900px;
+            height: 820px;
             text-align: center;
             border: 2px solid #ddd;
             padding: 40px;
             font-family: 'TheJamsil3Regular', sans-serif;
+            border-radius: 7px;
         }
         .seat-selection {
             display: inline-block;
@@ -50,6 +53,7 @@
             line-height: 40px;
             cursor: pointer;
             border-radius: 5px;
+            
         }
         
         .seat-selectionR {
@@ -120,6 +124,7 @@
             border: 1px solid #ddd;
             margin-left: 50px;
             font-family: 'TheJamsil2Light', sans-serif;
+            border-radius: 7px;
         }
         .seat-info img{
         	width: 100%;
