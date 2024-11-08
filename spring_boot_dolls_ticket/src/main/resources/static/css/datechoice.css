@@ -49,13 +49,14 @@
 .right-panel {
 	width: 40%;
 	margin-left: 50px;
+	height:740px;
 }
 
 .left-panel, .right-panel {
 	border: 1px solid #ccc;
 	padding: 10px;
 	box-sizing: border-box;
-	border-radius: 5px;
+	border-radius: 16px;
 	
 }
 
@@ -83,11 +84,17 @@
 	font-family: 'TheJamsil2Light', sans-serif;
 }
 
-.poster, .my-info {
+.poster{
 	border: 1px solid #ccc;
 	padding: 25px;
-	border-radius: 5px;
+	border-radius: 16px;
 	font-family: 'TheJamsil2Light', sans-serif;
+}
+
+.my-info{
+	padding: 25px;
+	font-family: 'TheJamsil2Light', sans-serif;
+	
 }
 
 .my-info p{
@@ -220,7 +227,7 @@ h3{
     border: 1px solid #ccc; /* 테두리 추가 */
     padding: 15px; /* 내부 여백 */
     background-color: #f9f9f9; /* 배경색 설정 */
-    margin-top: 20px; /* 상단 간격 */
+    margin-top: 60px; /* 상단 간격 */
     border-radius: 8px; /* 모서리 둥글게 */
     margin-bottom : 120px;
     font-family: 'TheJamsil2Light', sans-serif;

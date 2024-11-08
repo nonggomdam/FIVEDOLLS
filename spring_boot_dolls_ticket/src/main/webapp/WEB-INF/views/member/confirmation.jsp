@@ -53,8 +53,9 @@ body {
 }
 
 .sidebar h2 {
+	margin-top:10px;
 	font-size: 20px;
-	margin-bottom: 15px;
+	margin-bottom: 20px;
 	color: #333;
 }
 
@@ -74,6 +75,8 @@ body {
 	font-size: 16px;
 	color: #333;
 	cursor: pointer;
+	font-weight: bold; /* 버튼 텍스트 굵게 */
+	font-family: 'TheJamsil2Light', sans-serif;
 }
 
 .sidebar button:hover {
@@ -166,16 +169,19 @@ body {
 
 .myInfo {
 	margin-top: 30px;
-	margin-bottom: 40px;
+	margin-bottom: 60px;
 	border: 1px solid #ddd;
 	padding: 10px;
 	align-items: center; /* 수직 중앙 정렬 */
 	border-radius: 8px;
+	background-color: #D78E8E;
 }
 
 .service-center {
-	margin-top: 40px;
+    margin-left:15px;
+	margin-top: 60px;
 }
+        
 
 .warning {
 	background-color: #f9f9f9;
@@ -365,14 +371,19 @@ h3 {
 
 		<div class="sidebar">
 			<div class="myInfo">
-				<h2>나의 정보</h2>
-				<p>환영합니다!</p>
-				<p>${myInfo.custName} 님은 일반 회원입니다.</p>
+				<h2 style="color:#505050; margin-left:10px;">나의 정보</h2>
+				<p style="color:white; margin-left:10px;">환영합니다!</p>
+				<p style="color:white; margin-left:10px;">${myInfo.custName} 님은 일반 회원입니다.</p>
 			</div>
-			<button
-				onclick="location.href='http://localhost:8080/member/correctionMember';">회원정보
-				변경</button>
-			<button onclick="location.href='http://localhost:8080/member/confirmation/0';">예약확인/취소</button>
+			<div>
+				<button
+					onclick="location.href='http://localhost:8080/member/correctionMember';">회원정보
+					변경</button>
+				<button
+					onclick="location.href='http://localhost:8080/member/confirmation/0';">예약확인/취소</button>
+				<button>공지사항</button>
+				<button>1:1문의</button>
+			</div>
 			<div class="service-center">
 				<h2>고객센터</h2>
 				<p>전화 상담: 1544-5555</p>
