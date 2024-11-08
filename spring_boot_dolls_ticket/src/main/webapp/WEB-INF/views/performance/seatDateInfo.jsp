@@ -84,7 +84,7 @@
 			<div class="my-info">
 				<h3>My예매정보</h3>
 				<img src="<c:url value='/image/${performanceInfo.performanceImagePath}'/>">
-				<p class="id">${performanceInfo.performanceName}</p>
+				<p id="id">${performanceInfo.performanceName}</p>
 				<p>관람 등급 : ${performanceInfo.performanceRatingCode}세</p>
 				<p>공연 날짜 :
 					<fmt:formatDate value="${performanceInfo.performanceDate1}"
@@ -186,7 +186,7 @@
 											//공연날짜 외에 다른거 클릭시 return;
 											if(!_checkPerformanceToCalendal(makeDate)){
 											 	alert("해당 날짜에는 공연이 없습니다.");		
-												 	return;
+											 	return;
 											}
 											cell.style.backgroundColor = 'salmon';	
 											

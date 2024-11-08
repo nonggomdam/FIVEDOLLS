@@ -19,6 +19,7 @@
 	align-items: flex-start;
 	max-width: 70%;
 	margin: 0 auto;
+	margin-top:50px;
 }
 
 .container {
@@ -49,7 +50,7 @@
 .right-panel {
 	width: 40%;
 	margin-left: 50px;
-	height:740px;
+	height:780px;
 }
 
 .left-panel, .right-panel {
@@ -101,8 +102,10 @@
 	margin-bottom : 8px;
 }
 
-.id {
+#id {
+	font-size:22px;
 	font-weight: bold;
+	margin-bottom:18px;
 }
 
 .my-info img{
