@@ -72,7 +72,7 @@ if (userId == null) {
 						<c:if test="${pfm.performanceLocationId == 'SE0000001'}">
 							<dd>&nbsp;올림픽홀</dd>
 						</c:if>
-						<c:if test="${pfm.performanceLocationId != 'SE0000002'}">
+						<c:if test="${pfm.performanceLocationId == 'SE0000002'}">
 							<dd>&nbsp;샤롯데씨어터</dd>
 						</c:if>
 						<dt>가격</dt>

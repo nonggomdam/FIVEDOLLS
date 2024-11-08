@@ -7,11 +7,14 @@
 <head>
 <meta charset="UTF-8">
 <title>회원정보 수정</title>
-<c:import url="/WEB-INF/views/layout/head.jsp" />
+
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/correctionMember.css'/>">
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/font5.css'/>">
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/navbar.css'/>">
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/footer.css'/>">
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/mypage.css'/>">
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="<c:url value='/js/searchZip.js'/>"></script>
@@ -27,15 +30,19 @@
 
 		<div class="sidebar">
 			<div class="myInfo">
-				<h2>나의 정보</h2>
-				<p>환영합니다!</p>
-				<p>${myInfo.custName} 님은 일반 회원입니다.</p>
+				<h2 style="color:#505050; margin-left:10px;">나의 정보</h2>
+				<p style="color:white; margin-left:10px;">환영합니다!</p>
+				<p style="color:white; margin-left:10px;">${myInfo.custName} 님은 일반 회원입니다.</p>
 			</div>
-			<button
-				onclick="location.href='http://localhost:8080/member/correctionMember';">회원정보
-				변경</button>
-			<button
-				onclick="location.href='http://localhost:8080/member/confirmation/0';">예약확인/취소</button>
+			<div>
+				<button
+					onclick="location.href='http://localhost:8080/member/correctionMember';">회원정보
+					변경</button>
+				<button
+					onclick="location.href='http://localhost:8080/member/confirmation/0';">예약확인/취소</button>
+				<button>공지사항</button>
+				<button>1:1문의</button>
+			</div>
 			<div class="service-center">
 				<h2>고객센터</h2>
 				<p>전화 상담: 1544-5555</p>
@@ -132,7 +139,7 @@
 		</div>
 	</div>
 	<c:import url="/WEB-INF/views/layout/footer.jsp" />
-
+</div>
 
 </body>
 

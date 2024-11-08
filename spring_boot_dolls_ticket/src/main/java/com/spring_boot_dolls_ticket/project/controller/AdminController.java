@@ -240,5 +240,13 @@ public class AdminController {
 		
 		return "redirect:/admin/inquiryResponseView/" + inquiryId;
 	}
-
+	// 관리자 회원 목록 페이지 이동
+	@RequestMapping("/admin/memberList")
+	public String memberList(Model model) {
+		ArrayList<MemberVO> memberList = memberService.listAllMember();
+		
+		model.addAttribute("memberList", memberList);
+		
+		return "admin/memberList";
+	}
 }

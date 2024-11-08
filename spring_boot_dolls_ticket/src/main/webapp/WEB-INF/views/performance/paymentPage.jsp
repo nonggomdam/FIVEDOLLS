@@ -6,7 +6,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>예스24 티켓 예매</title>
+<title>결제 페이지</title>
 <c:import url="/WEB-INF/views/layout/top.jsp"></c:import>
 <c:import url="/WEB-INF/views/layout/head.jsp"></c:import>
 <script src="jquery-3.7.1.min.js"></script>
@@ -33,21 +33,23 @@
 }
 
 .left-section {
+	background-color: #f6f6f6;
 	width: 55%;
 	padding: 60px;
 	border: 1px solid #ddd;
-	border-radius: 6px;
+	border-radius: 12px;
 	font-family: 'TheJamsil2Light', sans-serif;
 }
 
 .right-section {
-	width: 38%;
-	height: 800px;
+	width: 40%;
+	height: 860px;
 	padding: 20px;
-	background-color: #f0f0f0;
-	border-left: 1px solid #ddd;
+	background-color: #353535;
+	border: 1px solid #787878;
 	margin-left: 120px;
 	font-family: 'TheJamsil2Light', sans-serif;
+	border-radius: 21px;
 }
 
 .section-title {
@@ -65,24 +67,29 @@
 .form-group label {
 	display: block;
 	margin-bottom: 5px;
+	font-weight: bold;
+	font-size:16px;
 }
 
 .form-group input[type="text"], .form-group input[type="email"] {
 	width: 97%;
-	padding: 10px;
+	padding: 12px;
 	border: 1px solid #ddd;
 	border-radius: 4px;
 	margin-top: 20px;
+	font-weight: semibold;
+	font-size:13px;
 }
 
 .warning {
-	background-color: #f9f9f9;
+	background-color: white;
 	padding: 15px;
 	border: 1px solid #ddd;
 	color: red;
 	font-size: 0.9em;
 	margin-top: 50px;
 	text-align: left;
+	border-radius: 10px;
 }
 
 .warning p {
@@ -90,17 +97,19 @@
 }
 
 .ticket-info {
-	background-color: white;
-	padding: 10px;
-	border: 1px solid #ddd;
-	height: 260px;
+	background-color: #353535;
+	padding: 14px;
+	border-bottom: 2px solid #646464;
+	height: 320px;
 	margin-bottom: 20px;
 	margin-top: 20px;
+	color:#eee9e9;
 }
 
 .ticket-info img {
 	width: 100%;
-	max-width: 150px;
+	max-width: 190px;
+	height:280px;
 	float: left;
 	margin-left: 12px;
 	margin-right: 34px;
@@ -109,25 +118,39 @@
 .ticket-details {
 	overflow: hidden;
 }
+.ticket-details h2{
+	font-size:30px;
+	margin-bottom:22px;
+	margin-left : 12px;
+}
 
 .ticket-details p {
-	margin-top: 12px;
+	margin-top: 10px;
+	font-size:18px;
+	font-weight: semibold;
+	margin-left : 12px;
 }
 
 .ticket-details .title {
 	font-weight: bold;
 }
+.title{
+	font-size:28px;
+}
 
 .summary {
 	padding: 10px;
-	height: 200px;
-	border: 1px solid #ddd;
-	margin-top: 60px;
+	height: 240px;
+	border-bottom: 2px solid #646464;
 	margin: 0 auto;
+	color:#eee9e9;
 }
 
 .summary .price-row {
-	margin-top: 20px;
+	margin-top: 30px;
+	margin-left: 15px;
+	font-size : 19px;
+	font-weight: semibold;
 }
 
 .summary .total {
@@ -137,11 +160,15 @@
 }
 
 .buttons {
-	margin-left: 13%;
 	text-align: center;
 	margin-top: 45px;
 	display: flex;         /* Flexbox를 사용하여 가로로 배치 */
     gap: 10px;             /* 버튼 사이에 간격 추가 (선택 사항) */
+}
+
+.buttons p{
+	margin-left:4px;
+	color:red;
 }
 
 .buttons button {
@@ -161,27 +188,52 @@
 .buttons button:hover {
 	opacity: 0.9;
 }
-.buttons button:last-child {
-	background-color: #007bff;
-}
+
 
 .buttons form button {
 	padding: 10px 20px;
+	width:125px;
+	heigth:43px;
 	font-size: 1.1em;
-	margin: 5px;
+	margin-top: 20px;
+	margin-right: 12px;
+	margin-left: 12px;
 	border: none;
-	background-color: #000;
+	background-color: #e74c3c;
 	color: white;
 	cursor: pointer;
 }
 
-.buttons form button:last-child {
-	background-color: #007bff;
-}
 
 hr {
 	margin: 50px auto;
 }
+#ticket-announcement{
+	margin-top :42px;
+	margin-left:12px;
+	font-size:20px;
+	color:	#ffa07a;
+	font-weight: bold;
+}
+		.button-shadow {
+		width:125px;	
+		padding: 10px 20px;
+	font-size: 1.1em;
+	margin: 5px;
+	border: none;
+	background-color: #e74c3c;
+	color: white;
+	cursor: pointer;
+	 border-radius: 8px;
+	 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: box-shadow 0.3s, transform 0.3s;
+    font-family: 'TheJamsil2Light', sans-serif;
+		}
+		
+		.button-shadow:hover {
+		    opacity: 0.9;
+		}
 </style>
 </head>
 <body>
@@ -219,20 +271,18 @@ hr {
 			<div class="ticket-info">
 				<img src="<c:url value='/image/${performanceInfo.performanceImagePath}'/>">
 				<div class="ticket-details">
-					<p class="title">${performanceInfo.performanceName}</p>
+					<h2>${performanceInfo.performanceName}</h2>
+					<p style="margin-bottom:16px;">이용등급 : ${performanceInfo.performanceRatingCode}세</p>
+					<p style="font-weight: bold;"><br>뮤지컬 공연날짜</p>
 					<p>
-						뮤지컬 공연날짜:
-						<fmt:formatDate value="${performanceInfo.performanceDate1}"
+						<fmt:formatDate value="${performanceInfo.performanceDate}"
 							pattern="yyyy.MM.dd" />
 						~
 						<fmt:formatDate value="${performanceInfo.performanceDate2}"
 							pattern="yyyy.MM.dd" />
 					</p>
-					<p>
-						예매 날짜:
-						<fmt:formatDate value="${performanceInfo.performanceDate}"
-							pattern="yyyy.MM.dd HH:mm" />
-					</p>
+					<p style="font-weight: bold; margin-top:24px;"><br>공연 장소<br></p>
+					<p>${performanceInfo.performanceAddress}<br>${performanceInfo.performanceDetailAddress}</p>
 				</div>
 			</div>
 
@@ -250,17 +300,22 @@ hr {
 							maxFractionDigits="3"
 							value="${performanceSeatInfo.totalSeatPrice}" />원
 					</span>
+					<p style="font-size:18px; margin-top:32px;">
+						예매 날짜:
+						<fmt:formatDate value="${performanceInfo.performanceDate}"
+							pattern="yyyy.MM.dd HH:mm" />
+					</p>
 				</div>
 			</div>
-
+			<p id="ticket-announcement">티켓은 방문수령 원칙입니다.</p>
 			<div class="buttons">
-				<button onclick="window.history.back()">뒤로가기</button>
 				<form action="/performance/paymentPage/payment" method="POST"
 					onsubmit="return setDataForm()">
 					<input type="hidden" name="performanceId" id="performanceId" value="${performanceInfo.performanceId}">
 					<input type="hidden" name="performanceDate" id="performanceDate" value="<fmt:formatDate value="${performanceInfo.performanceDate}"
 							pattern="yyyy.MM.dd HH:mm" />" >
 					<input type="hidden" name="reservationSeatInformation" id="reservationSeatInformation" value="${performanceSeatInfo.totalSeat}" >
+					<input type="button" onclick="alert('이전 단계로 이동하시겠습니까?'); history.back()" value="이전단계" class="button-shadow">
 					<button type="submit" >결제하기</button>
 				</form>
 			</div>

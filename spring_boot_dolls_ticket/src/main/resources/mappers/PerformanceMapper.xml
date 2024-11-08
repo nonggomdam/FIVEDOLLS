@@ -96,7 +96,7 @@
 	</select>
 	<!-- 공연 정보 수정 -->
 	<update id="updatePerformance" parameterType="com.spring_boot_dolls_ticket.project.model.PerformanceVO">
-		UPDATE PERFORMANCE_INFO_M SET PERFORMANCE_KIND_CD = #{performanceKindCd}, PERFORMANCE_RATING_CODE = #{performanceRatingCode}, PERFORMANCE_NAME = #{performanceName}, PERFORMANCE_PRICE_R = #{performancePriceR}, PERFORMANCE_PRICE_S = #{performancePriceS}, PERFORMANCE_DATE1 = TRUNC(#{performanceDate1}), PERFORMANCE_DATE2 = TRUNC(#{performanceDate2}), PERFORMANCE_TIME = #{performanceTime}, RESERVATION_OPEN_EXPECTED_DATE = TRUNC(#{reservationOpenExpectedDate}), LAST_CHANGE_DATE = SYSDATE, PERFORMANCE_PRICE = #{performancePriceR}, PERFORMANCE_LOCATION_ID = #{performanceLocationId} WHERE PERFORMANCE_ID = #{performanceId}
+		UPDATE PERFORMANCE_INFO_M SET PERFORMANCE_KIND_CD = #{performanceKindCd}, PERFORMANCE_RATING_CODE = #{performanceRatingCode}, PERFORMANCE_NAME = #{performanceName}, PERFORMANCE_PRICE_R = #{performancePriceR}, PERFORMANCE_PRICE_S = #{performancePriceS}, PERFORMANCE_DATE1 = #{performanceDate1}, PERFORMANCE_DATE2 = #{performanceDate2}, PERFORMANCE_TIME = #{performanceTime}, RESERVATION_OPEN_EXPECTED_DATE = #{reservationOpenExpectedDate}, LAST_CHANGE_DATE = SYSDATE, PERFORMANCE_PRICE = #{performancePriceR}, PERFORMANCE_LOCATION_ID = #{performanceLocationId} WHERE PERFORMANCE_ID = #{performanceId}
 	</update>
 	<!-- 공연 정보 삭제 -->
 	<delete id="deletePerformance" parameterType="string">
@@ -219,6 +219,7 @@
 	    ON A.PERFORMANCE_LOCATION_ID = B.PERFORMANCE_LOCATION_ID
 		WHERE B.PERFORMANCE_ID = #{performanceId}
 		AND  TO_CHAR(B.PERFORMANCE_DATE, 'YYYYMMDDHH24MI') = #{performanceDate}
+		ORDER BY A.SEAT_KIND_CD ASC, A.SEAT_NUMBER ASC
 	</select>
 	<resultMap id="PerformanceLocationMap" type="com.spring_boot_dolls_ticket.project.model.PerformanceSeatVO">
 	    <result property="performanceLocationId" column="PERFORMANCE_LOCATION_ID" />
@@ -306,6 +307,7 @@
 		WHERE B.PERFORMANCE_ID = #{performanceId}
 		AND  TO_CHAR(B.PERFORMANCE_DATE, 'YYYYMMDDHH24MI') = #{performanceDate}
 	    AND A.SEAT_KIND_CD || A.SEAT_NUMBER = #{seatKindCd} || #{seatNumber}
+	    
 	</select>
 	
 	<insert id="insertReservationInfo" parameterType="com.spring_boot_dolls_ticket.project.model.ReservationVO">
