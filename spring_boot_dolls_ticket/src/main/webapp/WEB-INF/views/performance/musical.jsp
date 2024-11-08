@@ -89,7 +89,7 @@
 
 			
 			<div class="banner">
-				<a href="<c:url value='/performance/detailViewPerformance/P0006'/>"><img src="<c:url value='/image/뮤지컬.png'/>"></a>
+				<a href="<c:url value='/performance/detailViewPerformance/P0006'/>"><img src="<c:url value='/image/킹키부츠.png'/>"></a>
 			</div>
 			<h1 id="comming-soon" >TICKET COMING SOON</h1>
 			<table id="initialTable">

@@ -89,7 +89,7 @@
 	</table>
 
 		<div class="banner">
-				<a href="<c:url value='/performance/detailViewPerformance/P0017'/>"><img src="<c:url value='/image/배너.png'/>"></a>
+				<a href="<c:url value='/performance/detailViewPerformance/P0013'/>"><img src="<c:url value='/image/long_banner.png'/>"></a>
 		</div>
 		<h1 id="comming-soon">TICKET COMING SOON</h1>
 		<table id="initialTable">
