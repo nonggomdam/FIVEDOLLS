@@ -126,7 +126,7 @@
                     </td>
                     <td>
                         <div class="section">
-                            <h3><a href="/admin/memberList">사용자 관리</a></h3>
+                            <h3><a href="/admin/memberList">회원 관리</a></h3>
                             <table id="memberTable">
                             	<thead>
                             		<tr>
