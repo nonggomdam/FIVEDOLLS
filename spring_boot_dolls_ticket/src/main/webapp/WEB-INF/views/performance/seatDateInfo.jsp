@@ -98,7 +98,7 @@
 			</div>
 			<div class="total-section">
 				<div class="next">
-						<button type="button" onclick="alert('이전 단계로 이동합니다.'); history.back()">이전단계</button>
+						<button type="button" onclick="alert('이전 단계로 이동하시겠습니까?'); history.back()" value="이전단계" >이전단계</button>
 						<button type="button" onclick="_changePage()" id="nextbutton">다음단계</button>
 				</div>
 			</div>

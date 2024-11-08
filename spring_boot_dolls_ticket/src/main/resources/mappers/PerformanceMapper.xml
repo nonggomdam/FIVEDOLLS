@@ -219,6 +219,7 @@
 	    ON A.PERFORMANCE_LOCATION_ID = B.PERFORMANCE_LOCATION_ID
 		WHERE B.PERFORMANCE_ID = #{performanceId}
 		AND  TO_CHAR(B.PERFORMANCE_DATE, 'YYYYMMDDHH24MI') = #{performanceDate}
+		ORDER BY A.SEAT_KIND_CD ASC, A.SEAT_NUMBER ASC
 	</select>
 	<resultMap id="PerformanceLocationMap" type="com.spring_boot_dolls_ticket.project.model.PerformanceSeatVO">
 	    <result property="performanceLocationId" column="PERFORMANCE_LOCATION_ID" />
@@ -306,6 +307,7 @@
 		WHERE B.PERFORMANCE_ID = #{performanceId}
 		AND  TO_CHAR(B.PERFORMANCE_DATE, 'YYYYMMDDHH24MI') = #{performanceDate}
 	    AND A.SEAT_KIND_CD || A.SEAT_NUMBER = #{seatKindCd} || #{seatNumber}
+	    
 	</select>
 	
 	<insert id="insertReservationInfo" parameterType="com.spring_boot_dolls_ticket.project.model.ReservationVO">
