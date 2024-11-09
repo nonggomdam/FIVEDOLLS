@@ -22,6 +22,7 @@ if (userId == null) {
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/performanceDetail.css'/>">
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1df0943899c83997c7b907c959ed39c1"></script>
 	<script src="<c:url value='/js/ticketOpen.js'/>"></script>
+	<script src="<c:url value='/js/map.js'/>"></script>	
 	<script src="<c:url value='/js/review.js'/>"></script>	
 	</head>
 <body>
@@ -263,15 +264,6 @@ $(document).ready(function() {
             window.location.href = '/performance/dateReservation/${pfm.performanceId}'; // 원하는 URL로 변경
         }else if(userId == ""){
         	confirm("로그인 화면으로 이동합니다.")
-        	location.href = '/member/loginForm';
-        }
-    });
-});
-$(document).ready(function() {
-    $('#layer_popup').on('click', function() {
-    	var userId = "<%=userId%>";
-		if(userId == ""){
-        	confirm("로그인이 필요합니다.")
         	location.href = '/member/loginForm';
         }
     });
