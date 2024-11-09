@@ -19,10 +19,7 @@ if (userId == null) {
 	<title>detail Page</title>
 	<c:import url="/WEB-INF/views/layout/top.jsp"/>
 	<c:import url="/WEB-INF/views/layout/head.jsp"/>
-	<link rel="stylesheet" type="text/css" href="<c:url value='/css/performanceDetail.css'/>">
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1df0943899c83997c7b907c959ed39c1"></script>
-	<script src="<c:url value='/js/ticketOpen.js'/>"></script>
-	<script src="<c:url value='/js/review.js'/>"></script>	
+	<link rel="stylesheet" type="text/css" href="<c:url value='/css/performanceDetail.css'/>">	
 	</head>
 <body>
 	<div class="detailPage-wrap">
@@ -277,5 +274,7 @@ $(document).ready(function() {
     });
 });
 </script>
-
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1df0943899c83997c7b907c959ed39c1"></script>
+<script src="<c:url value='/js/ticketOpen.js'/>"></script>
+<script src="<c:url value='/js/review.js'/>"></script>
 </html>
