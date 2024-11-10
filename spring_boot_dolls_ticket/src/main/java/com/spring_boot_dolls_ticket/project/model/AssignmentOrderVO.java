@@ -13,6 +13,10 @@ public class AssignmentOrderVO {
 	private String settleDt;
 	private String receiveCustId;
 	private String paymentKey;
+	private String cardNo;
+	private String cardType;
+	private String mainImage;
+	private String settleMethod;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date firstChangeDate;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -61,6 +65,30 @@ public class AssignmentOrderVO {
 	public void setPaymentKey(String paymentKey) {
 		this.paymentKey = paymentKey;
 	}
+	public String getCardNo() {
+		return cardNo;
+	}
+	public void setCardNo(String cardNo) {
+		this.cardNo = cardNo;
+	}
+	public String getCardType() {
+		return cardType;
+	}
+	public void setCardType(String cardType) {
+		this.cardType = cardType;
+	}
+	public String getMainImage() {
+		return mainImage;
+	}
+	public void setMainImage(String mainImage) {
+		this.mainImage = mainImage;
+	}
+	public String getSettleMethod() {
+		return settleMethod;
+	}
+	public void setSettleMethod(String settleMethod) {
+		this.settleMethod = settleMethod;
+	}
 	public Date getFirstChangeDate() {
 		return firstChangeDate;
 	}
@@ -77,9 +105,12 @@ public class AssignmentOrderVO {
 	public String toString() {
 		return "AssignmentOrderVO [orderNo=" + orderNo + ", itemContent=" + itemContent + ", amount=" + amount
 				+ ", statusCd=" + statusCd + ", settleDt=" + settleDt + ", receiveCustId=" + receiveCustId
-				+ ", paymentKey=" + paymentKey + ", firstChangeDate=" + firstChangeDate + ", lastChangeDate="
-				+ lastChangeDate + "]";
+				+ ", paymentKey=" + paymentKey + ", cardNo=" + cardNo + ", cardType=" + cardType + ", mainImage="
+				+ mainImage + ", settleMethod=" + settleMethod + ", firstChangeDate=" + firstChangeDate
+				+ ", lastChangeDate=" + lastChangeDate + "]";
 	}
+
+
 
 
 	

@@ -7,9 +7,27 @@
 	item_content         VARCHAR2(100) NULL ,
 	settle_dt            VARCHAR2(8) NULL,
     payment_key          VARCHAR2(32) NULL,
+    card_no              VARCHAR2(30), //컬럼추가 이소망(11/8)
+    card_type            VARCHAR2(20), //컬럼추가 이소망(11/8)
+    MAIN_IMAGE           VARCHAR2(200 BYTE), //컬럼추가 이소망(11/10)
+	SETTLE_METHOD        VARCHAR2(20 BYTE), //컬럼추가 이소망(11/10)
     first_change_date    DATE NULL ,
 	last_change_date     DATE NULL 
 );
 
 ALTER TABLE assignment_order
 	ADD CONSTRAINT  XPKassignment_order PRIMARY KEY (order_no);
+	
+	
+/*
+** 11/10 컬럼 2개 추가에 대한 sql문
+
+ALTER TABLE assignment_order 
+ADD (
+    main_image VARCHAR2(200),
+    settle_method VARCHAR2(20)
+);
+
+
+*/	
+	

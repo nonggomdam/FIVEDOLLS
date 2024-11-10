@@ -11,6 +11,14 @@ public class AssignmentOrderDetailVO {
 	private String noticeId;
 	private String assignmentSqno;
 	private int price;
+	private String performanceKindCd;
+	private String performanceName;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date performanceDate;
+	private String reservationSeatKindCd;
+	private String reservationSeatNumber;
+	private String performanceImagePath;
+	private String reservationId;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date firstChangeDate;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -47,6 +55,48 @@ public class AssignmentOrderDetailVO {
 	public void setPrice(int price) {
 		this.price = price;
 	}
+	public String getPerformanceKindCd() {
+		return performanceKindCd;
+	}
+	public void setPerformanceKindCd(String performanceKindCd) {
+		this.performanceKindCd = performanceKindCd;
+	}
+	public String getPerformanceName() {
+		return performanceName;
+	}
+	public void setPerformanceName(String performanceName) {
+		this.performanceName = performanceName;
+	}
+	public Date getPerformanceDate() {
+		return performanceDate;
+	}
+	public void setPerformanceDate(Date performanceDate) {
+		this.performanceDate = performanceDate;
+	}
+	public String getReservationSeatKindCd() {
+		return reservationSeatKindCd;
+	}
+	public void setReservationSeatKindCd(String reservationSeatKindCd) {
+		this.reservationSeatKindCd = reservationSeatKindCd;
+	}
+	public String getReservationSeatNumber() {
+		return reservationSeatNumber;
+	}
+	public void setReservationSeatNumber(String reservationSeatNumber) {
+		this.reservationSeatNumber = reservationSeatNumber;
+	}
+	public String getPerformanceImagePath() {
+		return performanceImagePath;
+	}
+	public void setPerformanceImagePath(String performanceImagePath) {
+		this.performanceImagePath = performanceImagePath;
+	}
+	public String getReservationId() {
+		return reservationId;
+	}
+	public void setReservationId(String reservationId) {
+		this.reservationId = reservationId;
+	}
 	public Date getFirstChangeDate() {
 		return firstChangeDate;
 	}
@@ -61,10 +111,16 @@ public class AssignmentOrderDetailVO {
 	}
 	@Override
 	public String toString() {
-		return "AssignmentOrderDetailVO [orderNo=" + orderNo + ", Sqno=" + sqno + ", noticeId=" + noticeId
-				+ ", assignmentSqno=" + assignmentSqno + ", price=" + price + ", firstChangeDate=" + firstChangeDate
-				+ ", lastChangeDate=" + lastChangeDate + "]";
+		return "AssignmentOrderDetailVO [orderNo=" + orderNo + ", sqno=" + sqno + ", noticeId=" + noticeId
+				+ ", assignmentSqno=" + assignmentSqno + ", price=" + price + ", performanceKindCd=" + performanceKindCd
+				+ ", performanceName=" + performanceName + ", performanceDate=" + performanceDate
+				+ ", reservationSeatKindCd=" + reservationSeatKindCd + ", reservationSeatNumber="
+				+ reservationSeatNumber + ", performanceImagePath=" + performanceImagePath + ", reservationId="
+				+ reservationId + ", firstChangeDate=" + firstChangeDate + ", lastChangeDate=" + lastChangeDate + "]";
 	}
+	
+	
+	
 	
 	
 	

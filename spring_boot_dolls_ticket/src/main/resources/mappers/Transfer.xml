@@ -157,7 +157,7 @@
  	</select>
  	
  	<insert id="insertAssignmentOrder" parameterType="com.spring_boot_dolls_ticket.project.model.AssignmentOrderVO">
- 		INSERT INTO ASSIGNMENT_ORDER (ORDER_NO, ITEM_CONTENT, AMOUNT, STATUS_CD, SETTLE_DT, RECEIVE_CUST_ID, FIRST_CHANGE_DATE, LAST_CHANGE_DATE)
+ 		INSERT INTO ASSIGNMENT_ORDER (ORDER_NO, ITEM_CONTENT, AMOUNT, STATUS_CD, SETTLE_DT, RECEIVE_CUST_ID, MAIN_IMAGE, FIRST_CHANGE_DATE, LAST_CHANGE_DATE)
 		VALUES ( 
 			  #{orderNo}  
 			, #{itemContent, jdbcType=VARCHAR}
@@ -165,6 +165,7 @@
 			, #{statusCd, jdbcType=VARCHAR}
 			, #{settleDt, jdbcType=VARCHAR}
 			, #{receiveCustId, jdbcType=VARCHAR}
+			, #{mainImage, jdbcType=VARCHAR}
 			, sysdate
 			, sysdate 
 		)
@@ -202,6 +203,9 @@
  		update assignment_order 
    		   set status_cd='S' 
    		     , payment_key=#{paymentKey}
+   		     , card_no=#{cardNo}
+   		     , settle_method=#{settleMethod}
+   		     , card_type=#{cardType}
    		     , LAST_CHANGE_DATE=sysdate
          where order_no=#{orderNo}
  	</update>
@@ -222,6 +226,67 @@
    		     , payment_key=#{paymentKey}
    		     , LAST_CHANGE_DATE=sysdate
          where order_no=#{orderNo}
+ 	</update>
+ 	
+ 	<select id="selectListAssignmentOrder" parameterType="string" resultType="com.spring_boot_dolls_ticket.project.model.AssignmentOrderVO">
+ 		select order_no as orderNo
+ 		     , to_char(last_change_date, 'yyyy. MM. dd') as settleDt
+ 		     , amount as amount
+ 		     , item_content as itemContent
+ 		     , card_no as cardNo
+ 		     , card_type as cardType
+ 		     , main_image as mainImage
+ 		     , settle_method as settleMethod 
+	      from assignment_order
+         where receive_cust_id=#{receiveCustId}
+           and status_cd='S'
+      order by first_change_date desc
+ 	</select>
+ 	
+ 	<select id="selectListAssignmentOrderDetail" parameterType="string" resultType="com.spring_boot_dolls_ticket.project.model.AssignmentOrderDetailVO">
+ 		select d.performance_kind_cd as performanceKindCd
+ 		     , d.performance_name as performanceName
+ 		     , c.performance_date as performanceDate
+ 		     , c.reservation_seat_kind_cd as reservationSeatKindCd
+ 		     , c.reservation_seat_number as reservationSeatNumber
+ 		     , c.reservation_id as reservationId
+ 		     , a.price as price
+ 		     , d.performance_image_path as performanceImagePath
+		  from assignment_order_detail a
+             , assignment_ticket b  
+             , reservation_info_m c
+             , performance_info_m d 
+         where a.notice_id = b.notice_id
+           and a.assignment_sqno = b.assignment_sqno
+           and b.reservation_id = c.reservation_id
+           and c.performance_id = d.performance_id
+           and a.order_no = #{orderNo}
+ 	</select>
+ 	
+ 	
+ 	<select id="selectAssignmentOrder" resultType="com.spring_boot_dolls_ticket.project.model.AssignmentOrderVO">
+ 		select order_no as orderNo
+ 		     , last_change_date as lastChangeDate
+ 		     , amount as amount
+ 		     , card_no as cardNo
+ 		     , card_type as cardType
+ 		     , settle_method as settleMethod 
+	      from assignment_order
+         where receive_cust_id=#{receiveCustId}
+           and order_no=#{orderNo}
+ 	</select> 
+ 	
+ 	
+ 	<update id="updateAssignmentStatus" parameterType="string">
+	   	update assignment_notice_board_m 
+           set assignment_status='B'
+         where notice_id  = #{noticeId}
+           and 0 = (
+                 	select count(*)
+               	      from assignment_ticket
+               	     where notice_id = #{noticeId}
+               		   and sold_yn = 'N'
+               	   )
  	</update>
  	
  </mapper>
