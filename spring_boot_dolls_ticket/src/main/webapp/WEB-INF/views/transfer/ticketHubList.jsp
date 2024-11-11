@@ -33,12 +33,18 @@
 			<c:if test="${sessionScope.sid != null }">
 				<a href="<c:url value='/transfer/regForm'/>"><span>티켓 양도하기</span></a>
 			</c:if>
+			<c:if test="${sessionScope.sid == null }">
+				<a onclick="showLoginAlert()"><span style="background-color:#20B2AA;color:white;">나의 양수내역</span></a>
+			</c:if>
+			<c:if test="${sessionScope.sid != null }">
+				<a href="<c:url value='/transfer/assignHistory'/>"><span style="background-color:#20B2AA;color:white;">나의 양수내역</span></a>
+			</c:if>
 		</div>
 		
 		<div id="box" style="width:60%;">
 			<table>
 				<tr id="firstrow">
-					<th>글번호</th>
+					<th>번호</th>
 					<th colspan="3">제목</th>
 					<th>작성자</th>
 					<th>작성일</th>
@@ -73,7 +79,7 @@
 						            진행중
 						        </c:when>
 						        <c:when test="${list.assignmentStatus == 'B'}">
-						            완료
+						            종료
 						        </c:when>
 				        	</c:choose>
 						

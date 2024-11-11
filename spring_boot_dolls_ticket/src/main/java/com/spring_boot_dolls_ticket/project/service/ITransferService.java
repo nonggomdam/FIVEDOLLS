@@ -30,4 +30,8 @@ public interface ITransferService {
 	public int updateSuccess(AssignmentOrderVO orderVo);
 	public List<AssignmentTicketVO> selectSoldYn(String orderNo);
 	public int updateAlreadySold(AssignmentOrderVO orderVo);
+	public List<AssignmentOrderVO> selectListAssignmentOrder(String receiveCustId);
+	public List<AssignmentOrderDetailVO> selectListAssignmentOrderDetail(String orderNo);
+	public AssignmentOrderVO selectAssignmentOrder(@Param("receiveCustId") String receiveCustId, @Param("orderNo") String orderNo);
+	public int updateAssignmentStatus(String noticeId);
 }

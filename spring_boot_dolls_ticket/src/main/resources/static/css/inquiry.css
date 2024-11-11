@@ -1,5 +1,19 @@
 @charset "UTF-8";
 
+@font-face {
+   font-family: 'TheJamsil1Thin';
+   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil1Thin.woff2') format('woff2');
+   font-weight: 100; /*이미 위에서 1Thin 이렇게 정해져서 font-weight 의미 없음*/
+   font-style: normal;
+}
+
+@font-face {
+	 font-family: 'TheJamsil3Regular';
+	 src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil3Regular.woff2') format('woff2');
+	 font-weight: 300; /*이미 위에서 3Regular 이렇게 정해져서 font-weight 의미 없음*/
+	 font-style: normal;
+}
+
 * {margin:0 auto;}
 
 *,
@@ -10,6 +24,11 @@
 
 body {
     padding-top: 95px; /* navbar 높이만큼 여백 추가 */
+    font-family: 'TheJamsil1Thin';
+}
+
+th {
+	font-family: 'TheJamsil3Regular';
 }
 
 #wrapper, .banner, #box {
@@ -34,7 +53,8 @@ table {
 }
 
 th, td {
-   text-align:center;
+	vertical-align: top;
+   text-align: left;
    padding:10px;
    border-bottom:1px solid #eee;
 }
@@ -47,26 +67,39 @@ h1 {
 h4 {
    font-size:25px;	
 }
-
+.header {
+    display: flex; /* 플렉스 박스 레이아웃 사용 */
+    align-items: center; /* 수직 중앙 정렬 */
+    justify-content: space-between; /* 요소 간 공간 분배 */
+    width: 100%;
+}
+#inquiry-detail {
+	table-layout: fixed;
+}
+#inquiry-detail th {
+	width: 15%;
+}
 #fillout {
-	margin-left:820px;
-	margin-top:150px;
+	margin-left:680px;
 	cursor:pointer;
-}
-
-#fillout a {
-	text-decoration:none;
-}
-
-#fillout span {
 	font-size:20px;
 	font-weight:bold;
 	border:2px solid #20B2AA;
 	border-radius:5px;
 	background-color:white;
 	color:#20B2AA;
-	padding:10px;
+	padding:5px;
 }
+#status {
+	margin-left: 30px;
+	font-weight:bold;
+	border:2px solid #20B2AA;
+	border-radius:5px;
+	background-color:white;
+	color:#20B2AA;
+	padding:5px;
+}
+
 
 /* #fillout span {
 	font-size:25px;
@@ -92,9 +125,6 @@ h4 {
 	background-color:#eee;
 }
 
-#firstrow th:nth-child(2){
-	width:45%;
-}
 
 .title-column {
 	text-align:left;
@@ -159,7 +189,9 @@ h4 {
     animation: hideAndSlide 1s ease-out forwards;
     animation-delay: 1s; 
 }
-
+#status {
+	font-family: 'TheJamsil3Regular'
+}
 .large-text {
     font-size: 30px;
     font-weight: bold;

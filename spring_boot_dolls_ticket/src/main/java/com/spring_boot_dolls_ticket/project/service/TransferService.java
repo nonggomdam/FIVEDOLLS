@@ -153,7 +153,34 @@ public class TransferService implements ITransferService{
 		return already;
 	}
 
- 
+	@Override
+	public List<AssignmentOrderVO> selectListAssignmentOrder(String receiveCustId) {
+		List<AssignmentOrderVO> showAssign=tdao.selectListAssignmentOrder(receiveCustId);
+		return showAssign;
+	}
+
+	@Override
+	public List<AssignmentOrderDetailVO> selectListAssignmentOrderDetail(String orderNo) {
+		List<AssignmentOrderDetailVO> showOrderDetail = tdao.selectListAssignmentOrderDetail(orderNo);
+		return showOrderDetail;
+	}
+
+	@Override
+	public AssignmentOrderVO selectAssignmentOrder(String receiveCustId, String orderNo) {
+		AssignmentOrderVO showOrder = tdao.selectAssignmentOrder(receiveCustId, orderNo);
+		return showOrder;
+	}
+
+	@Override
+	public int updateAssignmentStatus(String noticeId) {
+		int status = tdao.updateAssignmentStatus(noticeId);
+		return 0;
+	}
+
+	
+	
+	
+	
 
 	
 	

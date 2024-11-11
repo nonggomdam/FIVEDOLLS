@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -377,10 +378,10 @@ h3 {
 			</div>
 			<div>
 				<button
-					onclick="location.href='http://localhost:8080/member/correctionMember';">회원정보
+					onclick="location.href='http://110.234.32.143:8080/member/correctionMember';">회원정보
 					변경</button>
 				<button
-					onclick="location.href='http://localhost:8080/member/confirmation/0';">예약확인/취소</button>
+					onclick="location.href='http://110.234.32.143:8080/member/confirmation/0;">예약확인/취소</button>
 				<button>공지사항</button>
 				<button>1:1문의</button>
 			</div>

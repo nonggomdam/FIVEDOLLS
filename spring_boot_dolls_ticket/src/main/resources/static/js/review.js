@@ -1,6 +1,22 @@
 /**
  * 
  */
+$(document).ready(function() {
+var reviewLoc = $('.write').offset();
+   	$('#goReview').click(function(){
+    	$('html, body').animate({scrollTop:reviewLoc.top},0);
+        return false;
+    });
+ });
+ $(document).ready(function() {
+    $('#layer_popup').on('click', function() {
+    	var userId = "<%=userId%>";
+		if(userId == ""){
+        	confirm("로그인이 필요합니다.")
+        	location.href = '/member/loginForm';
+        } else return false;
+    });
+});
 // ID 마스킹 함수
 function maskId(id) {
     if (id.length > 4) {
