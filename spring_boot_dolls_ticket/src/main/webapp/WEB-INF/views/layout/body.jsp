@@ -13,13 +13,13 @@
 			</div>	
 			<div id="slideShowBox">
 				<div id="slidePanel">
-					<a href="<c:url value='/performance/detailViewPerformance/P0004'/>">
+					<a href="<c:url value='/performance/detailViewPerformance/P0002'/>">
 					<img src= "<c:url value='/image/banner1.png'/>" class="slideImage"></a>
-					<a href="<c:url value='/performance/detailViewPerformance/P0013'/>">
+					<a href="<c:url value='/performance/detailViewPerformance/P0004'/>">
 					<img src= "<c:url value='/image/banner2.jfif'/>" class="slideImage"></a>
-					<a href="<c:url value='/performance/detailViewPerformance/P0001'/>">
+					<a href="<c:url value='/performance/detailViewPerformance/P0011'/>">
 					<img src= "<c:url value='/image/banner3.jfif'/>" class="slideImage"></a>
-					<a href="<c:url value='/performance/detailViewPerformance/P0010'/>">
+					<a href="<c:url value='/performance/detailViewPerformance/P0006'/>">
 					<img src= "<c:url value='/image/banner4.jfif'/>" class="slideImage"></a>
 					<a href="<c:url value='/performance/detailViewPerformance/P0015'/>">
 					<img src= "<c:url value='/image/banner5.png'/>" class="slideImage"></a>
@@ -92,7 +92,7 @@
 			</table>	
 		</div> <!--dynamicTable 끝  -->
 		<div class="banner">
-			<a href="<c:url value='/performance/detailViewPerformance/P0017'/>"><img src="<c:url value='/image/long_banner.png'/>"></a>
+			<a href="<c:url value='/performance/detailViewPerformance/P0006'/>"><img src="<c:url value='/image/뮤지컬.png'/>"></a>
 		</div>
 		<div id="box2">
 			<h1>TICKET COMING SOON</h1>

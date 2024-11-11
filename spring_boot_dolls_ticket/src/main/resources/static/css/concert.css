@@ -60,126 +60,24 @@
     font-size: 15px;
 }
 
-.info > a {
+.pinfo > a {
 	text-decoration: none;
 }
-.ranking img {
-	width: 320px;
-	height: 420px;
-	display: block;
-    margin: 30px;
-}
-.ranking .info a .info-txt {
-	font-family: 'TheJamsil2Light', sans-serif;
-	text-decoration: none;
-	width: 230px;
-    height: 108px;
-    text-align: center;
-    position: relative;
-}
 
-.info a .info-txt1 {
-    font-size: 17px;
-    line-height: 22px;
-    color: #888;
-    padding: 10px 0 12px 0;
-    font-weight: bold;
-}
-
-.info a .info-txt2 {
-    font-size: 16px;
-    color: #000;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.info {
-    position: relative; 
-    display: inline-block; 
-    margin-bottom:60px;
-}
-
-
-
-.textinfo {
-	font-family: 'TheJamsil2Light', sans-serif;
-	position: absolute;
-    visibility: hidden; 
-    width: 91%;
-    height: 93%;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    background-color: rgba(0, 0, 0, 0.8); 
-    color: white;
-    text-align: center; 
-    z-index: 1; 
-    bottom: 10px; 
-    left: 0; 
-    top: 2;
-    right: 0;
-    transition: visibility 0.3s, opacity 0.3s linear; 
-    opacity: 0;
-    box-sizing: border-box; 
-}
-
-.textinfo span{
-	font-size:15px;
-}
-.info:hover {
+.pinfo img:hover {
 	transform: scale(1.1);
 }
-.info:hover .textinfo {
-    visibility: visible; 
-    opacity: 0.8;
-    cursor:pointer; 
-}
-.textinfo a {
-	color: #fff;
-	background-color: #585454;
-	text-decoration: none;
-	padding : 7px;
-	border-radius : 5px;
-	margin-top : 16px;
-	font-size:14px;
-}	
-.textinfo a:hover {
-	color: #000000;
-	background-color: #ffffff;			
-}
-.info-txt {
-	font-family: 'TheJamsil2Light', sans-serif;
-	width: 230px;
-    height: 108px;
-    text-align: center;
-    position: relative;
-}
-.info-txt1 {
-    font-size: 16px;
-    line-height: 22px;
-    color: #888;
-    padding: 10px 0 12px 0;
-}
-.info-txt2 {
-    font-size: 16px;
-    color: #000;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
+
 #now-open{
 	margin-top:160px;
 	margin-bottom : 100px;
-	color: #5a5a5a;
 	font-weight: bold;
 }
 
 #comming-soon{
-		margin-top:160px;
+	margin-top:160px;
 	margin-bottom : 100px;
-	color: #5a5a5a;
 	font-weight: bold;
-
 }
 
 /*  		.images {
