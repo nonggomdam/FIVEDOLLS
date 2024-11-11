@@ -2,7 +2,7 @@
  * 티켓 오픈 타이머 기능
  */
  
-$(document).ready(function() {
+ document.addEventListener('DOMContentLoaded', () => {
     
  	const ticketOpenBtn = document.getElementById('ticketOpenBtn');
 	const performanceId = document.getElementById('performanceId').value; 
