@@ -23,3 +23,4 @@ FOR EACH ROW
 BEGIN
     :NEW.NOTICE_NO := NOTICE_SEQ.NEXTVAL;
 END;
+-- 공지 테이블입니다. 
